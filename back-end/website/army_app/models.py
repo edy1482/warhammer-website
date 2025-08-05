@@ -10,7 +10,9 @@ class Faction(models.Model):
         "NEC" : "Necrons",
     }
     name = models.CharField(max_length=100, choices=FACTION_CHOICES)
-    rule = models.TextField(null=True, blank=True)
+    faction_rule_name = models.CharField(max_length=200, unique=True, null=True, blank=True)
+    faction_rule_description = models.TextField(unique=True, null=True, blank=True)
+    faction_rule_key_words = ArrayField(models.CharField(max_length=200), null=True, blank=True)
     
     # Class functions
     def __str__(self):
@@ -18,7 +20,9 @@ class Faction(models.Model):
     
 class Detachment(models.Model):
     name = models.CharField(max_length=200)
-    rule = models.TextField(null=True, blank=True)
+    faction = models.ForeignKey(Faction, on_delete=models.CASCADE, null=True, blank=True)
+    detachment_rule_description = models.TextField(unique=True, null=True, blank=True)
+    detachment_rule_key_words = ArrayField(models.CharField(max_length=200), null=True, blank=True)
     
     # Class functions
     def __str__(self):
@@ -26,7 +30,7 @@ class Detachment(models.Model):
     
 
 class DataSheet(models.Model):
-    name = models.CharField(max_length=200, null=True, blank=True)
+    name = models.CharField(max_length=200, unique=True, null=True, blank=True)
     upload_file = models.FileField(upload_to="uploads/%Y/%m/%d/", null=True, blank=True)
     
     # Class functions
@@ -34,9 +38,8 @@ class DataSheet(models.Model):
         return self.name
 
 class Unit(models.Model):
+    name = models.CharField(max_length=200, unique=True, null=True, blank=True)
     faction = models.ForeignKey(Faction, on_delete=models.CASCADE, null=True, blank=True)
-    detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, null=True, blank=True)
-    name = models.CharField(max_length=200, null=True, blank=True)
     num_models = models.PositiveSmallIntegerField(null=True, blank=True)
     points = models.PositiveSmallIntegerField(null=True, blank=True)
     data_sheet = models.ForeignKey(DataSheet, on_delete=models.CASCADE, null=True, blank=True)
@@ -45,3 +48,4 @@ class Unit(models.Model):
     # Class functions
     def __str__(self):
         return self.name
+    

@@ -70,7 +70,7 @@ class Enhancement(models.Model):
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, related_name="enhancement")
     description = models.TextField(default="")
     points = models.PositiveIntegerField()
-    key_words = models.ManyToManyField(KeyWord, blank=True, related_name="required_keywords")
+    key_words = models.ManyToManyField(KeyWord, blank=True)
     
     # Class functions
     def __str__(self):
@@ -103,6 +103,14 @@ class ArmyListEntry(models.Model):
     model_count = models.PositiveIntegerField(default=1)
     enhancement = models.ForeignKey(Enhancement, on_delete=models.SET_NULL, blank=True, null=True)
     
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["army_list", "enhancement"], 
+                name="unique_enhancement_per_army_list", 
+                condition = models.Q(enhancement__isnull=False)),
+            ]
+    
     # Class functions
     def __str__(self):
         return f"{self.army_list.name} - {self.unit.name}"
@@ -119,6 +127,14 @@ class ArmyListEntry(models.Model):
     
     def clean(self):
         if self.enhancement and self.unit:
+            # Do a check to see if the enhancement already exists
+            duplicate_enhancement = ArmyListEntry.objects.filter(army_list=self.army_list, enhancement=self.enhancement).exclude(pk=self.pk)
+            if duplicate_enhancement.exists():
+                unit_names = ", ".join(dup.unit.name for dup in duplicate_enhancement)
+                raise ValidationError(f"The enhancement {self.enhancement.name} is already assigned to another unit: {unit_names} in this list")
+        
+            
+            # Do a check on the keywords between the unit and the enhancement - if there are missing keywords, raise an error
             unit_keywords = set(self.unit.key_words.all().values_list("name", flat=True))
             required_keywords = set(self.enhancement.key_words.all().values_list("name", flat=True))
             

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 
 MAX_CHARFIELD_LENGTH = 255
 
@@ -18,10 +19,11 @@ class Faction(models.Model):
         "TYR" : "Tyrannids",
         "ORK" : "Orks",
         "NEC" : "Necrons",
+        "CUS" : "Adeptus Custodes"
     }
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=FACTION_CHOICES)
     rule_name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    faction_rule_description = models.TextField(null=True)
+    faction_rule_description = models.TextField(null=True, blank=True)
     faction_key_words = models.ManyToManyField(KeyWord, blank=True)
     
     # Class functions
@@ -63,6 +65,17 @@ class UnitPointBracket(models.Model):
     def contains(self, model_count):
         return self.min_models <= model_count <= self.max_models
     
+class Enhancement(models.Model):
+    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
+    detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, related_name="enhancement")
+    description = models.TextField(default="")
+    points = models.PositiveIntegerField()
+    key_words = models.ManyToManyField(KeyWord, blank=True, related_name="required_keywords")
+    
+    # Class functions
+    def __str__(self):
+        return self.name
+    
 class DataSheet(models.Model):
     unit = models.OneToOneField(Unit, on_delete=models.CASCADE, related_name="datasheet", null=True)
     upload_file = models.FileField(upload_to=f"datasheets/", null=True)
@@ -75,7 +88,7 @@ class DataSheet(models.Model):
     
 class ArmyList(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
+    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, blank=True)
     faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -87,13 +100,31 @@ class ArmyList(models.Model):
 class ArmyListEntry(models.Model):
     army_list = models.ForeignKey(ArmyList, on_delete=models.CASCADE, related_name="entries")
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
-    model_count = models.PositiveIntegerField()
-    
-    def total_points(self):
-        bracket = self.unit.point_brackets.filter(min_models__lte=self.model_count, max_models__gte=self.model_count).first()
-        return bracket.points if bracket else 0
+    model_count = models.PositiveIntegerField(default=1)
+    enhancement = models.ForeignKey(Enhancement, on_delete=models.SET_NULL, blank=True, null=True)
     
     # Class functions
     def __str__(self):
         return f"{self.army_list.name} - {self.unit.name}"
+    
+    def get_unit_points(self):
+        bracket = self.unit.point_brackets.filter(min_models__lte=self.model_count, max_models__gte=self.model_count).first()
+        return bracket.points if bracket else 0
+    
+    def get_enhancement_points(self):
+        return self.enhancement.points if self.enhancement else 0
+    
+    def get_total_points(self):
+        return self.get_unit_points() + self.get_enhancement_points()
+    
+    def clean(self):
+        if self.enhancement and self.unit:
+            unit_keywords = set(self.unit.key_words.all().values_list("name", flat=True))
+            required_keywords = set(self.enhancement.key_words.all().values_list("name", flat=True))
+            
+            if not required_keywords.issubset(unit_keywords):
+                difference = required_keywords.difference(unit_keywords)
+                raise ValidationError(f"{self.unit.name} does not meet the requirements for {self.enhancement.name}. Missing keywords: {difference}")
+        else: 
+            return
     

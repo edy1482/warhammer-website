@@ -102,6 +102,7 @@ class ArmyListEntry(models.Model):
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
     model_count = models.PositiveIntegerField(default=1)
     enhancement = models.ForeignKey(Enhancement, on_delete=models.SET_NULL, blank=True, null=True)
+    is_warlord = models.BooleanField(default=False)
     
     class Meta:
         constraints = [
@@ -126,12 +127,28 @@ class ArmyListEntry(models.Model):
         return self.get_unit_points() + self.get_enhancement_points()
     
     def clean(self):
+        # Check if unit is a Warlord
+        if self.is_warlord:
+            # Must have character key word
+            if not self.unit.key_words.filter(name__iexact="CHARACTER").exists():
+                raise ValidationError(f"Missing Keyword: {self.unit.name} is not a CHARACTER")
+            
+            # There must not be an existing Warlord
+            
+            other_warlords = ArmyListEntry.objects.filter(army_list=self.army_list, is_warlord=True).exclude(pk=self.pk)
+            if other_warlords.exists():
+                # Do a join on the whole object in case there are multiple duplicates - this should not happen but it is good to check 
+                warlord_names = ", ".join(warlord.unit.name for warlord in other_warlords)
+                raise ValidationError(f"Duplicate Warlord: {self.unit.name} cannot be the Warlord - there is already an existing Warlord: {warlord_names}")
+        
+        # Check if there is an enhancement and a unit
         if self.enhancement and self.unit:
             # Do a check to see if the enhancement already exists
             duplicate_enhancement = ArmyListEntry.objects.filter(army_list=self.army_list, enhancement=self.enhancement).exclude(pk=self.pk)
             if duplicate_enhancement.exists():
+                # Do a join on the whole object in case there are multiple duplicates - this should not happen but it is good to check 
                 unit_names = ", ".join(dup.unit.name for dup in duplicate_enhancement)
-                raise ValidationError(f"The enhancement {self.enhancement.name} is already assigned to another unit: {unit_names} in this list")
+                raise ValidationError(f"Duplicate Enhancement: the enhancement {self.enhancement.name} is already assigned to another unit: {unit_names} in this list")
         
             
             # Do a check on the keywords between the unit and the enhancement - if there are missing keywords, raise an error
@@ -140,7 +157,32 @@ class ArmyListEntry(models.Model):
             
             if not required_keywords.issubset(unit_keywords):
                 difference = required_keywords.difference(unit_keywords)
-                raise ValidationError(f"{self.unit.name} does not meet the requirements for {self.enhancement.name}. Missing keywords: {difference}")
-        else: 
-            return
+                raise ValidationError(f"Missing Keywords: {difference}. {self.unit.name} does not meet the requirements for {self.enhancement.name}.")
+            
+        return super().clean()
+        
+    def save(self, *args, **kwargs):
+        # Ensure clean() is called when saving from shell or script
+        self.full_clean()
+        
+        # WARLORD keyword insertion/deletion
+        warlord_key_word, _ = KeyWord.objects.get_or_create(name = "WARLORD")
+        if self.is_warlord:
+            # Add WARLORD keyword
+            if not self.unit.key_words.filter(pk=warlord_key_word.pk).exists():
+                self.unit.key_words.add(warlord_key_word)
+        else:
+            # Remove WARLORD keyword
+            if self.unit.key_words.filter(pk=warlord_key_word.pk).exists():
+                self.unit.key_words.remove(warlord_key_word)
+                
+        return super().save(*args, **kwargs)
+                
+    def delete(self, *args, **kwargs):
+        warlord_key_word = KeyWord.objects.filter(name__iexact="WARLORD").first()
+        if self.is_warlord and warlord_key_word:
+            if self.unit.key_words.filter(pk=warlord_key_word.pk).exists():
+                self.unit.key_words.remove(warlord_key_word)
+        
+        return super().delete(*args, **kwargs)
     

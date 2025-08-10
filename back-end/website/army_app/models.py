@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Count
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
@@ -24,7 +25,7 @@ class Faction(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=FACTION_CHOICES)
     rule_name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
     faction_rule_description = models.TextField(null=True, blank=True)
-    faction_key_words = models.ManyToManyField(KeyWord, blank=True)
+    faction_keywords = models.ManyToManyField(KeyWord, blank=True)
     
     # Class functions
     def __str__(self):
@@ -34,16 +35,31 @@ class Detachment(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
     faction = models.ForeignKey(Faction, on_delete=models.CASCADE, null=True)
     description = models.TextField(default="")
-    key_words = models.ManyToManyField(KeyWord, blank=True)
+    keywords = models.ManyToManyField(KeyWord, blank=True)
+    
+    # Class functions
+    def __str__(self):
+        return f"{self.faction.name} : {self.name}"
+    
+class Stratagem(models.Model):
+    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
+    description = models.TextField(default="")
+    detachment = models.ManyToManyField(Detachment, blank=True)
+    cost = models.PositiveIntegerField(default=1)
+    keywords = models.ManyToManyField(KeyWord)
     
     # Class functions
     def __str__(self):
         return self.name
+    
+    def available_stratagem(self, detachment):
+        return self.detachments.filter(pk=detachment.pk).exists()
+        
 
 class Unit(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
     faction = models.ForeignKey(Faction, on_delete=models.CASCADE, null=True)
-    key_words = models.ManyToManyField(KeyWord, blank=True)
+    keywords = models.ManyToManyField(KeyWord, blank=True)
     
     # Class functions
     def __str__(self):
@@ -70,7 +86,7 @@ class Enhancement(models.Model):
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, related_name="enhancement")
     description = models.TextField(default="")
     points = models.PositiveIntegerField()
-    key_words = models.ManyToManyField(KeyWord, blank=True)
+    keywords = models.ManyToManyField(KeyWord, blank=True)
     
     # Class functions
     def __str__(self):
@@ -126,11 +142,21 @@ class ArmyListEntry(models.Model):
     def get_total_points(self):
         return self.get_unit_points() + self.get_enhancement_points()
     
+    def get_valid_strats(self):
+        # Grab all CORE strats
+        core_strats = Stratagem.objects.filter(keywords__name="CORE")
+        # Grab all detachment strats, and filter for necessary keywords
+        detachment_strats = Stratagem.objects.filter(detachment=self.army_list.detachment).filter(keywords__in=self.unit.keywords.all())
+
+        return (core_strats | detachment_strats).distinct()
+        
+    
     def clean(self):
-        # Check if unit is a Warlord
+        super().clean()
+        # Check if Entry is a Warlord
         if self.is_warlord:
             # Must have character key word
-            if not self.unit.key_words.filter(name__iexact="CHARACTER").exists():
+            if not self.unit.keywords.filter(name__iexact="CHARACTER").exists():
                 raise ValidationError(f"Missing Keyword: {self.unit.name} is not a CHARACTER")
             
             # There must not be an existing Warlord
@@ -150,39 +176,29 @@ class ArmyListEntry(models.Model):
                 unit_names = ", ".join(dup.unit.name for dup in duplicate_enhancement)
                 raise ValidationError(f"Duplicate Enhancement: the enhancement {self.enhancement.name} is already assigned to another unit: {unit_names} in this list")
         
-            
-            # Do a check on the keywords between the unit and the enhancement - if there are missing keywords, raise an error
-            unit_keywords = set(self.unit.key_words.all().values_list("name", flat=True))
-            required_keywords = set(self.enhancement.key_words.all().values_list("name", flat=True))
-            
-            if not required_keywords.issubset(unit_keywords):
-                difference = required_keywords.difference(unit_keywords)
-                raise ValidationError(f"Missing Keywords: {difference}. {self.unit.name} does not meet the requirements for {self.enhancement.name}.")
-            
-        return super().clean()
-        
+
     def save(self, *args, **kwargs):
         # Ensure clean() is called when saving from shell or script
         self.full_clean()
+        # Save to ensure id field
+        super().save(*args, **kwargs)
         
         # WARLORD keyword insertion/deletion
-        warlord_key_word, _ = KeyWord.objects.get_or_create(name = "WARLORD")
+        warlord_keyword, _ = KeyWord.objects.get_or_create(name = "WARLORD")
         if self.is_warlord:
             # Add WARLORD keyword
-            if not self.unit.key_words.filter(pk=warlord_key_word.pk).exists():
-                self.unit.key_words.add(warlord_key_word)
+            if not self.unit.keywords.filter(pk=warlord_keyword.pk).exists():
+                self.unit.keywords.add(warlord_keyword)
         else:
             # Remove WARLORD keyword
-            if self.unit.key_words.filter(pk=warlord_key_word.pk).exists():
-                self.unit.key_words.remove(warlord_key_word)
-                
-        return super().save(*args, **kwargs)
+            if self.unit.keywords.filter(pk=warlord_keyword.pk).exists():
+                self.unit.keywords.remove(warlord_keyword)
                 
     def delete(self, *args, **kwargs):
         warlord_key_word = KeyWord.objects.filter(name__iexact="WARLORD").first()
         if self.is_warlord and warlord_key_word:
-            if self.unit.key_words.filter(pk=warlord_key_word.pk).exists():
-                self.unit.key_words.remove(warlord_key_word)
+            if self.unit.keywords.filter(pk=warlord_key_word.pk).exists():
+                self.unit.keywords.remove(warlord_key_word)
         
         return super().delete(*args, **kwargs)
     

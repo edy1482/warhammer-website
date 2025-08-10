@@ -175,6 +175,13 @@ class ArmyListEntry(models.Model):
                 # Do a join on the whole object in case there are multiple duplicates - this should not happen but it is good to check 
                 unit_names = ", ".join(dup.unit.name for dup in duplicate_enhancement)
                 raise ValidationError(f"Duplicate Enhancement: the enhancement {self.enhancement.name} is already assigned to another unit: {unit_names} in this list")
+            # Do a check to see if the keywords match 
+            enhancement_keywords = set(self.enhancement.keywords.all().values_list("name", flat=True))
+            unit_keywords = set(self.unit.keywords.all().values_list("name", flat=True))
+            if not enhancement_keywords.issubset(unit_keywords):
+                difference = enhancement_keywords.difference(unit_keywords)
+                missing_keywords = ", ".join(name for name in difference)
+                raise ValidationError(f"Missing Keyword(s): {missing_keywords}")
         
 
     def save(self, *args, **kwargs):

@@ -24,29 +24,36 @@ class Faction(models.Model):
     }
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=FACTION_CHOICES)
     rule_name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    faction_rule_description = models.TextField(null=True, blank=True)
-    faction_keywords = models.ManyToManyField(KeyWord, blank=True)
+    rule_description = models.TextField(blank=True, default="")
+    keywords = models.ManyToManyField(KeyWord, blank=True)
     
     # Class functions
     def __str__(self):
         return self.name
     
+    def clean(self):
+        super().clean()
+        # Check if name is valid
+        valid_choices = ", ".join(key for key in self.FACTION_CHOICES.keys())
+        if self.name not in self.FACTION_CHOICES.keys():
+            raise ValidationError(f"Invalid Faction: {self.name} does not exist. Valid choices are {valid_choices}")
+    
 class Detachment(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    faction = models.ForeignKey(Faction, on_delete=models.CASCADE, null=True)
-    description = models.TextField(default="")
+    faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
+    description = models.TextField(blank=True, default="")
     keywords = models.ManyToManyField(KeyWord, blank=True)
     
     # Class functions
     def __str__(self):
-        return f"{self.faction.name} : {self.name}"
+        return self.name
     
 class Stratagem(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    description = models.TextField(default="")
+    description = models.TextField(blank=True, default="")
     detachment = models.ManyToManyField(Detachment, blank=True)
     cost = models.PositiveIntegerField(default=1)
-    keywords = models.ManyToManyField(KeyWord)
+    keywords = models.ManyToManyField(KeyWord, blank=True)
     
     # Class functions
     def __str__(self):
@@ -58,7 +65,7 @@ class Stratagem(models.Model):
 
 class Unit(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    faction = models.ForeignKey(Faction, on_delete=models.CASCADE, null=True)
+    faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
     keywords = models.ManyToManyField(KeyWord, blank=True)
     
     # Class functions
@@ -66,7 +73,7 @@ class Unit(models.Model):
         return self.name
     
 class UnitPointBracket(models.Model):
-    unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="point_brackets", null=True)
+    unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="point_brackets")
     min_models = models.PositiveIntegerField(default=1)
     max_models = models.PositiveIntegerField(default=1)
     points = models.PositiveIntegerField()
@@ -93,10 +100,10 @@ class Enhancement(models.Model):
         return self.name
     
 class DataSheet(models.Model):
-    unit = models.OneToOneField(Unit, on_delete=models.CASCADE, related_name="datasheet", null=True)
-    upload_file = models.FileField(upload_to=f"datasheets/", null=True)
-    uploaded_at = models.DateTimeField(auto_now_add=True, null=True)
-    source = models.CharField(max_length=MAX_CHARFIELD_LENGTH, null=True)
+    unit = models.OneToOneField(Unit, on_delete=models.CASCADE, related_name="datasheet")
+    upload_file = models.FileField(upload_to=f"datasheets/", blank=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    source = models.CharField(max_length=MAX_CHARFIELD_LENGTH, default="")
     
     # Class functions
     def __str__(self):
@@ -104,7 +111,7 @@ class DataSheet(models.Model):
     
 class ArmyList(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, blank=True)
+    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, blank=True, default="")
     faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -33,7 +33,8 @@ class UnitAdmin(admin.ModelAdmin):
 @admin.register(UnitPointBracket)
 class UnitPointBracketAdmin(admin.ModelAdmin):
     list_display = ("unit", "points")
-    search_fields = ("unit__name",) # Search fields expect columns, so double underscore
+    # Search fields expect columns, so double underscore
+    search_fields = ("unit__name",)
     list_filter = ("unit__faction",)
     
 @admin.register(Enhancement)

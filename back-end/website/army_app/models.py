@@ -51,7 +51,7 @@ class Detachment(models.Model):
 class Stratagem(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
     description = models.TextField(blank=True, default="")
-    detachment = models.ManyToManyField(Detachment, blank=True)
+    detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, null=True, blank=True)
     cost = models.PositiveIntegerField(default=1)
     keywords = models.ManyToManyField(KeyWord, blank=True)
     
@@ -91,7 +91,7 @@ class UnitPointBracket(models.Model):
 class Enhancement(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, related_name="enhancement")
-    description = models.TextField(default="")
+    description = models.TextField(blank=True, default="")
     points = models.PositiveIntegerField()
     keywords = models.ManyToManyField(KeyWord, blank=True)
     
@@ -103,7 +103,7 @@ class DataSheet(models.Model):
     unit = models.OneToOneField(Unit, on_delete=models.CASCADE, related_name="datasheet")
     upload_file = models.FileField(upload_to=f"datasheets/", blank=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
-    source = models.CharField(max_length=MAX_CHARFIELD_LENGTH, default="")
+    source = models.CharField(max_length=MAX_CHARFIELD_LENGTH, default="", blank=True)
     
     # Class functions
     def __str__(self):

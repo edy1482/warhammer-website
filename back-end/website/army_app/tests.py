@@ -1,6 +1,9 @@
+import datetime
 from django.test import TestCase
+from django.utils import timezone
 from django.core.exceptions import ValidationError
-from .models import KeyWord, Faction, Detachment, Stratagem, Unit, UnitPointBracket, Enhancement, DataSheet
+from django.contrib.auth.models import User
+from .models import KeyWord, Faction, Detachment, Stratagem, Unit, UnitPointBracket, Enhancement, DataSheet, ArmyList
 
 # Create your tests here.
 
@@ -38,13 +41,22 @@ class BaseModelTest(TestCase):
         obj.save()
         return obj
     
-    def assertActiveKeyWord(self, obj, keywords):
+    def assertActiveKeyWord(self, keywords, obj=None, **kwargs):
+        # Two modes - an inplace mode, where we modify an existing obj, and a new mode where we make a new obj
+        if obj is None:
+            obj = self.assertValid(**kwargs)
         for keyword in keywords:
             obj.keywords.add(keyword)
             self.assertIn(keyword, obj.keywords.all())
         obj.full_clean()
         obj.save()
         return obj
+    
+    def assertIsRecent(self, **kwargs):
+        obj = self.assertValid(**kwargs)
+        now = timezone.now()
+        recent = now - datetime.timedelta(seconds=10) <= obj.uploaded_at <= now
+        self.assertIs(recent, True)
 
 class KeyWordTestCase(BaseModelTest):
     # Behaviours:
@@ -79,7 +91,7 @@ class FactionTestCase(BaseModelTest):
                                    rule_name=self.required_fields["rule_name"], 
                                    rule_description="Re-roll hit rolls on selected target")
         # Test for valid creation with keywords and that they are in the faction
-        faction = self.assertActiveKeyWord(faction, [self.keyword1, self.keyword2])
+        faction = self.assertActiveKeyWord(keywords=[self.keyword1, self.keyword2], **self.required_fields)
         # Test that the str function is working
         self.assertEqual(str(faction), "SPM")
         # Test that the name is in the choices (should be brought up by the validation, but double check)
@@ -105,7 +117,7 @@ class DetachmentTestCase(BaseModelTest):
         self.keyword1 = KeyWord.objects.create(name="ADEPTUS ASTARTES")
         self.model_class = Faction
         self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
-        self.faction = self.assertActiveKeyWord(self.faction, [self.keyword1])
+        self.faction = self.assertActiveKeyWord(keywords=[self.keyword1], obj=self.faction)
         self.required_fields = {
             "name" : "Gladius Taskforce",
             "faction" : self.faction,
@@ -119,7 +131,7 @@ class DetachmentTestCase(BaseModelTest):
                                       description="Once per battle, choose one effect lasting a battleturn: " \
                                       "Advance and shoot, Fall back and shoot and charge, Advance and charge")
         # Test for valid creation with keywords and that they are in the detachment
-        detachment = self.assertActiveKeyWord(detachment, [self.keyword1])
+        detachment = self.assertActiveKeyWord(keywords=[self.keyword1], **self.required_fields)
         # Test that the str function is working
         self.assertEqual(str(detachment), "Gladius Taskforce")
 
@@ -150,7 +162,7 @@ class StratagemTestCase(BaseModelTest):
         self.keyword1 = KeyWord.objects.create(name="ADEPTUS ASTARTES")
         self.model_class = Faction
         self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
-        self.faction = self.assertActiveKeyWord(self.faction, [self.keyword1])
+        self.faction = self.assertActiveKeyWord(keywords=[self.keyword1], obj=self.faction)
         self.model_class = Detachment
         self.detachment = self.assertValid(name="OATH OF MOMENT", faction=self.faction)
         self.required_fields = {
@@ -163,7 +175,7 @@ class StratagemTestCase(BaseModelTest):
         # Test for valid stratagem creation with all fields except keyword
         stratagem = self.assertValid(name=self.required_fields["name"], description="Test", detachment=self.detachment, cost=self.required_fields["cost"])
         # Test for valid creation with keywords and that they are in the stratagem
-        stratagem = self.assertActiveKeyWord(stratagem, [self.keyword1])
+        stratagem = self.assertActiveKeyWord(keywords=[self.keyword1], **self.required_fields)
         # Test that the str function is working
         self.assertEqual(str(stratagem), "Armour of Contempt")
 
@@ -195,7 +207,7 @@ class UnitTestCase(BaseModelTest):
         self.keyword2 = KeyWord.objects.create(name="CHARACTER")
         self.model_class = Faction
         self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
-        self.faction = self.assertActiveKeyWord(self.faction, [self.keyword1])
+        self.faction = self.assertActiveKeyWord(keywords=[self.keyword1], obj=self.faction)
         self.required_fields = {
             "name" : "Captain",
             "faction" : self.faction,
@@ -206,7 +218,7 @@ class UnitTestCase(BaseModelTest):
         # Test for valid unit creation with all fields except keywords
         unit = self.assertValid(**self.required_fields)
         # Test for valid creation with keywords and that they are in the unit
-        unit = self.assertActiveKeyWord(unit, [self.keyword1, self.keyword2])
+        unit = self.assertActiveKeyWord(keywords=[self.keyword1, self.keyword2], **self.required_fields)
         # Test that the str function is working
         self.assertEqual(str(unit), "Captain")
 
@@ -281,7 +293,7 @@ class EnhancementCase(BaseModelTest):
                                        description="test", 
                                        points=self.required_fields["points"])
         # Test for valid creation with keywords and that the keywords are in it
-        enhancement = self.assertActiveKeyWord(enhancement, [self.keyword1, self.keyword2])
+        enhancement = self.assertActiveKeyWord([self.keyword1, self.keyword2], **self.required_fields)
         # Test that str function works
         self.assertEqual(str(enhancement), "Adept of the Codex")
 
@@ -309,3 +321,43 @@ class DataSheetCase(BaseModelTest):
         self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
         self.model_class = Unit
         self.unit = self.assertValid(name="Captain", faction=self.faction)
+        self.required_fields = {
+            "unit" : self.unit,
+        }
+        self.model_class = DataSheet
+
+    def test_valid_datasheet(self):
+        # Test for valid datasheet creation with no upload_file
+        self.assertValid(unit=self.required_fields["unit"], source="Test")
+
+    def test_uploaded_at(self):
+        self.assertIsRecent(**self.required_fields)
+
+    def test_blank_upload_file(self):
+        # Test that the upload file can be blank
+        self.assertBlankAllowed("upload_file", **self.required_fields)
+
+    def test_blank_source(self):
+        # Test that the source can be blank
+        self.assertBlankAllowed("source", **self.required_fields)
+
+class ArmyListCase(BaseModelTest):
+    # Behaviours:
+    # ArmyList must have a user
+    # ArmyList may have a name (can be blank)
+    # ArmyList must have a faction
+    # ArmyList must have a detachment
+    # ArmyList has a created_at field that auto_adds to now
+    def setUp(self):
+        self.model_class = User
+        self.user = self.assertValid(username="test", password="test")
+        self.model_class = Faction
+        self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
+        self.model_class = Detachment
+        self.detachment = self.assertValid(name="Gladius Taskforce", faction=self.faction)
+        self.required_fields = {
+            "user" : self.user,
+            "faction" : self.faction,
+            "detachment" : self.detachment,
+        }
+        self.model_class = ArmyList

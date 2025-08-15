@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models import Count
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
@@ -112,6 +111,7 @@ class DataSheet(models.Model):
 class ArmyList(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, blank=True, default="")
+    # Do we need faction, if we have detachment?
     faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

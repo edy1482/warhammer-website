@@ -52,10 +52,14 @@ class BaseModelTest(TestCase):
         obj.save()
         return obj
     
-    def assertIsRecent(self, **kwargs):
+    def assertIsRecent(self, upload_flag=True, **kwargs):
         obj = self.assertValid(**kwargs)
         now = timezone.now()
-        recent = now - datetime.timedelta(seconds=10) <= obj.uploaded_at <= now
+        # Upload flag checks if the field is upload_at or created_at
+        if upload_flag:
+            recent = now - datetime.timedelta(seconds=10) <= obj.uploaded_at <= now
+        else:
+            recent = now - datetime.timedelta(seconds=10) <= obj.created_at <= now
         self.assertIs(recent, True)
 
 class KeyWordTestCase(BaseModelTest):
@@ -143,9 +147,9 @@ class DetachmentTestCase(BaseModelTest):
         # Test for invalid faction
         self.assertInvalid(name="TEST", faction=Faction(name="TEST", rule_name="TEST"))
         # Test for no faction found
-        self.assertInvalid(name="TEST")
+        self.assertInvalid(name="TEST", faction=None)
         # Test for no name found
-        self.assertInvalid(faction=self.faction)
+        self.assertInvalid(name=None, faction=self.faction)
 
     def test_blank_description(self):
         self.assertBlankAllowed("description", **self.required_fields)
@@ -181,7 +185,7 @@ class StratagemTestCase(BaseModelTest):
 
     def test_invalid_stratagem(self):
         # Test that name is required
-        self.assertInvalid(cost=self.required_fields["cost"])
+        self.assertInvalid(name=None, cost=self.required_fields["cost"])
 
     def test_default_cost(self):
         # Test that cost has a default value of 1
@@ -224,9 +228,9 @@ class UnitTestCase(BaseModelTest):
 
     def test_invalid_unit(self):
         # Test that name is required
-        self.assertInvalid(faction=self.faction)
+        self.assertInvalid(name=None, faction=self.faction)
         # Test that faction is reuired
-        self.assertInvalid(name=self.required_fields["name"])
+        self.assertInvalid(faction=None, name=self.required_fields["name"])
 
 class UnitPointBracketCase(BaseModelTest):
     # Behaviours:
@@ -254,9 +258,9 @@ class UnitPointBracketCase(BaseModelTest):
 
     def test_invalid_unit_point_bracket(self):
         # Test that unit is required
-        self.assertInvalid(points=self.required_fields["points"])
+        self.assertInvalid(unit=None, points=self.required_fields["points"])
         # Test that points is required
-        self.assertInvalid(unit=self.required_fields["unit"])
+        self.assertInvalid(points=None, unit=self.required_fields["unit"])
 
     def test_default_min_max_models(self):
         # Test that min_models and max_models have a default value of 1
@@ -299,11 +303,11 @@ class EnhancementCase(BaseModelTest):
 
     def test_invalid_enhancement(self):
         # Test that name is required
-        self.assertInvalid(detachment = self.required_fields["detachment"], points = self.required_fields["points"])
+        self.assertInvalid(name=None, detachment=self.required_fields["detachment"], points=self.required_fields["points"])
         # Test that detachment is required
-        self.assertInvalid(name = self.required_fields["name"], points = self.required_fields["points"])
+        self.assertInvalid(detachment=None, name=self.required_fields["name"], points=self.required_fields["points"])
         # Test that points is required
-        self.assertInvalid(name = self.required_fields["name"], detachment = self.required_fields["detachment"])
+        self.assertInvalid(points=None, name=self.required_fields["name"], detachment=self.required_fields["detachment"])
 
     def test_blank_description(self):
         # Test that description can be blank
@@ -329,6 +333,10 @@ class DataSheetCase(BaseModelTest):
     def test_valid_datasheet(self):
         # Test for valid datasheet creation with no upload_file
         self.assertValid(unit=self.required_fields["unit"], source="Test")
+    
+    def test_invalid_datasheet(self):
+        # Test that unit is required
+        self.assertInvalid(unit=None, source="Test")
 
     def test_uploaded_at(self):
         self.assertIsRecent(**self.required_fields)
@@ -361,3 +369,22 @@ class ArmyListCase(BaseModelTest):
             "detachment" : self.detachment,
         }
         self.model_class = ArmyList
+
+    def test_army_list_creation(self):
+        # Test for valid army_list creation with all fields except created_at which autofills
+        self.assertValid(user=self.required_fields["user"], name="Test List", faction=self.required_fields["faction"], detachment=self.required_fields["detachment"])
+
+    def test_invalid_army_list_creation(self):
+        # Test that user is required
+        self.assertInvalid(user=None, name="Test List", faction=self.required_fields["faction"], detachment=self.required_fields["detachment"])
+        # Test that faction is required
+        self.assertInvalid(user=self.required_fields["user"], name="Test List", faction=None, detachment=self.required_fields["detachment"])
+        # Test that detachment is required
+        self.assertInvalid(user=self.required_fields["user"], name="Test List", faction=self.required_fields["faction"], detachment=None)
+
+    def test_blank_name(self):
+        self.assertBlankAllowed("name", **self.required_fields)
+
+    def test_created_at(self):
+        self.assertIsRecent(upload_flag=False, **self.required_fields)
+

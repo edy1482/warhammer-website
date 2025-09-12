@@ -167,15 +167,14 @@ class ArmyListEntry(models.Model):
                 raise ValidationError(f"Missing Keyword: {self.unit.name} is not a CHARACTER")
             
             # There must not be an existing Warlord
-            
             other_warlords = ArmyListEntry.objects.filter(army_list=self.army_list, is_warlord=True).exclude(pk=self.pk)
             if other_warlords.exists():
                 # Do a join on the whole object in case there are multiple duplicates - this should not happen but it is good to check 
                 warlord_names = ", ".join(warlord.unit.name for warlord in other_warlords)
                 raise ValidationError(f"Duplicate Warlord: {self.unit.name} cannot be the Warlord - there is already an existing Warlord: {warlord_names}")
         
-        # Check if there is an enhancement and a unit
-        if self.enhancement and self.unit:
+        # Check if there is an enhancement
+        if self.enhancement:
             # Do a check to see if the enhancement already exists
             duplicate_enhancement = ArmyListEntry.objects.filter(army_list=self.army_list, enhancement=self.enhancement).exclude(pk=self.pk)
             if duplicate_enhancement.exists():
@@ -189,6 +188,7 @@ class ArmyListEntry(models.Model):
                 difference = enhancement_keywords.difference(unit_keywords)
                 missing_keywords = ", ".join(name for name in difference)
                 raise ValidationError(f"Missing Keyword(s): {missing_keywords}")
+            # Do a check to see if the enhancement detachment matches the detachment of the ArmyList
         
 
     def save(self, *args, **kwargs):

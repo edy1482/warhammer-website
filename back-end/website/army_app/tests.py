@@ -3,7 +3,7 @@ from django.test import TestCase
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from .models import KeyWord, Faction, Detachment, Stratagem, Unit, UnitPointBracket, Enhancement, DataSheet, ArmyList
+from .models import KeyWord, Faction, Detachment, Stratagem, Unit, UnitPointBracket, Enhancement, DataSheet, ArmyList, ArmyListEntry
 
 # Create your tests here.
 
@@ -332,7 +332,9 @@ class DataSheetCase(BaseModelTest):
 
     def test_valid_datasheet(self):
         # Test for valid datasheet creation with no upload_file
-        self.assertValid(unit=self.required_fields["unit"], source="Test")
+        datasheet = self.assertValid(unit=self.required_fields["unit"], source="Test")
+        # Test that str function works
+        self.assertEqual(str(datasheet), "Captain : Datasheet")
     
     def test_invalid_datasheet(self):
         # Test that unit is required
@@ -372,7 +374,9 @@ class ArmyListCase(BaseModelTest):
 
     def test_army_list_creation(self):
         # Test for valid army_list creation with all fields except created_at which autofills
-        self.assertValid(user=self.required_fields["user"], name="Test List", faction=self.required_fields["faction"], detachment=self.required_fields["detachment"])
+        army_list = self.assertValid(user=self.required_fields["user"], name="Test List", faction=self.required_fields["faction"], detachment=self.required_fields["detachment"])
+        # Test that str function works
+        self.assertEqual(str(army_list), "Test List")
 
     def test_invalid_army_list_creation(self):
         # Test that user is required
@@ -388,3 +392,38 @@ class ArmyListCase(BaseModelTest):
     def test_created_at(self):
         self.assertIsRecent(upload_flag=False, **self.required_fields)
 
+class ArmyListEntry(BaseModelTest):
+    # Behaviours:
+    # ArmyListEntry must have an ArmyList
+    # ArmyListEntry must have a Unit
+    # ArmyListEntry has a default model count of 1
+    # ArmyListEntry may have an Enhancement (can be blank)
+    # ArmyListEntry may only have an Enhancement if the entry has the required keywords (CHARACTER ...)
+    # ArmyListEntry may only have an Enhancement if it is unique to the ArmyList (no repeating enhancements)
+    # ArmyListEntry may only have an Enhancement if it matches the detachment from the ArmyList
+    # ArmyListEntry must have is_warlord bool (default False)
+    # ArmyListEntry must not save if there is another warlord in the same ArmyList (no multiple warlords)
+
+    def setUp(self):
+        self.keyword1 = KeyWord.objects.create(name="ADEPTUS ASTARTES")
+        self.keyword2 = KeyWord.objects.create(name="CHARACTER")
+        self.model_class = User
+        self.user = self.assertValid(username="test", password="test")
+        self.model_class = Faction
+        self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
+        self.faction = self.assertActiveKeyWord(keywords=[self.keyword1], obj=self.faction)
+        self.model_class = Unit
+        self.unit = self.assertValid(name="Captain", faction=self.faction)
+        self.unit = self.assertActiveKeyWord(keywords=[self.keyword1, self.keyword2], obj=self.unit)
+        # Create another unit in the same faction without the required keywords
+        # Create another unit in a different faction for testing
+        self.model_class = Detachment
+        self.detachment = self.assertValid(name="Gladius Taskforce", faction=self.faction)
+        self.model_class = ArmyList
+        self.army_list = self.assertValid(user=self.user, faction=self.faction, detachment=self.detachment)
+        self.required_fields = {
+            "army_list" : self.army_list,
+            "unit" : self.unit,
+        }
+        self.model_class = ArmyListEntry
+        return super().setUp()

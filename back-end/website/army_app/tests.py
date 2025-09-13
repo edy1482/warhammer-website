@@ -426,4 +426,3 @@ class ArmyListEntry(BaseModelTest):
             "unit" : self.unit,
         }
         self.model_class = ArmyListEntry
-        return super().setUp()

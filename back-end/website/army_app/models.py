@@ -66,10 +66,29 @@ class Unit(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
     faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
     keywords = models.ManyToManyField(KeyWord, blank=True)
-    
+    # Leaders that can share attached units with this one
+    leader_shares = models.ManyToManyField("self", 
+                                           symmetrical=True, # Captain <--> Lieutenant
+                                           blank=True,
+                                           help_text="Leaders that may be selected together for the same attached unit.")
+
     # Class functions
     def __str__(self):
         return self.name
+    
+    def is_leader(self):
+        return self.keywords.filter(name__iexact="LEADER").exists()
+
+class Leadership(models.Model):
+    leader = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="leads")
+    attached_unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="attached_to")
+    
+    class Meta:
+        unique_together = ("leader", "attached_unit")
+    
+    # Class functions
+    def __str__(self):
+        return f"{self.leader} can lead {self.attached_unit}"
     
 class UnitPointBracket(models.Model):
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="point_brackets")
@@ -77,10 +96,10 @@ class UnitPointBracket(models.Model):
     max_models = models.PositiveIntegerField(default=1)
     points = models.PositiveIntegerField()
     
-    # Class functions
     class Meta:
         ordering = ["min_models"]
     
+    # Class functions
     def __str__(self):
         return f"{self.unit.name} : {self.min_models} - {self.max_models} = {self.points}"
     

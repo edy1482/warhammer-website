@@ -3,7 +3,7 @@ from django.test import TestCase
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from .models import KeyWord, Faction, Detachment, Stratagem, Unit, UnitPointBracket, Enhancement, DataSheet, ArmyList, ArmyListEntry
+from .models import KeyWord, Faction, Detachment, Stratagem, Unit, Leadership, UnitPointBracket, Enhancement, DataSheet, ArmyList, ArmyListEntry, AssignedLeader
 
 # Create your tests here.
 
@@ -232,6 +232,11 @@ class UnitTestCase(BaseModelTest):
         # Test that faction is reuired
         self.assertInvalid(faction=None, name=self.required_fields["name"])
 
+class LeadershipTestCase(BaseModelTest):
+    def setUp(self):
+        pass
+    model_class = Leadership
+
 class UnitPointBracketCase(BaseModelTest):
     # Behaviours:
     # UnitPointBracket must have a unit
@@ -392,7 +397,7 @@ class ArmyListCase(BaseModelTest):
     def test_created_at(self):
         self.assertIsRecent(upload_flag=False, **self.required_fields)
 
-class ArmyListEntry(BaseModelTest):
+class ArmyListEntryCase(BaseModelTest):
     # Behaviours:
     # ArmyListEntry must have an ArmyList
     # ArmyListEntry must have a Unit
@@ -426,3 +431,8 @@ class ArmyListEntry(BaseModelTest):
             "unit" : self.unit,
         }
         self.model_class = ArmyListEntry
+
+class AssignedLeaderCase(BaseModelTest):
+    def setUp(self):
+        pass
+    model_class = AssignedLeader

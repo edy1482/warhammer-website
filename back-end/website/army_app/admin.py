@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import KeyWord, Faction, Detachment, Stratagem, Unit, UnitPointBracket, Enhancement, DataSheet, ArmyList, ArmyListEntry
+from .models import KeyWord, Faction, Detachment, Stratagem, Unit, Leadership, UnitPointBracket, Enhancement, DataSheet, ArmyList, ArmyListEntry, AssignedLeader
 # Register your models here.
 
 @admin.register(KeyWord)
@@ -29,6 +29,13 @@ class UnitAdmin(admin.ModelAdmin):
     list_filter = ("faction", "keywords",)
     filter_horizontal = ("keywords",)
     ordering = ("name",)
+
+@admin.register(Leadership)
+class LeadershipAdmin(admin.ModelAdmin):
+    list_display = ("leader", "attached_unit")
+    search_fields = ("leader__name",)
+    list_filter = ("leader__faction",)
+    ordering = ("leader__name",)
 
 @admin.register(UnitPointBracket)
 class UnitPointBracketAdmin(admin.ModelAdmin):
@@ -65,3 +72,25 @@ class ArmyListEntryAdmin(admin.ModelAdmin):
 
     def available_stratagems(self, obj):
         return ", ".join(strat.name for strat in obj.get_valid_strats())
+    
+@admin.register(AssignedLeader)
+class AssignedLeaderAdmin(admin.ModelAdmin):
+    list_display = ("entry", "leader_entry", "possible_leaders")
+    readonly_fields = ("possible_leaders",)
+    list_filter = ("leader_entry__unit__faction",)
+
+    def possible_leaders(self, obj):
+        if not obj.entry:
+            return "-"
+        all_leaders = obj.entry.get_all_leadership_options()
+        return ", ".join(leader.unit for leader in all_leaders)
+    
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "leader_entry" and getattr(request, "_obj_", None):
+            valid_leaders = request._obj_.entry.get_available_leadership_options()
+            kwargs["queryset"] = valid_leaders
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+    
+    def get_form(self, request, obj = None, **kwargs):
+        request._obj_ = obj
+        return super().get_form(request, obj, **kwargs)

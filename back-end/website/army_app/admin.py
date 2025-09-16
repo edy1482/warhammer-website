@@ -83,11 +83,11 @@ class AssignedLeaderAdmin(admin.ModelAdmin):
         if not obj.entry:
             return "-"
         all_leaders = obj.entry.get_all_leadership_options()
-        return ", ".join(leader.unit for leader in all_leaders)
+        return ", ".join(leader.leader.name for leader in all_leaders)
     
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "leader_entry" and getattr(request, "_obj_", None):
-            valid_leaders = request._obj_.entry.get_available_leadership_options()
+            valid_leaders = request._obj_.entry.get_available_leadership()
             kwargs["queryset"] = valid_leaders
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
     

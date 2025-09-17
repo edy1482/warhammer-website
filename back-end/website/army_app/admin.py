@@ -75,9 +75,22 @@ class ArmyListEntryAdmin(admin.ModelAdmin):
     
 @admin.register(AssignedLeader)
 class AssignedLeaderAdmin(admin.ModelAdmin):
-    list_display = ("entry", "leader_entry", "possible_leaders")
+    list_display = ("army_list", "leader_entry_display", "entry_display", "possible_leaders")
     readonly_fields = ("possible_leaders",)
-    list_filter = ("leader_entry__unit__faction",)
+    list_filter = ("entry__army_list",)
+
+    def army_list(self, obj):
+        return obj.entry.army_list
+    
+    def leader_entry_display(self, obj):
+        return f"{obj.leader_entry.unit} [Entry {obj.leader_entry.id}]"
+    
+    def entry_display(self, obj):
+        return f"{obj.entry.unit} [Entry {obj.entry.id}]"
+    
+    army_list.short_description = "Army List"
+    leader_entry_display.short_description = "Leader"
+    entry_display.short_description = "Follower"
 
     def possible_leaders(self, obj):
         if not obj.entry:

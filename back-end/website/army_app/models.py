@@ -97,6 +97,10 @@ class Leadership(models.Model):
     def __str__(self):
         return f"{self.leader} can lead {self.attached_unit}"
     
+    def can_co_lead_with(self, other_leader_unit):
+        # Check if another leader_unit can co-lead with this unit
+        return any(cl.leader_id == other_leader_unit.id for cl in self.co_leaders.all())
+    
     def clean(self):
         super().clean()
         if not self.leader.keywords.filter(name__iexact="LEADER").exists():
@@ -171,7 +175,7 @@ class ArmyListEntry(models.Model):
     
     # Class functions
     def __str__(self):
-        return f"{self.army_list.name} - {self.unit.name}"
+        return f"{self.army_list} - {self.unit} → [Entry: {self.id}]"
     
     def get_unit_points(self):
         bracket = self.unit.point_brackets.filter(min_models__lte=self.model_count, max_models__gte=self.model_count).first()
@@ -198,8 +202,8 @@ class ArmyListEntry(models.Model):
     def get_available_leadership(self):
         # Return all leadership options inside the ArmyList
         # Get all the leaders in the list
-        leaders_in_list = self.army_list.entries.values_list("unit", flat=True)
-        return self.get_all_leadership_options().filter(leader__in=leaders_in_list)
+        valid_leader_ids = self.get_all_leadership_options().values_list("leader_id", flat=True)
+        return self.army_list.entries.filter(unit_id__in=valid_leader_ids)
 
     
     def clean(self):
@@ -236,8 +240,8 @@ class ArmyListEntry(models.Model):
                 missing_keywords = ", ".join(name for name in difference)
                 raise ValidationError(f"Missing Keyword(s): {missing_keywords}")
             # Check to see if the enhancement detachment matches the detachment of the ArmyList
-            if self.army_list.detachment.name != self.enhancement.detachment.name:
-                return ValidationError(f"Conflicting detachment: Enhancement Detachment: {self.enhancement.detachment} - Army List Detachment {self.army_list.detachment}")        
+            if self.army_list.detachment != self.enhancement.detachment:
+                raise ValidationError(f"Conflicting detachment: Enhancement Detachment: {self.enhancement.detachment} - Army List Detachment {self.army_list.detachment}")        
 
     def save(self, *args, **kwargs):
         # Ensure clean() is called when saving from shell or script
@@ -269,15 +273,29 @@ class AssignedLeader(models.Model):
     leader_entry = models.ForeignKey(ArmyListEntry, on_delete=models.CASCADE, related_name="leading_assignments")
 
     class Meta:
-        unique_together = ("leader_entry", "entry")
+        constraints = [
+            # Prevent the same leader_entry to be assigned twice to the same entry
+            models.UniqueConstraint(
+                fields=["entry", "leader_entry"],
+                name="unique_leader_assignment"
+            ),
+        ]
+        indexes = [
+            # Speed up duplicate checks
+            models.Index(fields=["entry", "leader_entry"])
+        ]
 
     def __str__(self):
-        return f"{self.leader_entry.unit} leads {self.entry.unit}"
+        return f"{self.leader_entry.unit} [Entry {self.leader_entry.id}] → {self.entry.unit} [Entry {self.entry.id}]"
     
     def clean(self):
         super().clean()
         unit = self.entry.unit
         leader_unit = self.leader_entry.unit
+
+        # Check if the entry and leader_entry are in the same ArmyList
+        if self.entry.army_list != self.leader_entry.army_list:
+            raise ValidationError(f"{self.entry} and {self.leader_entry} are from two seperate ArmyLists")
 
         # Ensure Leadership rule exists
         leadership = Leadership.objects.filter(leader=leader_unit, attached_unit=unit).first()
@@ -291,12 +309,28 @@ class AssignedLeader(models.Model):
         if missing_keywords:
             raise ValidationError(f"Missing Keyword(s): {leader_unit} lacks required {', '.join(missing_keywords)}")
         
-        # Check co-leading rule if leader is already applied
-        existing_leaders = [existing_leader.leader_entry.unit for existing_leader in self.entry.assigned_leaders.exclude(pk=self.pk)]
-        for leader in existing_leaders:
-            if not (leader_unit.leader_shares.filter(pk=leader.pk).exists()):
-                raise ValidationError(f"{leader_unit} cannot share leadership with {leader}")
-            
+        # Check co-leading rule if another leader is already assigned,
+        existing_leaders = self.entry.assigned_leaders.exclude(pk=self.pk)
+        for existing in existing_leaders:
+            # Get the Leadership object for the existing leader
+            existing_leadership = Leadership.objects.filter(leader=existing.leader_entry.unit, attached_unit=self.entry.unit).first()
+            if not existing_leadership:
+                # Should not happen but extra guard
+                raise ValidationError(f"Leader Error: {existing.leader_entry.unit} cannot lead {unit}")
+            can_co_lead = leadership.co_leaders.filter(pk=existing_leadership.pk).exists()
+            if not can_co_lead:
+                raise ValidationError(f"{leader_unit} cannot share leadership with {existing.leader_entry.unit}")
+        
+        # Prevent leader from leading multiple separate units
+        duplicate_assignments = AssignedLeader.objects.filter(leader_entry=self.leader_entry).exclude(pk=self.pk)
+        if duplicate_assignments.exists():
+            units = ", ".join(f"{assign.entry.unit.name} [Entry {assign.entry.id}]" for assign in duplicate_assignments)
+            raise ValidationError(f"{leader_unit} [Entry {self.leader_entry.id}] is already assigned to {units}")
+        
+        # Prevent two leaders of the same unit type from leading same entry
+        if existing_leaders.filter(leader_entry__unit=leader_unit).exists():
+            raise ValidationError(f"{unit} cannot have more than one {leader_unit} leading it")
+        
     def save(self, *args, **kwargs):
         # Ensure that we clean when using CSV files or shell
         self.full_clean()

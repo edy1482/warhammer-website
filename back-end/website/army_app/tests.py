@@ -3,7 +3,10 @@ from django.test import TestCase
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from .models import KeyWord, Faction, Detachment, Stratagem, Unit, Leadership, UnitPointBracket, Enhancement, DataSheet, ArmyList, ArmyListEntry, AssignedLeader
+from army_app.models import KeyWord, Faction, Detachment, Enhancement, Stratagem
+from army_app.models import Unit, UnitPointBracket, DataSheet
+from army_app.models import Leadership
+from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 
 # Create your tests here.
 

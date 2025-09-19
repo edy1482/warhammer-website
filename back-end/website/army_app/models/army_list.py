@@ -1,148 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from .core import KeyWord, Faction, Detachment, Enhancement, Stratagem
+from .units import Unit
+from .leadership import Leadership
 
 MAX_CHARFIELD_LENGTH = 255
 
-# Create your models here.
-
-class KeyWord(models.Model):
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, unique=True)
-    
-    # Class functions
-    def __str__(self):
-        return self.name
-
-class Faction(models.Model):
-    FACTION_CHOICES = {
-        "SPM" : "Space Marines",
-        "TYR" : "Tyrannids",
-        "ORK" : "Orks",
-        "NEC" : "Necrons",
-        "CUS" : "Adeptus Custodes"
-    }
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=FACTION_CHOICES)
-    rule_name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    rule_description = models.TextField(blank=True, default="")
-    keywords = models.ManyToManyField(KeyWord, blank=True)
-    
-    # Class functions
-    def __str__(self):
-        return self.name
-    
-    def clean(self):
-        super().clean()
-        # Check if name is valid
-        valid_choices = ", ".join(key for key in self.FACTION_CHOICES.keys())
-        if self.name not in self.FACTION_CHOICES.keys():
-            raise ValidationError(f"Invalid Faction: {self.name} does not exist. Valid choices are {valid_choices}")
-    
-class Detachment(models.Model):
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
-    description = models.TextField(blank=True, default="")
-    keywords = models.ManyToManyField(KeyWord, blank=True)
-    
-    # Class functions
-    def __str__(self):
-        return self.name
-    
-class Stratagem(models.Model):
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    description = models.TextField(blank=True, default="")
-    detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, null=True, blank=True)
-    cost = models.PositiveIntegerField(default=1)
-    keywords = models.ManyToManyField(KeyWord, blank=True)
-    
-    # Class functions
-    def __str__(self):
-        return self.name
-    
-    def available_stratagem(self, detachment):
-        return self.detachments.filter(pk=detachment.pk).exists()
-        
-
-class Unit(models.Model):
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
-    keywords = models.ManyToManyField(KeyWord, blank=True)
-
-    # Class functions
-    def __str__(self):
-        return self.name
-    
-    def is_leader(self):
-        return self.keywords.filter(name__iexact="LEADER").exists()
-
-class Leadership(models.Model):
-    leader = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="leads")
-    attached_unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="attached_to")
-    # Leaders that can share attached units
-    co_leaders = models.ManyToManyField("self", 
-                                           symmetrical=True, # Captain <--> Lieutenant
-                                           blank=True,
-                                           help_text="Leaders that can co-lead the same unit.")
-    # Restrictions
-    required_keywords = models.ManyToManyField(
-        KeyWord,
-        blank=True,
-        related_name="leadership_required_for",
-        help_text="Leader must have ALL of these keywords (e.g., RELIC SHIELD)."
-    )
-    
-    class Meta:
-        unique_together = ("leader", "attached_unit")
-    
-    # Class functions
-    def __str__(self):
-        return f"{self.leader} can lead {self.attached_unit}"
-    
-    def can_co_lead_with(self, other_leader_unit):
-        # Check if another leader_unit can co-lead with this unit
-        return any(cl.leader_id == other_leader_unit.id for cl in self.co_leaders.all())
-    
-    def clean(self):
-        super().clean()
-        if not self.leader.keywords.filter(name__iexact="LEADER").exists():
-            raise ValidationError(f"Missing keywords: {self.leader} lacks the LEADER keyword.")
-    
-class UnitPointBracket(models.Model):
-    unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="point_brackets")
-    min_models = models.PositiveIntegerField(default=1)
-    max_models = models.PositiveIntegerField(default=1)
-    points = models.PositiveIntegerField()
-    
-    class Meta:
-        ordering = ["min_models"]
-    
-    # Class functions
-    def __str__(self):
-        return f"{self.unit.name} : {self.min_models} - {self.max_models} = {self.points}"
-    
-    def contains(self, model_count):
-        return self.min_models <= model_count <= self.max_models
-    
-class Enhancement(models.Model):
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, related_name="enhancement")
-    description = models.TextField(blank=True, default="")
-    points = models.PositiveIntegerField()
-    keywords = models.ManyToManyField(KeyWord, blank=True)
-    
-    # Class functions
-    def __str__(self):
-        return self.name
-    
-class DataSheet(models.Model):
-    unit = models.OneToOneField(Unit, on_delete=models.CASCADE, related_name="datasheet")
-    upload_file = models.FileField(upload_to="datasheets/", blank=True)
-    uploaded_at = models.DateTimeField(auto_now_add=True)
-    source = models.CharField(max_length=MAX_CHARFIELD_LENGTH, default="", blank=True)
-    
-    # Class functions
-    def __str__(self):
-        return f"{self.unit.name} : Datasheet"
-    
 class ArmyList(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, blank=True, default="")
@@ -336,5 +200,3 @@ class AssignedLeader(models.Model):
         self.full_clean()
         # Now we save
         super().save(*args, **kwargs)
-        
-    

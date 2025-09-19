@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import KeyWord, Faction, Detachment, Stratagem, Unit, Leadership, UnitPointBracket, Enhancement, DataSheet, ArmyList, ArmyListEntry, AssignedLeader
-# Register your models here.
+from army_app.models import KeyWord, Faction, Detachment, Enhancement, Stratagem
+from army_app.models import Unit, UnitPointBracket, DataSheet
+from army_app.models import Leadership
+from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 
 @admin.register(KeyWord)
 class KeyWordAdmin(admin.ModelAdmin):

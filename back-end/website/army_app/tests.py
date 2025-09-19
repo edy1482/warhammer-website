@@ -3,12 +3,15 @@ from django.test import TestCase
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+# This is in the dependancy order
 from army_app.models import KeyWord, Faction, Detachment, Enhancement, Stratagem
 from army_app.models import Unit, UnitPointBracket, DataSheet
 from army_app.models import Leadership
 from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 
 # Create your tests here.
+
+#TODO LeadershipCase, ArmyListEntryCase, AssignedLeaderCase
 
 # Universal tests:
 # Assert valid model entry
@@ -157,6 +160,51 @@ class DetachmentTestCase(BaseModelTest):
     def test_blank_description(self):
         self.assertBlankAllowed("description", **self.required_fields)
 
+class EnhancementCase(BaseModelTest):
+    # Behaviours:
+    # Enhancement must have a name
+    # Enhancement must have a detachemnt
+    # Enhancement may have a description (can be blank)
+    # Enhancement must have points
+    # Enhancement may have keywords (can be blank)    
+
+    def setUp(self):
+        self.keyword1 = KeyWord.objects.create(name="CHARACTER")
+        self.keyword2 = KeyWord.objects.create(name="CAPTAIN")
+        self.model_class = Faction
+        self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
+        self.model_class = Detachment
+        self.detachment = self.assertValid(name="Gladius Taskforce", faction=self.faction)
+        self.required_fields = {
+            "name" : "Adept of the Codex",
+            "detachment" : self.detachment,
+            "points" : 20
+        }
+        self.model_class = Enhancement
+
+    def test_valid_enhancement(self):
+        # Test for valid enhancement creation with all fields except keywords
+        enhancement = self.assertValid(name=self.required_fields["name"], 
+                                       detachment=self.required_fields["detachment"], 
+                                       description="test", 
+                                       points=self.required_fields["points"])
+        # Test for valid creation with keywords and that the keywords are in it
+        enhancement = self.assertActiveKeyWord([self.keyword1, self.keyword2], **self.required_fields)
+        # Test that str function works
+        self.assertEqual(str(enhancement), "Adept of the Codex")
+
+    def test_invalid_enhancement(self):
+        # Test that name is required
+        self.assertInvalid(name=None, detachment=self.required_fields["detachment"], points=self.required_fields["points"])
+        # Test that detachment is required
+        self.assertInvalid(detachment=None, name=self.required_fields["name"], points=self.required_fields["points"])
+        # Test that points is required
+        self.assertInvalid(points=None, name=self.required_fields["name"], detachment=self.required_fields["detachment"])
+
+    def test_blank_description(self):
+        # Test that description can be blank
+        self.assertBlankAllowed("description", **self.required_fields)
+
 class StratagemTestCase(BaseModelTest):
     # Behaviours:
     # Stratagem must have a name
@@ -235,11 +283,6 @@ class UnitTestCase(BaseModelTest):
         # Test that faction is reuired
         self.assertInvalid(faction=None, name=self.required_fields["name"])
 
-class LeadershipTestCase(BaseModelTest):
-    def setUp(self):
-        pass
-    model_class = Leadership
-
 class UnitPointBracketCase(BaseModelTest):
     # Behaviours:
     # UnitPointBracket must have a unit
@@ -275,51 +318,6 @@ class UnitPointBracketCase(BaseModelTest):
         unit_point_bracket = self.assertValid(**self.required_fields)
         self.assertEqual(unit_point_bracket.min_models, 1)
         self.assertEqual(unit_point_bracket.max_models, 1)
-    
-class EnhancementCase(BaseModelTest):
-    # Behaviours:
-    # Enhancement must have a name
-    # Enhancement must have a detachemnt
-    # Enhancement may have a description (can be blank)
-    # Enhancement must have points
-    # Enhancement may have keywords (can be blank)    
-
-    def setUp(self):
-        self.keyword1 = KeyWord.objects.create(name="CHARACTER")
-        self.keyword2 = KeyWord.objects.create(name="CAPTAIN")
-        self.model_class = Faction
-        self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
-        self.model_class = Detachment
-        self.detachment = self.assertValid(name="Gladius Taskforce", faction=self.faction)
-        self.required_fields = {
-            "name" : "Adept of the Codex",
-            "detachment" : self.detachment,
-            "points" : 20
-        }
-        self.model_class = Enhancement
-
-    def test_valid_enhancement(self):
-        # Test for valid enhancement creation with all fields except keywords
-        enhancement = self.assertValid(name=self.required_fields["name"], 
-                                       detachment=self.required_fields["detachment"], 
-                                       description="test", 
-                                       points=self.required_fields["points"])
-        # Test for valid creation with keywords and that the keywords are in it
-        enhancement = self.assertActiveKeyWord([self.keyword1, self.keyword2], **self.required_fields)
-        # Test that str function works
-        self.assertEqual(str(enhancement), "Adept of the Codex")
-
-    def test_invalid_enhancement(self):
-        # Test that name is required
-        self.assertInvalid(name=None, detachment=self.required_fields["detachment"], points=self.required_fields["points"])
-        # Test that detachment is required
-        self.assertInvalid(detachment=None, name=self.required_fields["name"], points=self.required_fields["points"])
-        # Test that points is required
-        self.assertInvalid(points=None, name=self.required_fields["name"], detachment=self.required_fields["detachment"])
-
-    def test_blank_description(self):
-        # Test that description can be blank
-        self.assertBlankAllowed("description", **self.required_fields)
 
 class DataSheetCase(BaseModelTest):
     # Behaviours:
@@ -358,6 +356,11 @@ class DataSheetCase(BaseModelTest):
     def test_blank_source(self):
         # Test that the source can be blank
         self.assertBlankAllowed("source", **self.required_fields)
+
+class LeadershipTestCase(BaseModelTest):
+    def setUp(self):
+        pass
+    model_class = Leadership
 
 class ArmyListCase(BaseModelTest):
     # Behaviours:

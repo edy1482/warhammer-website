@@ -167,7 +167,7 @@ class AssignedLeader(models.Model):
             raise ValidationError(f"Leader Error: {leader_unit} cannot lead {unit}")
         
         # Check if any required keyword exists
-        required = set(leadership.required_keywords.values_list("name", flat=True))
+        required = set(leadership.keywords.values_list("name", flat=True))
         leader_keywords = set(leader_unit.keywords.values_list("name", flat=True))
         missing_keywords = required - leader_keywords
         if missing_keywords:
@@ -177,11 +177,11 @@ class AssignedLeader(models.Model):
         existing_leaders = self.entry.assigned_leaders.exclude(pk=self.pk)
         for existing in existing_leaders:
             # Get the Leadership object for the existing leader
-            existing_leadership = Leadership.objects.filter(leader=existing.leader_entry.unit, attached_unit=self.entry.unit).first()
+            existing_leadership = Leadership.objects.filter(leader=existing.leader_entry.unit, attached_unit=unit).first()
             if not existing_leadership:
                 # Should not happen but extra guard
                 raise ValidationError(f"Leader Error: {existing.leader_entry.unit} cannot lead {unit}")
-            can_co_lead = leadership.co_leaders.filter(pk=existing_leadership.pk).exists()
+            can_co_lead = leadership.co_leaders.filter(pk=existing_leadership.leader.pk).exists()
             if not can_co_lead:
                 raise ValidationError(f"{leader_unit} cannot share leadership with {existing.leader_entry.unit}")
         

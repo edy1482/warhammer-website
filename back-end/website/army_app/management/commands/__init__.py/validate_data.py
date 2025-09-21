@@ -41,6 +41,7 @@ class Command(BaseCommand):
         
         # Flag for exit code
         all_errors = []
+        # Stats for successful validations
         successful_validations = []
 
         logger.info("Starting data validation...")

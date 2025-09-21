@@ -21,11 +21,25 @@ class Leadership(models.Model):
     
     def clean(self):
         super().clean()
-        for co in self.co_leaders.all():
-            reciprocal = Leadership.objects.filter(
-                leader=co, attached_unit=self.attached_unit, co_leaders=self.leader
-                ).exists()
-            if not reciprocal:
-                raise ValidationError(
-                    f"Missing reciprocal co-leader: {co} must also declare {self.leader} as a co-leader for {self.attached_unit}"
-                    )
+        # Validate leader has LEADER keyword
+        if not self.leader.keywords.filter(name__iexact="LEADER").exists():
+            raise ValidationError(f"{self.leader} does not have LEADER keyword")
+        
+        # Validate the attached_unit does not have the LEADER keyword
+        if self.attached_unit.keywords.filter(name__iexact="LEADER").exists():
+            raise ValidationError(f"{self.attached_unit} cannot be attached, it has the LEADER keyword")
+        
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        # Save the object first, then validate co_leaders to prevent m2m error
+        invalid_co_leaders = [
+            co for co in self.co_leaders.all()
+            if not co.keywords.filter(name__iexact="LEADER").exists()
+        ]
+
+        if invalid_co_leaders:
+            names = ", ".join(str(co) for co in invalid_co_leaders)
+            raise ValidationError(f"The following co-leaders do not have the LEADER keyword: {names}")
+
+
+        

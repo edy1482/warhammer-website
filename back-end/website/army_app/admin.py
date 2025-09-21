@@ -35,9 +35,22 @@ class UnitAdmin(admin.ModelAdmin):
 @admin.register(Leadership)
 class LeadershipAdmin(admin.ModelAdmin):
     list_display = ("leader", "attached_unit")
-    search_fields = ("leader__name",)
-    list_filter = ("leader__faction",)
-    ordering = ("leader__name",)
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "leader":
+            kwargs["queryset"] = Unit.objects.filter(keywords__name__iexact="LEADER").distinct()
+        elif db_field.name == "attached_unit":
+            kwargs["queryset"] = Unit.objects.exclude(keywords__name__iexact="LEADER").distinct()
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+    
+    def formfield_for_manytomany(self, db_field, request, **kwargs):
+        if db_field.name == "co_leaders":
+            kwargs["queryset"] = Unit.objects.filter(keywords__name__iexact="LEADER").distinct()
+        return super().formfield_for_manytomany(db_field, request, **kwargs)
+    
+    def get_form(self, request, obj = None, **kwargs):
+        request._obj_ = obj
+        return super().get_form(request, obj, **kwargs)
 
 @admin.register(UnitPointBracket)
 class UnitPointBracketAdmin(admin.ModelAdmin):

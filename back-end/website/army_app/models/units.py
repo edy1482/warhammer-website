@@ -1,7 +1,10 @@
 from django.db import models
+from django.utils.functional import cached_property
 from .core import KeyWord, Faction
+from .wargear import Ability, Weapon
 
 MAX_CHARFIELD_LENGTH = 255
+MIN_CHARFIELD_LENGTH = 10
 
 class Unit(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
@@ -33,10 +36,77 @@ class UnitPointBracket(models.Model):
     
 class DataSheet(models.Model):
     unit = models.OneToOneField(Unit, on_delete=models.CASCADE, related_name="datasheet")
-    upload_file = models.FileField(upload_to="datasheets/", blank=True)
-    uploaded_at = models.DateTimeField(auto_now_add=True)
-    source = models.CharField(max_length=MAX_CHARFIELD_LENGTH, default="", blank=True)
+
+    # core stats
+    movement = models.CharField(max_length=MIN_CHARFIELD_LENGTH)
+    toughness = models.PositiveIntegerField()
+    save = models.CharField(max_length=MIN_CHARFIELD_LENGTH)
+    wounds = models.PositiveIntegerField()
+    leadership = models.CharField(max_length=MIN_CHARFIELD_LENGTH)
+    objective_control = models.PositiveIntegerField()
+    invulnerable_save = models.CharField(max_length=MIN_CHARFIELD_LENGTH, blank=True, null=True)
+
+    # Abilities (unit-specific)
+    abilities = models.ManyToManyField(Ability, blank=True, related_name="datasheet_abilities")
+
+    # Wargear and weapons
+    ranged_weapons = models.ManyToManyField(Weapon, blank=True, related_name="datasheets_ranged")
+    melee_weapons = models.ManyToManyField(Weapon, blank=True, related_name="datasheets_melee")
+    # This dictactes what the models in the unit can take instead of their default loadout
+    wargear_options = models.TextField(blank=True, default="")
+
+    # Special wargear abilities (like Relic Shield adds one to the Wounds characteristic)
+    wargear_abilities = models.ManyToManyField(Ability, blank=True, related_name="datasheet_wargear")
+
+    # Metadata
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    # Derived helpers
+
+    @cached_property
+    def bracket_data(self):
+        # Return a cached list of all point brackets for this datasheet's unit
+        return list(self.unit.point_brackets.all())
+
+    @property
+    def faction_rule(self):
+        return {
+            "name" : self.unit.faction.rule_name,
+            "description" : self.unit.faction.rule_description
+        }
     
+    # --- String representation (for admin/display) ---
+    @property
+    def composition_and_points_display(self):
+        brackets = self.bracket_data
+        
+        parts = []
+        for b in brackets:
+            if b.min_models == b.max_models == 1:
+                # Single-mode leader style
+                parts.append(f"1 {self.unit.name} ({b.points}) pts")
+            elif b.min_models == b.max_models:
+                # Fixed squad size
+                parts.append(f"{b.min_models} {self.unit.name}s ({b.points}) pts")
+            else:
+                # Variable squad size
+                parts.append(f"{b.min_models} - {b.max_models} {self.unit.name}s ({b.points}) pts")
+        
+        return "; ".join(parts)
+        
+    # --- Structured representation (for APIs/views) ---
+    @property
+    def composition_and_points(self):
+        return [
+            {
+                "min_models" : b.min_models,
+                "max_models" : b.max_models,
+                "points" : b.points,
+            }
+            for b in self.bracket_data
+        ]
+
     # Class functions
     def __str__(self):
         return f"{self.unit.name} : Datasheet"

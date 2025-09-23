@@ -148,8 +148,8 @@ def load_weapons(csv_path):
             
         return errors, {
             "name" : row["name"],
-            "type_" : row["type"],
-            "range_" : row["range"],
+            "weapon_type" : row["type"],
+            "weapon_range" : row["range"],
             "attacks" : row["attacks"],
             "skill" : row["skill"],
             "strength" : row["strength"],

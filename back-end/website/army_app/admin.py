@@ -1,5 +1,6 @@
 from django.contrib import admin
 from army_app.models import KeyWord, Faction, Detachment, Enhancement, Stratagem
+from army_app.models import Ability, Weapon
 from army_app.models import Unit, UnitPointBracket, DataSheet
 from army_app.models import Leadership
 from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
@@ -23,6 +24,23 @@ class StratagemAdmin(admin.ModelAdmin):
     list_display = ("name",)
     search_fields = ("name",)
     list_filter = ("detachment",)
+
+@admin.register(Enhancement)
+class EnhancementAdmin(admin.ModelAdmin):
+    list_display = ("name", "detachment", "points",)
+    search_fields = ("name",)
+    list_filter = ("detachment__faction",)
+
+@admin.register(Ability)
+class AbilityAdmin(admin.ModelAdmin):
+    list_display = ("name", "description")
+    search_fields = ("name",)
+
+@admin.register(Weapon)
+class WeaponAdmin(admin.ModelAdmin):
+    list_display = ("name", "weapon_type", "weapon_range", "attacks", "skill", "strength", "ap", "damage",)
+    search_fields = ("name",)
+    list_filter = ("weapon_type",)
 
 @admin.register(Unit)
 class UnitAdmin(admin.ModelAdmin):
@@ -58,16 +76,12 @@ class UnitPointBracketAdmin(admin.ModelAdmin):
     # Search fields expect columns, so double underscore
     search_fields = ("unit__name",)
     list_filter = ("unit__faction",)
-    
-@admin.register(Enhancement)
-class EnhancementAdmin(admin.ModelAdmin):
-    list_display = ("name", "detachment", "points",)
-    search_fields = ("name",)
-    list_filter = ("detachment__faction",)
 
 @admin.register(DataSheet)
 class DataSheetAdmin(admin.ModelAdmin):
-    list_display = ("unit", "upload_file", "source")
+    list_display = (
+        "unit", "movement", "toughness", "save", "wounds", "leadership", "objective_control", "invulnerable_save"
+        )
     search_fields = ("unit__name",)
     list_filter = ("unit__faction",)
 

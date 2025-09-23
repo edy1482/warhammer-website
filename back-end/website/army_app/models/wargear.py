@@ -7,7 +7,12 @@ MIN_CHARFIELD_LENGTH = 10
 class Ability(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, unique=True)
     description = models.TextField()
+    
+    class Meta:
+        # Change plural in admin so that it doesn't look weird
+        verbose_name_plural = "Abilities"
 
+    # Class functions
     def __str__(self):
         return self.name
     
@@ -17,8 +22,8 @@ class Weapon(models.Model):
         "MELEE" : "Meleee"
     }
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    type_ = models.CharField(max_length=MIN_CHARFIELD_LENGTH, choices=TYPE_CHOICES)
-    range_ = models.CharField(max_length=MIN_CHARFIELD_LENGTH, blank=True, null=True) # e.g. "12\""
+    weapon_type = models.CharField(max_length=MIN_CHARFIELD_LENGTH, choices=TYPE_CHOICES)
+    weapon_range = models.CharField(max_length=MIN_CHARFIELD_LENGTH, blank=True, null=True) # e.g. "12\""
     attacks = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be 1 or D3
     skill = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # BS or WS
     strength = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be 4 or 2D6

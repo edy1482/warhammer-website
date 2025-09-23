@@ -2,9 +2,11 @@ from django.db import models
 from django.utils.functional import cached_property
 from .core import KeyWord, Faction
 from .wargear import Ability, Weapon
+import logging
 
 MAX_CHARFIELD_LENGTH = 255
 MIN_CHARFIELD_LENGTH = 10
+logger = logging.getLogger("datasheet")
 
 class Unit(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
@@ -67,7 +69,10 @@ class DataSheet(models.Model):
     @cached_property
     def bracket_data(self):
         # Return a cached list of all point brackets for this datasheet's unit
-        return list(self.unit.point_brackets.all())
+        output = list(self.unit.point_brackets.all())
+        if not output:
+            logger.warning(f"No point brackets for {self.unit}")
+        return output
 
     @property
     def faction_rule(self):

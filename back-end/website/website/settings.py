@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -125,3 +126,58 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Logging
+LOG_DIR = os.path.join(BASE_DIR, "logs")
+os.makedirs(LOG_DIR, exist_ok=True)
+
+LOGGING = {
+    "version" : 1,
+    "disable_exisiting_loggers" : False,
+    "formatters" : {
+        "verbose" : {
+            "format" : "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
+        },
+        "simple" : {
+            "format" : "%(levelname)s - %(message)s"
+        }
+    },
+    "handlers" : {
+        "console" : {
+            "class" : "logging.StreamHandler",
+            "formatter" : "simple",
+        },
+        # Timestamped file for validate_data
+        "validate_data_file" : {
+            "level" : "INFO",
+            "class" : "logging.handlers.RotatingFileHandler",
+            "filename" : os.path.join(LOG_DIR, "validate_data.log"),
+            "maxBytes" : 5 * 1024 * 1024, # 5 MB
+            "backupCount" : 3, # keep 3 old logs
+            "formatter" : "verbose",
+        },
+        # Rolling file for datasheet
+        "datasheet_file" : {
+            "level" : "INFO",
+            "class" : "logging.handlers.RotatingFileHandler",
+            "filename" : os.path.join(LOG_DIR, "datasheet.log"),
+            "maxBytes" : 5 * 1024 * 1024, # 5 MB
+            "backupCount" : 3, # keep 3 old logs
+            "formatter" : "verbose",
+        }
+    },
+    "loggers" : {
+        # Specific logger for data validation
+        "validate_data" : {
+            "handlers" : ["console", "validate_data_file"],
+            "level" : "INFO",
+            "propagate" : False,
+        },
+        # Specific logger for datasheet
+        "datasheet" : {
+            "handlers" : ["console", "datasheet_file"],
+            "level" : "WARNING",
+            "propagate" : False,
+        },
+    },
+}

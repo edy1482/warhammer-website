@@ -5,13 +5,14 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 # This is in the dependancy order
 from army_app.models import KeyWord, Faction, Detachment, Enhancement, Stratagem
+from army_app.models import Ability, Weapon
 from army_app.models import Unit, UnitPointBracket, DataSheet
 from army_app.models import Leadership
 from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 
 # Create your tests here.
 
-#TODO LeadershipCase, ArmyListEntryCase, AssignedLeaderCase
+#TODO Ability, Weapon, LeadershipCase, ArmyListEntryCase, AssignedLeaderCase
 
 # Universal tests:
 # Assert valid model entry
@@ -250,6 +251,16 @@ class StratagemTestCase(BaseModelTest):
     def test_none_faction(self):
         # Test that faction can be none
         self.assertNoneAllowed("detachment", **self.required_fields)
+
+class AbilityTestCase(BaseModelTest):
+    def setUp(self):
+        pass
+    model_class = Ability
+
+class WeaponTestCase(BaseModelTest):
+    def setUp(self):
+        pass
+    model_class = Weapon
 
 class UnitTestCase(BaseModelTest):
     # Behaviours:

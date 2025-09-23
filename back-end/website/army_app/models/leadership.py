@@ -40,6 +40,3 @@ class Leadership(models.Model):
         if invalid_co_leaders:
             names = ", ".join(str(co) for co in invalid_co_leaders)
             raise ValidationError(f"The following co-leaders do not have the LEADER keyword: {names}")
-
-
-        

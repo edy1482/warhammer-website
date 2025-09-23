@@ -2,6 +2,7 @@ import csv
 from django.core.exceptions import ValidationError
 # This is in the dependancy order
 from army_app.models import KeyWord, Faction, Detachment, Enhancement, Stratagem
+from army_app.models import Ability, Weapon
 from army_app.models import Unit, UnitPointBracket, DataSheet
 from army_app.models import Leadership
 
@@ -31,12 +32,22 @@ def load_model(model_class, csv_path, row_to_kwargs):
                     kwargs["keywords"] = keyword_objs
                 # Pull out co_leaders temporarily
                 co_leaders = kwargs.pop("co_leaders", [])
+                # Pull out abilities temporarily
+                abilities, wargear_abilities = kwargs.pop("abilities", []), kwargs.pop("wargear_abilities", [])
+                # Pull out weapons temporarily
+                ranged_weapons, melee_weapons = kwargs.pop("ranged_weapons", []), kwargs.pop("melee_weapons", [])
                 # Create instance without keywords (keywords can only be added after save)
                 obj = model_class(**{key: value for key, value in kwargs.items() if key !="keywords"})
                 # Validate
                 obj.full_clean()
                 # Add to list (w/ keywords)
-                valid_objs.append((obj, kwargs.get("keywords", []), co_leaders))
+                valid_objs.append(
+                    (
+                        obj, 
+                        kwargs.get("keywords", []), # m2m fields (create)
+                        co_leaders, abilities, wargear_abilities, ranged_weapons, melee_weapons, # m2m fields (lookup)
+                     )
+                    )
             except ValidationError as v_err:
                 errors.append(f"{model_class} Validation Error - Row {idx}: {v_err}")
             except Exception as err:
@@ -110,6 +121,44 @@ def load_stratagems(csv_path):
         }
     return load_model(Stratagem, csv_path, row_to_stratagems_kwargs)
 
+def load_abilities(csv_path):
+    def row_to_abilities_kwargs(row):
+        errors = []
+
+        return errors, {
+            "name" : row["name"],
+            "description" : row["description"],
+        }
+    return load_model(Ability, csv_path, row_to_abilities_kwargs)
+
+def load_weapons(csv_path):
+    def row_to_weapons_kwargs(row):
+        errors = []
+
+        # Collect abilities and validate them
+        if "abilities" in row and row["abilities"].strip():
+            ability_names = [name.strip() for name in row["ability"].split(";") if name.strip()]
+            missing = [name for name in ability_names if not Ability.objects.filter(name=name).exists()]
+        
+        if missing:
+            errors.append(f"Weapon(s) not found: {', '.join(missing)}")
+
+        if errors:
+            return errors, None
+            
+        return errors, {
+            "name" : row["name"],
+            "type_" : row["type"],
+            "range_" : row["range"],
+            "attacks" : row["attacks"],
+            "skill" : row["skill"],
+            "strength" : row["strength"],
+            "ap" : row["ap"],
+            "damage" : row["damage"],
+            "abilities" : ability_names,
+        }
+    return load_model(Weapon, csv_path, row_to_weapons_kwargs)
+
 def load_units(csv_path):
     def row_to_units_kwargs(row):
         errors = []
@@ -123,11 +172,79 @@ def load_units(csv_path):
         return errors, {
             "faction" : faction,
             "name" : row["name"],
+        }
+    return load_model(Unit, csv_path, row_to_units_kwargs)
+
+def load_unit_point_brackets(csv_path):
+    def row_to_brackets_kwargs(row):
+        errors = []
+        try:
+            unit = Unit.objects.get(name=row["unit"])
+        except Unit.DoesNotExist:
+            errors.append(f"Unit {row["unit"]} not found")
+
+        if errors:
+            return errors, None
+        
+        return errors, {
+            "unit" : unit,
             "min_models" : row["min_models"],
             "max_models" : row["max_models"],
             "points" : row["points"],
         }
-    return load_model(Unit, csv_path, row_to_units_kwargs)
+    return load_model(UnitPointBracket, csv_path, row_to_brackets_kwargs)
+
+def load_data_sheet(csv_path):
+    def row_to_data_sheet_kwargs(row):
+        errors = []
+
+        try:
+            unit = Unit.objects.get(name=row["unit"])
+        except Unit.DoesNotExist:
+            errors.append(f"Unit {row["unit"]} not found")
+
+        missing = []
+
+        # Collect weapons and validate them
+        if "ranged_weapons" in row and row["ranged_weapons"].strip():
+            ranged_weapon_names = [name.strip() for name in row["ranged_weapons"].split(";") if name.strip()]
+            missing += [name for name in ranged_weapon_names if not Weapon.objects.filter(name=name).exists()]
+
+        if "melee_weapons" in row and row["melee_weapons"].strip():
+            melee_weapon_names = [name.strip() for name in row["melee_weapons"].split(";") if name.strip()]
+            missing += [name for name in melee_weapon_names if not Weapon.objects.filter(name=name).exists()]
+
+        # Collect abilities and validate them
+        if "abilities" in row and row["abilities"].strip():
+            ability_names = [name.strip() for name in row["ability"].split(";") if name.strip()]
+            missing += [name for name in ability_names if not Ability.objects.filter(name=name).exists()]
+
+        # Collect wargear_abilities and validate them
+        if "wargear_abilities" in row and row["wargear_abilities"].strip():
+            wargear_ability_names = [name.strip() for name in row["wargear_ability"].split(";") if name.strip()]
+            missing += [name for name in wargear_ability_names if not Ability.objects.filter(name=name).exists()]
+
+        if missing:
+            errors.append(f"Objects not found: {', '.join(missing)}")
+        
+        if errors:
+            return errors, None
+        
+        return errors, {
+            "unit" : unit,
+            "movement" : row["movement"],
+            "toughness" : row["toughness"],
+            "save" : row["save"],
+            "wounds" : row["wounds"],
+            "leadership" : row["leadership"],
+            "objective_control" : row["objective_control"],
+            "invulnerable_save" : row["invulnerable_save"],
+            "ranged_weapons" : ranged_weapon_names,
+            "melee_weapons" : melee_weapon_names,
+            "wargear_options" : row["wargear_options"],
+            "wargear_abilities" : wargear_ability_names,
+        }
+    return load_model(DataSheet, csv_path, row_to_data_sheet_kwargs)  
 
 def load_leadership(csv_path):
     def row_to_leadership(row):
@@ -139,17 +256,9 @@ def load_leadership(csv_path):
             errors.append(f"Leader unit {row["leader"]} not found")
         
         try:
-            attached_unit = Unit.objects.get(name=row["attached_unit"])
+            attached_unit = Unit.objects.get(name=row["attached_unit"]) 
         except Unit.DoesNotExist:
             errors.append(f"Attached unit {row["attached_unit"]} not found")
-        
-        if errors:
-            return errors, None
-        
-        kwargs = {
-            "leader" : leader,
-            "attached_unit" : attached_unit,
-        }
 
         # Collect co_leaders and validate them
         if "co_leaders" in row and row["co_leaders"].strip():
@@ -158,10 +267,13 @@ def load_leadership(csv_path):
         
         if missing:
             errors.append(f"Co_leader unit(s) not found: {', '.join(missing)}")
-            return errors, None
-        
-        # If co_leader names exist, store names for later Leadership linking
-        kwargs["co_leaders"] = co_leader_names
 
-        return errors, kwargs
+        if errors:
+            return errors, None
+
+        return errors, {
+            "leader" : leader,
+            "attached_unit" : attached_unit,
+            "co_leaders" : co_leader_names,
+        }
     return load_model(Leadership, csv_path, row_to_leadership)

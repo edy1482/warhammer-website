@@ -2,7 +2,11 @@ import logging
 import os
 from datetime import datetime
 from django.core.management.base import BaseCommand, CommandError
-from army_app.data_loaders import load_factions, load_detachments, load_enhancements, load_stratagems, load_units, load_leadership
+# In dependency order
+from army_app.data_loaders import load_factions, load_detachments, load_enhancements, load_stratagems
+from army_app.data_loaders import load_abilities, load_weapons 
+from army_app.data_loaders import load_units, load_unit_point_brackets, load_data_sheet
+from army_app.data_loaders import load_leadership
 
 class Command(BaseCommand):
     help = "Validate CSV data before migration"
@@ -13,7 +17,11 @@ class Command(BaseCommand):
             ("Detachments", "data/detachments.csv", load_detachments),
             ("Enhancements", "data/enhancements.csv", load_enhancements),
             ("Stratagems", "data/stratagems.csv", load_stratagems),
+            ("Abilities", "data/abilities.csv", load_abilities),
+            ("Weapons", "data/weapons.csv", load_weapons),
             ("Units", "data/units.csv", load_units),
+            ("Unit Point Brackets", "data/unit_point_brackets.csv", load_unit_point_brackets),
+            ("Datasheets", "data/datasheets", load_data_sheet),
             ("Leadership", "data/leadership.csv", load_leadership),
         ]
 

@@ -12,7 +12,7 @@ from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 
 # Create your tests here.
 
-#TODO Ability, Weapon, LeadershipCase, ArmyListEntryCase, AssignedLeaderCase
+#TODO DataSheetCase, LeadershipCase, ArmyListEntryCase, AssignedLeaderCase
 
 # Universal tests:
 # Assert valid model entry
@@ -22,6 +22,7 @@ from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 
 class BaseModelTest(TestCase):
     model_class = None
+    required_fields = {}
 
     def assertValid(self, **kwargs):
         obj = self.model_class(**kwargs)
@@ -49,7 +50,9 @@ class BaseModelTest(TestCase):
         return obj
     
     def assertActiveKeyWord(self, keywords, obj=None, **kwargs):
-        # Two modes - an inplace mode, where we modify an existing obj, and a new mode where we make a new obj
+        # Two modes: 
+        # an inplace mode, where we modify an existing obj
+        # new mode where we make a new obj and return it
         if obj is None:
             obj = self.assertValid(**kwargs)
         for keyword in keywords:
@@ -59,6 +62,19 @@ class BaseModelTest(TestCase):
         obj.save()
         return obj
     
+    def assertActiveAbility(self, abilities, obj=None, **kwargs):
+        # Two modes: 
+        # an inplace mode, where we modify an existing obj
+        # new mode where we make a new obj and return it
+        if obj is None:
+            obj = self.assertValid(**kwargs)
+        for ability in abilities:
+            obj.abilities.add(ability)
+            self.assertIn(ability, obj.abilities.all())
+        obj.full_clean()
+        obj.save()
+        return obj
+
     def assertIsRecent(self, upload_flag=True, **kwargs):
         obj = self.assertValid(**kwargs)
         now = timezone.now()
@@ -69,27 +85,47 @@ class BaseModelTest(TestCase):
             recent = now - datetime.timedelta(seconds=10) <= obj.created_at <= now
         self.assertIs(recent, True)
 
+    def assertRequired(self):
+        # Test for required fields
+        keys = list(self.required_fields.keys())
+        for key in keys:
+            # Remove key
+            popped = self.required_fields.pop(key)
+            # Test for invalidity
+            self.assertInvalid(**self.required_fields)
+            # Add key, value pair back in
+            self.required_fields[key] = popped
+
 class KeyWordTestCase(BaseModelTest):
     # Behaviours:
-    # Keywords should be unique
-    model_class = KeyWord
+    # Keywords should be unique (name is unique)
+    # name field is required
 
     def setUp(self):
-        KeyWord.objects.create(name="TEST")
+        self.model_class = KeyWord
+        self.required_fields = {
+            "name" : "TEST"
+        }
+        KeyWord.objects.create(**self.required_fields)
     
+    def test_required_name(self):
+        # Test for required fields
+        self.assertRequired()
+
     def test_unique_keyword(self):
         self.assertInvalid(name="TEST")
 
 class FactionTestCase(BaseModelTest):
     # Behaviours:
     # Faction name should only be chosen from a dict: Faction.FACTION_CHOICES
-    # Faction has a rule name (not blank)
+    # Faction must have a rule name
     # Faction may have a rule description (can be blank)
     # Faction may have keyword(s)
 
     def setUp(self):
-        self.keyword1 = KeyWord.objects.create(name="ADEPTUS ASTARTES")
-        self.keyword2 = KeyWord.objects.create(name="INFANTRY")
+        self.model_class = KeyWord
+        self.keyword1 = self.assertValid(name="ADEPTUS ASTARTES")
+        self.keyword2 = self.assertValid(name="INFANTRY")
         self.required_fields = {
             "name" : "SPM",
             "rule_name" : "OATH OF MOMENT",
@@ -98,9 +134,7 @@ class FactionTestCase(BaseModelTest):
 
     def test_valid_faction(self):
         # Test for valid creation with all fields except keyword
-        faction = self.assertValid(name=self.required_fields["name"], 
-                                   rule_name=self.required_fields["rule_name"], 
-                                   rule_description="Re-roll hit rolls on selected target")
+        faction = self.assertValid(rule_description="Re-roll hit rolls on selected target", **self.required_fields)
         # Test for valid creation with keywords and that they are in the faction
         faction = self.assertActiveKeyWord(keywords=[self.keyword1, self.keyword2], **self.required_fields)
         # Test that the str function is working
@@ -109,10 +143,8 @@ class FactionTestCase(BaseModelTest):
         self.assertIn(faction.name, Faction.FACTION_CHOICES)
     
     def test_invalid_faction(self):
-        # Test for invalid name
-        self.assertInvalid(name="Invalid")
-        # Test for no rule_name
-        self.assertInvalid(name=self.required_fields["name"])
+        # Test for required fields
+        self.assertRequired()
 
     def test_blank_rule_description(self):
         self.assertBlankAllowed("rule_description", **self.required_fields)
@@ -125,7 +157,8 @@ class DetachmentTestCase(BaseModelTest):
     # Detachment may have keyword(s) (can be empty)
     
     def setUp(self):
-        self.keyword1 = KeyWord.objects.create(name="ADEPTUS ASTARTES")
+        self.model_class = KeyWord
+        self.keyword1 = self.assertValid(name="ADEPTUS ASTARTES")
         self.model_class = Faction
         self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
         self.faction = self.assertActiveKeyWord(keywords=[self.keyword1], obj=self.faction)
@@ -137,10 +170,11 @@ class DetachmentTestCase(BaseModelTest):
 
     def test_valid_detachment(self):
         # Test for valid creation with all fields except keyword
-        detachment = self.assertValid(name=self.required_fields["name"], 
-                                      faction=self.required_fields["faction"], 
-                                      description="Once per battle, choose one effect lasting a battleturn: " \
-                                      "Advance and shoot, Fall back and shoot and charge, Advance and charge")
+        detachment = self.assertValid(
+            description="Once per battle, choose one effect lasting a battleturn: " \
+            "Advance and shoot, Fall back and shoot and charge, Advance and charge",
+            **self.required_fields
+            )
         # Test for valid creation with keywords and that they are in the detachment
         detachment = self.assertActiveKeyWord(keywords=[self.keyword1], **self.required_fields)
         # Test that the str function is working
@@ -150,13 +184,10 @@ class DetachmentTestCase(BaseModelTest):
         # Currently the only invalid factions can force an error
         # Future - make large detachment list for choice?
         #        - make certain factions invalid for certain Detachments?
-
+        # Test for required fields
+        self.assertRequired()
         # Test for invalid faction
         self.assertInvalid(name="TEST", faction=Faction(name="TEST", rule_name="TEST"))
-        # Test for no faction found
-        self.assertInvalid(name="TEST", faction=None)
-        # Test for no name found
-        self.assertInvalid(name=None, faction=self.faction)
 
     def test_blank_description(self):
         self.assertBlankAllowed("description", **self.required_fields)
@@ -170,8 +201,9 @@ class EnhancementCase(BaseModelTest):
     # Enhancement may have keywords (can be blank)    
 
     def setUp(self):
-        self.keyword1 = KeyWord.objects.create(name="CHARACTER")
-        self.keyword2 = KeyWord.objects.create(name="CAPTAIN")
+        self.model_class = KeyWord
+        self.keyword1 = self.assertValid(name="CHARACTER")
+        self.keyword2 = self.assertValid(name="CAPTAIN")
         self.model_class = Faction
         self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
         self.model_class = Detachment
@@ -185,22 +217,15 @@ class EnhancementCase(BaseModelTest):
 
     def test_valid_enhancement(self):
         # Test for valid enhancement creation with all fields except keywords
-        enhancement = self.assertValid(name=self.required_fields["name"], 
-                                       detachment=self.required_fields["detachment"], 
-                                       description="test", 
-                                       points=self.required_fields["points"])
+        enhancement = self.assertValid(description="test", **self.required_fields)
         # Test for valid creation with keywords and that the keywords are in it
         enhancement = self.assertActiveKeyWord([self.keyword1, self.keyword2], **self.required_fields)
         # Test that str function works
         self.assertEqual(str(enhancement), "Adept of the Codex")
 
     def test_invalid_enhancement(self):
-        # Test that name is required
-        self.assertInvalid(name=None, detachment=self.required_fields["detachment"], points=self.required_fields["points"])
-        # Test that detachment is required
-        self.assertInvalid(detachment=None, name=self.required_fields["name"], points=self.required_fields["points"])
-        # Test that points is required
-        self.assertInvalid(points=None, name=self.required_fields["name"], detachment=self.required_fields["detachment"])
+        # Test for required fields
+        self.assertRequired()
 
     def test_blank_description(self):
         # Test that description can be blank
@@ -223,21 +248,20 @@ class StratagemTestCase(BaseModelTest):
         self.detachment = self.assertValid(name="OATH OF MOMENT", faction=self.faction)
         self.required_fields = {
             "name" : "Armour of Contempt",
-            "cost" : 1,
         }
         self.model_class = Stratagem
 
     def test_valid_stratagem(self):
         # Test for valid stratagem creation with all fields except keyword
-        stratagem = self.assertValid(name=self.required_fields["name"], description="Test", detachment=self.detachment, cost=self.required_fields["cost"])
+        stratagem = self.assertValid(description="Test", **self.required_fields)
         # Test for valid creation with keywords and that they are in the stratagem
         stratagem = self.assertActiveKeyWord(keywords=[self.keyword1], **self.required_fields)
         # Test that the str function is working
         self.assertEqual(str(stratagem), "Armour of Contempt")
 
     def test_invalid_stratagem(self):
-        # Test that name is required
-        self.assertInvalid(name=None, cost=self.required_fields["cost"])
+        # Test for required fields
+        self.assertRequired()
 
     def test_default_cost(self):
         # Test that cost has a default value of 1
@@ -253,14 +277,90 @@ class StratagemTestCase(BaseModelTest):
         self.assertNoneAllowed("detachment", **self.required_fields)
 
 class AbilityTestCase(BaseModelTest):
+    # Behaviours:
+    # Ability names are required and unique
+    # Ability descriptions are required
+
     def setUp(self):
-        pass
-    model_class = Ability
+        self.required_fields = {
+            "name" : "TEST",
+            "description" : "TEST"
+        }
+        self.model_class = Ability
+
+    def test_valid_ability(self):
+        # Test for valid creation of Ability with all fields
+        ability = self.assertValid(**self.required_fields)
+        # Test that the str function is working
+        self.assertEqual(str(ability), "TEST")
+
+    def test_required_description(self):
+        # Test for required fields
+        self.assertRequired()
+
+    def test_unique_ability_name(self):
+        self.assertValid(**self.required_fields)
+        self.assertInvalid(name="TEST", description="yes")
 
 class WeaponTestCase(BaseModelTest):
+    """
+    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
+    weapon_type = models.CharField(max_length=MIN_CHARFIELD_LENGTH, choices=TYPE_CHOICES)
+    weapon_range = models.CharField(max_length=MIN_CHARFIELD_LENGTH, blank=True, null=True) # e.g. "12\""
+    attacks = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be 1 or D3
+    skill = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # BS or WS
+    strength = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be 4 or 2D6
+    ap = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be -1 or -D3
+    damage = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be 1 or D6
+    abilities = models.ManyToManyField(Ability, blank=True)
+    """
+    # Behaviours:
+    # Weapon name is required
+    # Weapon type is required, and must be one of the following: Ranged, Melee
+    # Weapon range is not required, may be blank or null
+    # Weapon attacks is required
+    # Weapon skill is required
+    # Weapon strength is required
+    # Weapon ap is required
+    # Weapon damage is required
+    # Weapon abilities are not required, may be blank
     def setUp(self):
-        pass
-    model_class = Weapon
+        self.model_class = Ability
+        self.ability_1 = self.assertValid(name="ASSAULT", description="can be shot even if the bearer's unit Advanced")
+        self.ability_2 = self.assertValid(name="HEAVY", description="Add 1 to hit rolls if bearer's unit REmained Stationary this turn")
+        self.model_class = Weapon
+        self.required_fields = {
+            "name" : "Bolt rifle",
+            "weapon_type" : "RANGED",
+            "attacks" : "2",
+            "skill" : "3+",
+            "strength" : "4",
+            "ap" : "-1",
+            "damage" : "1",
+        }
+    
+    def test_valid_weapon(self):
+        # Test with only required fields
+        self.assertValid(**self.required_fields)
+        # Test with all fields added - range
+        bolt_rifle = self.assertValid(weapon_range='24"', **self.required_fields)
+        # Test with added abilities
+        bolt_rifle = self.assertActiveAbility(abilities=[self.ability_1, self.ability_2], obj=bolt_rifle)
+        # Test that str function is working
+        self.assertEqual(str(bolt_rifle), "Bolt rifle")
+
+    def test_invalid_weapon(self):
+        # Test for required fields
+        self.assertRequired()
+        
+        # Test for invalid weapon_type
+        self.required_fields["weapon_type"] = "invalid"
+        self.assertInvalid(**self.required_fields)
+        # Revert back to valid weapon_type
+        self.required_fields["weapon_type"] = "RANGED"
+
+    def test_blank_weapon_range(self):
+        self.assertBlankAllowed("weapon_range", **self.required_fields)
 
 class UnitTestCase(BaseModelTest):
     # Behaviours:
@@ -269,8 +369,9 @@ class UnitTestCase(BaseModelTest):
     # Unit may have keyword(s)
 
     def setUp(self):
-        self.keyword1 = KeyWord.objects.create(name="ADEPTUS ASTARTES")
-        self.keyword2 = KeyWord.objects.create(name="CHARACTER")
+        self.model_class = KeyWord
+        self.keyword1 = self.assertValid(name="ADEPTUS ASTARTES")
+        self.keyword2 = self.assertValid(name="CHARACTER")
         self.model_class = Faction
         self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
         self.faction = self.assertActiveKeyWord(keywords=[self.keyword1], obj=self.faction)
@@ -289,10 +390,8 @@ class UnitTestCase(BaseModelTest):
         self.assertEqual(str(unit), "Captain")
 
     def test_invalid_unit(self):
-        # Test that name is required
-        self.assertInvalid(name=None, faction=self.faction)
-        # Test that faction is reuired
-        self.assertInvalid(faction=None, name=self.required_fields["name"])
+        # Test for required fields
+        self.assertRequired()
 
 class UnitPointBracketCase(BaseModelTest):
     # Behaviours:
@@ -314,15 +413,13 @@ class UnitPointBracketCase(BaseModelTest):
 
     def test_valid_unit_point_bracket(self):
         # Test for valid unit point bracket creation with all fields
-        unit_point_bracket = self.assertValid(unit=self.required_fields["unit"], min_models=1, max_models=1, points=self.required_fields["points"])
+        unit_point_bracket = self.assertValid(min_models=1, max_models=1, **self.required_fields)
         # Test that the str function is working
         self.assertEqual(str(unit_point_bracket), f"{self.unit.name} : {unit_point_bracket.min_models} - {unit_point_bracket.max_models} = {unit_point_bracket.points}")
 
     def test_invalid_unit_point_bracket(self):
-        # Test that unit is required
-        self.assertInvalid(unit=None, points=self.required_fields["points"])
-        # Test that points is required
-        self.assertInvalid(points=None, unit=self.required_fields["unit"])
+        # Test for required fields
+        self.assertRequired()
 
     def test_default_min_max_models(self):
         # Test that min_models and max_models have a default value of 1
@@ -333,40 +430,10 @@ class UnitPointBracketCase(BaseModelTest):
 class DataSheetCase(BaseModelTest):
     # Behaviours:
     # Datasheet has a one-to-one relationship with Unit
-    # Datasheet may have an upload_file (can be blank)
-    # Datasheet has an uploaded_at that auto_adds to now
-    # Datasheet may have a source (can be blank)
 
     def setUp(self):
-        self.model_class = Faction
-        self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
-        self.model_class = Unit
-        self.unit = self.assertValid(name="Captain", faction=self.faction)
-        self.required_fields = {
-            "unit" : self.unit,
-        }
         self.model_class = DataSheet
-
-    def test_valid_datasheet(self):
-        # Test for valid datasheet creation with no upload_file
-        datasheet = self.assertValid(unit=self.required_fields["unit"], source="Test")
-        # Test that str function works
-        self.assertEqual(str(datasheet), "Captain : Datasheet")
-    
-    def test_invalid_datasheet(self):
-        # Test that unit is required
-        self.assertInvalid(unit=None, source="Test")
-
-    def test_uploaded_at(self):
-        self.assertIsRecent(**self.required_fields)
-
-    def test_blank_upload_file(self):
-        # Test that the upload file can be blank
-        self.assertBlankAllowed("upload_file", **self.required_fields)
-
-    def test_blank_source(self):
-        # Test that the source can be blank
-        self.assertBlankAllowed("source", **self.required_fields)
+        pass
 
 class LeadershipTestCase(BaseModelTest):
     def setUp(self):
@@ -396,18 +463,14 @@ class ArmyListCase(BaseModelTest):
 
     def test_army_list_creation(self):
         # Test for valid army_list creation with all fields except created_at which autofills
-        army_list = self.assertValid(user=self.required_fields["user"], name="Test List", faction=self.required_fields["faction"], detachment=self.required_fields["detachment"])
+        army_list = self.assertValid(name="Test", **self.required_fields)
         # Test that str function works
-        self.assertEqual(str(army_list), "Test List")
+        self.assertEqual(str(army_list), "Test")
 
     def test_invalid_army_list_creation(self):
-        # Test that user is required
-        self.assertInvalid(user=None, name="Test List", faction=self.required_fields["faction"], detachment=self.required_fields["detachment"])
-        # Test that faction is required
-        self.assertInvalid(user=self.required_fields["user"], name="Test List", faction=None, detachment=self.required_fields["detachment"])
-        # Test that detachment is required
-        self.assertInvalid(user=self.required_fields["user"], name="Test List", faction=self.required_fields["faction"], detachment=None)
-
+        # Test required fields
+        self.assertRequired()
+        
     def test_blank_name(self):
         self.assertBlankAllowed("name", **self.required_fields)
 

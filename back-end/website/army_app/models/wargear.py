@@ -19,7 +19,7 @@ class Ability(models.Model):
 class Weapon(models.Model):
     TYPE_CHOICES = {
         "RANGED" : "Ranged",
-        "MELEE" : "Meleee"
+        "MELEE" : "Melee"
     }
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
     weapon_type = models.CharField(max_length=MIN_CHARFIELD_LENGTH, choices=TYPE_CHOICES)
@@ -38,5 +38,5 @@ class Weapon(models.Model):
         super().clean()
         # Check if type_choice is valid
         valid_choices = ", ".join(key for key in self.TYPE_CHOICES.keys())
-        if self.name not in self.TYPE_CHOICES.keys():
-            raise ValidationError(f"Invalid weapon type: {self.name} does not exist. Valid choices are {valid_choices}")
+        if self.weapon_type not in self.TYPE_CHOICES.keys():
+            raise ValidationError(f"Invalid weapon type: {self.weapon_type} does not exist. Valid choices are {valid_choices}")

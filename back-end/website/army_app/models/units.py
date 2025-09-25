@@ -42,7 +42,7 @@ class DataSheet(models.Model):
     # core stats
     movement = models.CharField(max_length=MIN_CHARFIELD_LENGTH)
     toughness = models.PositiveIntegerField()
-    save = models.CharField(max_length=MIN_CHARFIELD_LENGTH)
+    armour_save = models.CharField(max_length=MIN_CHARFIELD_LENGTH)
     wounds = models.PositiveIntegerField()
     leadership = models.CharField(max_length=MIN_CHARFIELD_LENGTH)
     objective_control = models.PositiveIntegerField()

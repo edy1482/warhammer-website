@@ -1,20 +1,9 @@
 from django.db import models
+from .core import Ability
 from django.core.exceptions import ValidationError
 
 MAX_CHARFIELD_LENGTH = 255
 MIN_CHARFIELD_LENGTH = 10
-
-class Ability(models.Model):
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, unique=True)
-    description = models.TextField()
-    
-    class Meta:
-        # Change plural in admin so that it doesn't look weird
-        verbose_name_plural = "Abilities"
-
-    # Class functions
-    def __str__(self):
-        return self.name
     
 class Weapon(models.Model):
     TYPE_CHOICES = {

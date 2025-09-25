@@ -11,6 +11,18 @@ class KeyWord(models.Model):
     # Class functions
     def __str__(self):
         return self.name
+    
+class Ability(models.Model):
+    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, unique=True)
+    description = models.TextField()
+    
+    class Meta:
+        # Change plural in admin so that it doesn't look weird
+        verbose_name_plural = "Abilities"
+
+    # Class functions
+    def __str__(self):
+        return self.name
 
 class Faction(models.Model):
     FACTION_CHOICES = {

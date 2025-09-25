@@ -4,15 +4,15 @@ from django.utils import timezone
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 # This is in the dependancy order
-from army_app.models import KeyWord, Faction, Detachment, Enhancement, Stratagem
-from army_app.models import Ability, Weapon
+from army_app.models import KeyWord, Ability, Faction, Detachment, Enhancement, Stratagem
+from army_app.models import Weapon
 from army_app.models import Unit, UnitPointBracket, DataSheet
 from army_app.models import Leadership
 from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 
 # Create your tests here.
 
-#TODO DataSheetCase, LeadershipCase, ArmyListEntryCase, AssignedLeaderCase
+#TODO LeadershipCase, ArmyListEntryCase, AssignedLeaderCase
 
 # Universal tests:
 # Assert valid model entry
@@ -303,17 +303,6 @@ class AbilityTestCase(BaseModelTest):
         self.assertInvalid(name="TEST", description="yes")
 
 class WeaponTestCase(BaseModelTest):
-    """
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    weapon_type = models.CharField(max_length=MIN_CHARFIELD_LENGTH, choices=TYPE_CHOICES)
-    weapon_range = models.CharField(max_length=MIN_CHARFIELD_LENGTH, blank=True, null=True) # e.g. "12\""
-    attacks = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be 1 or D3
-    skill = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # BS or WS
-    strength = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be 4 or 2D6
-    ap = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be -1 or -D3
-    damage = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be 1 or D6
-    abilities = models.ManyToManyField(Ability, blank=True)
-    """
     # Behaviours:
     # Weapon name is required
     # Weapon type is required, and must be one of the following: Ranged, Melee
@@ -361,6 +350,9 @@ class WeaponTestCase(BaseModelTest):
 
     def test_blank_weapon_range(self):
         self.assertBlankAllowed("weapon_range", **self.required_fields)
+
+    def test_none_weapon_range(self):
+        self.assertNoneAllowed("weapon_range", **self.required_fields)
 
 class UnitTestCase(BaseModelTest):
     # Behaviours:
@@ -432,8 +424,59 @@ class DataSheetCase(BaseModelTest):
     # Datasheet has a one-to-one relationship with Unit
 
     def setUp(self):
+        # Let's make the SPM Captain Datasheet
+        self.model_class = Ability
+        self.unit_ability = self.assertValid(
+            name="Rites of Battle", 
+            description="Once per battle round, one unit from your army with this ability can use it " \
+            "when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of " \
+            "that Stratagem by 1CP.")
+        self.unit_wargear_abilities = self.assertValid(
+            name="Relic Shield",
+            description="The bearer has a Wounds characteristic of 6"
+        )
+        self.model_class = Faction
+        self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
+        self.model_class = Unit
+        self.unit = self.assertValid(name="Captain", faction=self.faction)
+        self.model_class = Weapon
+        self.bolt_gun = self.assertValid(
+            name="Heavy bolt pistol", weapon_type="RANGED", weapon_range='18"', attacks="1", skill="2+",
+            strength="4", ap="-1", damage="1"
+            )
+        self.required_fields = {
+            "unit" : self.unit,
+            "movement" : '6"',
+            "toughness" : 4,
+            "armour_save" : "3+",
+            "wounds" : 5,
+            "leadership" : "6+",
+            "objective_control" : 1,
+        }
         self.model_class = DataSheet
-        pass
+
+    def test_valid_datasheet(self):
+        # Test for valid creation without m2m fields
+        captain_datasheet = self.assertValid(invulnerable_save="4+", wargear_options="loadouts", **self.required_fields)
+        # Add unit_ability
+        captain_datasheet = self.assertActiveAbility(abilities=[self.unit_ability], obj=captain_datasheet)
+        # Add wargear_ability
+        captain_datasheet.wargear_abilities.add(self.unit_wargear_abilities)
+        self.assertIn(self.unit_wargear_abilities, captain_datasheet.wargear_abilities.all())
+        # Test str method
+        self.assertEqual(str(captain_datasheet), "Captain : Datasheet")
+
+    def test_invalid_datasheet(self):
+        self.assertRequired()
+
+    def test_blank_invulnerable_save(self):
+        self.assertBlankAllowed("invulnerable_save", **self.required_fields)
+
+    def test_null_invulnerable_save(self):
+        self.assertNoneAllowed("invulnerable_save", **self.required_fields)
+
+    def test_blank_wargear_options(self):
+        self.assertBlankAllowed("wargear_options", **self.required_fields)
 
 class LeadershipTestCase(BaseModelTest):
     def setUp(self):

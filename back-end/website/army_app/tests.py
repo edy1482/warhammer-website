@@ -1,7 +1,7 @@
 import datetime
 from django.test import TestCase
 from django.utils import timezone
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.contrib.auth.models import User
 # This is in the dependancy order
 from army_app.models import KeyWord, Ability, Faction, Detachment, Enhancement, Stratagem
@@ -12,7 +12,10 @@ from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 
 # Create your tests here.
 
-#TODO LeadershipCase, ArmyListEntryCase, AssignedLeaderCase
+#TODO decide on wargear_ability restrictions implementation (KeyWord or Ability or new model: Wargear)
+#   - e.g. only Captain with relic shield can lead bladeguard vets
+
+#TODO AssignedLeaderCase
 
 # Universal tests:
 # Assert valid model entry
@@ -31,7 +34,7 @@ class BaseModelTest(TestCase):
         return obj
     
     def assertInvalid(self, **kwargs):
-        with self.assertRaises(ValidationError):
+        with self.assertRaises((ValidationError, ObjectDoesNotExist)):
             obj = self.model_class(**kwargs)
             obj.full_clean()
     
@@ -478,10 +481,53 @@ class DataSheetCase(BaseModelTest):
     def test_blank_wargear_options(self):
         self.assertBlankAllowed("wargear_options", **self.required_fields)
 
+    def test_created_at(self):
+        self.assertIsRecent(upload_flag=False, **self.required_fields)
+
 class LeadershipTestCase(BaseModelTest):
     def setUp(self):
-        pass
-    model_class = Leadership
+        self.model_class = KeyWord
+        self.keyword1 = self.assertValid(name="LEADER")
+        self.model_class = Faction
+        self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
+        self.model_class = Unit
+        self.captain = self.assertValid(name="Captain", faction=self.faction)
+        self.captain = self.assertActiveKeyWord(keywords=[self.keyword1], obj=self.captain)
+        self.lieutenant = self.assertValid(name="Lieutenant", faction=self.faction)
+        self.lieutenant = self.assertActiveKeyWord(keywords=[self.keyword1], obj=self.lieutenant)
+        self.intercessors = self.assertValid(name="Intercessor Squad", faction=self.faction)
+        self.required_fields = {
+            "leader" : self.captain,
+            "attached_unit" : self.intercessors,
+        }
+        self.model_class = Leadership
+
+    def test_valid_leadership(self):
+        # Test object creation with all fields except m2m
+        test_lead = self.assertValid(**self.required_fields)
+        # Add Lieutenant co_leader
+        test_lead.co_leaders.add(self.lieutenant)
+        # Test to see if added properly
+        self.assertIn(self.lieutenant, test_lead.co_leaders.all())
+        # Save to check that the co_leader validation works
+        test_lead.save()
+
+    def test_required_fields(self):
+        self.assertRequired()
+
+    def test_invalid_leadership(self):
+        # Make intercessors the leader - invalid due to no LEADERSHIP keyword
+        self.assertInvalid(leader=self.intercessors, attached_unit=self.intercessors)
+        # Make Captain lead Lieutenant - invalid due to Lieutenant having LEADERSHIP keyword and being led
+        self.assertInvalid(leader=self.captain, attached_unit=self.lieutenant)
+        # Make the co_leader Intercessor, which is invalid due to no LEADERSHIP keyword
+        with self.assertRaises(ValidationError):
+            test_lead = self.assertValid(**self.required_fields)
+            # Add Intercessor co_leader
+            test_lead.co_leaders.add(self.intercessors)
+            # Save to raise error
+            test_lead.save()
+        # Test keyword restrictions? 
 
 class ArmyListCase(BaseModelTest):
     # Behaviours:
@@ -533,27 +579,71 @@ class ArmyListEntryCase(BaseModelTest):
     # ArmyListEntry must not save if there is another warlord in the same ArmyList (no multiple warlords)
 
     def setUp(self):
-        self.keyword1 = KeyWord.objects.create(name="ADEPTUS ASTARTES")
-        self.keyword2 = KeyWord.objects.create(name="CHARACTER")
+        self.model_class = KeyWord
+        self.keyword1 = self.assertValid(name="ADEPTUS ASTARTES")
+        self.keyword2 = self.assertValid(name="CHARACTER")
         self.model_class = User
         self.user = self.assertValid(username="test", password="test")
         self.model_class = Faction
-        self.faction = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
-        self.faction = self.assertActiveKeyWord(keywords=[self.keyword1], obj=self.faction)
+        self.spm = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
+        self.necron = self.assertValid(name="NEC", rule_name="REANIMATION PROTOCOLS")
+        self.spm = self.assertActiveKeyWord(keywords=[self.keyword1], obj=self.spm)
         self.model_class = Unit
-        self.unit = self.assertValid(name="Captain", faction=self.faction)
-        self.unit = self.assertActiveKeyWord(keywords=[self.keyword1, self.keyword2], obj=self.unit)
+        self.captain = self.assertValid(name="Captain", faction=self.spm)
+        self.captain = self.assertActiveKeyWord(keywords=[self.keyword1, self.keyword2], obj=self.captain)
         # Create another unit in the same faction without the required keywords
+        self.intercessor = self.assertValid(name="Intercessor Squad", faction=self.spm)
         # Create another unit in a different faction for testing
+        self.warrior = self.assertValid(name="Necron Warriors", faction=self.necron)
         self.model_class = Detachment
-        self.detachment = self.assertValid(name="Gladius Taskforce", faction=self.faction)
+        self.gladius = self.assertValid(name="Gladius Taskforce", faction=self.spm)
+        self.anvil = self.assertValid(name="Avil Seige Force", faction=self.spm)
+        # Create an enhancement for the captain
+        self.model_class = Enhancement
+        self.enhancement = self.assertValid(name="Adept of the Codex", detachment=self.gladius, points=20)
+        self.enhancement = self.assertActiveKeyWord(keywords=[self.keyword2], obj=self.enhancement)
+        self.wrong_enhancement = self.assertValid(name="Stoic Defender", detachment=self.anvil, points=15)
+        self.wrong_enhancement = self.assertActiveKeyWord(keywords=[self.keyword2], obj=self.wrong_enhancement)
         self.model_class = ArmyList
-        self.army_list = self.assertValid(user=self.user, faction=self.faction, detachment=self.detachment)
+        self.army_list = self.assertValid(user=self.user, faction=self.spm, detachment=self.gladius)
         self.required_fields = {
             "army_list" : self.army_list,
-            "unit" : self.unit,
+            "unit" : self.captain,
         }
         self.model_class = ArmyListEntry
+
+    def test_valid_army_list_entry(self):
+        # Create the first entry (which is the captain) give it an enhancement and make it the warlord
+        captain_entry = self.assertValid(is_warlord=True, enhancement=self.enhancement, **self.required_fields)
+        # Create the second entry (which is the intercessor squad, with no enhancement)
+        self.assertValid(unit=self.intercessor, army_list=self.army_list)
+        # Check that the str method works
+        self.assertEqual(str(captain_entry), f"{self.army_list} - {self.captain} → [Entry: {captain_entry.id}]")
+
+    def test_required_fields_army_list_entry(self):
+        # Test required fields
+        self.assertRequired()
+    
+    def test_invalid_army_list_entry(self):
+        # Add intercessor and set it to warlord - doesn't have character keyword
+        self.assertInvalid(unit=self.intercessor, army_list=self.army_list, is_warlord=True)
+        # Add intercessor and give it enhancement - doesn't have character keyword (must add it to the enhancement)
+        self.assertInvalid(unit=self.intercessor, army_list=self.army_list, enhancement=self.enhancement)
+        # Add valid captain who is warlord with enhancement
+        self.assertValid(is_warlord=True, enhancement=self.enhancement, **self.required_fields)
+        # Add necron warriors - wrong faction
+        self.assertInvalid(army_list=self.army_list, unit=self.warrior)
+        # Add another captain and set it to warlord - existing warlord
+        self.assertInvalid(is_warlord=True, **self.required_fields)
+        # Add another captain and give it the same enhancement - duplicate enhancement
+        self.assertInvalid(enhancement=self.enhancement, **self.required_fields)
+        # Add another captain and give it an enhancement from a different detachement, same faction
+        self.assertInvalid(enhancement=self.wrong_enhancement, **self.required_fields)
+
+    def test_default_values(self):
+        captain_entry = self.assertValid(**self.required_fields)
+        self.assertEqual(captain_entry.model_count, 1)
+        self.assertEqual(captain_entry.is_warlord, False)
 
 class AssignedLeaderCase(BaseModelTest):
     def setUp(self):

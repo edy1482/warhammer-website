@@ -73,6 +73,10 @@ class ArmyListEntry(models.Model):
     def clean(self):
         super().clean()
 
+        # Entry validation - unit must be in the same faction as the army_list
+        if self.unit.faction != self.army_list.faction:
+            raise ValidationError(f"Clashing Factions: Unit - {self.unit.faction} does not match Army List - {self.army_list.faction}")
+
         # Warlord Validation
         # Check if Entry is a Warlord
         if self.is_warlord:
@@ -96,7 +100,7 @@ class ArmyListEntry(models.Model):
                 # Join on the whole object in case there are multiple duplicates - this should not happen but it is good to check 
                 unit_names = ", ".join(dup.unit.name for dup in duplicate_enhancement)
                 raise ValidationError(f"Duplicate Enhancement: the enhancement {self.enhancement.name} is already assigned to another unit: {unit_names} in this list")
-            # Check to see if the keywords match 
+            # Check to see if the keywords match - reminder to include "CHARACTER" keyword in all enhancements
             enhancement_keywords = set(self.enhancement.keywords.all().values_list("name", flat=True))
             unit_keywords = set(self.unit.keywords.all().values_list("name", flat=True))
             if not enhancement_keywords.issubset(unit_keywords):

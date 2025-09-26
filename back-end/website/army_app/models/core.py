@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 MAX_CHARFIELD_LENGTH = 255
 
 # Create your models here.
+# TODO: test overriding Enhancement model save function to add CHARACTER keyword automatically
 
 class KeyWord(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, unique=True)

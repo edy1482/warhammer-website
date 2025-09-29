@@ -4,10 +4,10 @@ import os
 from datetime import datetime
 from django.core.management.base import BaseCommand, CommandError
 # In dependency order
-from army_app.data_loaders import load_factions, load_detachments, load_enhancements, load_stratagems
-from army_app.data_loaders import load_abilities, load_weapons 
-from army_app.data_loaders import load_units, load_unit_point_brackets, load_data_sheet
-from army_app.data_loaders import load_leadership
+from army_app.data import load_factions, load_detachments, load_enhancements, load_stratagems, load_abilities
+from army_app.data import load_weapons 
+from army_app.data import load_units, load_unit_point_brackets, load_data_sheet
+from army_app.data import load_leadership
 
 class Command(BaseCommand):
     help = "Validate CSV data before migration"

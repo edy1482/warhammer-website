@@ -15,7 +15,7 @@ from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 #TODO decide on wargear_ability restrictions implementation (KeyWord or Ability or new model: Wargear)
 #   - e.g. only Captain with relic shield can lead bladeguard vets
 
-#TODO AssignedLeaderCase
+#TODO clean up test names
 
 # Universal tests:
 # Assert valid model entry
@@ -647,5 +647,67 @@ class ArmyListEntryCase(BaseModelTest):
 
 class AssignedLeaderCase(BaseModelTest):
     def setUp(self):
-        pass
-    model_class = AssignedLeader
+        self.model_class = KeyWord
+        self.keyword1 = self.assertValid(name="LEADER")
+        self.model_class = User
+        self.user = self.assertValid(username="test", password="test")
+        self.model_class = Faction
+        self.spm = self.assertValid(name="SPM", rule_name="OATH OF MOMENT")
+        self.model_class = Unit
+        self.captain = self.assertValid(name="Captain", faction=self.spm)
+        self.captain = self.assertActiveKeyWord(keywords=[self.keyword1], obj=self.captain)
+        self.lieutenant = self.assertValid(name="Lieutenant", faction=self.spm)
+        self.lieutenant = self.assertActiveKeyWord(keywords=[self.keyword1], obj=self.lieutenant)
+        self.chaplain = self.assertValid(name="Chaplain", faction=self.spm)
+        self.chaplain = self.assertActiveKeyWord(keywords=[self.keyword1], obj=self.chaplain)
+        self.intercessors = self.assertValid(name="Intercessor Squad", faction=self.spm)
+        self.model_class = Leadership
+        self.captain_leadership = self.assertValid(leader=self.captain, attached_unit=self.intercessors)
+        self.captain_leadership.co_leaders.add(self.lieutenant)
+        self.lieutenant_leadership = self.assertValid(leader=self.lieutenant, attached_unit=self.intercessors)
+        self.lieutenant_leadership.co_leaders.add(self.captain)
+        self.chaplain_leadership = self.assertValid(leader=self.chaplain, attached_unit=self.intercessors)
+        self.model_class = Detachment
+        self.gladius = self.assertValid(name="Gladius Taskforce", faction=self.spm)
+        self.anvil = self.assertValid(name="Avil Seige Force", faction=self.spm)
+        self.model_class = ArmyList
+        self.army_list = self.assertValid(user=self.user, faction=self.spm, detachment=self.gladius)
+        self.other_list = self.assertValid(user=self.user, faction=self.spm, detachment=self.anvil)
+        self.model_class = ArmyListEntry
+        self.captain_entry = self.assertValid(army_list=self.army_list, unit=self.captain)
+        self.captain_entry2 = self.assertValid(army_list=self.army_list, unit=self.captain)
+        self.lieutenant_entry = self.assertValid(army_list=self.army_list, unit=self.lieutenant)
+        self.chaplain_entry = self.assertValid(army_list=self.army_list, unit=self.chaplain)
+        self.intercessors_entry = self.assertValid(army_list=self.army_list, unit=self.intercessors)
+        self.intercessors_entry2 = self.assertValid(army_list=self.army_list, unit=self.intercessors)
+        self.other_inter_entry = self.assertValid(army_list=self.other_list, unit=self.intercessors)
+        self.required_fields = {
+            "entry" : self.intercessors_entry,
+            "leader_entry" : self.captain_entry
+        }
+        self.model_class = AssignedLeader
+
+    def test_valid_AssignedLeader(self):
+        # Create a valid Assigned Leader for an army_list
+        test_assigned_leader = self.assertValid(**self.required_fields)
+        # Add a valid co_leader
+        self.assertValid(entry=self.intercessors_entry, leader_entry=self.lieutenant_entry)
+        # Test str function
+        self.assertEqual(str(test_assigned_leader), f"{self.captain_entry.unit} [Entry {self.captain_entry.id}] → {self.intercessors_entry.unit} [Entry {self.intercessors_entry.id}]")
+
+    def test_required_fields(self):
+        self.assertRequired()
+
+    def test_invalid_assigned_leader(self):
+        # Check if the entry and leader_entry are in the same ArmyList
+        self.assertInvalid(entry=self.other_inter_entry, leader_entry=self.captain_entry)
+        # Ensure Leadership rule exists
+        self.assertInvalid(entry=self.captain_entry, leader_entry=self.intercessors_entry)
+        # Check if any required keyword exists - skip?
+        # Check co-leading rule if another leader is already assigned,
+        self.assertValid(**self.required_fields)
+        self.assertInvalid(entry=self.intercessors_entry, leader_entry=self.chaplain_entry)
+        # Prevent leader from leading multiple separate units
+        self.assertInvalid(entry=self.intercessors_entry2, leader_entry=self.captain_entry)
+        # Prevent two leaders of the same unit type from leading same entry
+        self.assertInvalid(entry=self.intercessors_entry, leader_entry=self.captain_entry2)

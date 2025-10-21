@@ -31,7 +31,8 @@ class Faction(models.Model):
         "TYR" : "Tyrannids",
         "ORK" : "Orks",
         "NEC" : "Necrons",
-        "CUS" : "Adeptus Custodes"
+        "CUS" : "Adeptus Custodes",
+        "MEC" : "Adeptus Mechanicus",
     }
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=FACTION_CHOICES)
     rule_name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)

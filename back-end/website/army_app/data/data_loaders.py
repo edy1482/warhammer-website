@@ -21,6 +21,7 @@ def load_model(model_class, csv_path, row_to_kwargs):
                 for err in row_errors:
                     errors.append(f"{model_class} Error - Row {idx}: {err}")
                 continue # skip creating this object
+            
             try:
                 # Handle keywords if present
                 keyword_objs = []
@@ -30,24 +31,36 @@ def load_model(model_class, csv_path, row_to_kwargs):
                         for k in row["keywords"].split(";") if k.strip()
                     ]
                     kwargs["keywords"] = keyword_objs
-                # Pull out co_leaders temporarily
+                else:
+                    kwargs["keywords"] = []
+
+                # Pull out M2M fields for post-save binding
+                keywords = kwargs.pop("keywords", [])
                 co_leaders = kwargs.pop("co_leaders", [])
-                # Pull out abilities temporarily
-                abilities, wargear_abilities = kwargs.pop("abilities", []), kwargs.pop("wargear_abilities", [])
-                # Pull out weapons temporarily
-                ranged_weapons, melee_weapons = kwargs.pop("ranged_weapons", []), kwargs.pop("melee_weapons", [])
-                # Create instance without keywords (keywords can only be added after save)
-                obj = model_class(**{key: value for key, value in kwargs.items() if key !="keywords"})
-                # Validate
+                abilities = kwargs.pop("abilities", []),
+                wargear_abilities = kwargs.pop("wargear_abilities", [])
+                ranged_weapons = kwargs.pop("ranged_weapons", [])
+                melee_weapons = kwargs.pop("melee_weapons", [])
+
+                # Create instance without saving and validate
+                obj = model_class(**kwargs)
                 obj.full_clean()
+
+                # Attach edit and id flags to each obj directly
+                obj.id = row["id"]
+                obj.is_edit = str(row["edit"]).strip().lower() in ("1", "true")
+
+                # Attach each M2M field directly to obj
+                obj.keywords = keywords
+                obj.co_leaders = co_leaders
+                obj.abilities = abilities
+                obj.wargear_abilities = wargear_abilities
+                obj.ranged_weapons = ranged_weapons
+                obj.melee_weapons = melee_weapons
+                
                 # Add to list (w/ keywords)
-                valid_objs.append(
-                    (
-                        obj, 
-                        kwargs.get("keywords", []), # m2m fields (create)
-                        co_leaders, abilities, wargear_abilities, ranged_weapons, melee_weapons, # m2m fields (lookup)
-                     )
-                    )
+                valid_objs.append(obj)
+                
             except ValidationError as v_err:
                 errors.append(f"{model_class} Validation Error - Row {idx}: {v_err}")
             except Exception as err:

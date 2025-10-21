@@ -41,7 +41,7 @@ class Command(BaseCommand):
         successful_validations = []
 
         for name, path, loader in loaders:
-            objs, errors = loader(path)
+            errors, objs = loader(path)
             # Check if errors exist
             if errors:
                 logger.error(f"Validation failed - {name}: {len(errors)} error(s) found...")

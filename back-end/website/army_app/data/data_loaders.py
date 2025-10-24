@@ -12,7 +12,7 @@ def load_model(model_class, csv_path, row_to_kwargs):
     Handles ManyToMany Keyword column automatically
     """
     errors, valid_objs = [], []
-    with open(csv_path, newline="") as f:
+    with open(csv_path, encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
         for idx, row in enumerate(reader, start=1):
             # Build kwargs for model init
@@ -48,7 +48,7 @@ def load_model(model_class, csv_path, row_to_kwargs):
 
                 # Attach edit and id flags to each obj directly
                 obj.id = row["id"]
-                obj.is_edit = str(row["edit"]).strip().lower() in ("1", "true")
+                obj.is_edit = bool(row["edit"]).strip().lower() in ("1", "true")
 
                 # Attach each M2M field directly to obj
                 obj.keywords = keywords
@@ -81,11 +81,10 @@ def load_factions(csv_path):
 def load_detachments(csv_path):
     def row_to_detachment_kwargs(row):
         errors = []
-        
         try:
             faction = Faction.objects.get(name=row["faction"])
         except Faction.DoesNotExist:
-            errors.append(f"Faction {row["faction"]} not found for detachment {row["name"]}")
+            errors.append(f"Faction {row['faction']} not found for detachment {row['name']}")
             return errors, None
         
         return errors, {
@@ -102,7 +101,7 @@ def load_enhancements(csv_path):
         try:
             detachment = Detachment.objects.get(name=row["detachment"])
         except Detachment.DoesNotExist:
-            errors.append(f"Detachment {row["detachment"]} not found for enhancement {row["name"]}")
+            errors.append(f"Detachment {row['detachment']} not found for enhancement {row['name']}")
             return errors, None
         
         return errors, {
@@ -123,7 +122,7 @@ def load_stratagems(csv_path):
             try:
                 detachment = Detachment.objects.get(name=row["detachment"])
             except Detachment.DoesNotExist:
-                errors.append(f"Detachment {row["detachment"]} not found for enhancement {row["name"]}")
+                errors.append(f"Detachment {row['detachment']} not found for enhancement {row['name']}")
                 return errors, None
         
         return errors, {
@@ -179,7 +178,7 @@ def load_units(csv_path):
         try:
             faction = Faction.objects.get(name=row["faction"])
         except Faction.DoesNotExist:
-            errors.append(f"Faction {row["faction"]} not found for detachment {row["name"]}")
+            errors.append(f"Faction {row['faction']} not found for detachment {row['name']}")
             return errors, None
 
         return errors, {
@@ -194,7 +193,7 @@ def load_unit_point_brackets(csv_path):
         try:
             unit = Unit.objects.get(name=row["unit"])
         except Unit.DoesNotExist:
-            errors.append(f"Unit {row["unit"]} not found")
+            errors.append(f"Unit {row['unit']} not found")
 
         if errors:
             return errors, None
@@ -214,7 +213,7 @@ def load_data_sheet(csv_path):
         try:
             unit = Unit.objects.get(name=row["unit"])
         except Unit.DoesNotExist:
-            errors.append(f"Unit {row["unit"]} not found")
+            errors.append(f"Unit {row['unit']} not found")
 
         missing = []
 
@@ -266,12 +265,12 @@ def load_leadership(csv_path):
         try:
             leader = Unit.objects.get(name=row["leader"])
         except Unit.DoesNotExist:
-            errors.append(f"Leader unit {row["leader"]} not found")
+            errors.append(f"Leader unit {row['leader']} not found")
         
         try:
             attached_unit = Unit.objects.get(name=row["attached_unit"]) 
         except Unit.DoesNotExist:
-            errors.append(f"Attached unit {row["attached_unit"]} not found")
+            errors.append(f"Attached unit {row['attached_unit']} not found")
 
         # Collect co_leaders and validate them
         if "co_leaders" in row and row["co_leaders"].strip():

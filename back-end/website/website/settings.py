@@ -147,7 +147,7 @@ LOGGING = {
             "class" : "logging.StreamHandler",
             "formatter" : "simple",
         },
-        # Timestamped file for validate_data
+        # Rolling file for validate_data
         "validate_data_file" : {
             "level" : "INFO",
             "class" : "logging.handlers.RotatingFileHandler",
@@ -164,7 +164,17 @@ LOGGING = {
             "maxBytes" : 5 * 1024 * 1024, # 5 MB
             "backupCount" : 3, # keep 3 old logs
             "formatter" : "verbose",
-        }
+        },
+        # Rolling file for data migration
+        "data_migration_file" : {
+            "level" : "INFO",
+            "class" : "logging.handlers.RotatingFileHandler",
+            "filename" : os.path.join(LOG_DIR, "datasheet.log"),
+            "maxBytes" : 5 * 1024 * 1024, # 5 MB
+            "backupCount" : 3, # keep 3 old logs
+            "formatter" : "verbose",
+        },
+        
     },
     "loggers" : {
         # Specific logger for data validation
@@ -177,6 +187,12 @@ LOGGING = {
         "datasheet" : {
             "handlers" : ["console", "datasheet_file"],
             "level" : "WARNING",
+            "propagate" : False,
+        },
+        # Specific logger for data migration
+        "data_migration" : {
+            "handlers" : ["console", "data_migration_file"],
+            "level" : "INFO",
             "propagate" : False,
         },
     },

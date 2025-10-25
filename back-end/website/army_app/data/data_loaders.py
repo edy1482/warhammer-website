@@ -58,7 +58,7 @@ def load_model(model_class, csv_path, row_to_kwargs):
                 obj.ranged_weapons = ranged_weapons
                 obj.melee_weapons = melee_weapons
                 
-                # Add to list (w/ keywords)
+                # Add to list
                 valid_objs.append(obj)
                 
             except ValidationError as v_err:

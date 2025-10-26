@@ -1,5 +1,4 @@
-# army_app/management/commands/update_csvs_from_sheets.py
-import requests
+import requests # type: ignore
 from datetime import datetime
 from django.core.management.base import BaseCommand
 from pathlib import Path
@@ -7,7 +6,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parents[2]
 DATA_DIR = BASE_DIR / "army_app" / "data"
 SHEET_ID = "1hjo6Cel6e-nh7Yc4d5fXnPHtLopYh_uEYGemejXlzJU"
-
 
 SHEETS = {
     "factions": (SHEET_ID, "Factions"),
@@ -36,4 +34,6 @@ class Command(BaseCommand):
             resp.raise_for_status()
             out_path.write_bytes(resp.content)
             self.stdout.write(self.style.SUCCESS(f"Updated {name}.csv"))
+
+        return
 

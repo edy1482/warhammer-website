@@ -246,7 +246,7 @@ def load_data_sheet(csv_path):
             "unit" : unit,
             "movement" : row["movement"],
             "toughness" : row["toughness"],
-            "save" : row["save"],
+            "armour_save" : row["armour_save"],
             "wounds" : row["wounds"],
             "leadership" : row["leadership"],
             "objective_control" : row["objective_control"],
@@ -254,6 +254,7 @@ def load_data_sheet(csv_path):
             "ranged_weapons" : ranged_weapon_names,
             "melee_weapons" : melee_weapon_names,
             "wargear_options" : row["wargear_options"],
+            "abilities" : ability_names,
             "wargear_abilities" : wargear_ability_names,
         }
     return load_model(DataSheet, csv_path, row_to_data_sheet_kwargs)  

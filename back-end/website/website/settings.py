@@ -156,6 +156,15 @@ LOGGING = {
             "backupCount" : 3, # keep 3 old logs
             "formatter" : "verbose",
         },
+        # Rolling file for download_csv
+        "download_csv_file" : {
+            "level" : "INFO",
+            "class" : "logging.handlers.RotatingFileHandler",
+            "filename" : os.path.join(LOG_DIR, "download_csv.log"),
+            "maxBytes" : 5 * 1024 * 1024, # 5 MB
+            "backupCount" : 3, # keep 3 old logs
+            "formatter" : "verbose",
+        },
         # Rolling file for datasheet
         "datasheet_file" : {
             "level" : "INFO",
@@ -171,6 +180,12 @@ LOGGING = {
         "load_data" : {
             "handlers" : ["console", "load_data_file"],
             "level" : "INFO",
+            "propagate" : False,
+        },
+        # Specific logger for download csv
+        "download_csv" : {
+            "handlers" : ["console", "download_csv_file"],
+            "level" : "WARNING",
             "propagate" : False,
         },
         # Specific logger for datasheet

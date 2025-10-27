@@ -44,7 +44,6 @@ class Command(BaseCommand):
             resp = requests.get(url)
             resp.raise_for_status()
             out_path.write_bytes(resp.content)
-            self.stdout.write(self.style.SUCCESS(f"Updated {name}.csv"))
             logger.info(f"Updated {name}.csv")
         # Write logger outro
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")

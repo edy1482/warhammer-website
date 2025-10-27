@@ -1,8 +1,11 @@
+from pathlib import Path
+
 def get_version_folders(base_dir):
     """
     Returns sorted list of timestamped version folders in ascending order.
     """
-    folders = [f for f in base_dir.iterdir() if f.is_dir() and f.name != "current"]
+    base_dir = Path(base_dir)
+    folders = [f for f in base_dir.iterdir() if f.is_dir() and f.name != "__pycache__"]
     return sorted(folders, key=lambda x: x.name)
 
 def get_latest_version(base_dir):

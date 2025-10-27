@@ -12,7 +12,7 @@ from army_app.data import load_units, load_unit_point_brackets, load_data_sheet
 from army_app.data import load_leadership
 from .utils import get_latest_version, get_previous_version
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = os.path.join(BASE_DIR, "data")
 LOG_DIR = os.path.join(BASE_DIR, "logs")
 
@@ -21,10 +21,9 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         group = parser.add_mutually_exclusive_group(required=True)
-        group.add_argument("--validate_only", action="store_true", help="Only validate CSV data")
         group.add_argument("--apply", action="store_true", help="Validate and save to DB")
         group.add_argument("--rollback", action="store_true", help="Rollback data to previous or specified version")
-        parser.add_argument("--version", type=str, help="Version folder (timestamp or name)")
+        parser.add_argument("--data_version", type=str, help="Version folder (timestamp or name)")
 
     def handle(self, *args, **options):
         # Setup logger from settings.py
@@ -38,7 +37,7 @@ class Command(BaseCommand):
         logger.info("=" * 80)
 
         # Grab CSV folder (default to latest version if not given)
-        version_dir = options.get("version") or get_latest_version(DATA_DIR)
+        version_dir = options.get("data_version") or get_latest_version(DATA_DIR)
         if not version_dir:
             logger.error("load_data command failed - No version folders found in directory")
             # Exit with Django Command error - CI/CD will see failure like exit(1)
@@ -46,7 +45,7 @@ class Command(BaseCommand):
 
         # Rollback (default to previous version if not given)
         if options["rollback"]:
-            version_dir = options.get("version") or get_previous_version(DATA_DIR)
+            version_dir = options.get("data_version") or get_previous_version(DATA_DIR)
             if not version_dir:
                 logger.error("load_data command failed - No previous version to rollback to")
                 # Exit with Django Command error - CI/CD will see failure like exit(1)
@@ -57,17 +56,6 @@ class Command(BaseCommand):
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             logger.info("=" * 80)
             logger.info(f"Ending rollback at {timestamp}")
-            logger.info("=" * 80)
-            return
-
-        if options["validate_only"]:
-            logger.info(f"[Validate] Starting data validation for version {version_dir}")
-            self.validate_from_version(version_dir)
-            # Write logger outro
-            logger.info(f"Logs saved to {LOG_DIR}")
-            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            logger.info("=" * 80)
-            logger.info(f"Ending validate data run at {timestamp}")
             logger.info("=" * 80)
             return
         
@@ -93,37 +81,46 @@ class Command(BaseCommand):
             ("Weapons", VERS_DIR / "weapons.csv", load_weapons),
             ("Units", VERS_DIR / "units.csv", load_units),
             ("Unit Point Brackets", VERS_DIR / "unit_point_brackets.csv", load_unit_point_brackets),
-            ("Datasheets", VERS_DIR / "datasheets", load_data_sheet),
+            ("Datasheets", VERS_DIR / "datasheets.csv", load_data_sheet),
             ("Leadership", VERS_DIR / "leadership.csv", load_leadership),
         ]
         return loaders
-
+    
+    @transaction.atomic
     def load_from_version(self, version_dir):
+        # Set up logger
         logger = logging.getLogger("load_data")
-        logger.info("Starting data load...")
-        all_objects = self.validate_from_version(version_dir)
-        with transaction.atomic():
-            for obj in all_objects:
-                Model = obj.__class__
-                m2m_fields = {
-                    f.name: getattr(obj, f.name)
-                    for f in obj._meta.many_to_many
-                    if getattr(obj, f.name, None)
-                }
-
-                defaults = {
-                    field.name: getattr(obj, field.name)
-                    for field in obj._meta.fields
-                    if field.name not in ["id"]
-                }
-
-                instance, created = Model.objects.update_or_create(
-                     id=obj.id, defaults=defaults
-                )
-
-                for field_name, related_objs in m2m_fields.items():
-                    getattr(instance, field_name).set(related_objs)
-        return
+        loaders = self.get_loaders(version_dir)
+        
+        # Set up for stats/error handling
+        all_errors = []
+        successful_saves = []
+        logger.info("Starting validation...")
+        
+        for name, path, loader in loaders:
+            # Loader itself saves and sets m2m relationships
+            errors, objs = loader(path)
+            # Check if errors exist
+            if errors:
+                logger.error(f"FAIL: Validation failed - {name}: {len(errors)} error(s) found...")
+                for err in errors:
+                    logger.error(err)
+                all_errors.extend(errors)
+            else:
+                # Save object into the DB
+                logger.info(f"OK: {name} validation completed")
+                successful_saves.extend(objs)
+        
+        # If errors, rollback the transaction, log it and exit
+        if all_errors:
+            transaction.set_rollback(True)
+            logger.error(f"FAIL: Validation failed with {len(all_errors)} errors(s) found")
+            logger.info(f"Logs saved in {LOG_DIR}")
+            logger.info("=" * 80)
+            # Exit with Django Command error - CI/CD will see failure like exit(1)
+            raise CommandError(f"{len(all_errors)} errors found during validation")
+        else:
+            logger.info(f"OK: Validation complete with {len(successful_saves)} successful validations")
 
     def rollback_version(self, version_dir):
         logger = logging.getLogger("load_data")
@@ -159,35 +156,3 @@ class Command(BaseCommand):
 
         logger.info(f"OK: Rollback to {version_dir} completed.")
         return
-
-    def validate_from_version(self, version_dir):
-        loaders = self.get_loaders(version_dir)
-        all_errors = []
-        successful_validations = []
-        logger = logging.getLogger("load_data")
-        logger.info("Starting validation...")
-        for name, path, loader in loaders:
-            errors, objs = loader(path)
-            # Check if errors exist
-            if errors:
-                logger.error(f"FAIL: Validation failed - {name}: {len(errors)} error(s) found...")
-                for err in errors:
-                    logger.error(err)
-                all_errors.extend(errors)
-            else:
-                logger.info(f"OK: {name} validation completed")
-                successful_validations.extend(objs)
-            
-        if all_errors:
-            logger.error(f"FAIL: Validation failed with {len(all_errors)} errors(s) found")
-            logger.info(f"Logs saved in {LOG_DIR}")
-            logger.info("=" * 80)
-            # Exit with Django Command error - CI/CD will see failure like exit(1)
-            raise CommandError(f"{len(all_errors)} errors found during validation")
-        else:
-            logger.info(f"OK: Validation complete with {len(successful_validations)} successful validations")
-        
-        return successful_validations
-
-        
-    

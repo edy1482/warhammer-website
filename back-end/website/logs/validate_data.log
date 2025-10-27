@@ -1,0 +1,180 @@
+2025-10-27 07:44:07,690 - INFO - load_data - Starting validation...
+2025-10-27 07:44:07,702 - ERROR - load_data - FAIL: Validation failed - Factions: 1 error(s) found...
+2025-10-27 07:44:07,702 - ERROR - load_data - <class 'army_app.models.core.Faction'> Unexpected Error - Row 1: Direct assignment to the forward side of a many-to-many set is prohibited. Use keywords.set() instead.
+2025-10-27 07:44:07,703 - ERROR - load_data - FAIL: Validation failed - Detachments: 1 error(s) found...
+2025-10-27 07:44:07,703 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 1: Faction SPM not found for detachment Gladius Task Force
+2025-10-27 07:44:07,705 - ERROR - load_data - FAIL: Validation failed - Enhancements: 3 error(s) found...
+2025-10-27 07:44:07,705 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 1: Detachment Gladius Task Force not found for enhancement Artificer Armour
+2025-10-27 07:44:07,705 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 2: Detachment Gladius Task Force not found for enhancement The Honour Vehement
+2025-10-27 07:44:07,705 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 3: Detachment Gladius Task Force not found for enhancement Adept of the Codex
+2025-10-27 07:44:07,707 - ERROR - load_data - FAIL: Validation failed - Stratagems: 4 error(s) found...
+2025-10-27 07:44:07,707 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 1: Detachment Gladius Task Force not found for enhancement ARMOUR OF CONTEMPT
+2025-10-27 07:44:07,707 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 2: Detachment Gladius Task Force not found for enhancement ADAPTIVE STRATEGY
+2025-10-27 07:44:07,707 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 3: Detachment Gladius Task Force not found for enhancement ONLY IN DEATH DOES DUTY END
+2025-10-27 07:44:07,707 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 4: Detachment Gladius Task Force not found for enhancement STORM OF FIRE
+2025-10-27 07:44:07,712 - INFO - load_data - OK: Abilities validation completed
+2025-10-27 07:44:07,715 - ERROR - load_data - FAIL: Validation failed - Weapons: 9 error(s) found...
+2025-10-27 07:44:07,715 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 1: Weapon(s) not found: Pistol
+2025-10-27 07:44:07,715 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Unexpected Error - Row 2: Direct assignment to the forward side of a many-to-many set is prohibited. Use abilities.set() instead.
+2025-10-27 07:44:07,715 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Unexpected Error - Row 3: Direct assignment to the forward side of a many-to-many set is prohibited. Use abilities.set() instead.
+2025-10-27 07:44:07,715 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 4: Weapon(s) not found: Devastating Wounds, Pistol
+2025-10-27 07:44:07,715 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 5: Weapon(s) not found: Pistol
+2025-10-27 07:44:07,715 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 6: Weapon(s) not found: Pistol, Hazardous
+2025-10-27 07:44:07,715 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Unexpected Error - Row 7: Direct assignment to the forward side of a many-to-many set is prohibited. Use abilities.set() instead.
+2025-10-27 07:44:07,715 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Unexpected Error - Row 8: Direct assignment to the forward side of a many-to-many set is prohibited. Use abilities.set() instead.
+2025-10-27 07:44:07,715 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Unexpected Error - Row 9: Direct assignment to the forward side of a many-to-many set is prohibited. Use abilities.set() instead.
+2025-10-27 07:44:07,717 - ERROR - load_data - FAIL: Validation failed - Units: 3 error(s) found...
+2025-10-27 07:44:07,717 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 1: Faction SPM not found for detachment Captain
+2025-10-27 07:44:07,717 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 2: Faction SPM not found for detachment Lieutenant
+2025-10-27 07:44:07,717 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 3: Faction SPM not found for detachment Intercessor Squad
+2025-10-27 07:44:07,719 - ERROR - load_data - FAIL: Validation failed - Unit Point Brackets: 4 error(s) found...
+2025-10-27 07:44:07,719 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 1: Unit Captain not found
+2025-10-27 07:44:07,719 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 2: Unit Lieutenant not found
+2025-10-27 07:44:07,719 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 3: Unit Intercessor Squad not found
+2025-10-27 07:44:07,719 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 4: Unit Intercessor Squad not found
+2025-10-27 07:44:07,724 - ERROR - load_data - FAIL: Validation failed - Datasheets: 6 error(s) found...
+2025-10-27 07:44:07,724 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 1: Unit Captain not found
+2025-10-27 07:44:07,724 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 1: Objects not found: Leader, Rites of Battle, Finest Hour, Relic Shield
+2025-10-27 07:44:07,724 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 2: Unit Lieutenant not found
+2025-10-27 07:44:07,724 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 2: Objects not found: Leader, Tactical Precision, Target Priority, Storm Shield
+2025-10-27 07:44:07,724 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 3: Unit Intercessor Squad not found
+2025-10-27 07:44:07,724 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 3: Objects not found: Objective Secured, Target Elimination
+2025-10-27 07:44:07,724 - INFO - load_data - OK: Leadership validation completed
+2025-10-27 07:44:07,724 - ERROR - load_data - FAIL: Validation failed with 31 errors(s) found
+2025-10-27 07:44:07,724 - INFO - load_data - Logs saved in /root/edy1482/warhammer-website/back-end/website/army_app/logs
+2025-10-27 07:44:07,724 - INFO - load_data - ================================================================================
+2025-10-27 14:47:54,726 - INFO - load_data - Starting validation...
+2025-10-27 14:47:54,799 - ERROR - load_data - FAIL: Validation failed - Factions: 1 error(s) found...
+2025-10-27 14:47:54,799 - ERROR - load_data - <class 'army_app.models.core.Faction'> Unexpected Error - Row 1: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,801 - ERROR - load_data - FAIL: Validation failed - Detachments: 1 error(s) found...
+2025-10-27 14:47:54,801 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 1: Faction SPM not found for detachment Gladius Task Force
+2025-10-27 14:47:54,803 - ERROR - load_data - FAIL: Validation failed - Enhancements: 3 error(s) found...
+2025-10-27 14:47:54,803 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 1: Detachment Gladius Task Force not found for enhancement Artificer Armour
+2025-10-27 14:47:54,803 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 2: Detachment Gladius Task Force not found for enhancement The Honour Vehement
+2025-10-27 14:47:54,803 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 3: Detachment Gladius Task Force not found for enhancement Adept of the Codex
+2025-10-27 14:47:54,805 - ERROR - load_data - FAIL: Validation failed - Stratagems: 4 error(s) found...
+2025-10-27 14:47:54,805 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 1: Detachment Gladius Task Force not found for enhancement ARMOUR OF CONTEMPT
+2025-10-27 14:47:54,805 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 2: Detachment Gladius Task Force not found for enhancement ADAPTIVE STRATEGY
+2025-10-27 14:47:54,805 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 3: Detachment Gladius Task Force not found for enhancement ONLY IN DEATH DOES DUTY END
+2025-10-27 14:47:54,805 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 4: Detachment Gladius Task Force not found for enhancement STORM OF FIRE
+2025-10-27 14:47:54,816 - ERROR - load_data - FAIL: Validation failed - Abilities: 12 error(s) found...
+2025-10-27 14:47:54,816 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 1: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,816 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 2: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,816 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 3: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,816 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 4: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,816 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 5: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,816 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 6: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,816 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 7: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,816 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 8: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,816 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 9: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,816 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 10: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,816 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 11: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,816 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 12: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,820 - ERROR - load_data - FAIL: Validation failed - Weapons: 9 error(s) found...
+2025-10-27 14:47:54,820 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 1: Weapon(s) not found: Pistol
+2025-10-27 14:47:54,820 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Unexpected Error - Row 2: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,821 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Unexpected Error - Row 3: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,821 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 4: Weapon(s) not found: Devastating Wounds, Pistol
+2025-10-27 14:47:54,821 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 5: Weapon(s) not found: Pistol
+2025-10-27 14:47:54,821 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 6: Weapon(s) not found: Pistol, Hazardous
+2025-10-27 14:47:54,821 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Unexpected Error - Row 7: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,821 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Unexpected Error - Row 8: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,821 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Unexpected Error - Row 9: list.append() takes exactly one argument (7 given)
+2025-10-27 14:47:54,822 - ERROR - load_data - FAIL: Validation failed - Units: 3 error(s) found...
+2025-10-27 14:47:54,822 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 1: Faction SPM not found for detachment Captain
+2025-10-27 14:47:54,822 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 2: Faction SPM not found for detachment Lieutenant
+2025-10-27 14:47:54,823 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 3: Faction SPM not found for detachment Intercessor Squad
+2025-10-27 14:47:54,826 - ERROR - load_data - FAIL: Validation failed - Unit Point Brackets: 4 error(s) found...
+2025-10-27 14:47:54,826 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 1: Unit Captain not found
+2025-10-27 14:47:54,826 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 2: Unit Lieutenant not found
+2025-10-27 14:47:54,826 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 3: Unit Intercessor Squad not found
+2025-10-27 14:47:54,826 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 4: Unit Intercessor Squad not found
+2025-10-27 14:47:54,833 - ERROR - load_data - FAIL: Validation failed - Datasheets: 6 error(s) found...
+2025-10-27 14:47:54,833 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 1: Unit Captain not found
+2025-10-27 14:47:54,833 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 1: Objects not found: Leader, Rites of Battle, Finest Hour, Relic Shield
+2025-10-27 14:47:54,833 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 2: Unit Lieutenant not found
+2025-10-27 14:47:54,833 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 2: Objects not found: Leader, Tactical Precision, Target Priority, Storm Shield
+2025-10-27 14:47:54,833 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 3: Unit Intercessor Squad not found
+2025-10-27 14:47:54,833 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 3: Objects not found: Objective Secured, Target Elimination
+2025-10-27 14:47:54,834 - INFO - load_data - OK: Leadership validation completed
+2025-10-27 14:47:54,834 - ERROR - load_data - FAIL: Validation failed with 43 errors(s) found
+2025-10-27 14:47:54,834 - INFO - load_data - Logs saved in /root/edy1482/warhammer-website/back-end/website/army_app/logs
+2025-10-27 14:47:54,834 - INFO - load_data - ================================================================================
+2025-10-27 14:48:38,589 - INFO - load_data - Starting validation...
+2025-10-27 14:48:38,602 - INFO - load_data - OK: Factions validation completed
+2025-10-27 14:48:38,603 - ERROR - load_data - FAIL: Validation failed - Detachments: 1 error(s) found...
+2025-10-27 14:48:38,603 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 1: Faction SPM not found for detachment Gladius Task Force
+2025-10-27 14:48:38,605 - ERROR - load_data - FAIL: Validation failed - Enhancements: 3 error(s) found...
+2025-10-27 14:48:38,605 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 1: Detachment Gladius Task Force not found for enhancement Artificer Armour
+2025-10-27 14:48:38,605 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 2: Detachment Gladius Task Force not found for enhancement The Honour Vehement
+2025-10-27 14:48:38,605 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 3: Detachment Gladius Task Force not found for enhancement Adept of the Codex
+2025-10-27 14:48:38,607 - ERROR - load_data - FAIL: Validation failed - Stratagems: 4 error(s) found...
+2025-10-27 14:48:38,607 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 1: Detachment Gladius Task Force not found for enhancement ARMOUR OF CONTEMPT
+2025-10-27 14:48:38,607 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 2: Detachment Gladius Task Force not found for enhancement ADAPTIVE STRATEGY
+2025-10-27 14:48:38,607 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 3: Detachment Gladius Task Force not found for enhancement ONLY IN DEATH DOES DUTY END
+2025-10-27 14:48:38,607 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 4: Detachment Gladius Task Force not found for enhancement STORM OF FIRE
+2025-10-27 14:48:38,613 - INFO - load_data - OK: Abilities validation completed
+2025-10-27 14:48:38,617 - ERROR - load_data - FAIL: Validation failed - Weapons: 4 error(s) found...
+2025-10-27 14:48:38,617 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 1: Weapon(s) not found: Pistol
+2025-10-27 14:48:38,617 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 4: Weapon(s) not found: Devastating Wounds, Pistol
+2025-10-27 14:48:38,617 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 5: Weapon(s) not found: Pistol
+2025-10-27 14:48:38,617 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 6: Weapon(s) not found: Pistol, Hazardous
+2025-10-27 14:48:38,619 - ERROR - load_data - FAIL: Validation failed - Units: 3 error(s) found...
+2025-10-27 14:48:38,619 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 1: Faction SPM not found for detachment Captain
+2025-10-27 14:48:38,619 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 2: Faction SPM not found for detachment Lieutenant
+2025-10-27 14:48:38,619 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 3: Faction SPM not found for detachment Intercessor Squad
+2025-10-27 14:48:38,621 - ERROR - load_data - FAIL: Validation failed - Unit Point Brackets: 4 error(s) found...
+2025-10-27 14:48:38,621 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 1: Unit Captain not found
+2025-10-27 14:48:38,621 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 2: Unit Lieutenant not found
+2025-10-27 14:48:38,621 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 3: Unit Intercessor Squad not found
+2025-10-27 14:48:38,621 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 4: Unit Intercessor Squad not found
+2025-10-27 14:48:38,626 - ERROR - load_data - FAIL: Validation failed - Datasheets: 6 error(s) found...
+2025-10-27 14:48:38,626 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 1: Unit Captain not found
+2025-10-27 14:48:38,626 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 1: Objects not found: Leader, Rites of Battle, Finest Hour, Relic Shield
+2025-10-27 14:48:38,626 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 2: Unit Lieutenant not found
+2025-10-27 14:48:38,626 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 2: Objects not found: Leader, Tactical Precision, Target Priority, Storm Shield
+2025-10-27 14:48:38,626 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 3: Unit Intercessor Squad not found
+2025-10-27 14:48:38,626 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 3: Objects not found: Objective Secured, Target Elimination
+2025-10-27 14:48:38,627 - INFO - load_data - OK: Leadership validation completed
+2025-10-27 14:48:38,627 - ERROR - load_data - FAIL: Validation failed with 25 errors(s) found
+2025-10-27 14:48:38,627 - INFO - load_data - Logs saved in /root/edy1482/warhammer-website/back-end/website/army_app/logs
+2025-10-27 14:48:38,627 - INFO - load_data - ================================================================================
+2025-10-27 14:50:38,040 - INFO - load_data - Starting validation...
+2025-10-27 14:50:38,069 - INFO - load_data - OK: Factions validation completed
+2025-10-27 14:50:38,069 - ERROR - load_data - FAIL: Validation failed - Detachments: 1 error(s) found...
+2025-10-27 14:50:38,070 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 1: Faction Space Marine not found for detachment Gladius Task Force
+2025-10-27 14:50:38,071 - ERROR - load_data - FAIL: Validation failed - Enhancements: 3 error(s) found...
+2025-10-27 14:50:38,071 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 1: Detachment Gladius Task Force not found for enhancement Artificer Armour
+2025-10-27 14:50:38,071 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 2: Detachment Gladius Task Force not found for enhancement The Honour Vehement
+2025-10-27 14:50:38,071 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 3: Detachment Gladius Task Force not found for enhancement Adept of the Codex
+2025-10-27 14:50:38,072 - ERROR - load_data - FAIL: Validation failed - Stratagems: 4 error(s) found...
+2025-10-27 14:50:38,073 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 1: Detachment Gladius Task Force not found for enhancement ARMOUR OF CONTEMPT
+2025-10-27 14:50:38,073 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 2: Detachment Gladius Task Force not found for enhancement ADAPTIVE STRATEGY
+2025-10-27 14:50:38,073 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 3: Detachment Gladius Task Force not found for enhancement ONLY IN DEATH DOES DUTY END
+2025-10-27 14:50:38,073 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 4: Detachment Gladius Task Force not found for enhancement STORM OF FIRE
+2025-10-27 14:50:38,078 - INFO - load_data - OK: Abilities validation completed
+2025-10-27 14:50:38,082 - ERROR - load_data - FAIL: Validation failed - Weapons: 4 error(s) found...
+2025-10-27 14:50:38,082 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 1: Weapon(s) not found: Pistol
+2025-10-27 14:50:38,082 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 4: Weapon(s) not found: Devastating Wounds, Pistol
+2025-10-27 14:50:38,083 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 5: Weapon(s) not found: Pistol
+2025-10-27 14:50:38,083 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 6: Weapon(s) not found: Pistol, Hazardous
+2025-10-27 14:50:38,084 - ERROR - load_data - FAIL: Validation failed - Units: 3 error(s) found...
+2025-10-27 14:50:38,084 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 1: Faction SPM not found for detachment Captain
+2025-10-27 14:50:38,084 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 2: Faction SPM not found for detachment Lieutenant
+2025-10-27 14:50:38,084 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 3: Faction SPM not found for detachment Intercessor Squad
+2025-10-27 14:50:38,087 - ERROR - load_data - FAIL: Validation failed - Unit Point Brackets: 4 error(s) found...
+2025-10-27 14:50:38,087 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 1: Unit Captain not found
+2025-10-27 14:50:38,087 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 2: Unit Lieutenant not found
+2025-10-27 14:50:38,087 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 3: Unit Intercessor Squad not found
+2025-10-27 14:50:38,087 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 4: Unit Intercessor Squad not found
+2025-10-27 14:50:38,092 - ERROR - load_data - FAIL: Validation failed - Datasheets: 6 error(s) found...
+2025-10-27 14:50:38,093 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 1: Unit Captain not found
+2025-10-27 14:50:38,093 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 1: Objects not found: Leader, Rites of Battle, Finest Hour, Relic Shield
+2025-10-27 14:50:38,093 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 2: Unit Lieutenant not found
+2025-10-27 14:50:38,093 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 2: Objects not found: Leader, Tactical Precision, Target Priority, Storm Shield
+2025-10-27 14:50:38,093 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 3: Unit Intercessor Squad not found
+2025-10-27 14:50:38,093 - ERROR - load_data - <class 'army_app.models.units.DataSheet'> Error - Row 3: Objects not found: Objective Secured, Target Elimination
+2025-10-27 14:50:38,093 - INFO - load_data - OK: Leadership validation completed
+2025-10-27 14:50:38,093 - ERROR - load_data - FAIL: Validation failed with 25 errors(s) found
+2025-10-27 14:50:38,093 - INFO - load_data - Logs saved in /root/edy1482/warhammer-website/back-end/website/army_app/logs
+2025-10-27 14:50:38,093 - INFO - load_data - ================================================================================

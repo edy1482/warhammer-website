@@ -9,9 +9,10 @@ from army_app.models import Leadership
 def load_model(model_class, csv_path, row_to_kwargs):
     """
     Generic CSV loader + validator for army_app models
+    Must be called within transaction.atomic block for easy rollback
     Handles ManyToMany Keyword column automatically
     """
-    errors, valid_objs = [], []
+    errors, saved_objs = [], []
     with open(csv_path, encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
         for idx, row in enumerate(reader, start=1):
@@ -30,42 +31,35 @@ def load_model(model_class, csv_path, row_to_kwargs):
                         KeyWord.objects.get_or_create(name=k.strip())[0] 
                         for k in row["keywords"].split(";") if k.strip()
                     ]
-                    kwargs["keywords"] = keyword_objs
-                else:
-                    kwargs["keywords"] = []
 
                 # Pull out M2M fields for post-save binding
-                keywords = kwargs.pop("keywords", [])
-                co_leaders = kwargs.pop("co_leaders", [])
-                abilities = kwargs.pop("abilities", []),
-                wargear_abilities = kwargs.pop("wargear_abilities", [])
-                ranged_weapons = kwargs.pop("ranged_weapons", [])
-                melee_weapons = kwargs.pop("melee_weapons", [])
+                m2m_fields = {
+                    "keywords": keyword_objs,
+                    "co_leaders": kwargs.pop("co_leaders", []),
+                    "abilities": kwargs.pop("abilities", []),
+                    "wargear_abilities": kwargs.pop("wargear_abilities", []),
+                    "ranged_weapons": kwargs.pop("ranged_weapons", []),
+                    "melee_weapons": kwargs.pop("melee_weapons", []),
+                }
 
-                # Create instance without saving and validate
+                # Create instance, validate and then save
                 obj = model_class(**kwargs)
+                obj.id = row["id"] or None
                 obj.full_clean()
+                obj.save()
 
-                # Attach edit and id flags to each obj directly
-                obj.id = row["id"]
-                obj.is_edit = bool(row["edit"]).strip().lower() in ("1", "true")
+                # Handle M2M relationships
+                for field_name, related_objs in m2m_fields.items():
+                    if hasattr(obj, field_name) and related_objs:
+                        getattr(obj, field_name).set(related_objs)
 
-                # Attach each M2M field directly to obj
-                obj.keywords = keywords
-                obj.co_leaders = co_leaders
-                obj.abilities = abilities
-                obj.wargear_abilities = wargear_abilities
-                obj.ranged_weapons = ranged_weapons
-                obj.melee_weapons = melee_weapons
-                
-                # Add to list
-                valid_objs.append(obj)
+                saved_objs.append(obj)
                 
             except ValidationError as v_err:
                 errors.append(f"{model_class} Validation Error - Row {idx}: {v_err}")
             except Exception as err:
                 errors.append(f"{model_class} Unexpected Error - Row {idx}: {err}")
-    return errors, valid_objs
+    return errors, saved_objs
 
 def load_factions(csv_path):
     def row_to_faction_kwargs(row):
@@ -146,10 +140,12 @@ def load_abilities(csv_path):
 def load_weapons(csv_path):
     def row_to_weapons_kwargs(row):
         errors = []
+        missing = []
+        ability_names = []
 
         # Collect abilities and validate them
         if "abilities" in row and row["abilities"].strip():
-            ability_names = [name.strip() for name in row["ability"].split(";") if name.strip()]
+            ability_names = [name.strip() for name in row["abilities"].split(";") if name.strip()]
             missing = [name for name in ability_names if not Ability.objects.filter(name=name).exists()]
         
         if missing:
@@ -228,12 +224,12 @@ def load_data_sheet(csv_path):
 
         # Collect abilities and validate them
         if "abilities" in row and row["abilities"].strip():
-            ability_names = [name.strip() for name in row["ability"].split(";") if name.strip()]
+            ability_names = [name.strip() for name in row["abilities"].split(";") if name.strip()]
             missing += [name for name in ability_names if not Ability.objects.filter(name=name).exists()]
 
         # Collect wargear_abilities and validate them
         if "wargear_abilities" in row and row["wargear_abilities"].strip():
-            wargear_ability_names = [name.strip() for name in row["wargear_ability"].split(";") if name.strip()]
+            wargear_ability_names = [name.strip() for name in row["wargear_abilities"].split(";") if name.strip()]
             missing += [name for name in wargear_ability_names if not Ability.objects.filter(name=name).exists()]
 
         if missing:

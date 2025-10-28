@@ -1,27 +1,94 @@
-2025-10-28 16:00:30,168 - INFO - load_data - ================================================================================
-2025-10-28 16:00:30,168 - INFO - load_data - Starting data load run at 2025-10-28 16:00:30
-2025-10-28 16:00:30,168 - INFO - load_data - ================================================================================
-2025-10-28 16:03:00,984 - INFO - load_data - ================================================================================
-2025-10-28 16:03:00,984 - INFO - load_data - Starting data load run at 2025-10-28 16:03:00
-2025-10-28 16:03:00,984 - INFO - load_data - ================================================================================
-2025-10-28 16:03:00,984 - ERROR - load_data - load_data command failed - No version folders found in directory
-2025-10-28 16:04:21,950 - INFO - load_data - ================================================================================
-2025-10-28 16:04:21,952 - INFO - load_data - Starting data load run at 2025-10-28 16:04:21
-2025-10-28 16:04:21,952 - INFO - load_data - ================================================================================
-2025-10-28 16:04:21,952 - INFO - load_data - [Delete] Starting deletion of data in DB
-2025-10-28 16:04:21,952 - INFO - load_data - Starting deletion of data...
-2025-10-28 16:04:23,907 - INFO - load_data - Cleared 0 records from Leadership
-2025-10-28 16:04:23,925 - INFO - load_data - Cleared 13 records from DataSheet
-2025-10-28 16:04:23,926 - INFO - load_data - Cleared 4 records from UnitPointBracket
-2025-10-28 16:04:23,935 - INFO - load_data - Cleared 28 records from Unit
-2025-10-28 16:04:23,940 - INFO - load_data - Cleared 15 records from Weapon
-2025-10-28 16:04:23,943 - INFO - load_data - Cleared 12 records from Ability
-2025-10-28 16:04:23,946 - INFO - load_data - Cleared 4 records from Stratagem
-2025-10-28 16:04:23,949 - INFO - load_data - Cleared 4 records from Enhancement
-2025-10-28 16:04:23,955 - INFO - load_data - Cleared 1 records from Detachment
-2025-10-28 16:04:23,960 - INFO - load_data - Cleared 2 records from Faction
-2025-10-28 16:04:23,965 - INFO - load_data - Cleared 11 records from KeyWord
-2025-10-28 16:04:23,973 - INFO - load_data - Logs saved to /root/edy1482/warhammer-website/back-end/website/army_app/logs
-2025-10-28 16:04:23,974 - INFO - load_data - ================================================================================
-2025-10-28 16:04:23,974 - INFO - load_data - Ending deletion at 2025-10-28 16:04:23
-2025-10-28 16:04:23,974 - INFO - load_data - ================================================================================
+2025-10-28 16:10:53,741 - INFO - load_data - ================================================================================
+2025-10-28 16:10:53,741 - INFO - load_data - Starting data load run at 2025-10-28 16:10:53
+2025-10-28 16:10:53,741 - INFO - load_data - ================================================================================
+2025-10-28 16:10:53,741 - INFO - load_data - [Apply] Starting data load for version /root/edy1482/warhammer-website/back-end/website/army_app/data/2025-10-28 16:09:23
+2025-10-28 16:10:53,741 - INFO - load_data - Starting validation...
+2025-10-28 16:10:53,764 - INFO - load_data - OK: Factions validation completed
+2025-10-28 16:10:53,771 - INFO - load_data - OK: Detachments validation completed
+2025-10-28 16:10:53,791 - INFO - load_data - OK: Enhancements validation completed
+2025-10-28 16:10:53,807 - INFO - load_data - OK: Stratagems validation completed
+2025-10-28 16:10:53,838 - INFO - load_data - OK: Abilities validation completed
+2025-10-28 16:10:53,865 - INFO - load_data - OK: Weapons validation completed
+2025-10-28 16:10:53,890 - INFO - load_data - OK: Units validation completed
+2025-10-28 16:10:53,904 - INFO - load_data - OK: Unit Point Brackets validation completed
+2025-10-28 16:10:53,930 - INFO - load_data - OK: Datasheets validation completed
+2025-10-28 16:10:53,933 - INFO - load_data - OK: Leadership validation completed
+2025-10-28 16:10:53,933 - INFO - load_data - OK: Validation complete with 40 successful validations
+2025-10-28 16:10:53,933 - INFO - load_data - Logs saved to /root/edy1482/warhammer-website/back-end/website/army_app/logs
+2025-10-28 16:10:53,933 - INFO - load_data - ================================================================================
+2025-10-28 16:10:53,933 - INFO - load_data - Ending data load run at 2025-10-28 16:10:53
+2025-10-28 16:10:53,933 - INFO - load_data - ================================================================================
+2025-10-28 16:13:09,198 - INFO - load_data - ================================================================================
+2025-10-28 16:13:09,198 - INFO - load_data - Starting data load run at 2025-10-28 16:13:09
+2025-10-28 16:13:09,198 - INFO - load_data - ================================================================================
+2025-10-28 16:13:09,199 - INFO - load_data - [Apply] Starting data load for version /root/edy1482/warhammer-website/back-end/website/army_app/data/2025-10-28 16:12:49
+2025-10-28 16:13:09,199 - INFO - load_data - Starting validation...
+2025-10-28 16:13:09,216 - INFO - load_data - OK: Factions validation completed
+2025-10-28 16:13:09,220 - INFO - load_data - OK: Detachments validation completed
+2025-10-28 16:13:09,234 - INFO - load_data - OK: Enhancements validation completed
+2025-10-28 16:13:09,247 - INFO - load_data - OK: Stratagems validation completed
+2025-10-28 16:13:09,274 - INFO - load_data - OK: Abilities validation completed
+2025-10-28 16:13:09,299 - INFO - load_data - OK: Weapons validation completed
+2025-10-28 16:13:09,330 - INFO - load_data - OK: Units validation completed
+2025-10-28 16:13:09,344 - INFO - load_data - OK: Unit Point Brackets validation completed
+2025-10-28 16:13:09,367 - INFO - load_data - OK: Datasheets validation completed
+2025-10-28 16:13:09,368 - INFO - load_data - OK: Leadership validation completed
+2025-10-28 16:13:09,368 - INFO - load_data - OK: Validation complete with 41 successful validations
+2025-10-28 16:13:09,368 - INFO - load_data - Logs saved to /root/edy1482/warhammer-website/back-end/website/army_app/logs
+2025-10-28 16:13:09,368 - INFO - load_data - ================================================================================
+2025-10-28 16:13:09,368 - INFO - load_data - Ending data load run at 2025-10-28 16:13:09
+2025-10-28 16:13:09,368 - INFO - load_data - ================================================================================
+2025-10-28 16:14:24,905 - INFO - load_data - ================================================================================
+2025-10-28 16:14:24,905 - INFO - load_data - Starting data load run at 2025-10-28 16:14:24
+2025-10-28 16:14:24,905 - INFO - load_data - ================================================================================
+2025-10-28 16:14:24,905 - INFO - load_data - [Rollback] Starting rollback for version /root/edy1482/warhammer-website/back-end/website/army_app/data/2025-10-28 16:09:23
+2025-10-28 16:14:24,905 - INFO - load_data - Starting rollback...
+2025-10-28 16:14:24,905 - INFO - load_data - Starting deletion of data...
+2025-10-28 16:14:33,736 - INFO - load_data - Cleared 0 records from Leadership
+2025-10-28 16:14:33,741 - INFO - load_data - Cleared 13 records from DataSheet
+2025-10-28 16:14:33,741 - INFO - load_data - Cleared 4 records from UnitPointBracket
+2025-10-28 16:14:33,748 - INFO - load_data - Cleared 28 records from Unit
+2025-10-28 16:14:33,751 - INFO - load_data - Cleared 15 records from Weapon
+2025-10-28 16:14:33,754 - INFO - load_data - Cleared 12 records from Ability
+2025-10-28 16:14:33,756 - INFO - load_data - Cleared 4 records from Stratagem
+2025-10-28 16:14:33,759 - INFO - load_data - Cleared 4 records from Enhancement
+2025-10-28 16:14:33,763 - INFO - load_data - Cleared 1 records from Detachment
+2025-10-28 16:14:33,766 - INFO - load_data - Cleared 2 records from Faction
+2025-10-28 16:14:33,771 - INFO - load_data - Cleared 11 records from KeyWord
+2025-10-28 16:14:33,777 - INFO - load_data - Starting validation...
+2025-10-28 16:14:33,783 - INFO - load_data - OK: Factions validation completed
+2025-10-28 16:14:33,788 - INFO - load_data - OK: Detachments validation completed
+2025-10-28 16:14:33,802 - INFO - load_data - OK: Enhancements validation completed
+2025-10-28 16:14:33,818 - INFO - load_data - OK: Stratagems validation completed
+2025-10-28 16:14:33,848 - INFO - load_data - OK: Abilities validation completed
+2025-10-28 16:14:33,872 - INFO - load_data - OK: Weapons validation completed
+2025-10-28 16:14:33,897 - INFO - load_data - OK: Units validation completed
+2025-10-28 16:14:33,912 - INFO - load_data - OK: Unit Point Brackets validation completed
+2025-10-28 16:14:33,937 - INFO - load_data - OK: Datasheets validation completed
+2025-10-28 16:14:33,939 - INFO - load_data - OK: Leadership validation completed
+2025-10-28 16:14:33,939 - INFO - load_data - OK: Validation complete with 40 successful validations
+2025-10-28 16:14:33,939 - INFO - load_data - OK: Rollback to /root/edy1482/warhammer-website/back-end/website/army_app/data/2025-10-28 16:09:23 completed.
+2025-10-28 16:14:33,939 - INFO - load_data - Logs saved to /root/edy1482/warhammer-website/back-end/website/army_app/logs
+2025-10-28 16:14:33,939 - INFO - load_data - ================================================================================
+2025-10-28 16:14:33,939 - INFO - load_data - Ending rollback at 2025-10-28 16:14:33
+2025-10-28 16:14:33,939 - INFO - load_data - ================================================================================
+2025-10-28 16:15:11,796 - INFO - load_data - ================================================================================
+2025-10-28 16:15:11,796 - INFO - load_data - Starting data load run at 2025-10-28 16:15:11
+2025-10-28 16:15:11,796 - INFO - load_data - ================================================================================
+2025-10-28 16:15:11,796 - INFO - load_data - [Delete] Starting deletion of data in DB
+2025-10-28 16:15:11,796 - INFO - load_data - Starting deletion of data...
+2025-10-28 16:15:18,113 - INFO - load_data - Cleared 0 records from Leadership
+2025-10-28 16:15:18,117 - INFO - load_data - Cleared 13 records from DataSheet
+2025-10-28 16:15:18,118 - INFO - load_data - Cleared 4 records from UnitPointBracket
+2025-10-28 16:15:18,123 - INFO - load_data - Cleared 21 records from Unit
+2025-10-28 16:15:18,125 - INFO - load_data - Cleared 15 records from Weapon
+2025-10-28 16:15:18,128 - INFO - load_data - Cleared 12 records from Ability
+2025-10-28 16:15:18,130 - INFO - load_data - Cleared 4 records from Stratagem
+2025-10-28 16:15:18,132 - INFO - load_data - Cleared 4 records from Enhancement
+2025-10-28 16:15:18,135 - INFO - load_data - Cleared 1 records from Detachment
+2025-10-28 16:15:18,138 - INFO - load_data - Cleared 2 records from Faction
+2025-10-28 16:15:18,143 - INFO - load_data - Cleared 10 records from KeyWord
+2025-10-28 16:15:18,152 - INFO - load_data - Logs saved to /root/edy1482/warhammer-website/back-end/website/army_app/logs
+2025-10-28 16:15:18,153 - INFO - load_data - ================================================================================
+2025-10-28 16:15:18,153 - INFO - load_data - Ending deletion at 2025-10-28 16:15:18
+2025-10-28 16:15:18,153 - INFO - load_data - ================================================================================

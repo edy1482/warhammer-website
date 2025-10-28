@@ -1,0 +1,32 @@
+"id","unit","movement","toughness","armour_save","wounds","leadership","objective_control","invulnerable_save","ranged_wepons","melee_weapons","wargear_options","abilities","wargear_abilities"
+"0","Captain","6""","4","3+","5","6+","1","4+","","","This model’s bolt pistol, master-crafted bolter and close combat weapon can be replaced with one of the following:
+1 heavy bolt pistol and 1 power fist
+1 heavy bolt pistol and 1 master-crafted power weapon
+1 neo-volkite pistol and 1 power fist
+1 neo-volkite pistol and 1 master-crafted power weapon
+1 plasma pistol and 1 power fist
+1 plasma pistol and 1 master-crafted power weapon
+1 heavy bolt pistol, 1 master-crafted power weapon and 1 relic shield
+This model’s close combat weapon can be replaced with one of the following:
+1 master-crafted power weapon
+1 power fist","Leader;Rites of Battle;Finest Hour","Relic Shield"
+"1","Lieutenant","6""","4","3+","4","6+","1","","","","This model’s master-crafted bolter can be replaced with one of the following:
+1 plasma pistol
+1 master-crafted power weapon
+1 power fist
+This model’s bolt pistol, master-crafted bolter and close combat weapon can be replaced with 1 neo volkite pistol, 1 master-crafted power weapon and 1 storm shield.
+This model’s bolt pistol can be replaced with 1 heavy bolt pistol.
+This model’s close combat weapon can be replaced with one of the following:
+1 master-crafted power weapon
+1 power fist","Leader;Tactical Precision;Target Priority","Storm Shield"
+"2","Intercessor Squad","6""","4","3+","2","6+","2","","","","The Intercessor Sergeant’s bolt rifle can be replaced with one of the following:
+1 Astartes chainsword
+1 hand flamer
+1 plasma pistol
+1 power weapon
+The Intercessor Sergeant’s close combat weapon can be replaced with one of the following:
+1 Astartes chainsword
+1 power fist
+1 power weapon
+1 thunder hammer
+For every 5 models in this unit, 1 model equipped with a bolt rifle can be equipped with 1 Astartes grenade launcher.","Objective Secured;Target Elimination",""

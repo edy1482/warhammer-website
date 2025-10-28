@@ -1,0 +1,21 @@
+"id","detachment","name","description","cost","keywords"
+"0","Gladius Task Force","ARMOUR OF CONTEMPT","WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
+
+TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+
+EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.","1",""
+"1","Gladius Task Force","ADAPTIVE STRATEGY","WHEN: Your Command phase.
+
+TARGET: One ADEPTUS ASTARTES unit from your army.
+
+EFFECT: Select the Devastator Doctrine, Tactical Doctrine or Assault Doctrine. Until the start of your next Command phase, that Combat Doctrine is active for that unit instead of any other Combat Doctrine that is active for your army, even if you have already selected that doctrine this battle.","1",""
+"2","Gladius Task Force","ONLY IN DEATH DOES DUTY END","WHEN: Fight phase, just after an enemy unit has selected its targets.
+
+TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+
+EFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, do not remove it from play. The destroyed model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play.","2",""
+"3","Gladius Task Force","STORM OF FIRE","WHEN: Your Shooting phase.
+
+TARGET: One ADEPTUS ASTARTES unit from your army that has not been selected to shoot this phase.
+
+EFFECT: Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability. If your unit is under the effects of the Devastator Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well.","1",""

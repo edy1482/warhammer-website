@@ -1,32 +1,48 @@
-2025-10-27 07:26:03,432 - INFO - download_csv - ================================================================================
-2025-10-27 07:26:03,432 - INFO - download_csv - Starting CSV downloads at 2025-10-27 07:26:03
-2025-10-27 07:26:03,432 - INFO - download_csv - ================================================================================
-2025-10-27 07:26:03,748 - INFO - download_csv - Updated factions.csv
-2025-10-27 07:26:04,000 - INFO - download_csv - Updated detachments.csv
-2025-10-27 07:26:04,243 - INFO - download_csv - Updated enhancements.csv
-2025-10-27 07:26:04,460 - INFO - download_csv - Updated stratagems.csv
-2025-10-27 07:26:04,686 - INFO - download_csv - Updated abilities.csv
-2025-10-27 07:26:04,894 - INFO - download_csv - Updated weapons.csv
-2025-10-27 07:26:05,123 - INFO - download_csv - Updated units.csv
-2025-10-27 07:26:05,338 - INFO - download_csv - Updated unit_point_brackets.csv
-2025-10-27 07:26:05,730 - INFO - download_csv - Updated datasheets.csv
-2025-10-27 07:26:05,955 - INFO - download_csv - Updated leadership.csv
-2025-10-27 07:26:05,955 - INFO - download_csv - ================================================================================
-2025-10-27 07:26:05,955 - INFO - download_csv - Finished CSV downloads at 2025-10-27 07:26:05
-2025-10-27 07:26:05,955 - INFO - download_csv - ================================================================================
-2025-10-27 14:50:08,822 - INFO - download_csv - ================================================================================
-2025-10-27 14:50:08,823 - INFO - download_csv - Starting CSV downloads at 2025-10-27 14:50:08
-2025-10-27 14:50:08,823 - INFO - download_csv - ================================================================================
-2025-10-27 14:50:09,122 - INFO - download_csv - Updated factions.csv
-2025-10-27 14:50:09,343 - INFO - download_csv - Updated detachments.csv
-2025-10-27 14:50:09,564 - INFO - download_csv - Updated enhancements.csv
-2025-10-27 14:50:09,792 - INFO - download_csv - Updated stratagems.csv
-2025-10-27 14:50:09,999 - INFO - download_csv - Updated abilities.csv
-2025-10-27 14:50:10,222 - INFO - download_csv - Updated weapons.csv
-2025-10-27 14:50:10,458 - INFO - download_csv - Updated units.csv
-2025-10-27 14:50:10,693 - INFO - download_csv - Updated unit_point_brackets.csv
-2025-10-27 14:50:10,920 - INFO - download_csv - Updated datasheets.csv
-2025-10-27 14:50:11,136 - INFO - download_csv - Updated leadership.csv
-2025-10-27 14:50:11,136 - INFO - download_csv - ================================================================================
-2025-10-27 14:50:11,136 - INFO - download_csv - Finished CSV downloads at 2025-10-27 14:50:11
-2025-10-27 14:50:11,136 - INFO - download_csv - ================================================================================
+2025-10-28 14:36:49,830 - INFO - download_csv - ================================================================================
+2025-10-28 14:36:49,831 - INFO - download_csv - Starting CSV downloads at 2025-10-28 14:36:49
+2025-10-28 14:36:49,831 - INFO - download_csv - ================================================================================
+2025-10-28 14:36:50,090 - INFO - download_csv - Updated factions.csv
+2025-10-28 14:36:50,306 - INFO - download_csv - Updated detachments.csv
+2025-10-28 14:36:50,548 - INFO - download_csv - Updated enhancements.csv
+2025-10-28 14:36:50,767 - INFO - download_csv - Updated stratagems.csv
+2025-10-28 14:36:50,975 - INFO - download_csv - Updated abilities.csv
+2025-10-28 14:36:51,196 - INFO - download_csv - Updated weapons.csv
+2025-10-28 14:36:51,406 - INFO - download_csv - Updated units.csv
+2025-10-28 14:36:51,606 - INFO - download_csv - Updated unit_point_brackets.csv
+2025-10-28 14:36:51,805 - INFO - download_csv - Updated datasheets.csv
+2025-10-28 14:36:52,000 - INFO - download_csv - Updated leadership.csv
+2025-10-28 14:36:52,000 - INFO - download_csv - ================================================================================
+2025-10-28 14:36:52,000 - INFO - download_csv - Finished CSV downloads at 2025-10-28 14:36:52
+2025-10-28 14:36:52,000 - INFO - download_csv - ================================================================================
+2025-10-28 15:08:28,613 - INFO - download_csv - ================================================================================
+2025-10-28 15:08:28,614 - INFO - download_csv - Starting CSV downloads at 2025-10-28 15:08:28
+2025-10-28 15:08:28,614 - INFO - download_csv - ================================================================================
+2025-10-28 15:08:28,877 - INFO - download_csv - Updated factions.csv
+2025-10-28 15:08:29,091 - INFO - download_csv - Updated detachments.csv
+2025-10-28 15:08:29,293 - INFO - download_csv - Updated enhancements.csv
+2025-10-28 15:08:29,494 - INFO - download_csv - Updated stratagems.csv
+2025-10-28 15:08:29,718 - INFO - download_csv - Updated abilities.csv
+2025-10-28 15:08:29,935 - INFO - download_csv - Updated weapons.csv
+2025-10-28 15:08:30,143 - INFO - download_csv - Updated units.csv
+2025-10-28 15:08:30,338 - INFO - download_csv - Updated unit_point_brackets.csv
+2025-10-28 15:08:30,556 - INFO - download_csv - Updated datasheets.csv
+2025-10-28 15:08:30,885 - INFO - download_csv - Updated leadership.csv
+2025-10-28 15:08:30,885 - INFO - download_csv - ================================================================================
+2025-10-28 15:08:30,885 - INFO - download_csv - Finished CSV downloads at 2025-10-28 15:08:30
+2025-10-28 15:08:30,885 - INFO - download_csv - ================================================================================
+2025-10-28 16:04:12,175 - INFO - download_csv - ================================================================================
+2025-10-28 16:04:12,176 - INFO - download_csv - Starting CSV downloads at 2025-10-28 16:04:12
+2025-10-28 16:04:12,176 - INFO - download_csv - ================================================================================
+2025-10-28 16:04:12,488 - INFO - download_csv - Updated factions.csv
+2025-10-28 16:04:12,705 - INFO - download_csv - Updated detachments.csv
+2025-10-28 16:04:12,922 - INFO - download_csv - Updated enhancements.csv
+2025-10-28 16:04:13,141 - INFO - download_csv - Updated stratagems.csv
+2025-10-28 16:04:13,363 - INFO - download_csv - Updated abilities.csv
+2025-10-28 16:04:13,587 - INFO - download_csv - Updated weapons.csv
+2025-10-28 16:04:14,419 - INFO - download_csv - Updated units.csv
+2025-10-28 16:04:14,658 - INFO - download_csv - Updated unit_point_brackets.csv
+2025-10-28 16:04:14,871 - INFO - download_csv - Updated datasheets.csv
+2025-10-28 16:04:15,084 - INFO - download_csv - Updated leadership.csv
+2025-10-28 16:04:15,084 - INFO - download_csv - ================================================================================
+2025-10-28 16:04:15,084 - INFO - download_csv - Finished CSV downloads at 2025-10-28 16:04:15
+2025-10-28 16:04:15,084 - INFO - download_csv - ================================================================================

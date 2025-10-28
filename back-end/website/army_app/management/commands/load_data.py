@@ -23,11 +23,12 @@ class Command(BaseCommand):
         group = parser.add_mutually_exclusive_group(required=True)
         group.add_argument("--apply", action="store_true", help="Validate and save to DB")
         group.add_argument("--rollback", action="store_true", help="Rollback data to previous or specified version")
+        group.add_argument("--delete_data", action="store_true", help="Delete data in the database")
         parser.add_argument("--data_version", type=str, help="Version folder (timestamp or name)")
 
     def handle(self, *args, **options):
         # Setup logger from settings.py
-        logger = logging.getLogger("validate_data")
+        logger = logging.getLogger("load_data")
         logger.setLevel(logging.INFO)
 
         # Write logger intro
@@ -37,7 +38,8 @@ class Command(BaseCommand):
         logger.info("=" * 80)
 
         # Grab CSV folder (default to latest version if not given)
-        version_dir = options.get("data_version") or get_latest_version(DATA_DIR)
+        data_ver = DATA_DIR /Path(options.get("data_version")) if options.get("data_version") else None
+        version_dir = data_ver or get_latest_version(DATA_DIR)
         if not version_dir:
             logger.error("load_data command failed - No version folders found in directory")
             # Exit with Django Command error - CI/CD will see failure like exit(1)
@@ -45,7 +47,7 @@ class Command(BaseCommand):
 
         # Rollback (default to previous version if not given)
         if options["rollback"]:
-            version_dir = options.get("data_version") or get_previous_version(DATA_DIR)
+            version_dir = DATA_DIR / Path(options.get("data_version")) or get_previous_version(DATA_DIR)
             if not version_dir:
                 logger.error("load_data command failed - No previous version to rollback to")
                 # Exit with Django Command error - CI/CD will see failure like exit(1)
@@ -59,7 +61,7 @@ class Command(BaseCommand):
             logger.info("=" * 80)
             return
         
-        if options["--apply"]:
+        if options["apply"]:
             logger.info(f"[Apply] Starting data load for version {version_dir}")
             self.load_from_version(version_dir)  
             # Write logger outro
@@ -69,6 +71,17 @@ class Command(BaseCommand):
             logger.info(f"Ending data load run at {timestamp}")
             logger.info("=" * 80)
             return
+        
+        if options["delete_data"]:
+            logger.info("[Delete] Starting deletion of data in DB")
+            self.delete_all_objects()
+            logger.info(f"Logs saved to {LOG_DIR}")
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            logger.info("=" * 80)
+            logger.info(f"Ending deletion at {timestamp}")
+            logger.info("=" * 80)
+            return
+
 
     def get_loaders(self, version_dir):
         VERS_DIR = DATA_DIR / version_dir
@@ -86,7 +99,6 @@ class Command(BaseCommand):
         ]
         return loaders
     
-    @transaction.atomic
     def load_from_version(self, version_dir):
         # Set up logger
         logger = logging.getLogger("load_data")
@@ -99,21 +111,25 @@ class Command(BaseCommand):
         
         for name, path, loader in loaders:
             # Loader itself saves and sets m2m relationships
-            errors, objs = loader(path)
-            # Check if errors exist
-            if errors:
-                logger.error(f"FAIL: Validation failed - {name}: {len(errors)} error(s) found...")
-                for err in errors:
-                    logger.error(err)
-                all_errors.extend(errors)
-            else:
-                # Save object into the DB
-                logger.info(f"OK: {name} validation completed")
-                successful_saves.extend(objs)
-        
+            try:
+                with transaction.atomic():
+                    errors, objs = loader(path)
+                    # Check if errors exist
+                    if errors:
+                        logger.error(f"FAIL: Validation failed - {name}: {len(errors)} error(s) found...")
+                        for err in errors:
+                            logger.error(err)
+                        all_errors.extend(errors)
+                    else:
+                        # Save object into the DB
+                        logger.info(f"OK: {name} validation completed")
+                        successful_saves.extend(objs)
+            except Exception as e:
+                all_errors.append(e)
+                logger.error(f"FAIL: {name} load rolled back: {e}")
+
         # If errors, rollback the transaction, log it and exit
         if all_errors:
-            transaction.set_rollback(True)
             logger.error(f"FAIL: Validation failed with {len(all_errors)} errors(s) found")
             logger.info(f"Logs saved in {LOG_DIR}")
             logger.info("=" * 80)
@@ -122,37 +138,45 @@ class Command(BaseCommand):
         else:
             logger.info(f"OK: Validation complete with {len(successful_saves)} successful validations")
 
-    def rollback_version(self, version_dir):
+    def delete_all_objects(self):
+        # Deletes data from the db
         logger = logging.getLogger("load_data")
-        logger.info("Starting rollback...")
-        confirm = input("⚠️  This will delete and reload data. Continue? [y/N]: ").strip().lower()
+        logger.info("Starting deletion of data...")
+        confirm = input("⚠️  This will delete data from the DB. Continue? [y/N]: ").strip().lower()
         if confirm not in {"y", "yes"}:
-            logger.info("Rollback cancelled.")
+            logger.info("Deletion cancelled.")
             return
-
+        
         target_models = [
             "KeyWord",
-            "Factions",
-            "Detachments",
-            "Enhancements",
-            "Stratagems",
-            "Abilities",
-            "Weapons",
-            "Units",
-            "Unit Point Brackets",
-            "Datasheets",
+            "Faction",
+            "Detachment",
+            "Enhancement",
+            "Stratagem",
+            "Ability",
+            "Weapon",
+            "Unit",
+            "UnitPointBracket",
+            "DataSheet",
             "Leadership",
-        ].reverse()
-
+        ]
+        
+        target_models.reverse()
         with transaction.atomic():
             # Clear all target_models
             for model_name in target_models:
                 model_class = apps.get_model("army_app", model_name)
                 deleted, _ = model_class.objects.all().delete()
                 logger.info(f"Cleared {deleted} records from {model_name}")
-        
-            # Load from previous/specified version
-            self.load_from_version(version_dir)
+
+
+    def rollback_version(self, version_dir):
+        logger = logging.getLogger("load_data")
+        logger.info("Starting rollback...")
+        # Delete data from DB
+        self.delete_all_objects()
+        # Load from previous/specified version
+        self.load_from_version(version_dir)
 
         logger.info(f"OK: Rollback to {version_dir} completed.")
         return

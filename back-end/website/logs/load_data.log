@@ -1,0 +1,27 @@
+2025-10-28 16:00:30,168 - INFO - load_data - ================================================================================
+2025-10-28 16:00:30,168 - INFO - load_data - Starting data load run at 2025-10-28 16:00:30
+2025-10-28 16:00:30,168 - INFO - load_data - ================================================================================
+2025-10-28 16:03:00,984 - INFO - load_data - ================================================================================
+2025-10-28 16:03:00,984 - INFO - load_data - Starting data load run at 2025-10-28 16:03:00
+2025-10-28 16:03:00,984 - INFO - load_data - ================================================================================
+2025-10-28 16:03:00,984 - ERROR - load_data - load_data command failed - No version folders found in directory
+2025-10-28 16:04:21,950 - INFO - load_data - ================================================================================
+2025-10-28 16:04:21,952 - INFO - load_data - Starting data load run at 2025-10-28 16:04:21
+2025-10-28 16:04:21,952 - INFO - load_data - ================================================================================
+2025-10-28 16:04:21,952 - INFO - load_data - [Delete] Starting deletion of data in DB
+2025-10-28 16:04:21,952 - INFO - load_data - Starting deletion of data...
+2025-10-28 16:04:23,907 - INFO - load_data - Cleared 0 records from Leadership
+2025-10-28 16:04:23,925 - INFO - load_data - Cleared 13 records from DataSheet
+2025-10-28 16:04:23,926 - INFO - load_data - Cleared 4 records from UnitPointBracket
+2025-10-28 16:04:23,935 - INFO - load_data - Cleared 28 records from Unit
+2025-10-28 16:04:23,940 - INFO - load_data - Cleared 15 records from Weapon
+2025-10-28 16:04:23,943 - INFO - load_data - Cleared 12 records from Ability
+2025-10-28 16:04:23,946 - INFO - load_data - Cleared 4 records from Stratagem
+2025-10-28 16:04:23,949 - INFO - load_data - Cleared 4 records from Enhancement
+2025-10-28 16:04:23,955 - INFO - load_data - Cleared 1 records from Detachment
+2025-10-28 16:04:23,960 - INFO - load_data - Cleared 2 records from Faction
+2025-10-28 16:04:23,965 - INFO - load_data - Cleared 11 records from KeyWord
+2025-10-28 16:04:23,973 - INFO - load_data - Logs saved to /root/edy1482/warhammer-website/back-end/website/army_app/logs
+2025-10-28 16:04:23,974 - INFO - load_data - ================================================================================
+2025-10-28 16:04:23,974 - INFO - load_data - Ending deletion at 2025-10-28 16:04:23
+2025-10-28 16:04:23,974 - INFO - load_data - ================================================================================

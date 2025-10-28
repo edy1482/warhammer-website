@@ -42,9 +42,15 @@ def load_model(model_class, csv_path, row_to_kwargs):
                     "melee_weapons": kwargs.pop("melee_weapons", []),
                 }
 
-                # Create instance, validate and then save
-                obj = model_class(**kwargs)
-                obj.id = row["id"] or None
+                # Validate temp instance
+                unique_fields = [
+                    field.name for field in model_class._meta.fields if field.unique
+                ]
+                temp = model_class(**kwargs)
+                temp.full_clean(exclude=unique_fields)  # skip pk validation
+
+                # Create and save obj
+                obj, _ = model_class.objects.update_or_create(id=row["id"], defaults=kwargs)
                 obj.full_clean()
                 obj.save()
 
@@ -140,16 +146,19 @@ def load_abilities(csv_path):
 def load_weapons(csv_path):
     def row_to_weapons_kwargs(row):
         errors = []
-        missing = []
-        ability_names = []
+        abilities = []
 
         # Collect abilities and validate them
         if "abilities" in row and row["abilities"].strip():
+            # Grab ability names
             ability_names = [name.strip() for name in row["abilities"].split(";") if name.strip()]
-            missing = [name for name in ability_names if not Ability.objects.filter(name=name).exists()]
-        
-        if missing:
-            errors.append(f"Weapon(s) not found: {', '.join(missing)}")
+            # Grab abilities themselves, add abilities not found
+            for name in ability_names:
+                try:
+                    ability = Ability.objects.get(name=name)
+                    abilities.append(ability)
+                except Ability.DoesNotExist:
+                    errors.append(f"Ability {name} does not exist in DB")
 
         if errors:
             return errors, None
@@ -163,7 +172,7 @@ def load_weapons(csv_path):
             "strength" : row["strength"],
             "ap" : row["ap"],
             "damage" : row["damage"],
-            "abilities" : ability_names,
+            "abilities" : abilities,
         }
     return load_model(Weapon, csv_path, row_to_weapons_kwargs)
 
@@ -205,35 +214,56 @@ def load_unit_point_brackets(csv_path):
 def load_data_sheet(csv_path):
     def row_to_data_sheet_kwargs(row):
         errors = []
+        ranged_weapons = []
+        melee_weapons = []
+        abilities = []
+        wargear_abilities = []
 
         try:
             unit = Unit.objects.get(name=row["unit"])
         except Unit.DoesNotExist:
             errors.append(f"Unit {row['unit']} not found")
 
-        missing = []
-
         # Collect weapons and validate them
         if "ranged_weapons" in row and row["ranged_weapons"].strip():
             ranged_weapon_names = [name.strip() for name in row["ranged_weapons"].split(";") if name.strip()]
-            missing += [name for name in ranged_weapon_names if not Weapon.objects.filter(name=name).exists()]
+            for name in ranged_weapon_names:
+                try:
+                    weapon = Weapon.objects.get(name=name)
+                    ranged_weapons.append(weapon)
+                except Weapon.DoesNotExist:
+                    errors.append(f"Weapon {name} does not exist in DB")
 
         if "melee_weapons" in row and row["melee_weapons"].strip():
             melee_weapon_names = [name.strip() for name in row["melee_weapons"].split(";") if name.strip()]
-            missing += [name for name in melee_weapon_names if not Weapon.objects.filter(name=name).exists()]
-
+            for name in melee_weapon_names:
+                try:
+                    weapon = Weapon.objects.get(name=name)
+                    melee_weapons.append(name)
+                except Weapon.DoesNotExist:
+                    errors.append(f"Weapon {name} does not exist in DB")
+            
         # Collect abilities and validate them
         if "abilities" in row and row["abilities"].strip():
             ability_names = [name.strip() for name in row["abilities"].split(";") if name.strip()]
-            missing += [name for name in ability_names if not Ability.objects.filter(name=name).exists()]
+            # Grab abilities themselves, add abilities not found
+            for name in ability_names:
+                try:
+                    ability = Ability.objects.get(name=name)
+                    abilities.append(ability)
+                except Ability.DoesNotExist:
+                    errors.append(f"Ability {name} does not exist in DB")
 
         # Collect wargear_abilities and validate them
         if "wargear_abilities" in row and row["wargear_abilities"].strip():
             wargear_ability_names = [name.strip() for name in row["wargear_abilities"].split(";") if name.strip()]
-            missing += [name for name in wargear_ability_names if not Ability.objects.filter(name=name).exists()]
-
-        if missing:
-            errors.append(f"Objects not found: {', '.join(missing)}")
+            # Grab abilities themselves, add abilities not found
+            for name in wargear_ability_names:
+                try:
+                    ability = Ability.objects.get(name=name)
+                    wargear_abilities.append(ability)
+                except Ability.DoesNotExist:
+                    errors.append(f"Ability {name} does not exist in DB")
         
         if errors:
             return errors, None
@@ -247,11 +277,11 @@ def load_data_sheet(csv_path):
             "leadership" : row["leadership"],
             "objective_control" : row["objective_control"],
             "invulnerable_save" : row["invulnerable_save"],
-            "ranged_weapons" : ranged_weapon_names,
-            "melee_weapons" : melee_weapon_names,
+            "ranged_weapons" : ranged_weapons,
+            "melee_weapons" : melee_weapons,
             "wargear_options" : row["wargear_options"],
-            "abilities" : ability_names,
-            "wargear_abilities" : wargear_ability_names,
+            "abilities" : abilities,
+            "wargear_abilities" : wargear_abilities,
         }
     return load_model(DataSheet, csv_path, row_to_data_sheet_kwargs)  
 

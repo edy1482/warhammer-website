@@ -151,7 +151,7 @@ LOGGING = {
         "load_data_file" : {
             "level" : "INFO",
             "class" : "logging.handlers.RotatingFileHandler",
-            "filename" : os.path.join(LOG_DIR, "validate_data.log"),
+            "filename" : os.path.join(LOG_DIR, "load_data.log"),
             "maxBytes" : 5 * 1024 * 1024, # 5 MB
             "backupCount" : 3, # keep 3 old logs
             "formatter" : "verbose",

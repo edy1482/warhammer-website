@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+{% load static %}
+<html data-theme="cupcake">
 <html>
 <head>
     <title>My Django App</title>
-    {% load static %}
-    <link href="{% static 'css/output.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/output.css' %}" rel="stylesheet"/>
     <script src="{% static  'js/htmx.min.js'%}"></script>
 </head>
 <body>

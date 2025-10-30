@@ -1,6 +1,5 @@
 # ignore all files in any directory named env
 
-env/
+.env
 .vscode/
-.venv/
-back-end/website/army_app/static/css/tailwindcss
+venv/

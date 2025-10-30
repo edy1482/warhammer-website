@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-from dotenv import load_dotenv
+from dotenv import load_dotenv # type: ignore
 import os
-import dj_database_url
+import dj_database_url # type: ignore
 
 # Load environment variables from .env
 load_dotenv()
@@ -80,10 +80,12 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 # DATABASE CONFIG
-if os.getenv('DATABASE_URL'):
+ENV = os.getenv("ENV", "dev")  # set ENV=prod for production
+
+if ENV == "prod" and os.getenv('DATABASE_URL'):
     # Use external database (e.g. Supabase)
     DATABASES = {
-        'default': dj_database_url.config(default=os.getenv('DATABASE_URL'), conn_max_age=600)
+        'default': dj_database_url.config(conn_max_age=600)
     }
 else:
     # Use local Docker PostgreSQL

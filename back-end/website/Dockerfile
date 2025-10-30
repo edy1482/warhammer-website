@@ -1,4 +1,17 @@
-# ---- Base image ----
+# ==========================
+# Stage 1: Build Tailwind CSS
+# ==========================
+FROM node:22-alpine AS tailwind
+
+WORKDIR /app
+COPY package.json package-lock.json* ./
+RUN npm install
+COPY ./army_app/static/css ./army_app/static/css
+RUN npm run build
+
+# ==========================
+# Stage 2: Django Application
+# ==========================
 FROM python:3.12-slim
 
 # ---- Environment setup ----
@@ -17,6 +30,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # ---- Copy project files ----
 COPY . .
+
+# Copy prebuilt Tailwind output from first stage
+COPY --from=tailwind /app/army_app/static/css/output.css ./army_app/static/css/output.css
 
 # ---- Collect static files (only used in production) ----
 RUN python manage.py collectstatic --noinput || true

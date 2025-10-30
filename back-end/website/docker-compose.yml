@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:16
+    container_name: warhammer_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  migrate:
+    build: .
+    command: python3 manage.py migrate --noinput
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+  web:
+    build:
+      context: .
+      args:
+        DEV: "true"               # ← set to "false" for production
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:

@@ -1,51 +1,56 @@
 # ==========================
-# Stage 1: Build Tailwind CSS
-# ==========================
-FROM node:22-alpine AS tailwind
-
-WORKDIR /app
-COPY package.json package-lock.json* ./
-RUN npm install
-COPY ./army_app/static/css ./army_app/static/css
-RUN npm run build
-
-# ==========================
-# Stage 2: Django Application
+# Base image: Python + Node for dev
 # ==========================
 FROM python:3.12-slim
 
-# ---- Environment setup ----
 ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
+    PYTHONUNBUFFERED=1 \
+    DEV=true
 
-# ---- Workdir ----
 WORKDIR /app
 
-# ---- Install system dependencies ----
-RUN apt-get update && apt-get install -y build-essential libpq-dev && rm -rf /var/lib/apt/lists/*
+# --------------------------
+# System dependencies
+# --------------------------
+RUN apt-get update && \
+    apt-get install -y build-essential libpq-dev curl git && \
+    rm -rf /var/lib/apt/lists/*
 
-# ---- Install Python dependencies ----
+# --------------------------
+# Python dependencies
+# --------------------------
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# ---- Copy project files ----
+# --------------------------
+# Node (for Tailwind/DaisyUI)
+# --------------------------
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g npm
+
+# --------------------------
+# Copy project files
+# --------------------------
 COPY . .
 
-# Copy prebuilt Tailwind output from first stage
-COPY --from=tailwind /app/army_app/static/css/output.css ./army_app/static/css/output.css
-
-# ---- Collect static files (only used in production) ----
-RUN python manage.py collectstatic --noinput || true
-
-# ---- Expose port ----
+# Expose port
 EXPOSE 8000
 
-# ---- Switch between dev & prod ----
-ENV DEV=true
+# --------------------------
+# Dev / Prod command
+# --------------------------
 CMD if [ "$DEV" = "true" ]; then \
-        echo "🟢 Starting Django development server..." && \
+        echo "🟢 Dev mode: npm install + Tailwind watch + Django server"; \
+        python manage.py migrate --noinput; \
+        npm install; \
+        npx tailwindcss -i ./army_app/static/css/input.css -o ./army_app/static/css/output.css --watch & \
         python manage.py runserver 0.0.0.0:8000; \
     else \
-        echo "🚀 Starting Gunicorn production server..." && \
+        echo "🚀 Production mode: Build Tailwind + collect static"; \
+        npm ci; \
+        npx tailwindcss -i ./army_app/static/css/input.css -o ./army_app/static/css/output.css --minify; \
+        python manage.py collectstatic --noinput; \
+        python manage.py migrate --noinput; \
         gunicorn website.wsgi:application --bind 0.0.0.0:8000; \
     fi

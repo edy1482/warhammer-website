@@ -12,16 +12,6 @@ services:
     ports:
       - "5432:5432"
 
-  migrate:
-    build: .
-    command: python3 manage.py migrate --noinput
-    volumes:
-      - .:/app
-    env_file:
-      - .env
-    depends_on:
-      - db
-
   web:
     build:
       context: .

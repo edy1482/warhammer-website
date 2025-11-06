@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 {% load static %}
 <head>
-  <html data-theme="light">
+  <html data-theme="forest">
   <link href="{% static 'css/output.css' %}" rel="stylesheet"/>
   <script src="{% static 'js/htmx.min.js' %}"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Battle Ready - The Warhamer 40k list builder</title>
     <div class="navbar bg-base-100 shadow-sm">
       <div class="navbar-start">
@@ -14,7 +15,7 @@
           <ul
           tabindex="-1"
           class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-          <li><a>Homepage</a></li>
+          <li><a href="/">Homepage</a></li>
           <li><a>Login</a></li>
           <li><a>Lists</a></li>
         </ul>
@@ -62,7 +63,7 @@
 </div>
 </body>
 
-<footer class="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
+<footer class="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-12">
   <nav class="grid grid-flow-col gap-4">
     <a class="link link-hover">About us</a>
     <a class="link link-hover">Contact</a>

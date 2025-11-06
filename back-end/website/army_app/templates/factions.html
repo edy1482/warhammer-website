@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 {% load static %}
-<head>
-    <html data-theme="light">
-    <link href="{% static 'css/output.css' %}" rel="stylesheet"/>
-    <script src="{% static 'js/htmx.min.js' %}"></script>
-</head>
-<body class="bg-base-200 min-h-screen flex flex-col items-center p-6">
-    {% block contents %}
-    <h1 class="text-2xl font-bold mb-8 text-center">Select Your Faction</h1>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-6xl w-full">
+
+{% block contents %}
+<h1 class="text-2xl font-bold mb-8 text-center">Select Your Faction</h1>
+
+<div class="w-full mb-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-x-12 gap-y-20 justify-items-center">
         {% for faction in all_factions %}
-        <div class="card card-border bg-base-100 w-96">
-            <div class="card-body">
-                <h2 class="card-title">{{faction.name}}</h2>
-                <p>{{faction.rule_name}}</p>
-                <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+        <div class="card card-border bg-base-200 border-base-300 border w-96">
+            <div class="card-body text-center">
+                <h2 class="card-title">{{ faction.name }}</h2>
+                <p>{{ faction.rule_name }}</p>
+                
+                <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border mt-4 w-full">
                     <div class="collapse-title font-semibold">Rule Description</div>
-                    <div class="collapse-content text-sm">{{faction.rule_description}}</div>
+                    <div class="collapse-content text-sm">{{ faction.rule_description }}</div>
                 </div>
-                <div class="card-actions justify-end">
+                <div class="card-actions justify-end mt-4">
                     <button class="btn btn-primary">Select</button>
                 </div>
             </div>
         </div>
         {% endfor %}
-        {% endblock contents %}
     </div>
-</body>
+</div>
+{% endblock contents %}

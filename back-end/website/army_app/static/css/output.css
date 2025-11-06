@@ -1524,6 +1524,9 @@
   .mt-3 {
     margin-top: calc(var(--spacing) * 3);
   }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
   .mt-6 {
     margin-top: calc(var(--spacing) * 6);
   }
@@ -1535,6 +1538,12 @@
   }
   .mb-6 {
     margin-bottom: calc(var(--spacing) * 6);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .mb-24 {
+    margin-bottom: calc(var(--spacing) * 24);
   }
   .status {
     @layer daisyui.component {
@@ -1812,6 +1821,9 @@
   .grid-flow-col {
     grid-auto-flow: column;
   }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
   .flex-col {
     flex-direction: column;
   }
@@ -1824,6 +1836,9 @@
   .justify-end {
     justify-content: flex-end;
   }
+  .justify-items-center {
+    justify-items: center;
+  }
   .gap-3 {
     gap: calc(var(--spacing) * 3);
   }
@@ -1832,6 +1847,12 @@
   }
   .gap-16 {
     gap: calc(var(--spacing) * 16);
+  }
+  .gap-x-12 {
+    column-gap: calc(var(--spacing) * 12);
+  }
+  .gap-y-20 {
+    row-gap: calc(var(--spacing) * 20);
   }
   .menu-sm {
     @layer daisyui.modifier {
@@ -1882,8 +1903,8 @@
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
-  .p-10 {
-    padding: calc(var(--spacing) * 10);
+  .p-12 {
+    padding: calc(var(--spacing) * 12);
   }
   .badge-xs {
     @layer daisyui.modifier {
@@ -1894,9 +1915,6 @@
   }
   .py-6 {
     padding-block: calc(var(--spacing) * 6);
-  }
-  .py-8 {
-    padding-block: calc(var(--spacing) * 8);
   }
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
@@ -2045,6 +2063,16 @@
       @media (hover: hover) {
         background-color: #1b1f23;
       }
+    }
+  }
+  .md\:grid-cols-2 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .xl\:grid-cols-4 {
+    @media (width >= 80rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
 }
@@ -3448,6 +3476,74 @@
 @keyframes progress {
   50% {
     background-position-x: -115%;
+  }
+}
+@layer base {
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+      color-scheme: dark;
+      --color-base-100: oklch(12% 0.042 264.695);
+      --color-base-200: oklch(21% 0.006 285.885);
+      --color-base-300: oklch(27% 0.033 256.848);
+      --color-base-content: oklch(93% 0.032 17.717);
+      --color-primary: oklch(96% 0.007 247.896);
+      --color-primary-content: oklch(0% 0 0);
+      --color-secondary: oklch(13% 0.028 261.692);
+      --color-secondary-content: oklch(96% 0.015 12.422);
+      --color-accent: oklch(65% 0.241 354.308);
+      --color-accent-content: oklch(97% 0.014 343.198);
+      --color-neutral: oklch(27% 0.041 260.031);
+      --color-neutral-content: oklch(93% 0.032 17.717);
+      --color-info: oklch(45% 0.085 224.283);
+      --color-info-content: oklch(98% 0.019 200.873);
+      --color-success: oklch(53% 0.157 131.589);
+      --color-success-content: oklch(98% 0.001 106.423);
+      --color-warning: oklch(70% 0.213 47.604);
+      --color-warning-content: oklch(97% 0.013 17.38);
+      --color-error: oklch(50% 0.213 27.518);
+      --color-error-content: oklch(14% 0.005 285.823);
+      --radius-selector: 0.25rem;
+      --radius-field: 1rem;
+      --radius-box: 1rem;
+      --size-selector: 0.25rem;
+      --size-field: 0.21875rem;
+      --border: 1.5px;
+      --depth: 1;
+      --noise: 0;
+    }
+  }
+}
+@layer base {
+  :where(:root),:root:has(input.theme-controller[value=Warhammer Dark Theme]:checked),[data-theme="Warhammer Dark Theme"] {
+    color-scheme: dark;
+    --color-base-100: oklch(12% 0.042 264.695);
+    --color-base-200: oklch(21% 0.006 285.885);
+    --color-base-300: oklch(27% 0.033 256.848);
+    --color-base-content: oklch(93% 0.032 17.717);
+    --color-primary: oklch(96% 0.007 247.896);
+    --color-primary-content: oklch(0% 0 0);
+    --color-secondary: oklch(13% 0.028 261.692);
+    --color-secondary-content: oklch(96% 0.015 12.422);
+    --color-accent: oklch(65% 0.241 354.308);
+    --color-accent-content: oklch(97% 0.014 343.198);
+    --color-neutral: oklch(27% 0.041 260.031);
+    --color-neutral-content: oklch(93% 0.032 17.717);
+    --color-info: oklch(45% 0.085 224.283);
+    --color-info-content: oklch(98% 0.019 200.873);
+    --color-success: oklch(53% 0.157 131.589);
+    --color-success-content: oklch(98% 0.001 106.423);
+    --color-warning: oklch(70% 0.213 47.604);
+    --color-warning-content: oklch(97% 0.013 17.38);
+    --color-error: oklch(50% 0.213 27.518);
+    --color-error-content: oklch(14% 0.005 285.823);
+    --radius-selector: 0.25rem;
+    --radius-field: 1rem;
+    --radius-box: 1rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.21875rem;
+    --border: 1.5px;
+    --depth: 1;
+    --noise: 0;
   }
 }
 @property --tw-border-style {

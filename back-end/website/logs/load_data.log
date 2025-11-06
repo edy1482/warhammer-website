@@ -18,3 +18,23 @@
 2025-10-30 03:52:10,238 - INFO - load_data - ================================================================================
 2025-10-30 03:52:10,238 - INFO - load_data - Ending data load run at 2025-10-30 03:52:10
 2025-10-30 03:52:10,238 - INFO - load_data - ================================================================================
+2025-11-06 17:05:43,840 - INFO - load_data - ================================================================================
+2025-11-06 17:05:43,840 - INFO - load_data - Starting data load run at 2025-11-06 17:05:43
+2025-11-06 17:05:43,841 - INFO - load_data - ================================================================================
+2025-11-06 17:05:43,841 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2025-11-06 17:04:57
+2025-11-06 17:05:43,841 - INFO - load_data - Starting validation...
+2025-11-06 17:05:43,898 - INFO - load_data - OK: Factions validation completed
+2025-11-06 17:05:43,903 - INFO - load_data - OK: Detachments validation completed
+2025-11-06 17:05:43,918 - INFO - load_data - OK: Enhancements validation completed
+2025-11-06 17:05:43,934 - INFO - load_data - OK: Stratagems validation completed
+2025-11-06 17:05:43,972 - INFO - load_data - OK: Abilities validation completed
+2025-11-06 17:05:44,001 - INFO - load_data - OK: Weapons validation completed
+2025-11-06 17:05:44,026 - INFO - load_data - OK: Units validation completed
+2025-11-06 17:05:44,038 - INFO - load_data - OK: Unit Point Brackets validation completed
+2025-11-06 17:05:44,062 - INFO - load_data - OK: Datasheets validation completed
+2025-11-06 17:05:44,063 - INFO - load_data - OK: Leadership validation completed
+2025-11-06 17:05:44,064 - INFO - load_data - OK: Validation complete with 45 successful validations
+2025-11-06 17:05:44,064 - INFO - load_data - Logs saved to /app/army_app/logs
+2025-11-06 17:05:44,064 - INFO - load_data - ================================================================================
+2025-11-06 17:05:44,064 - INFO - load_data - Ending data load run at 2025-11-06 17:05:44
+2025-11-06 17:05:44,064 - INFO - load_data - ================================================================================

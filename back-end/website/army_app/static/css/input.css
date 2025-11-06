@@ -2,3 +2,37 @@
 @plugin "daisyui"{
     themes: all;
 }
+@plugin "daisyui/theme" {
+  name: "Warhammer Dark Theme";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: oklch(12% 0.042 264.695);
+  --color-base-200: oklch(21% 0.006 285.885);
+  --color-base-300: oklch(27% 0.033 256.848);
+  --color-base-content: oklch(93% 0.032 17.717);
+  --color-primary: oklch(96% 0.007 247.896);
+  --color-primary-content: oklch(0% 0 0);
+  --color-secondary: oklch(13% 0.028 261.692);
+  --color-secondary-content: oklch(96% 0.015 12.422);
+  --color-accent: oklch(65% 0.241 354.308);
+  --color-accent-content: oklch(97% 0.014 343.198);
+  --color-neutral: oklch(27% 0.041 260.031);
+  --color-neutral-content: oklch(93% 0.032 17.717);
+  --color-info: oklch(45% 0.085 224.283);
+  --color-info-content: oklch(98% 0.019 200.873);
+  --color-success: oklch(53% 0.157 131.589);
+  --color-success-content: oklch(98% 0.001 106.423);
+  --color-warning: oklch(70% 0.213 47.604);
+  --color-warning-content: oklch(97% 0.013 17.38);
+  --color-error: oklch(50% 0.213 27.518);
+  --color-error-content: oklch(14% 0.005 285.823);
+  --radius-selector: 0.25rem;
+  --radius-field: 1rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.21875rem;
+  --border: 1.5px;
+  --depth: 1;
+  --noise: 0;
+}

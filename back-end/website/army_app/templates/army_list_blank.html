@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-3xl mx-auto mt-8 text-center">
+  <h1 class="text-3xl font-bold mb-4">{{ army.name }}</h1>
+  <p class="text-gray-500 mb-8">
+    Faction: {{ army.faction.name }} <br>
+    Points: {{ army.point_limit }} <br>
+    Battle Size: {{ army.get_battle_size_display }}
+  </p>
+
+  <div class="border border-dashed border-gray-400 p-8 rounded-lg text-gray-400">
+    <p>🛠️ Army unit builder coming soon...</p>
+  </div>
+</div>
+{% endblock %}

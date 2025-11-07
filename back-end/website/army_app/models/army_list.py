@@ -8,11 +8,19 @@ from .leadership import Leadership
 MAX_CHARFIELD_LENGTH = 255
 
 class ArmyList(models.Model):
+    BATTLE_SIZE_CHOICES = {
+        "incursion" : "Incursion (0–1000 pts)",
+        "strike" : "Strike Force (1000–2000 pts)",
+        "onslaught": "Onslaught (2000–3000 pts)",
+    }
+    
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, blank=True, default="")
-    # Do we need faction, if we have detachment?
+    # Do we need faction, if we have detachment - yes, if we need to leave detachment blank (SORT THIS NOW)
     faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE)
+    point_limit = models.PositiveIntegerField()
+    battle_size = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=BATTLE_SIZE_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     
     # Class functions

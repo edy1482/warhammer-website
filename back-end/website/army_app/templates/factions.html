@@ -15,14 +15,16 @@
                 
                 <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border mt-4 w-full">
                     <div class="collapse-title font-semibold">Rule Description</div>
-                    <div class="collapse-content text-sm">{{ faction.rule_description }}</div>
+                    <div class="collapse-content text-sm whitespace-pre-wrap wrap-break-word">{{ faction.rule_description|linebreaksbr }}</div>
                 </div>
                 <div class="card-actions justify-end mt-4">
-                    <button class="btn btn-primary">Select</button>
+                    <button  hx-get="{% url 'create_army_list_form' faction.id %}" hx-target="#form-container" hx-swap="innerHTML" class="btn btn-primary">Select</button>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
+    <!-- Empty container for the form -->
+    <div id="form-container"></div>
 </div>
 {% endblock contents %}

@@ -1,0 +1,75 @@
+<div class="modal modal-open">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg mb-4">Create New Army</h3>
+
+    <form 
+      hx-post="{% url 'create_army_form' faction.id %}" 
+      hx-target="#form-container" 
+      hx-swap="innerHTML"
+      class="space-y-4"
+    >
+      {% csrf_token %}
+
+      <!-- General Info -->
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend text-sm font-semibold">General Info</legend>
+
+        <label class="form-control w-full mb-3">
+          <span class="label-text">Army Name</span>
+          {{ form.name }}
+        </label>
+      </fieldset>
+
+      <!-- Battle Configuration -->
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend text-sm font-semibold">Battle Configuration</legend>
+
+        <label class="form-control w-full mb-3">
+          <span class="label-text">Battle Size</span>
+          {{ form.battle_size }}
+        </label>
+
+        <label class="form-control w-full mb-3">
+          <span class="label-text">Point Limit</span>
+          {{ form.point_limit }}
+        </label>
+      </fieldset>
+
+      <!-- Buttons -->
+      <div class="modal-action">
+        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="button" class="btn" onclick="closeModal()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+function closeModal() {
+  document.getElementById("form-container").innerHTML = "";
+}
+
+// Keep your battle size / point limit sync logic
+document.addEventListener("DOMContentLoaded", function() {
+  const battleSize = document.getElementById("battle-size");
+  const pointLimit = document.getElementById("point-limit");
+
+  const ranges = {
+    incursion: [0, 1000],
+    strike: [1000, 2000],
+    onslaught: [2000, 3000]
+  };
+
+  battleSize.addEventListener("change", function() {
+    const range = ranges[battleSize.value];
+    if (range) pointLimit.value = range[1];
+  });
+
+  pointLimit.addEventListener("input", function() {
+    const pts = parseInt(pointLimit.value, 10);
+    if (pts <= 1000) battleSize.value = "incursion";
+    else if (pts <= 2000) battleSize.value = "strike";
+    else battleSize.value = "onslaught";
+  });
+});
+</script>

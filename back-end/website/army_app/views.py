@@ -31,7 +31,7 @@ def create_army_list_form(request, faction_id):
     else:
         form = ArmyListForm()
         
-    return render(request, 'partials/army_list_form.html', {"form" : form})
+    return render(request, 'partials/army_list_form.html', {"form" : form, "faction_id" : faction_id})
 
 def army_list(request, army_list_id):
     army_list = ArmyList.objects.get(pk=army_list_id)

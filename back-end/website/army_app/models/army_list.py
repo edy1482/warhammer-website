@@ -14,12 +14,12 @@ class ArmyList(models.Model):
         "onslaught": "Onslaught (2000–3000 pts)",
     }
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, blank=True, default="")
-    # Do we need faction, if we have detachment - yes, if we need to leave detachment blank (SORT THIS NOW)
     faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
+    # Default behaviour: find first detachment within faction, and select that
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE)
-    point_limit = models.PositiveIntegerField()
+    point_limit = models.PositiveIntegerField(default=1000)
     battle_size = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=BATTLE_SIZE_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     

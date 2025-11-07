@@ -42,7 +42,7 @@ EXPOSE 8000
 # --------------------------
 CMD if [ "$DEV" = "true" ]; then \
         echo "🟢 Dev mode: npm install + Tailwind watch + Django server"; \
-        python manage.py migrate --noinput; \
+        python3 manage.py makemigrations && python3 manage.py migrate --noinput; \
         npm install; \
         npx tailwindcss -i ./army_app/static/css/input.css -o ./army_app/static/css/output.css --watch & \
         python manage.py runserver 0.0.0.0:8000; \
@@ -51,6 +51,6 @@ CMD if [ "$DEV" = "true" ]; then \
         npm ci; \
         npx tailwindcss -i ./army_app/static/css/input.css -o ./army_app/static/css/output.css --minify; \
         python manage.py collectstatic --noinput; \
-        python manage.py migrate --noinput; \
+        python3 manage.py makemigrations && python manage.py migrate --noinput; \
         gunicorn website.wsgi:application --bind 0.0.0.0:8000; \
     fi

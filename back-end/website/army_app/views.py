@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from army_app.models import Faction, ArmyList
 from .forms import ArmyListForm
 from django.http import Http404, HttpResponse
@@ -17,6 +17,7 @@ def factions(request):
     return render(request, 'factions.html', {"all_factions" : all_factions})
 
 def create_army_list_form(request, faction_id):
+    faction = get_object_or_404(Faction, pk=faction_id)
     if request.method == "POST":
         form = ArmyListForm(request.POST)
         if form.is_valid():

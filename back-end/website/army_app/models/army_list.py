@@ -17,8 +17,7 @@ class ArmyList(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, blank=True, default="")
     faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
-    # Default behaviour: find first detachment within faction, and select that
-    detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE)
+    detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, null=True, blank=True)
     point_limit = models.PositiveIntegerField(default=1000)
     battle_size = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=BATTLE_SIZE_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -122,6 +121,13 @@ class ArmyListEntry(models.Model):
     def save(self, *args, **kwargs):
         # Ensure clean() is called when saving from shell or script
         self.full_clean()
+        
+        # Enable default detachment behaviour:
+        if self.faction and not self.detachment:
+            default_detachment = Detachment.objects.filter(faction=self.faction).first()
+            if default_detachment:
+                self.detachment = default_detachment
+        
         # Save to ensure id field
         super().save(*args, **kwargs)
         

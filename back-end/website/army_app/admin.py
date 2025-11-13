@@ -9,6 +9,12 @@ from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 class KeyWordAdmin(admin.ModelAdmin):
     search_fields = ("name",)
     
+@admin.register(Ability)
+class AbilityAdmin(admin.ModelAdmin):
+    list_display = ("name", "description", "ability_type", "keywords",)
+    search_fields = ("name",)
+    list_filter = ("ability_type", "keywords",)
+    
 @admin.register(Faction)
 class FactionAdmin(admin.ModelAdmin):
     search_fields = ("name",)
@@ -30,11 +36,6 @@ class EnhancementAdmin(admin.ModelAdmin):
     list_display = ("name", "detachment", "points",)
     search_fields = ("name",)
     list_filter = ("detachment__faction",)
-
-@admin.register(Ability)
-class AbilityAdmin(admin.ModelAdmin):
-    list_display = ("name", "description")
-    search_fields = ("name",)
 
 @admin.register(Weapon)
 class WeaponAdmin(admin.ModelAdmin):

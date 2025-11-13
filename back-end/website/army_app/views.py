@@ -22,7 +22,7 @@ def create_army_list_form(request, faction_id):
         form = ArmyListForm(request.POST)
         if form.is_valid():
             army_list = form.save(commit=False)
-            army_list.faction_id = faction_id
+            army_list.faction = faction
             army_list.save()
             
             # HTMX will follow this redirect automatically
@@ -35,6 +35,7 @@ def create_army_list_form(request, faction_id):
     return render(request, 'partials/army_list_form.html', {"form" : form, "faction_id" : faction_id})
 
 def army_list(request, army_list_id):
-    army_list = ArmyList.objects.get(pk=army_list_id)
-    return render(request, "army_list_blank.html")
+    army_list = get_object_or_404(ArmyList, pk=army_list_id)
+    print(army_list.name)
+    return render(request, "army_list_blank.html", {"army_list" : army_list})
             

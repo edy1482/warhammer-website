@@ -5,7 +5,7 @@ from .leadership import Leadership
 from .army_list import ArmyList, ArmyListEntry, AssignedLeader
 
 __all__ = [
-    "KeyWord", "Faction", "Detachment", "Enhancement", "Stratagem", "Ability", 
+    "KeyWord", "Ability", "Faction", "Detachment", "Enhancement", "Stratagem", 
     "Weapon",
     "Unit", "UnitPointBracket", "DataSheet", 
     "Leadership",

@@ -31,10 +31,19 @@ def load_model(model_class, csv_path, row_to_kwargs):
                         KeyWord.objects.get_or_create(name=k.strip())[0] 
                         for k in row["keywords"].split(";") if k.strip()
                     ]
+                
+                # Handle restricted keywords if present
+                restricted_keyword_objs = []
+                if hasattr(model_class, "restricted_keywords") and "restricted_keywords" in row and row["restricted_keywords"].strip():
+                    restricted_keyword_objs = [
+                        KeyWord.objects.get_or_create(name=k.strip())[0]
+                        for k in row["restricted_keywords"].split(";") if k.strip()
+                    ]
 
                 # Pull out M2M fields for post-save binding
                 m2m_fields = {
                     "keywords": keyword_objs,
+                    "restricted_keywords": restricted_keyword_objs,
                     "co_leaders": kwargs.pop("co_leaders", []),
                     "abilities": kwargs.pop("abilities", []),
                     "wargear_abilities": kwargs.pop("wargear_abilities", []),
@@ -66,6 +75,17 @@ def load_model(model_class, csv_path, row_to_kwargs):
             except Exception as err:
                 errors.append(f"{model_class} Unexpected Error - Row {idx}: {err}")
     return errors, saved_objs
+
+def load_abilities(csv_path):
+    def row_to_abilities_kwargs(row):
+        errors = []
+
+        return errors, {
+            "name" : row["name"],
+            "description" : row["description"],
+            "ability_type" : row["ability_type"]
+        }
+    return load_model(Ability, csv_path, row_to_abilities_kwargs)
 
 def load_factions(csv_path):
     def row_to_faction_kwargs(row):
@@ -132,16 +152,6 @@ def load_stratagems(csv_path):
             "cost" : row["cost"],
         }
     return load_model(Stratagem, csv_path, row_to_stratagems_kwargs)
-
-def load_abilities(csv_path):
-    def row_to_abilities_kwargs(row):
-        errors = []
-
-        return errors, {
-            "name" : row["name"],
-            "description" : row["description"],
-        }
-    return load_model(Ability, csv_path, row_to_abilities_kwargs)
 
 def load_weapons(csv_path):
     def row_to_weapons_kwargs(row):

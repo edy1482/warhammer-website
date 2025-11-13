@@ -5,8 +5,8 @@ from datetime import datetime
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 from django.apps import apps
-# In dependency order
-from army_app.data import load_factions, load_detachments, load_enhancements, load_stratagems, load_abilities
+# In dependency order (grouped by file)
+from army_app.data import load_abilities, load_factions, load_detachments, load_enhancements, load_stratagems
 from army_app.data import load_weapons 
 from army_app.data import load_units, load_unit_point_brackets, load_data_sheet
 from army_app.data import load_leadership
@@ -86,11 +86,11 @@ class Command(BaseCommand):
     def get_loaders(self, version_dir):
         VERS_DIR = DATA_DIR / version_dir
         loaders = [
+            ("Abilities", VERS_DIR / "abilities.csv", load_abilities),
             ("Factions",  VERS_DIR / "factions.csv", load_factions),
             ("Detachments", VERS_DIR / "detachments.csv", load_detachments),
             ("Enhancements", VERS_DIR / "enhancements.csv", load_enhancements),
             ("Stratagems", VERS_DIR / "stratagems.csv", load_stratagems),
-            ("Abilities", VERS_DIR / "abilities.csv", load_abilities),
             ("Weapons", VERS_DIR / "weapons.csv", load_weapons),
             ("Units", VERS_DIR / "units.csv", load_units),
             ("Unit Point Brackets", VERS_DIR / "unit_point_brackets.csv", load_unit_point_brackets),
@@ -149,11 +149,11 @@ class Command(BaseCommand):
         
         target_models = [
             "KeyWord",
+            "Ability",
             "Faction",
             "Detachment",
             "Enhancement",
             "Stratagem",
-            "Ability",
             "Weapon",
             "Unit",
             "UnitPointBracket",

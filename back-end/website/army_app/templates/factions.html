@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
-{% load static %}
-
 {% block contents %}
 <h1 class="text-2xl font-bold mb-8 text-center">Select Your Faction</h1>
 
@@ -10,7 +8,7 @@
         {% for faction in all_factions %}
         <div class="card card-border bg-base-200 border-base-300 border w-96">
             <div class="card-body text-center">
-                <h2 class="card-title">{{ faction.name }}</h2>
+                <h2 class="card-title">{{ faction }}</h2>
                 <p>{{ faction.rule_name }}</p>
                 
                 <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border mt-4 w-full">

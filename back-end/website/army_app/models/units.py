@@ -17,6 +17,7 @@ class Unit(models.Model):
     def __str__(self):
         return self.name
     
+    # Change leader to ability not keyword
     def is_leader(self):
         return self.keywords.filter(name__iexact="LEADER").exists()
     
@@ -49,7 +50,7 @@ class DataSheet(models.Model):
     invulnerable_save = models.CharField(max_length=MIN_CHARFIELD_LENGTH, blank=True, null=True)
 
     # Abilities (unit-specific)
-    abilities = models.ManyToManyField(Ability, blank=True, related_name="datasheet_abilities")
+    abilities = models.ManyToManyField(Ability, blank=True, limit_choices_to={"ability_type" : "UNIT_ABILITY"}, related_name="unit_abilities")
 
     # Wargear and weapons
     ranged_weapons = models.ManyToManyField(Weapon, blank=True, related_name="datasheets_ranged")
@@ -58,7 +59,7 @@ class DataSheet(models.Model):
     wargear_options = models.TextField(blank=True, default="")
 
     # Special wargear abilities (like Relic Shield adds one to the Wounds characteristic)
-    wargear_abilities = models.ManyToManyField(Ability, blank=True, related_name="datasheet_wargear")
+    wargear_abilities = models.ManyToManyField(Ability, blank=True, limit_choices_to={"ability_type" : "WARGEAR_ABILITY"}, related_name="wargear_abilities")
 
     # Metadata
     created_at = models.DateTimeField(auto_now_add=True)
@@ -75,11 +76,15 @@ class DataSheet(models.Model):
         return output
 
     @property
-    def faction_rule(self):
-        return {
-            "name" : self.unit.faction.rule_name,
-            "description" : self.unit.faction.rule_description
-        }
+    def faction_rules(self):
+        return [
+            {
+                "name" : ability.name,
+                "description" : ability.description,
+                "keywords" : [kw.name for kw in ability.keywords.all()]
+            }
+            for ability in self.unit.faction.abilities.all()
+        ]
     
     # --- String representation (for admin/display) ---
     @property

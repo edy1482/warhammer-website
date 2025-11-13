@@ -24,7 +24,7 @@ class ArmyList(models.Model):
     
     # Class functions
     def __str__(self):
-        return self.name
+        return self.get_name_display()
     
     def valid_enhancements(self):
         return Enhancement.objects.filter(detachment=self.detachment).distinct()
@@ -59,7 +59,7 @@ class ArmyListEntry(models.Model):
         return self.get_unit_points() + self.get_enhancement_points()
     
     def get_valid_strats(self):
-        # Grab all CORE strats
+        # Grab all CORE strats - change to a CORE detachment?
         core_strats = Stratagem.objects.filter(keywords__name="CORE")
         # Grab all detachment strats, and filter for necessary keywords
         detachment_strats = Stratagem.objects.filter(detachment=self.army_list.detachment).filter(keywords__in=self.unit.keywords.all())
@@ -76,7 +76,6 @@ class ArmyListEntry(models.Model):
         valid_leader_ids = self.get_all_leadership_options().values_list("leader_id", flat=True)
         return self.army_list.entries.filter(unit_id__in=valid_leader_ids)
 
-    
     def clean(self):
         super().clean()
 

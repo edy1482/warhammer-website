@@ -14,8 +14,20 @@ class KeyWord(models.Model):
         return self.name
     
 class Ability(models.Model):
+    ABILITY_TYPES = [
+        ("FACTION_RULE", "Faction Rule"),
+        ("DETACHMENT_RULE", "Detachment Rule"),
+        ("UNIT_ABILITY", "Unit Ability"),
+        ("WEAPON_ABILITY", "Weapon Ability"),
+        ("WARGEAR_ABILITY", "Wargear Ability"),
+        ("CORE_RULE", "Core Rule"),
+    ]
+    
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, unique=True)
     description = models.TextField()
+    ability_type = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=ABILITY_TYPES)
+    keywords = models.ManyToManyField(KeyWord, blank=True, related_name="abilities_requiring")
+    restricted_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="abilities_forbidding")
     
     class Meta:
         # Change plural in admin so that it doesn't look weird
@@ -23,9 +35,11 @@ class Ability(models.Model):
 
     # Class functions
     def __str__(self):
-        return self.name
+        return self.get_name_display()
 
 class Faction(models.Model):
+    # This gets normalized into list of 2-tuple - [(a, b), (c, d) ...]
+    # Perhaps change this to normalized form?
     FACTION_CHOICES = {
         "SPM" : "Space Marines",
         "TYR" : "Tyrannids",
@@ -35,13 +49,11 @@ class Faction(models.Model):
         "MEC" : "Adeptus Mechanicus",
     }
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=FACTION_CHOICES)
-    rule_name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    rule_description = models.TextField(blank=True, default="")
-    keywords = models.ManyToManyField(KeyWord, blank=True)
+    abilities = models.ManyToManyField(Ability, related_name="factions", blank=True, limit_choices_to={"ability_type" : "FACTION_RULE"})
     
     # Class functions
     def __str__(self):
-        return self.name
+        return self.get_name_display()
     
     def clean(self):
         super().clean()
@@ -53,8 +65,7 @@ class Faction(models.Model):
 class Detachment(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
     faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
-    description = models.TextField(blank=True, default="")
-    keywords = models.ManyToManyField(KeyWord, blank=True)
+    abilities = models.ManyToManyField(Ability, related_name="detachments", blank=True, limit_choices_to={"ability_type" : "DETACHMENT_RULE"})
     
     # Class functions
     def __str__(self):
@@ -65,7 +76,8 @@ class Enhancement(models.Model):
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, related_name="enhancement")
     description = models.TextField(blank=True, default="")
     points = models.PositiveIntegerField()
-    keywords = models.ManyToManyField(KeyWord, blank=True)
+    keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_requiring")
+    restricted_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_forbidding")
     
     # Class functions
     def __str__(self):
@@ -76,7 +88,8 @@ class Stratagem(models.Model):
     description = models.TextField(blank=True, default="")
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, null=True, blank=True)
     cost = models.PositiveIntegerField(default=1)
-    keywords = models.ManyToManyField(KeyWord, blank=True)
+    keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_requiring")
+    restricted_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_forbidding")
     
     # Class functions
     def __str__(self):

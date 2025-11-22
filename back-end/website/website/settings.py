@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'army_app',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -152,7 +153,7 @@ os.makedirs(LOG_DIR, exist_ok=True)
 
 LOGGING = {
     "version" : 1,
-    "disable_exisiting_loggers" : False,
+    "disable_existing_loggers" : False,
     "formatters" : {
         "verbose" : {
             "format" : "%(asctime)s - %(levelname)s - %(name)s - %(message)s"

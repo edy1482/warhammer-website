@@ -3,8 +3,21 @@ from django.core.exceptions import ValidationError
 # This is in the dependancy order
 from army_app.models import KeyWord, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
 from army_app.models import Weapon
-from army_app.models import Unit, UnitPointBracket, DataSheet
+from army_app.models import Unit, UnitPointBracket
 from army_app.models import Leadership
+
+def keyword_handler(keywords, model_class, row):
+    """
+    Given a semicolon-separated string of keywords, return list of KeyWord objects
+    """
+    keyword_objs = []
+    if hasattr(model_class, keywords) and keywords in row and row[keywords].strip():
+        keyword_objs = [
+            KeyWord.objects.get_or_create(name=k.strip())[0] 
+            for k in row[keywords].split(";") if k.strip()
+        ]
+    return keyword_objs
+
 
 def load_model(model_class, csv_path, row_to_kwargs):
     """
@@ -24,26 +37,11 @@ def load_model(model_class, csv_path, row_to_kwargs):
                 continue # skip creating this object
             
             try:
-                # Handle keywords if present
-                keyword_objs = []
-                if hasattr(model_class, "keywords") and "keywords" in row and row["keywords"].strip():
-                    keyword_objs = [
-                        KeyWord.objects.get_or_create(name=k.strip())[0] 
-                        for k in row["keywords"].split(";") if k.strip()
-                    ]
-                
-                # Handle restricted keywords if present
-                restricted_keyword_objs = []
-                if hasattr(model_class, "restricted_keywords") and "restricted_keywords" in row and row["restricted_keywords"].strip():
-                    restricted_keyword_objs = [
-                        KeyWord.objects.get_or_create(name=k.strip())[0]
-                        for k in row["restricted_keywords"].split(";") if k.strip()
-                    ]
-
                 # Pull out M2M fields for post-save binding
                 m2m_fields = {
-                    "keywords": keyword_objs,
-                    "restricted_keywords": restricted_keyword_objs,
+                    "or_keywords": keyword_handler("or_keywords", model_class, row),
+                    "and_keywords": keyword_handler("and_keywords", model_class, row),
+                    "not_keywords": keyword_handler("not_keywords", model_class, row),
                     "co_leaders": kwargs.pop("co_leaders", []),
                     "abilities": kwargs.pop("abilities", []),
                     "wargear_abilities": kwargs.pop("wargear_abilities", []),
@@ -325,80 +323,6 @@ def load_unit_point_brackets(csv_path):
             "points" : row["points"],
         }
     return load_model(UnitPointBracket, csv_path, row_to_brackets_kwargs)
-
-def load_data_sheet(csv_path):
-    def row_to_data_sheet_kwargs(row):
-        errors = []
-        ranged_weapons = []
-        melee_weapons = []
-        abilities = []
-        wargear_abilities = []
-
-        try:
-            unit = Unit.objects.get(name=row["unit"])
-        except Unit.DoesNotExist:
-            errors.append(f"Unit {row['unit']} not found")
-
-        # Collect weapons and validate them
-        if "ranged_weapons" in row and row["ranged_weapons"].strip():
-            ranged_weapon_names = [name.strip() for name in row["ranged_weapons"].split(";") if name.strip()]
-            for name in ranged_weapon_names:
-                try:
-                    weapon = Weapon.objects.get(name=name)
-                    ranged_weapons.append(weapon)
-                except Weapon.DoesNotExist:
-                    errors.append(f"Weapon {name} does not exist in DB")
-
-        if "melee_weapons" in row and row["melee_weapons"].strip():
-            melee_weapon_names = [name.strip() for name in row["melee_weapons"].split(";") if name.strip()]
-            for name in melee_weapon_names:
-                try:
-                    weapon = Weapon.objects.get(name=name)
-                    melee_weapons.append(name)
-                except Weapon.DoesNotExist:
-                    errors.append(f"Weapon {name} does not exist in DB")
-            
-        # Collect abilities and validate them
-        if "abilities" in row and row["abilities"].strip():
-            ability_names = [name.strip() for name in row["abilities"].split(";") if name.strip()]
-            # Grab abilities themselves, add abilities not found
-            for name in ability_names:
-                try:
-                    ability = Ability.objects.get(name=name)
-                    abilities.append(ability)
-                except Ability.DoesNotExist:
-                    errors.append(f"Ability {name} does not exist in DB")
-
-        # Collect wargear_abilities and validate them
-        if "wargear_abilities" in row and row["wargear_abilities"].strip():
-            wargear_ability_names = [name.strip() for name in row["wargear_abilities"].split(";") if name.strip()]
-            # Grab abilities themselves, add abilities not found
-            for name in wargear_ability_names:
-                try:
-                    ability = Ability.objects.get(name=name)
-                    wargear_abilities.append(ability)
-                except Ability.DoesNotExist:
-                    errors.append(f"Ability {name} does not exist in DB")
-        
-        if errors:
-            return errors, None
-        
-        return errors, {
-            "unit" : unit,
-            "movement" : row["movement"],
-            "toughness" : row["toughness"],
-            "armour_save" : row["armour_save"],
-            "wounds" : row["wounds"],
-            "leadership" : row["leadership"],
-            "objective_control" : row["objective_control"],
-            "invulnerable_save" : row["invulnerable_save"],
-            "ranged_weapons" : ranged_weapons,
-            "melee_weapons" : melee_weapons,
-            "wargear_options" : row["wargear_options"],
-            "abilities" : abilities,
-            "wargear_abilities" : wargear_abilities,
-        }
-    return load_model(DataSheet, csv_path, row_to_data_sheet_kwargs)  
 
 def load_leadership(csv_path):
     def row_to_leadership(row):

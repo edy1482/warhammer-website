@@ -75,6 +75,11 @@ class ArmyListEntry(models.Model):
         # Get all the leaders in the list
         valid_leader_ids = self.get_all_leadership_options().values_list("leader_id", flat=True)
         return self.army_list.entries.filter(unit_id__in=valid_leader_ids)
+    
+    # Grab the datasheet for the related unit in a one-liner (great for list views)
+    @property
+    def datasheet(self):
+        return getattr(self.unit, "datasheet", None)
 
     def clean(self):
         super().clean()

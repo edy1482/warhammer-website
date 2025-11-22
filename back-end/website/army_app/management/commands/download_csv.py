@@ -11,15 +11,15 @@ SHEET_ID = "1hjo6Cel6e-nh7Yc4d5fXnPHtLopYh_uEYGemejXlzJU"
 LOG_DIR = os.path.join(BASE_DIR, "logs")
 
 SHEETS = {
+    "abilities": (SHEET_ID, "Abilities"),
+    "ability_effects": (SHEET_ID, "Ability Effects"),
     "factions": (SHEET_ID, "Factions"),
     "detachments": (SHEET_ID, "Detachments"),
     "enhancements": (SHEET_ID, "Enhancements"),
     "stratagems": (SHEET_ID, "Stratagems"),
-    "abilities": (SHEET_ID, "Abilities"),
     "weapons": (SHEET_ID, "Weapons"),
     "units": (SHEET_ID, "Units"),
     "unit_point_brackets": (SHEET_ID, "Unit Point Brackets"),
-    "datasheets": (SHEET_ID, "Datasheets"),
     "leadership": (SHEET_ID, "Leaderships"),
 }
 

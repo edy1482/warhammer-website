@@ -1,7 +1,7 @@
 from django.contrib import admin
-from army_app.models import KeyWord, Faction, Detachment, Enhancement, Stratagem
-from army_app.models import Ability, Weapon
-from army_app.models import Unit, UnitPointBracket, DataSheet
+from army_app.models import KeyWord, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
+from army_app.models import Weapon
+from army_app.models import Unit, UnitPointBracket
 from army_app.models import Leadership
 from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 
@@ -11,23 +11,32 @@ class KeyWordAdmin(admin.ModelAdmin):
     
 @admin.register(Ability)
 class AbilityAdmin(admin.ModelAdmin):
-    list_display = ("name", "description", "ability_type", "keywords",)
+    list_display = ("name", "ability_type",)
     search_fields = ("name",)
-    list_filter = ("ability_type", "keywords",)
+    list_filter = ("ability_type",)
+    
+@admin.register(AbilityEffect)
+class AbilityEffectAdmin(admin.ModelAdmin):
+    list_display = ("ability", "effect_description",)
+    search_fields = ("ability__name", "effect_description",)
+    list_filter = ("ability__ability_type", "or_keywords", "and_keywords", "not_keywords",)
     
 @admin.register(Faction)
 class FactionAdmin(admin.ModelAdmin):
-    search_fields = ("name",)
+    list_display = ("name", "abilities",)
+    search_fields = ("name", "abilities",)
+    ordering = ("name",)
 
 @admin.register(Detachment)
 class DetachmentAdmin(admin.ModelAdmin):
     list_display = ("name", "faction")
     search_fields = ("name",)
     list_filter = ("faction",)
+    ordering = ("faction",)
 
 @admin.register(Stratagem)
 class StratagemAdmin(admin.ModelAdmin):
-    list_display = ("name",)
+    list_display = ("name", "detachment",)
     search_fields = ("name",)
     list_filter = ("detachment",)
 
@@ -45,7 +54,7 @@ class WeaponAdmin(admin.ModelAdmin):
 
 @admin.register(Unit)
 class UnitAdmin(admin.ModelAdmin):
-    list_display = ("name", "faction")
+    list_display = ("name", "faction", "all_keywords",)
     search_fields = ("name",)
     list_filter = ("faction", "keywords",)
     filter_horizontal = ("keywords",)
@@ -75,14 +84,6 @@ class LeadershipAdmin(admin.ModelAdmin):
 class UnitPointBracketAdmin(admin.ModelAdmin):
     list_display = ("unit", "points")
     # Search fields expect columns, so double underscore
-    search_fields = ("unit__name",)
-    list_filter = ("unit__faction",)
-
-@admin.register(DataSheet)
-class DataSheetAdmin(admin.ModelAdmin):
-    list_display = (
-        "unit", "movement", "toughness", "save", "wounds", "leadership", "objective_control", "invulnerable_save"
-        )
     search_fields = ("unit__name",)
     list_filter = ("unit__faction",)
 

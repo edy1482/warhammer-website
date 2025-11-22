@@ -6,9 +6,9 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 from django.apps import apps
 # In dependency order (grouped by file)
-from army_app.data import load_abilities, load_factions, load_detachments, load_enhancements, load_stratagems
+from army_app.data import load_abilities, load_ability_effects, load_factions, load_detachments, load_enhancements, load_stratagems
 from army_app.data import load_weapons 
-from army_app.data import load_units, load_unit_point_brackets, load_data_sheet
+from army_app.data import load_units, load_unit_point_brackets
 from army_app.data import load_leadership
 from .utils import get_latest_version, get_previous_version
 
@@ -87,6 +87,7 @@ class Command(BaseCommand):
         VERS_DIR = DATA_DIR / version_dir
         loaders = [
             ("Abilities", VERS_DIR / "abilities.csv", load_abilities),
+            ("AbilityEffect", VERS_DIR / "ability_effects.csv", load_ability_effects),
             ("Factions",  VERS_DIR / "factions.csv", load_factions),
             ("Detachments", VERS_DIR / "detachments.csv", load_detachments),
             ("Enhancements", VERS_DIR / "enhancements.csv", load_enhancements),
@@ -94,7 +95,6 @@ class Command(BaseCommand):
             ("Weapons", VERS_DIR / "weapons.csv", load_weapons),
             ("Units", VERS_DIR / "units.csv", load_units),
             ("Unit Point Brackets", VERS_DIR / "unit_point_brackets.csv", load_unit_point_brackets),
-            ("Datasheets", VERS_DIR / "datasheets.csv", load_data_sheet),
             ("Leadership", VERS_DIR / "leadership.csv", load_leadership),
         ]
         return loaders
@@ -150,6 +150,7 @@ class Command(BaseCommand):
         target_models = [
             "KeyWord",
             "Ability",
+            "AbilityEffect",
             "Faction",
             "Detachment",
             "Enhancement",
@@ -157,7 +158,6 @@ class Command(BaseCommand):
             "Weapon",
             "Unit",
             "UnitPointBracket",
-            "DataSheet",
             "Leadership",
         ]
         

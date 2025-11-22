@@ -24,10 +24,7 @@ class Ability(models.Model):
     ]
     
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, unique=True)
-    description = models.TextField()
     ability_type = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=ABILITY_TYPES)
-    keywords = models.ManyToManyField(KeyWord, blank=True, related_name="abilities_requiring")
-    restricted_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="abilities_forbidding")
     
     class Meta:
         # Change plural in admin so that it doesn't look weird
@@ -35,7 +32,17 @@ class Ability(models.Model):
 
     # Class functions
     def __str__(self):
-        return self.get_name_display()
+        return self.name
+    
+class AbilityEffect(models.Model):
+    ability = models.ForeignKey(Ability, on_delete=models.CASCADE, related_name="effects")
+    # Text for this conditional effect
+    effect_description = models.TextField()
+    
+    # Keyword filters
+    or_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="or_effects")
+    and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="and_effects")
+    not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="not_effects")
 
 class Faction(models.Model):
     # This gets normalized into list of 2-tuple - [(a, b), (c, d) ...]
@@ -76,8 +83,9 @@ class Enhancement(models.Model):
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, related_name="enhancement")
     description = models.TextField(blank=True, default="")
     points = models.PositiveIntegerField()
-    keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_requiring")
-    restricted_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_forbidding")
+    # Keyword filters
+    and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_requiring")
+    not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_forbidding")
     
     # Class functions
     def __str__(self):
@@ -86,10 +94,10 @@ class Enhancement(models.Model):
 class Stratagem(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
     description = models.TextField(blank=True, default="")
-    detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, null=True, blank=True)
+    detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, null=True, blank=True, related_name="stratagems")
     cost = models.PositiveIntegerField(default=1)
-    keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_requiring")
-    restricted_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_forbidding")
+    and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_requiring")
+    not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_forbidding")
     
     # Class functions
     def __str__(self):

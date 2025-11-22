@@ -1,7 +1,7 @@
 import csv
 from django.core.exceptions import ValidationError
 # This is in the dependancy order
-from army_app.models import KeyWord, Ability, Faction, Detachment, Enhancement, Stratagem
+from army_app.models import KeyWord, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
 from army_app.models import Weapon
 from army_app.models import Unit, UnitPointBracket, DataSheet
 from army_app.models import Leadership
@@ -82,35 +82,81 @@ def load_abilities(csv_path):
 
         return errors, {
             "name" : row["name"],
-            "description" : row["description"],
             "ability_type" : row["ability_type"]
         }
     return load_model(Ability, csv_path, row_to_abilities_kwargs)
 
+def load_ability_effects(csv_path):
+    def row_to_ability_effects_kwargs(row):
+        errors = []
+        try:
+            ability = Ability.objects.get(name=row["ability"])
+        except Ability.DoesNotExist:
+            errors.append(f"Ability {row['ability']} not found for ability effect")
+        
+        if errors:
+            return errors, None
+        
+        return errors, {
+            "ability" : ability,
+            "effect_description" : row["effect_description"],
+        }
+    return load_model(AbilityEffect, csv_path, row_to_ability_effects_kwargs)
+
 def load_factions(csv_path):
     def row_to_faction_kwargs(row):
         errors = []
+        abilities = []
+        
+        # Collect abilities and validate them
+        if "abilities" in row and row["abilities"].strip():
+            # Grab ability names
+            ability_names = [name.strip() for name in row["abilities"].split(";") if name.strip()]
+            # Grab abilities themselves, add abilities not found
+            for name in ability_names:
+                try:
+                    ability = Ability.objects.get(name=name)
+                    abilities.append(ability)
+                except Ability.DoesNotExist:
+                    errors.append(f"Ability {name} does not exist in DB")
+
+        if errors:
+            return errors, None
 
         return errors, {
             "name" : row["name"],
-            "rule_name" : row["rule_name"],
-            "rule_description" : row["rule_description"],
+            "abilities" : abilities,
         }
     return load_model(Faction, csv_path, row_to_faction_kwargs)
 
 def load_detachments(csv_path):
     def row_to_detachment_kwargs(row):
         errors = []
+        abilities = []
         try:
             faction = Faction.objects.get(name=row["faction"])
         except Faction.DoesNotExist:
             errors.append(f"Faction {row['faction']} not found for detachment {row['name']}")
+        
+        # Collect abilities and validate them
+        if "abilities" in row and row["abilities"].strip():
+            # Grab ability names
+            ability_names = [name.strip() for name in row["abilities"].split(";") if name.strip()]
+            # Grab abilities themselves, add abilities not found
+            for name in ability_names:
+                try:
+                    ability = Ability.objects.get(name=name)
+                    abilities.append(ability)
+                except Ability.DoesNotExist:
+                    errors.append(f"Ability {name} does not exist in DB")
+
+        if errors:
             return errors, None
         
         return errors, {
             "faction" : faction,
             "name" : row["name"],
-            "description" : row["description"],
+            "abilities" : abilities,
         }
     return load_model(Detachment, csv_path, row_to_detachment_kwargs)
 
@@ -189,16 +235,75 @@ def load_weapons(csv_path):
 def load_units(csv_path):
     def row_to_units_kwargs(row):
         errors = []
+        ranged_weapons = []
+        melee_weapons = []
+        abilities = []
+        wargear_abilities = []
 
         try:
             faction = Faction.objects.get(name=row["faction"])
         except Faction.DoesNotExist:
             errors.append(f"Faction {row['faction']} not found for detachment {row['name']}")
+        
+        # Collect weapons and validate them
+        if "ranged_weapons" in row and row["ranged_weapons"].strip():
+            ranged_weapon_names = [name.strip() for name in row["ranged_weapons"].split(";") if name.strip()]
+            for name in ranged_weapon_names:
+                try:
+                    weapon = Weapon.objects.get(name=name)
+                    ranged_weapons.append(weapon)
+                except Weapon.DoesNotExist:
+                    errors.append(f"Weapon {name} does not exist in DB")
+
+        if "melee_weapons" in row and row["melee_weapons"].strip():
+            melee_weapon_names = [name.strip() for name in row["melee_weapons"].split(";") if name.strip()]
+            for name in melee_weapon_names:
+                try:
+                    weapon = Weapon.objects.get(name=name)
+                    melee_weapons.append(name)
+                except Weapon.DoesNotExist:
+                    errors.append(f"Weapon {name} does not exist in DB")
+            
+        # Collect abilities and validate them
+        if "abilities" in row and row["abilities"].strip():
+            ability_names = [name.strip() for name in row["abilities"].split(";") if name.strip()]
+            # Grab abilities themselves, add abilities not found
+            for name in ability_names:
+                try:
+                    ability = Ability.objects.get(name=name)
+                    abilities.append(ability)
+                except Ability.DoesNotExist:
+                    errors.append(f"Ability {name} does not exist in DB")
+
+        # Collect wargear_abilities and validate them
+        if "wargear_abilities" in row and row["wargear_abilities"].strip():
+            wargear_ability_names = [name.strip() for name in row["wargear_abilities"].split(";") if name.strip()]
+            # Grab abilities themselves, add abilities not found
+            for name in wargear_ability_names:
+                try:
+                    ability = Ability.objects.get(name=name)
+                    wargear_abilities.append(ability)
+                except Ability.DoesNotExist:
+                    errors.append(f"Ability {name} does not exist in DB")
+        
+        if errors: 
             return errors, None
 
         return errors, {
             "faction" : faction,
             "name" : row["name"],
+            "movement" : row["movement"],
+            "toughness" : row["toughness"],
+            "armour_save" : row["armour_save"],
+            "wounds" : row["wounds"],
+            "leadership" : row["leadership"],
+            "objective_control" : row["objective_control"],
+            "invulnerable_save" : row["invulnerable_save"],
+            "ranged_weapons" : ranged_weapons,
+            "melee_weapons" : melee_weapons,
+            "wargear_options" : row["wargear_options"],
+            "abilities" : abilities,
+            "wargear_abilities" : wargear_abilities,
         }
     return load_model(Unit, csv_path, row_to_units_kwargs)
 

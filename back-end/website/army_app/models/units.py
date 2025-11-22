@@ -18,7 +18,7 @@ class Unit(models.Model):
     toughness = models.PositiveIntegerField()
     armour_save = models.CharField(max_length=MIN_CHARFIELD_LENGTH)
     wounds = models.PositiveIntegerField()
-    leadership = models.CharField(max_length=MIN_CHARFIELD_LENGTH)
+    ld = models.CharField(max_length=MIN_CHARFIELD_LENGTH)
     objective_control = models.PositiveIntegerField()
     invulnerable_save = models.CharField(max_length=MIN_CHARFIELD_LENGTH, blank=True, null=True)
 

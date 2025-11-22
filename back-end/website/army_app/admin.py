@@ -23,8 +23,8 @@ class AbilityEffectAdmin(admin.ModelAdmin):
     
 @admin.register(Faction)
 class FactionAdmin(admin.ModelAdmin):
-    list_display = ("name", "abilities",)
-    search_fields = ("name", "abilities",)
+    list_display = ("name", "abilities__name",)
+    search_fields = ("name", "abilities__name",)
     ordering = ("name",)
 
 @admin.register(Detachment)
@@ -62,12 +62,12 @@ class UnitAdmin(admin.ModelAdmin):
 
 @admin.register(Leadership)
 class LeadershipAdmin(admin.ModelAdmin):
-    list_display = ("leader", "attached_unit")
+    list_display = ("leader", "attachable_unit")
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "leader":
             kwargs["queryset"] = Unit.objects.filter(keywords__name__iexact="LEADER").distinct()
-        elif db_field.name == "attached_unit":
+        elif db_field.name == "attachable_unit":
             kwargs["queryset"] = Unit.objects.exclude(keywords__name__iexact="LEADER").distinct()
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
     

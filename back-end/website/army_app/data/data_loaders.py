@@ -294,7 +294,7 @@ def load_units(csv_path):
             "toughness" : row["toughness"],
             "armour_save" : row["armour_save"],
             "wounds" : row["wounds"],
-            "leadership" : row["leadership"],
+            "ld" : row["ld"],
             "objective_control" : row["objective_control"],
             "invulnerable_save" : row["invulnerable_save"],
             "ranged_weapons" : ranged_weapons,

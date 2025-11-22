@@ -4,6 +4,7 @@ import logging
 from datetime import datetime
 from django.core.management.base import BaseCommand
 from pathlib import Path
+from .utils import get_version_folders
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 DATA_DIR = BASE_DIR / "data"
@@ -45,6 +46,17 @@ class Command(BaseCommand):
             resp.raise_for_status()
             out_path.write_bytes(resp.content)
             logger.info(f"Updated {name}.csv")
+            
+        # Manage number of versions to keep
+        max_versions = 3
+        version_folders = get_version_folders(DATA_DIR)
+        if len(version_folders) > max_versions:
+            to_delete = version_folders[:-max_versions]
+            for folder in to_delete:
+                for file in folder.iterdir():
+                    file.unlink()
+                folder.rmdir()
+                logger.info(f"Deleted old version folder: {folder.name}")
         # Write logger outro
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         logger.info("=" * 80)

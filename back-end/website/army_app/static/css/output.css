@@ -861,6 +861,9 @@
   .collapse {
     visibility: collapse;
   }
+  .visible {
+    visibility: visible;
+  }
   .list {
     @layer daisyui.component {
       display: flex;

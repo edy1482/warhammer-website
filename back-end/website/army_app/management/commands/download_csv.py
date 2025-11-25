@@ -56,7 +56,7 @@ class Command(BaseCommand):
                 for file in folder.iterdir():
                     file.unlink()
                 folder.rmdir()
-                logger.info(f"Deleted old version folder: {folder.name}")
+                logger.warning(f"Deleted old version folder: {folder.name}")
         # Write logger outro
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         logger.info("=" * 80)

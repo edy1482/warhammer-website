@@ -147,6 +147,11 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
+
 # Logging
 LOG_DIR = os.path.join(BASE_DIR, "logs")
 os.makedirs(LOG_DIR, exist_ok=True)
@@ -160,12 +165,23 @@ LOGGING = {
         },
         "simple" : {
             "format" : "%(levelname)s - %(message)s"
-        }
+        },
+        "color": {
+            "()": "colorlog.ColoredFormatter",
+            "format": "%(log_color)s%(levelname)s - %(message)s",
+            "log_colors": {
+                "DEBUG": "cyan",
+                "INFO": "green",
+                "WARNING": "yellow",
+                "ERROR": "red",
+                "CRITICAL": "bold_red",
+            },
+        },
     },
     "handlers" : {
         "console" : {
             "class" : "logging.StreamHandler",
-            "formatter" : "simple",
+            "formatter" : "color",
         },
         # Rolling file for validate_data
         "load_data_file" : {

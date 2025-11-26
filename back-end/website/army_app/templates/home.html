@@ -1,69 +1,230 @@
-<!DOCTYPE html>
 {% extends "base.html" %}
-<body class="bg-base-200">
-  {% block contents %}
-  <div class="flex flex-col items-center justify-center min-h-screen gap-16 py-10">
-    <!-- Hero Section -->
-     <div class="text-center max-w-md">
-      <h1 class="text-5xl font-bold">Build your army lists</h1>
-      <p class="py-6">
-        Create your roster for Warhammer 40k games, with tools such as leader assignment, keyword filtering, and stratagem overview.
-      </p>
-      <a href="/factions" class="btn btn-primary">Get Started</a>
+{% block contents %}
+<div class="flex flex-col items-center justify-center min-h-screen gap-16 py-10">
+  <!-- INTRO ANIMATION -->
+  <div id="introScreen" class="fixed inset-0 bg-black text-red-600 flex flex-col items-center justify-center z-50 transition-opacity duration-700">
+    
+    <!-- Static / Glitch Effect Canvas --> 
+    <canvas id="staticCanvas" class="absolute inset-0 w-full h-full z-0"></canvas>
+
+    <!-- Matrix background -->
+    <canvas id="matrixCanvas" class="absolute inset-0 w-full h-full z-0"></canvas>
+
+    <!-- Omnissiah message -->
+    <div id="omniMessage" class="opacity-0 text-center text-red-400 mb-6 text-3xl font-bold tracking-widest z-10">
+        ALL HAIL THE OMNISSIAH
     </div>
-    <!-- Login Card -->
-    <div class="card w-96 bg-base-100 shadow-xl">
-      <div class="card-body items-center text-center">
-        <h2 class="card-title text-2xl font-bold mb-4">Welcome Back</h2>
-        <p class="mb-6 text-sm opacity-70">Sign in with your preferred provider</p>
-        <div class="flex flex-col gap-3 w-full">
-          <a href="#" class="btn btn-outline btn-error w-full">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-5 h-5 mr-2">
-              <path fill="#EA4335" d="M24 9.5c3.9 0 6.6 1.7 8.1 3.1l5.5-5.5C34.2 3.9 29.5 2 24 2 14.8 2 7.3 7.8 4.3 16l6.9 5.4C12.8 14 17.9 9.5 24 9.5z"/>
-              <path fill="#34A853" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.4 5.6-5.1 7.4l7.9 6c4.6-4.3 7.3-10.6 7.3-17.9z"/>
-              <path fill="#4A90E2" d="M9.2 28.5c-.5-1.4-.8-3-.8-4.5s.3-3.1.8-4.5L2.3 14C.8 17.4 0 21.1 0 24.5s.8 7.1 2.3 10.5l6.9-6.5z"/>
-              <path fill="#FBBC05" d="M24 47c6.5 0 12-2.1 16-5.8l-7.9-6c-2.2 1.5-5 2.3-8.1 2.3-6.1 0-11.2-4.5-12.8-10.4l-6.9 5.4C7.3 40.2 14.8 47 24 47z"/>
-            </svg>
-            Continue with Google
-          </a>
-          <a href="#" class="btn w-full bg-[#24292e] text-white hover:bg-[#1b1f23] border-0">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 fill-current" viewBox="0 0 24 24">
-              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61
-              -.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.083-.729.083-.729
-              1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 
-              3.495.998.108-.775.42-1.305.763-1.605-2.665-.3-5.466-1.334
-              -5.466-5.931 0-1.31.47-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176
-              0 0 1.008-.322 3.301 1.23A11.52 11.52 0 0 1 12 5.8c1.02.005
-              2.045.138 3.006.404 2.291-1.552 3.297-1.23 
-              3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 
-              1.236 1.911 1.236 3.221 0 4.61-2.807 5.628-5.479 
-              5.921.43.372.823 1.102.823 2.222 
-              0 1.606-.014 2.898-.014 3.293 0 .319.216.694.825.576
-              A12.004 12.004 0 0 0 24 12.297C24 5.67 18.627.297 12 .297z"/>
-            </svg>
-            Continue with GitHub
-          </a>
-          <a href="#" class="btn btn-outline bg-[#5865F2] text-white w-full">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 55" class="w-5 h-5 mr-2 fill-current">
-              <path d="M60.104 4.552A58.943 58.943 0 0 0 46.852.8a41.348 41.348 0 0 0-1.958 4.043
-              55.205 55.205 0 0 0-16.786 0A40.67 40.67 0 0 0 26.15.8 
-              58.977 58.977 0 0 0 12.896 4.56C1.87 20.09-.827 35.167.263 50.045
-              a58.665 58.665 0 0 0 17.51 4.364 43.074 43.074 0 0 0 3.765-6.09
-              37.42 37.42 0 0 1-5.965-2.868 28.8 28.8 0 0 0 1.774-1.392
-              c11.548 5.408 24.043 5.408 35.522 0 .58.48 1.15.97 1.77 1.392
-              -1.91 1.14-3.93 2.078-5.97 2.868a42.8 42.8 0 0 0 3.77 6.09
-              58.6 58.6 0 0 0 17.51-4.364c1.48-19.17-2.53-34.155-10.73-45.493zM23.725 37.293
-              c-3.48 0-6.34-3.205-6.34-7.162 0-3.956 2.81-7.162 6.34-7.162 
-              3.53 0 6.39 3.206 6.35 7.162 0 3.957-2.82 7.162-6.35 7.162zm23.55 0
-              c-3.48 0-6.34-3.205-6.34-7.162 0-3.956 2.81-7.162 6.34-7.162 
-              3.53 0 6.39 3.206 6.35 7.162 0 3.957-2.82 7.162-6.35 7.162z"/>
-            </svg>
-            Continue with Discord
-          </a>
-        </div>
-        <p class="mt-6 text-xs opacity-60">This is a placeholder — auth not wired yet.</p>
+
+    <!-- Loading BAR -->
+    <div class="relative z-10 flex gap-2 w-3/4 max-w-xl">
+      <!-- Loading bar segments -->
+      <div class="segment flex-1 h-5 rounded-md"></div>
+      <div class="segment flex-1 h-5 rounded-md"></div>
+      <div class="segment flex-1 h-5 rounded-md"></div>
+      <div class="segment flex-1 h-5 rounded-md"></div>
+      <div class="segment flex-1 h-5 rounded-md"></div>
+      <div class="segment flex-1 h-5 rounded-md"></div>
+      <div class="segment flex-1 h-5 rounded-md"></div>
+      <div class="segment flex-1 h-5 rounded-md"></div>
+      <div class="segment flex-1 h-5 rounded-md"></div>
+    </div>
+  
+  </div>
+
+  <style>
+    /* MATRIX RAIN BACKGROUND */
+    canvas#matrixCanvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 0;
+    }
+
+    /* LOADING BAR SEGMENTS */
+    .segment {
+        width: 20px;
+        height: 20px;
+        background: transparent; /* Invisible before filling in */
+        border-radius: 4px;
+        overflow: hidden;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+  </style>
+
+  <script>
+    // MATRIX RAIN EFFECT
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    const letters = "アァイィウヴエォカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモヤャユュヨョラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ01ΩΣΨλπΦΞΔΘ░▒▓█".split("");
+    const fontSize = 16;
+    const columns = Math.floor(width / fontSize);
+    const drops = Array(columns).fill(1);
+
+    let frameCounter = 0;
+    function drawMatrix() {
+        frameCounter++;
+        if (frameCounter % 3 === 0) { 
+          ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Slower Fade
+          ctx.fillRect(0, 0, width, height);
+
+          ctx.fillStyle = "#16a34a";  // Tailwind green-600
+          ctx.font = fontSize + "px monospace";
+
+          for (let i = 0; i < drops.length; i++) {
+              const text = letters[Math.floor(Math.random() * letters.length)];
+
+              // Mechanicus glow, with occasional red sparks
+              if (Math.random() > 0.98) {
+                  ctx.fillStyle = "#dc2626"; // Tailwind red-600
+                  ctx.shadowColor = "#dc2626";
+              } else {
+                  ctx.fillStyle = "#16a34a"; // Tailwind green-600
+                  ctx.shadowColor = "#16a34a";
+              }
+
+              ctx.font = `${fontSize}px monospace`;
+              ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+              if (drops[i] * fontSize > height && Math.random() > 0.975) {
+                  drops[i] = 0;
+              }
+              drops[i]++;
+          }
+        }
+        requestAnimationFrame(drawMatrix);
+    }
+    drawMatrix();
+
+    /* ---------- STATIC / GLITCH EFFECT ---------- */
+    const staticCanvas = document.getElementById("staticCanvas");
+    const staticCtx = staticCanvas.getContext("2d");
+
+    function resizeStatic() {
+        staticCanvas.width = window.innerWidth;
+        staticCanvas.height = window.innerHeight;
+    }
+    resizeStatic();
+    window.addEventListener("resize", resizeStatic);
+
+    let glitchIntensity = 0; // 0 = normal, 1 = high
+    function drawStatic() {
+      staticCtx.clearRect(0, 0, staticCanvas.width, staticCanvas.height);
+      const numPixels = glitchIntensity ? 700 : 200; // More pixels for high intensity
+
+      for (let i = 0; i < numPixels; i++) {
+          const x = Math.random() * staticCanvas.width;
+          const y = Math.random() * staticCanvas.height;
+          const size = Math.random() * 3 + 1;
+          const shade = Math.floor(Math.random() * 256);
+          staticCtx.fillStyle = `rgba(${shade}, ${shade}, ${shade}, 0.8)`;
+          staticCtx.fillRect(x, y, size, size);
+      }
+      requestAnimationFrame(drawStatic);
+    }
+    drawStatic();
+
+    // LOADING BAR ANIMATION AND INTRO LOGIC
+    const intro = document.getElementById("introScreen");
+    const message = document.getElementById("omniMessage");
+    const segments = document.querySelectorAll(".segment");
+
+    let current = 0;
+    function fillSegment() {
+      if (current < segments.length) {
+        const seg = segments[current];
+        
+        // Create color and glow based on segment position
+        const intensity = Math.floor((current + 1) / segments.length * 255);
+        seg.style.backgroundColor = `rgb(${intensity}, 0, 0)`; // Gradient from dark to bright red
+        seg.style.boxShadow = `0 0 ${6 + intensity/50}px rgb(${intensity}, 0, 0)`; // Glow effect
+
+        // Increase glitch intensity as loading progresses
+        glitchIntensity = (current >= segments.length - 3) ? 1 : 0;
+
+        //Random speed for next segment load
+        const speed = 150 + Math.random() * 350;
+        current++;
+        setTimeout(fillSegment, speed);
+      } else {
+        glitchIntensity = 1; // Max glitch on complete
+        message.classList.replace("opacity-0", "opacity-100");
+        setTimeout(() => {
+          intro.classList.add("opacity-0");
+          setTimeout(() => { intro.style.display = "none"; }, 700);
+        }, 2000);
+      }
+    }
+    fillSegment();
+  </script>
+
+  <!-- Hero Section -->
+  <div class="text-center max-w-md">
+    <h1 class="text-5xl font-bold">Build your army lists</h1>
+    <p class="py-6">
+      Create your roster for Warhammer 40k games, with tools such as leader assignment, keyword filtering, and stratagem overview.
+    </p>
+    <a href="/factions" class="btn btn-primary">Get Started</a>
+  </div>
+  <!-- Login Card -->
+  <div class="card w-96 bg-base-100 shadow-xl">
+    <div class="card-body items-center text-center">
+      <h2 class="card-title text-2xl font-bold mb-4">Welcome Back</h2>
+      <p class="mb-6 text-sm opacity-70">Sign in with your preferred provider</p>
+      <div class="flex flex-col gap-3 w-full">
+        <a href="#" class="btn btn-outline btn-error w-full">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-5 h-5 mr-2">
+            <path fill="#EA4335" d="M24 9.5c3.9 0 6.6 1.7 8.1 3.1l5.5-5.5C34.2 3.9 29.5 2 24 2 14.8 2 7.3 7.8 4.3 16l6.9 5.4C12.8 14 17.9 9.5 24 9.5z"/>
+            <path fill="#34A853" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.4 5.6-5.1 7.4l7.9 6c4.6-4.3 7.3-10.6 7.3-17.9z"/>
+            <path fill="#4A90E2" d="M9.2 28.5c-.5-1.4-.8-3-.8-4.5s.3-3.1.8-4.5L2.3 14C.8 17.4 0 21.1 0 24.5s.8 7.1 2.3 10.5l6.9-6.5z"/>
+            <path fill="#FBBC05" d="M24 47c6.5 0 12-2.1 16-5.8l-7.9-6c-2.2 1.5-5 2.3-8.1 2.3-6.1 0-11.2-4.5-12.8-10.4l-6.9 5.4C7.3 40.2 14.8 47 24 47z"/>
+          </svg>
+          Continue with Google
+        </a>
+        <a href="#" class="btn w-full bg-[#24292e] text-white hover:bg-[#1b1f23] border-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 fill-current" viewBox="0 0 24 24">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61
+            -.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.083-.729.083-.729
+            1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 
+            3.495.998.108-.775.42-1.305.763-1.605-2.665-.3-5.466-1.334
+            -5.466-5.931 0-1.31.47-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176
+            0 0 1.008-.322 3.301 1.23A11.52 11.52 0 0 1 12 5.8c1.02.005
+            2.045.138 3.006.404 2.291-1.552 3.297-1.23 
+            3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 
+            1.236 1.911 1.236 3.221 0 4.61-2.807 5.628-5.479 
+            5.921.43.372.823 1.102.823 2.222 
+            0 1.606-.014 2.898-.014 3.293 0 .319.216.694.825.576
+            A12.004 12.004 0 0 0 24 12.297C24 5.67 18.627.297 12 .297z"/>
+          </svg>
+          Continue with GitHub
+        </a>
+        <a href="#" class="btn btn-outline bg-[#5865F2] text-white w-full">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 55" class="w-5 h-5 mr-2 fill-current">
+            <path d="M60.104 4.552A58.943 58.943 0 0 0 46.852.8a41.348 41.348 0 0 0-1.958 4.043
+            55.205 55.205 0 0 0-16.786 0A40.67 40.67 0 0 0 26.15.8 
+            58.977 58.977 0 0 0 12.896 4.56C1.87 20.09-.827 35.167.263 50.045
+            a58.665 58.665 0 0 0 17.51 4.364 43.074 43.074 0 0 0 3.765-6.09
+            37.42 37.42 0 0 1-5.965-2.868 28.8 28.8 0 0 0 1.774-1.392
+            c11.548 5.408 24.043 5.408 35.522 0 .58.48 1.15.97 1.77 1.392
+            -1.91 1.14-3.93 2.078-5.97 2.868a42.8 42.8 0 0 0 3.77 6.09
+            58.6 58.6 0 0 0 17.51-4.364c1.48-19.17-2.53-34.155-10.73-45.493zM23.725 37.293
+            c-3.48 0-6.34-3.205-6.34-7.162 0-3.956 2.81-7.162 6.34-7.162 
+            3.53 0 6.39 3.206 6.35 7.162 0 3.957-2.82 7.162-6.35 7.162zm23.55 0
+            c-3.48 0-6.34-3.205-6.34-7.162 0-3.956 2.81-7.162 6.34-7.162 
+            3.53 0 6.39 3.206 6.35 7.162 0 3.957-2.82 7.162-6.35 7.162z"/>
+          </svg>
+          Continue with Discord
+        </a>
       </div>
+      <p class="mt-6 text-xs opacity-60">This is a placeholder — auth not wired yet.</p>
     </div>
   </div>
-  {% endblock %}
-</body>
+
+</div>
+
+{% endblock %}

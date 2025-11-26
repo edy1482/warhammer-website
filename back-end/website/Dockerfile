@@ -27,7 +27,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # --------------------------
 RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && apt-get install -y nodejs \
-    && npm install -g npm
+    && npm install -g npm@11.6.4
 
 # --------------------------
 # Copy project files

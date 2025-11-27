@@ -2084,8 +2084,8 @@
   .max-w-3xl {
     max-width: var(--container-3xl);
   }
-  .max-w-60 {
-    max-width: calc(var(--spacing) * 60);
+  .max-w-72 {
+    max-width: calc(var(--spacing) * 72);
   }
   .max-w-md {
     max-width: var(--container-md);

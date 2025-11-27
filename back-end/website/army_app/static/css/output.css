@@ -16,7 +16,6 @@
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-md: 28rem;
-    --container-xl: 36rem;
     --container-3xl: 48rem;
     --text-xs: 0.75rem;
     --text-xs--line-height: calc(1 / 0.75);
@@ -2085,11 +2084,11 @@
   .max-w-3xl {
     max-width: var(--container-3xl);
   }
+  .max-w-60 {
+    max-width: calc(var(--spacing) * 60);
+  }
   .max-w-md {
     max-width: var(--container-md);
-  }
-  .max-w-xl {
-    max-width: var(--container-xl);
   }
   .flex-1 {
     flex: 1;

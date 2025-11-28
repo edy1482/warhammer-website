@@ -107,7 +107,15 @@
     }
 
     #asciicog {
+      font-family: 'DOSFont', monospace;
+      white-space: pre;
+      line-height: 1.05;
+      font-size: 16px;
       animation: cogFade 3s ease-in-out infinite;
+    }
+
+    #omniMessage {
+      font-family: 'DOSFont', monospace;
     }
 
     /* MATRIX RAIN BACKGROUND */
@@ -118,6 +126,10 @@
         height: 100%;
         display: block;
         z-index: 0;
+    }
+
+    .matrix-font {
+      font-family: 'DOSFont', monospace;
     }
 
     /* LOADING BAR SEGMENTS */
@@ -152,7 +164,7 @@
           ctx.fillRect(0, 0, width, height);
 
           ctx.fillStyle = "#16a34a";  // Tailwind green-600
-          ctx.font = fontSize + "px monospace";
+          ctx.font = fontSize + "px DOSFont";
 
           for (let i = 0; i < drops.length; i++) {
               const text = letters[Math.floor(Math.random() * letters.length)];
@@ -166,7 +178,7 @@
                   ctx.shadowColor = "#16a34a";
               }
 
-              ctx.font = `${fontSize}px monospace`;
+              ctx.font = `${fontSize}px DOSFont`;
               ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
               if (drops[i] * fontSize > height && Math.random() > 0.975) {

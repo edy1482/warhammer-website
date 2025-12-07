@@ -21,7 +21,7 @@ from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 # Assert valid model entry
 # Assert invalid model entry
 # Assert that Char/Text field may be blank
-# Assert that field may be none
+# Assert that field may be none - test
 
 class BaseModelTest(TestCase):
     model_class = None

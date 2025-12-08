@@ -311,7 +311,7 @@
         glitchIntensity = (current >= segments.length - 3) ? 1 : 0;
 
         //Random speed for next segment load
-        const speed = 250 + Math.random() * 400;
+        const speed = 500 + Math.random() * 400;
         current++;
         setTimeout(fillSegment, speed);
       } else {

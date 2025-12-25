@@ -83,7 +83,9 @@ class Enhancement(models.Model):
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, related_name="enhancement")
     description = models.TextField(blank=True, default="")
     points = models.PositiveIntegerField()
+    
     # Keyword filters
+    or_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_require_or")
     and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_requiring")
     not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_forbidding")
     
@@ -91,11 +93,33 @@ class Enhancement(models.Model):
     def __str__(self):
         return self.name
     
+class Phase(models.model):
+    PHASES = [
+        ("COMMAND", "Command phase"),
+        ("MOVEMENT", "Movement phase"),
+        ("SHOOTING", "Shooting phase"),
+        ("CHARGE", "Charge phase"),
+        ("Fight", "Fight phase")
+    ]
+    TURNS = [
+        ("YOURS", "Your turn"),
+        ("OPP", "Your opponent's turn")
+    ]
+    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=PHASES)
+    turn = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=TURNS)
+    
+    
 class Stratagem(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    description = models.TextField(blank=True, default="")
+    when = models.ManyToManyField(Phase, blank=True, related_name="stratagem_phase")
+    target = models.TextField(blank=True, default="")
+    effect = models.TextField(blank=True, default="")
+    restrictions = models.TextField(blank=True, default="")
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, null=True, blank=True, related_name="stratagems")
     cost = models.PositiveIntegerField(default=1)
+    
+    # Keyword filters
+    or_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_require_or")
     and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_requiring")
     not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_forbidding")
     

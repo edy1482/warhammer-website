@@ -13,6 +13,22 @@ class KeyWord(models.Model):
     def __str__(self):
         return self.name
     
+class KeyWordCondition(models.Model):
+    AND = "and"
+    OR = "or"
+    NOT = "not"
+    
+    OPERATOR_CHOICES = [
+        (AND, "AND"),
+        (OR, "OR"),
+        (NOT, "NOT"),
+    ]
+    
+    operator = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=OPERATOR_CHOICES, null=True, blank=True, help_text="Logical operator, null means leaf node")
+    keyword = models.ForeignKey(KeyWord, null=True, blank=True, on_delete=models.CASCADE, help_text="Set only for leaf nodes")
+    
+    parent = models.ForeignKey("self", null=True, blank=True, on_delete=models.CASCADE, related_name="children")
+    
 class Ability(models.Model):
     ABILITY_TYPES = [
         ("FACTION_RULE", "Faction Rule"),

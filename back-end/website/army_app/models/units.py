@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.functional import cached_property
-from .core import KeyWord, Faction
+from .core import KeyWord, KeyWordCondition, Faction
 from .wargear import Ability, Weapon
 import logging
 
@@ -98,6 +98,23 @@ class Unit(models.Model):
                 faction_kw |= set(effect.or_keywords.values_list("name", flat=True))
         
         return unit_kw | faction_kw
+    
+    def eval_condition(self, condition: KeyWordCondition):
+        # Base Case
+        if condition.operator is None:
+            return condition.keyword in self.all_keywords
+        
+        children = condition.children.all()
+        
+        # Recursive Case
+        if condition.operator == KeyWordCondition.AND:
+            return all(self.eval_condition(c) for c in children)
+        
+        if condition.operator == KeyWordCondition.OR:
+            return any(self.eval_condition(c) for c in children)
+        
+        if condition.operator == KeyWordCondition.NOT:
+            return not self.eval_condition(children.first())
     
     def affects_unit(self, ability_effect):
         # Check if this ability effect applies to this unit based on keywords

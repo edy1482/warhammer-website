@@ -6,6 +6,14 @@ from army_app.models import Weapon
 from army_app.models import Unit, UnitPointBracket
 from army_app.models import Leadership
 
+
+# Make a KeywordCondition handler which includes the following:
+# - A check that the model class has the KeyWordCondition handler
+# - A parser that analyzes a string of words (description of AbilityEffect) and creates tokens
+# - A lexer that analyzes a string of tokens and createst the KeyWordCondition object
+# - Returns the KeyWordCondition object
+
+
 def keyword_handler(keywords, model_class, row):
     """
     Given a semicolon-separated string of keywords, return list of KeyWord objects
@@ -38,10 +46,11 @@ def load_model(model_class, csv_path, row_to_kwargs):
             
             try:
                 # Pull out M2M fields for post-save binding
+                # Add KeyWordCondition field with own handler
                 m2m_fields = {
-                    "or_keywords": keyword_handler("or_keywords", model_class, row),
-                    "and_keywords": keyword_handler("and_keywords", model_class, row),
-                    "not_keywords": keyword_handler("not_keywords", model_class, row),
+                    # "or_keywords": keyword_handler("or_keywords", model_class, row),
+                    # "and_keywords": keyword_handler("and_keywords", model_class, row),
+                    # "not_keywords": keyword_handler("not_keywords", model_class, row),
                     "co_leaders": kwargs.pop("co_leaders", []),
                     "abilities": kwargs.pop("abilities", []),
                     "wargear_abilities": kwargs.pop("wargear_abilities", []),

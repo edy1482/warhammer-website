@@ -55,22 +55,20 @@ class AbilityEffect(models.Model):
     # Text for this conditional effect
     effect_description = models.TextField()
     
-    # Keyword filters
-    or_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="or_effects")
-    and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="and_effects")
-    not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="not_effects")
+    # # Keyword filters
+    # or_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="or_effects")
+    # and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="and_effects")
+    # not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="not_effects")
 
 class Faction(models.Model):
-    # This gets normalized into list of 2-tuple - [(a, b), (c, d) ...]
-    # Perhaps change this to normalized form?
-    FACTION_CHOICES = {
-        "SPM" : "Space Marines",
-        "TYR" : "Tyrannids",
-        "ORK" : "Orks",
-        "NEC" : "Necrons",
-        "CUS" : "Adeptus Custodes",
-        "MEC" : "Adeptus Mechanicus",
-    }
+    FACTION_CHOICES = [
+        ("SPM", "Space Marines"),
+        ("TYR", "Tyrannids"),
+        ("ORK", "Orks"),
+        ("NEC", "Necrons"),
+        ("CUS", "Adeptus Custodes"),
+        ("MEC", "Adeptus Mechanicus"),
+    ]
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=FACTION_CHOICES)
     abilities = models.ManyToManyField(Ability, related_name="factions", blank=True, limit_choices_to={"ability_type" : "FACTION_RULE"})
     
@@ -100,10 +98,10 @@ class Enhancement(models.Model):
     description = models.TextField(blank=True, default="")
     points = models.PositiveIntegerField()
     
-    # Keyword filters
-    or_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_require_or")
-    and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_requiring")
-    not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_forbidding")
+    # # Keyword filters
+    # or_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_require_or")
+    # and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_requiring")
+    # not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_forbidding")
     
     # Class functions
     def __str__(self):
@@ -134,10 +132,10 @@ class Stratagem(models.Model):
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, null=True, blank=True, related_name="stratagems")
     cost = models.PositiveIntegerField(default=1)
     
-    # Keyword filters
-    or_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_require_or")
-    and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_requiring")
-    not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_forbidding")
+    # # Keyword filters
+    # or_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_require_or")
+    # and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_requiring")
+    # not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_forbidding")
     
     # Class functions
     def __str__(self):

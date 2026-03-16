@@ -11,6 +11,7 @@ logger = logging.getLogger("datasheet")
 class Unit(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
     faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
+    # Change this to the keywordCondition
     keywords = models.ManyToManyField(KeyWord, blank=True)
     
     # core stats
@@ -88,6 +89,7 @@ class Unit(models.Model):
         ]
         
     @cached_property
+    # change this to match KeywordCondition model
     def all_keywords(self):
         unit_kw = set(self.keywords.values_list("name", flat=True))
         # Faction keywords come from ability effects of faction abilities
@@ -98,6 +100,7 @@ class Unit(models.Model):
                 faction_kw |= set(effect.or_keywords.values_list("name", flat=True))
         
         return unit_kw | faction_kw
+    
     
     def eval_condition(self, condition: KeyWordCondition):
         # Base Case

@@ -11,7 +11,6 @@ logger = logging.getLogger("datasheet")
 class Unit(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
     faction = models.ForeignKey(Faction, on_delete=models.CASCADE)
-    # Change this to the keywordCondition
     keywords = models.ManyToManyField(KeyWord, blank=True)
     
     # core stats
@@ -102,10 +101,10 @@ class Unit(models.Model):
         return unit_kw | faction_kw
     
     
-    def eval_condition(self, condition: KeyWordCondition):
-        # Base Case
+    def eval_condition(self, condition: KeyWordCondition) -> bool:
+        # Base Case - check this to make sure it makes sense
         if condition.operator is None:
-            return condition.keyword in self.all_keywords
+            return condition.keyword in self.keywords.all()
         
         children = condition.children.all()
         
@@ -120,23 +119,24 @@ class Unit(models.Model):
             return not self.eval_condition(children.first())
     
     def affects_unit(self, ability_effect):
-        # Check if this ability effect applies to this unit based on keywords
-        unit_keywords = self.all_keywords
+        # Change this to work with KeyWordCondition AST
+        # Should convert AST to Q object for filtering
+        # unit_keywords = self.all_keywords
         
-        # Check AND keywords (must have all)
-        and_kw = set(ability_effect.and_keywords.values_list("name", flat=True))
-        if not and_kw.issubset(unit_keywords):
-            return False
+        # # Check AND keywords (must have all)
+        # and_kw = set(ability_effect.and_keywords.values_list("name", flat=True))
+        # if not and_kw.issubset(unit_keywords):
+        #     return False
         
-        # Check OR keywords if OR keywords exist (need at least one)
-        or_kw = set(ability_effect.or_keywords.values_list("name", flat=True))
-        if or_kw and not (or_kw & unit_keywords):
-            return False
+        # # Check OR keywords if OR keywords exist (need at least one)
+        # or_kw = set(ability_effect.or_keywords.values_list("name", flat=True))
+        # if or_kw and not (or_kw & unit_keywords):
+        #     return False
         
-        # Check NOT keywords (exclude if any exist)
-        not_kw = set(ability_effect.not_keywords.values_list("name", flat=True))
-        if not_kw & unit_keywords:
-            return False
+        # # Check NOT keywords (exclude if any exist)
+        # not_kw = set(ability_effect.not_keywords.values_list("name", flat=True))
+        # if not_kw & unit_keywords:
+        #     return False
         
         return True
     

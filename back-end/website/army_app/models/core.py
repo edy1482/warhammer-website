@@ -14,9 +14,9 @@ class KeyWord(models.Model):
         return self.name
     
 class KeyWordCondition(models.Model):
-    AND = "and"
-    OR = "or"
-    NOT = "not"
+    AND = "AND"
+    OR = "OR"
+    NOT = "NOT"
     
     OPERATOR_CHOICES = [
         (AND, "AND"),
@@ -28,6 +28,25 @@ class KeyWordCondition(models.Model):
     keyword = models.ForeignKey(KeyWord, null=True, blank=True, on_delete=models.CASCADE, help_text="Set only for leaf nodes")
     
     parent = models.ForeignKey("self", null=True, blank=True, on_delete=models.CASCADE, related_name="children")
+    
+    # Leaf Node:
+    # Operator = None
+    # Keyword != None
+    
+    # Operator Node:
+    # Operator != None
+    # Keyword = None
+    
+    def clean(self):
+        super().clean()
+        if self.operator and self.keyword:
+            return ValidationError("Operator cannot have keyword")
+        
+        if self.operator and not self.keyword:
+            return ValidationError("Leaf node must have keyword")
+        
+        if self.operator == self.NOT and self.children.count() != 1:
+            return ValidationError("NOT operator must have exactly one child")
     
 class Ability(models.Model):
     ABILITY_TYPES = [
@@ -54,11 +73,15 @@ class AbilityEffect(models.Model):
     ability = models.ForeignKey(Ability, on_delete=models.CASCADE, related_name="effects")
     # Text for this conditional effect
     effect_description = models.TextField()
+       
+    # Keywords
+    keywords = models.ManyToManyField(KeyWord, related_name="ability_keywords")
     
-    # # Keyword filters
-    # or_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="or_effects")
-    # and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="and_effects")
-    # not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="not_effects")
+    # Keyword expression in mini-expression language
+    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)")
+    
+    # KeywordCondition - AST to be built after data load
+    auto_condition = models.ForeignKey(KeyWordCondition, null=True, blank=True, on_delete=models.SET_NULL)
 
 class Faction(models.Model):
     FACTION_CHOICES = [
@@ -98,10 +121,14 @@ class Enhancement(models.Model):
     description = models.TextField(blank=True, default="")
     points = models.PositiveIntegerField()
     
-    # # Keyword filters
-    # or_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_require_or")
-    # and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_requiring")
-    # not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="enhancements_forbidding")
+    # Keywords
+    keywords = models.ManyToManyField(KeyWord, related_name="ability_keywords")
+    
+    # Keyword expression in mini-expression language
+    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)")
+    
+    # KeywordCondition - AST to be built after data load
+    auto_condition = models.ForeignKey(KeyWordCondition, null=True, blank=True, on_delete=models.SET_NULL)
     
     # Class functions
     def __str__(self):
@@ -132,10 +159,14 @@ class Stratagem(models.Model):
     detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, null=True, blank=True, related_name="stratagems")
     cost = models.PositiveIntegerField(default=1)
     
-    # # Keyword filters
-    # or_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_require_or")
-    # and_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_requiring")
-    # not_keywords = models.ManyToManyField(KeyWord, blank=True, related_name="stratagems_forbidding")
+    # Keywords
+    keywords = models.ManyToManyField(KeyWord, related_name="ability_keywords")
+    
+    # Keyword expression in mini-expression language
+    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)")
+    
+    # KeywordCondition - AST to be built after data load
+    auto_condition = models.ForeignKey(KeyWordCondition, null=True, blank=True, on_delete=models.SET_NULL)
     
     # Class functions
     def __str__(self):

@@ -12,6 +12,7 @@ from army_app.models import Leadership
 # - A parser that analyzes a string of words (description of AbilityEffect) and creates tokens
 # - A lexer that analyzes a string of tokens and createst the KeyWordCondition object
 # - Returns the KeyWordCondition object
+# - This should be in a separate file and turned into a Django command
 
 
 def keyword_handler(keywords, model_class, row):
@@ -25,7 +26,6 @@ def keyword_handler(keywords, model_class, row):
             for k in row[keywords].split(";") if k.strip()
         ]
     return keyword_objs
-
 
 def load_model(model_class, csv_path, row_to_kwargs):
     """
@@ -46,11 +46,8 @@ def load_model(model_class, csv_path, row_to_kwargs):
             
             try:
                 # Pull out M2M fields for post-save binding
-                # Add KeyWordCondition field with own handler
                 m2m_fields = {
-                    # "or_keywords": keyword_handler("or_keywords", model_class, row),
-                    # "and_keywords": keyword_handler("and_keywords", model_class, row),
-                    # "not_keywords": keyword_handler("not_keywords", model_class, row),
+                    "or_keywords": keyword_handler("keywords", model_class, row),
                     "co_leaders": kwargs.pop("co_leaders", []),
                     "abilities": kwargs.pop("abilities", []),
                     "wargear_abilities": kwargs.pop("wargear_abilities", []),
@@ -107,6 +104,7 @@ def load_ability_effects(csv_path):
         return errors, {
             "ability" : ability,
             "effect_description" : row["effect_description"],
+            "keyword_expression" : row["keyword_expression"],
         }
     return load_model(AbilityEffect, csv_path, row_to_ability_effects_kwargs)
 
@@ -182,6 +180,7 @@ def load_enhancements(csv_path):
             "name" : row["name"],
             "description" : row["description"],
             "points" : row["points"],
+            "keyword_expression" : row["keyword_expression"],
         }
     return load_model(Enhancement, csv_path, row_to_enhancement_kwargs)
 
@@ -203,6 +202,7 @@ def load_stratagems(csv_path):
             "name" : row["name"],
             "description" : row["description"],
             "cost" : row["cost"],
+            "keyword_expression" : row["keyword_expression"],
         }
     return load_model(Stratagem, csv_path, row_to_stratagems_kwargs)
 

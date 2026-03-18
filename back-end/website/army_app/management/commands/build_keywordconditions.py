@@ -64,7 +64,8 @@ class Command(BaseCommand):
                         if not dry_run and getattr(obj, "auto_condition", None):
                             obj.auto_condition.delete()
                         
-                        # Parse expression and build tree here (not built yet)
+                        # Parse expression and build tree here
+                        # TODO - build tokenizer and parser in separate folder.
                         condition - parse_expression(expr)
                         
                         if not dry_run:

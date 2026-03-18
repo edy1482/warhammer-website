@@ -95,26 +95,8 @@ class Unit(models.Model):
         return set(unit_keywords) | set(faction_keywords)
     
     
-    def eval_unit_condition(self, condition: KeyWordCondition) -> bool:
-        all_keywords = self.get_all_keywords()
-        # Base Case - check this to make sure it makes sense
-        if condition.operator is None:
-            return condition.keyword in all_keywords
-        
-        children = condition.children.all()
-        
-        # Recursive Case
-        if condition.operator == KeyWordCondition.AND:
-            return all(self.eval_unit_condition(c) for c in children)
-        
-        if condition.operator == KeyWordCondition.OR:
-            return any(self.eval_unit_condition(c) for c in children)
-        
-        if condition.operator == KeyWordCondition.NOT:
-            return not self.eval_unit_condition(children.first())
-    
     def ability_affects_unit(self, ability_effect: AbilityEffect):
-        return self.eval_unit_condition(ability_effect.auto_condition)
+        return ability_effect.auto_condition.eval_unit_condition(self)
     
     def applicable_effects(self, detachment=None):
         # Return all ability effects that apply to this unit

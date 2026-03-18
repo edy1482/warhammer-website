@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from .units import Unit
 
 MAX_CHARFIELD_LENGTH = 255
 
@@ -36,6 +37,26 @@ class KeyWordCondition(models.Model):
     # Operator Node:
     # Operator != None
     # Keyword = None
+    
+    # TODO - build KeyWordCondition -> Q object builder here
+    
+    def eval_unit_condition(self, unit: Unit) -> bool:
+        all_keywords = unit.get_all_keywords()
+        # Base Case - check this to make sure it makes sense
+        if self.operator is None:
+            return self.keyword in all_keywords
+        
+        children = self.children.all()
+        
+        # Recursive Case
+        if self.operator == KeyWordCondition.AND:
+            return all(self.eval_unit_condition(c) for c in children)
+        
+        if self.operator == KeyWordCondition.OR:
+            return any(self.eval_unit_condition(c) for c in children)
+        
+        if self.operator == KeyWordCondition.NOT:
+            return not self.eval_unit_condition(children.first())
     
     def clean(self):
         super().clean()

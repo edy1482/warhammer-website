@@ -75,7 +75,7 @@ class AbilityEffect(models.Model):
     effect_description = models.TextField()
        
     # Keywords
-    keywords = models.ManyToManyField(KeyWord, related_name="ability_keywords")
+    keywords = models.ManyToManyField(KeyWord, related_name="ability_effect_keywords")
     
     # Keyword expression in mini-expression language
     keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)")
@@ -93,7 +93,7 @@ class Faction(models.Model):
         ("MEC", "Adeptus Mechanicus"),
     ]
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=FACTION_CHOICES)
-    abilities = models.ManyToManyField(Ability, related_name="factions", blank=True, limit_choices_to={"ability_type" : "FACTION_RULE"})
+    abilities = models.ManyToManyField(Ability, related_name="granted_to_factions", blank=True, limit_choices_to={"ability_type" : "FACTION_RULE"})
     
     # Class functions
     def __str__(self):

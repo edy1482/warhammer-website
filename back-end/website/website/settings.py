@@ -221,7 +221,7 @@ LOGGING = {
         # Specific logger for download csv
         "download_csv" : {
             "handlers" : ["console", "download_csv_file"],
-            "level" : "WARNING",
+            "level" : "INFO",
             "propagate" : False,
         },
         # Specific logger for datasheet

@@ -1,6 +1,8 @@
+from __future__ import annotations
 from django.db import models
 from django.core.exceptions import ValidationError
-from .units import Unit
+from typing import TYPE_CHECKING
+if TYPE_CHECKING: from .units import Unit
 
 MAX_CHARFIELD_LENGTH = 255
 
@@ -40,7 +42,7 @@ class KeyWordCondition(models.Model):
     
     # TODO - build KeyWordCondition -> Q object builder here
     
-    def eval_unit_condition(self, unit: Unit) -> bool:
+    def eval_unit_condition(self, unit: "Unit") -> bool:
         all_keywords = unit.get_all_keywords()
         # Base Case - check this to make sure it makes sense
         if self.operator is None:
@@ -99,7 +101,7 @@ class AbilityEffect(models.Model):
     keywords = models.ManyToManyField(KeyWord, related_name="ability_effect_keywords")
     
     # Keyword expression in mini-expression language
-    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)")
+    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)", default="")
     
     # KeywordCondition - AST to be built after data load
     auto_condition = models.ForeignKey(KeyWordCondition, null=True, blank=True, on_delete=models.SET_NULL)
@@ -143,10 +145,10 @@ class Enhancement(models.Model):
     points = models.PositiveIntegerField()
     
     # Keywords
-    keywords = models.ManyToManyField(KeyWord, related_name="ability_keywords")
+    keywords = models.ManyToManyField(KeyWord, related_name="enhancement_keywords")
     
     # Keyword expression in mini-expression language
-    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)")
+    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)", default="")
     
     # KeywordCondition - AST to be built after data load
     auto_condition = models.ForeignKey(KeyWordCondition, null=True, blank=True, on_delete=models.SET_NULL)
@@ -155,7 +157,7 @@ class Enhancement(models.Model):
     def __str__(self):
         return self.name
     
-class Phase(models.model):
+class Phase(models.Model):
     PHASES = [
         ("COMMAND", "Command phase"),
         ("MOVEMENT", "Movement phase"),
@@ -181,10 +183,10 @@ class Stratagem(models.Model):
     cost = models.PositiveIntegerField(default=1)
     
     # Keywords
-    keywords = models.ManyToManyField(KeyWord, related_name="ability_keywords")
+    keywords = models.ManyToManyField(KeyWord, related_name="stratagem_keywords")
     
     # Keyword expression in mini-expression language
-    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)")
+    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)", default="")
     
     # KeywordCondition - AST to be built after data load
     auto_condition = models.ForeignKey(KeyWordCondition, null=True, blank=True, on_delete=models.SET_NULL)

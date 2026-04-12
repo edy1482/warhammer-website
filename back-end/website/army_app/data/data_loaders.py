@@ -47,7 +47,7 @@ def load_model(model_class, csv_path, row_to_kwargs):
             try:
                 # Pull out M2M fields for post-save binding
                 m2m_fields = {
-                    "or_keywords": keyword_handler("keywords", model_class, row),
+                    "keywords": keyword_handler("keywords", model_class, row),
                     "co_leaders": kwargs.pop("co_leaders", []),
                     "abilities": kwargs.pop("abilities", []),
                     "wargear_abilities": kwargs.pop("wargear_abilities", []),

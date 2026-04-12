@@ -19,7 +19,7 @@ class AbilityAdmin(admin.ModelAdmin):
 class AbilityEffectAdmin(admin.ModelAdmin):
     list_display = ("ability", "effect_description",)
     search_fields = ("ability__name", "effect_description",)
-    list_filter = ("ability__ability_type", "or_keywords", "and_keywords", "not_keywords",)
+    list_filter = ("ability__ability_type",)
     
 @admin.register(Faction)
 class FactionAdmin(admin.ModelAdmin):
@@ -54,7 +54,7 @@ class WeaponAdmin(admin.ModelAdmin):
 
 @admin.register(Unit)
 class UnitAdmin(admin.ModelAdmin):
-    list_display = ("name", "faction", "all_keywords",)
+    list_display = ("name", "faction",)
     search_fields = ("name",)
     list_filter = ("faction", "keywords",)
     filter_horizontal = ("keywords",)

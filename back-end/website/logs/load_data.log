@@ -1,0 +1,671 @@
+2026-04-14 11:35:33,217 - INFO - load_data - ================================================================================
+2026-04-14 11:35:33,217 - INFO - load_data - Starting data load run at 2026-04-14 11:35:33
+2026-04-14 11:35:33,218 - INFO - load_data - ================================================================================
+2026-04-14 11:35:33,218 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 11:33:25
+2026-04-14 11:35:33,218 - INFO - load_data - Starting validation...
+2026-04-14 11:35:33,321 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 11:35:33,425 - ERROR - load_data - FAIL: Validation failed - AbilityEffect: 6 error(s) found...
+2026-04-14 11:35:33,425 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Error - Row 4: Ability 3 not found for ability effect
+2026-04-14 11:35:33,425 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 13: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:35:33,426 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 30: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:35:33,426 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 33: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:35:33,426 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 34: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:35:33,426 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 38: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:35:33,430 - ERROR - load_data - FAIL: Validation failed - Factions: 5 error(s) found...
+2026-04-14 11:35:33,430 - ERROR - load_data - <class 'army_app.models.core.Faction'> Unexpected Error - Row 1: 'list' object has no attribute 'keys'
+2026-04-14 11:35:33,430 - ERROR - load_data - <class 'army_app.models.core.Faction'> Unexpected Error - Row 2: 'list' object has no attribute 'keys'
+2026-04-14 11:35:33,430 - ERROR - load_data - <class 'army_app.models.core.Faction'> Unexpected Error - Row 3: 'list' object has no attribute 'keys'
+2026-04-14 11:35:33,430 - ERROR - load_data - <class 'army_app.models.core.Faction'> Unexpected Error - Row 4: 'list' object has no attribute 'keys'
+2026-04-14 11:35:33,430 - ERROR - load_data - <class 'army_app.models.core.Faction'> Unexpected Error - Row 5: 'list' object has no attribute 'keys'
+2026-04-14 11:35:33,462 - ERROR - load_data - FAIL: Validation failed - Detachments: 36 error(s) found...
+2026-04-14 11:35:33,462 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 1: Faction SPM not found for detachment Gladius Task Force
+2026-04-14 11:35:33,463 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 2: Faction SPM not found for detachment Anvil Siege Force
+2026-04-14 11:35:33,463 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 3: Faction SPM not found for detachment Ironstorm Spearhead
+2026-04-14 11:35:33,463 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 4: Faction SPM not found for detachment Firestorm Assault Force
+2026-04-14 11:35:33,463 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 5: Faction SPM not found for detachment Stormlance Task Force
+2026-04-14 11:35:33,463 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 6: Faction SPM not found for detachment Vanguard Spearhead
+2026-04-14 11:35:33,463 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 7: Faction SPM not found for detachment 1st Company Task Force
+2026-04-14 11:35:33,463 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 8: Faction SPM not found for detachment Librarius Conclave
+2026-04-14 11:35:33,464 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 9: Faction TYR not found for detachment Invasion Fleet
+2026-04-14 11:35:33,464 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 10: Faction TYR not found for detachment Crusher Stampede
+2026-04-14 11:35:33,464 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 11: Faction TYR not found for detachment Unending Swarm
+2026-04-14 11:35:33,465 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 12: Faction TYR not found for detachment Assimilation Swarm
+2026-04-14 11:35:33,465 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 13: Faction TYR not found for detachment Vanguard Onslaught
+2026-04-14 11:35:33,465 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 14: Faction TYR not found for detachment Synaptic Nexus
+2026-04-14 11:35:33,465 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 15: Faction TYR not found for detachment Warrior Bioform Onslaught
+2026-04-14 11:35:33,465 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 16: Faction TYR not found for detachment Subterranean Assault
+2026-04-14 11:35:33,465 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 17: Faction ORK not found for detachment War Horde
+2026-04-14 11:35:33,465 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 18: Faction ORK not found for detachment Da Big Hunt
+2026-04-14 11:35:33,466 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 19: Faction ORK not found for detachment Kult of Speed
+2026-04-14 11:35:33,466 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 20: Faction ORK not found for detachment Dread Mob
+2026-04-14 11:35:33,466 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 21: Faction ORK not found for detachment Green Tide
+2026-04-14 11:35:33,466 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 22: Faction ORK not found for detachment Bully Boyz
+2026-04-14 11:35:33,466 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 23: Faction ORK not found for detachment Taktikal Brigade
+2026-04-14 11:35:33,466 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 24: Faction ORK not found for detachment More Dakka!
+2026-04-14 11:35:33,467 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 25: Faction NEC not found for detachment Awakened Dynasty
+2026-04-14 11:35:33,467 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 26: Faction NEC not found for detachment Annihilation Legion
+2026-04-14 11:35:33,467 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 27: Faction NEC not found for detachment Canoptek Court
+2026-04-14 11:35:33,467 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 28: Faction NEC not found for detachment Obeisance Phalanx
+2026-04-14 11:35:33,467 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 29: Faction NEC not found for detachment Hypercrypt Legion
+2026-04-14 11:35:33,468 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 30: Faction NEC not found for detachment Starshatter Arsenal
+2026-04-14 11:35:33,468 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 31: Faction CUS not found for detachment Talons Of The Emperor
+2026-04-14 11:35:33,468 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 32: Faction CUS not found for detachment Shield Host
+2026-04-14 11:35:33,468 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 33: Faction CUS not found for detachment Null Maiden Vigil
+2026-04-14 11:35:33,468 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 34: Faction CUS not found for detachment Auric Champions
+2026-04-14 11:35:33,468 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 35: Faction CUS not found for detachment Solar Spearhead
+2026-04-14 11:35:33,468 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 36: Faction CUS not found for detachment Lions of the Emperor
+2026-04-14 11:35:33,494 - ERROR - load_data - FAIL: Validation failed - Enhancements: 64 error(s) found...
+2026-04-14 11:35:33,494 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 1: Detachment Gladius Task Force not found for enhancement Artificer Armour
+2026-04-14 11:35:33,494 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 2: Detachment Gladius Task Force not found for enhancement The Honour Vehement
+2026-04-14 11:35:33,495 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 3: Detachment Gladius Task Force not found for enhancement Adept of the Codex
+2026-04-14 11:35:33,495 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 4: Detachment Gladius Task Force not found for enhancement Fire Discipline
+2026-04-14 11:35:33,495 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 5: Detachment Anvil Siege Force not found for enhancement Indomitable Fury
+2026-04-14 11:35:33,495 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 6: Detachment Anvil Siege Force not found for enhancement Fleet Commander
+2026-04-14 11:35:33,495 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 7: Detachment Anvil Siege Force not found for enhancement Stoic Defender
+2026-04-14 11:35:33,495 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 8: Detachment Anvil Siege Force not found for enhancement Architect of War
+2026-04-14 11:35:33,495 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 9: Detachment Ironstorm Spearhead not found for enhancement Target Augury Web
+2026-04-14 11:35:33,495 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 10: Detachment Ironstorm Spearhead not found for enhancement The Flesh is Weak
+2026-04-14 11:35:33,495 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 11: Detachment Ironstorm Spearhead not found for enhancement Adept of the Omnissiah
+2026-04-14 11:35:33,496 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 12: Detachment Ironstorm Spearhead not found for enhancement Master of Machine War
+2026-04-14 11:35:33,496 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 13: Detachment Firestorm Assault Force not found for enhancement Champion of Humanity
+2026-04-14 11:35:33,496 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 14: Detachment Firestorm Assault Force not found for enhancement War-tempered Artifice
+2026-04-14 11:35:33,496 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 15: Detachment Firestorm Assault Force not found for enhancement Forged in Battle
+2026-04-14 11:35:33,496 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 16: Detachment Firestorm Assault Force not found for enhancement Adamantine Mantle
+2026-04-14 11:35:33,496 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 17: Detachment Stormlance Task Force not found for enhancement Fury of the Storm
+2026-04-14 11:35:33,496 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 18: Detachment Stormlance Task Force not found for enhancement Portents of Wisdom
+2026-04-14 11:35:33,496 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 19: Detachment Stormlance Task Force not found for enhancement Feinting Withdrawal
+2026-04-14 11:35:33,497 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 20: Detachment Stormlance Task Force not found for enhancement Hunter’s Instincts
+2026-04-14 11:35:33,497 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 21: Detachment Vanguard Spearhead not found for enhancement The Blade Driven Deep
+2026-04-14 11:35:33,497 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 22: Detachment Vanguard Spearhead not found for enhancement Ghostweave Cloak
+2026-04-14 11:35:33,497 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 23: Detachment Vanguard Spearhead not found for enhancement Execute and Redeploy
+2026-04-14 11:35:33,497 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 24: Detachment Vanguard Spearhead not found for enhancement Shadow War Veteran
+2026-04-14 11:35:33,497 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 25: Detachment 1st Company Task Force not found for enhancement The Imperium’s Sword
+2026-04-14 11:35:33,498 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 26: Detachment 1st Company Task Force not found for enhancement Fear Made Manifest (Aura)
+2026-04-14 11:35:33,498 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 27: Detachment 1st Company Task Force not found for enhancement Rites of War
+2026-04-14 11:35:33,498 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 28: Detachment 1st Company Task Force not found for enhancement Iron Resolve
+2026-04-14 11:35:33,498 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 29: Detachment Librarius Conclave not found for enhancement Prescience
+2026-04-14 11:35:33,498 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 30: Detachment Librarius Conclave not found for enhancement Celerity
+2026-04-14 11:35:33,498 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 31: Detachment Librarius Conclave not found for enhancement Obfuscation
+2026-04-14 11:35:33,498 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 32: Detachment Librarius Conclave not found for enhancement Fusillade
+2026-04-14 11:35:33,498 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 33: Detachment Invasion Fleet not found for enhancement Alien Cunning
+2026-04-14 11:35:33,498 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 34: Detachment Invasion Fleet not found for enhancement Perfectly Adapted
+2026-04-14 11:35:33,499 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 35: Detachment Invasion Fleet not found for enhancement Synaptic Linchpin
+2026-04-14 11:35:33,499 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 36: Detachment Invasion Fleet not found for enhancement Adaptive Biology
+2026-04-14 11:35:33,499 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 37: Detachment Crusher Stampede not found for enhancement Ominous Presence
+2026-04-14 11:35:33,499 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 38: Detachment Crusher Stampede not found for enhancement Enraged Reserves
+2026-04-14 11:35:33,499 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 39: Detachment Crusher Stampede not found for enhancement Null Nodules
+2026-04-14 11:35:33,499 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 40: Detachment Crusher Stampede not found for enhancement Monstrous Nemesis
+2026-04-14 11:35:33,499 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 41: Detachment Unending Swarm not found for enhancement Relentless Hunger
+2026-04-14 11:35:33,499 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 42: Detachment Unending Swarm not found for enhancement Naturalised Camouflage
+2026-04-14 11:35:33,500 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 43: Detachment Unending Swarm not found for enhancement Piercing Talons
+2026-04-14 11:35:33,500 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 44: Detachment Unending Swarm not found for enhancement Adrenalised Onslaught
+2026-04-14 11:35:33,500 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 45: Detachment Assimilation Swarm not found for enhancement Regenerating Monstrosity
+2026-04-14 11:35:33,500 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 46: Detachment Assimilation Swarm not found for enhancement Instinctive Defence
+2026-04-14 11:35:33,500 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 47: Detachment Assimilation Swarm not found for enhancement Biophagic Flow (Aura)
+2026-04-14 11:35:33,500 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 48: Detachment Assimilation Swarm not found for enhancement Parasitic Biomorphology
+2026-04-14 11:35:33,500 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 49: Detachment Questing Tendrils not found for enhancement Hunting Grounds
+2026-04-14 11:35:33,500 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 50: Detachment Questing Tendrils not found for enhancement Chameleonic
+2026-04-14 11:35:33,501 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 51: Detachment Questing Tendrils not found for enhancement Stalker
+2026-04-14 11:35:33,501 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 52: Detachment Questing Tendrils not found for enhancement Neuronode
+2026-04-14 11:35:33,501 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 53: Detachment Synaptic Imperatives not found for enhancement Power of the Hive Mind
+2026-04-14 11:35:33,501 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 54: Detachment Synaptic Imperatives not found for enhancement Psychostatic Disruption
+2026-04-14 11:35:33,501 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 55: Detachment Synaptic Imperatives not found for enhancement Synaptic Control
+2026-04-14 11:35:33,501 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 56: Detachment Synaptic Imperatives not found for enhancement The Dirgeheart of Kharis (Aura)
+2026-04-14 11:35:33,501 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 57: Detachment Leader-beasts not found for enhancement Synaptic Tyrant
+2026-04-14 11:35:33,501 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 58: Detachment Leader-beasts not found for enhancement Ocular Adaptation
+2026-04-14 11:35:33,502 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 59: Detachment Leader-beasts not found for enhancement Sensory Assimilation
+2026-04-14 11:35:33,502 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 60: Detachment Leader-beasts not found for enhancement Elevated Might
+2026-04-14 11:35:33,502 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 61: Detachment Surprise Assault not found for enhancement Synaptic Strategy
+2026-04-14 11:35:33,502 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 62: Detachment Surprise Assault not found for enhancement Tremor Senses
+2026-04-14 11:35:33,502 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 63: Detachment Surprise Assault not found for enhancement 
+2026-04-14 11:35:33,502 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 64: Detachment Surprise Assault not found for enhancement 
+2026-04-14 11:35:33,527 - ERROR - load_data - FAIL: Validation failed - Stratagems: 72 error(s) found...
+2026-04-14 11:35:33,527 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 1: Detachment Gladius Task Force not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:35:33,527 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 2: Detachment Gladius Task Force not found for enhancement ADAPTIVE STRATEGY
+2026-04-14 11:35:33,527 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 3: Detachment Gladius Task Force not found for enhancement ONLY IN DEATH DOES DUTY END
+2026-04-14 11:35:33,527 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 4: Detachment Gladius Task Force not found for enhancement STORM OF FIRE
+2026-04-14 11:35:33,528 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 5: Detachment Gladius Task Force not found for enhancement HONOUR THE CHAPTER
+2026-04-14 11:35:33,528 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 6: Detachment Gladius Task Force not found for enhancement SQUAD TACTICS
+2026-04-14 11:35:33,528 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 7: Detachment Anvil Siege Force not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:35:33,528 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 8: Detachment Anvil Siege Force not found for enhancement NO THREAT TOO GREAT
+2026-04-14 11:35:33,528 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 9: Detachment Anvil Siege Force not found for enhancement RIGID DISCIPLINE
+2026-04-14 11:35:33,528 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 10: Detachment Anvil Siege Force not found for enhancement BATTLE DRILL RECALL
+2026-04-14 11:35:33,529 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 11: Detachment Anvil Siege Force not found for enhancement NOT ONE BACKWARDS STEP
+2026-04-14 11:35:33,529 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 12: Detachment Anvil Siege Force not found for enhancement HAIL OF VENGEANCE
+2026-04-14 11:35:33,529 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 13: Detachment Ironstorm Spearhead not found for enhancement UNBOWED CONVICTION
+2026-04-14 11:35:33,529 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 14: Detachment Ironstorm Spearhead not found for enhancement VENGEFUL ANIMUS
+2026-04-14 11:35:33,529 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 15: Detachment Ironstorm Spearhead not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:35:33,529 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 16: Detachment Ironstorm Spearhead not found for enhancement ANCIENT FURY
+2026-04-14 11:35:33,529 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 17: Detachment Ironstorm Spearhead not found for enhancement MERCY IS WEAKNESS
+2026-04-14 11:35:33,529 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 18: Detachment Ironstorm Spearhead not found for enhancement POWER OF THE MACHINE SPIRIT
+2026-04-14 11:35:33,530 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 19: Detachment Firestorm Assault Force not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:35:33,530 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 20: Detachment Firestorm Assault Force not found for enhancement IMMOLATION PROTOCOLS
+2026-04-14 11:35:33,530 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 21: Detachment Firestorm Assault Force not found for enhancement CRUCIBLE OF BATTLE
+2026-04-14 11:35:33,530 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 22: Detachment Firestorm Assault Force not found for enhancement ONSLAUGHT OF FIRE
+2026-04-14 11:35:33,530 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 23: Detachment Firestorm Assault Force not found for enhancement RAPID EMBARKATION
+2026-04-14 11:35:33,530 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 24: Detachment Firestorm Assault Force not found for enhancement BURNING VENGEANCE
+2026-04-14 11:35:33,530 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 25: Detachment Stormlance Task Force not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:35:33,530 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 26: Detachment Stormlance Task Force not found for enhancement SHOCK ASSAULT
+2026-04-14 11:35:33,531 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 27: Detachment Stormlance Task Force not found for enhancement BLITZING FUSILLADE
+2026-04-14 11:35:33,531 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 28: Detachment Stormlance Task Force not found for enhancement RIDE HARD, RIDE FAST
+2026-04-14 11:35:33,531 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 29: Detachment Stormlance Task Force not found for enhancement FULL THROTTLE
+2026-04-14 11:35:33,531 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 30: Detachment Stormlance Task Force not found for enhancement WIND-SWIFT EVASION
+2026-04-14 11:35:33,531 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 31: Detachment Vanguard Spearhead not found for enhancement A DEADLY PRIZE
+2026-04-14 11:35:33,531 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 32: Detachment Vanguard Spearhead not found for enhancement STRIKE FROM THE SHADOWS
+2026-04-14 11:35:33,531 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 33: Detachment Vanguard Spearhead not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:35:33,531 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 34: Detachment Vanguard Spearhead not found for enhancement CALCULATED FEINT
+2026-04-14 11:35:33,532 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 35: Detachment Vanguard Spearhead not found for enhancement SURGICAL STRIKES
+2026-04-14 11:35:33,532 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 36: Detachment Vanguard Spearhead not found for enhancement GUERRILLA TACTICS
+2026-04-14 11:35:33,532 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 37: Detachment 1st Company Task Force not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:35:33,532 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 38: Detachment 1st Company Task Force not found for enhancement DUTY AND HONOUR
+2026-04-14 11:35:33,532 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 39: Detachment 1st Company Task Force not found for enhancement HEROES OF THE CHAPTER
+2026-04-14 11:35:33,532 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 40: Detachment 1st Company Task Force not found for enhancement ORBITAL TELEPORTARIUM
+2026-04-14 11:35:33,532 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 41: Detachment 1st Company Task Force not found for enhancement TERRIFYING PROFICIENCY
+2026-04-14 11:35:33,532 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 42: Detachment 1st Company Task Force not found for enhancement LEGENDARY FORTITUDE
+2026-04-14 11:35:33,532 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 43: Detachment Librarius Conclave not found for enhancement SENSORY ASSAULT
+2026-04-14 11:35:33,533 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 44: Detachment Librarius Conclave not found for enhancement IRON ARM
+2026-04-14 11:35:33,533 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 45: Detachment Librarius Conclave not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:35:33,533 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 46: Detachment Librarius Conclave not found for enhancement ASSAIL
+2026-04-14 11:35:33,533 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 47: Detachment Librarius Conclave not found for enhancement FIERY SHIELD
+2026-04-14 11:35:33,533 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 48: Detachment Librarius Conclave not found for enhancement PRESCIENT PRECISION
+2026-04-14 11:35:33,533 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 49: Detachment Invasion Fleet not found for enhancement RAPID REGENERATION
+2026-04-14 11:35:33,533 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 50: Detachment Invasion Fleet not found for enhancement OVERRUN
+2026-04-14 11:35:33,533 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 51: Detachment Invasion Fleet not found for enhancement ADRENAL SURGE
+2026-04-14 11:35:33,534 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 52: Detachment Invasion Fleet not found for enhancement PREDATORY IMPERATIVE
+2026-04-14 11:35:33,534 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 53: Detachment Invasion Fleet not found for enhancement DEATH FRENZY
+2026-04-14 11:35:33,534 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 54: Detachment Invasion Fleet not found for enhancement ENDLESS SWARM
+2026-04-14 11:35:33,534 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 55: Detachment Crusher Stampede not found for enhancement CORROSIVE VISCERA
+2026-04-14 11:35:33,534 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 56: Detachment Crusher Stampede not found for enhancement UNTRAMMELLED FEROCITY
+2026-04-14 11:35:33,534 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 57: Detachment Crusher Stampede not found for enhancement RAMPAGING MONSTROSITIES
+2026-04-14 11:35:33,534 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 58: Detachment Crusher Stampede not found for enhancement SWARM-GUIDED SALVOES
+2026-04-14 11:35:33,534 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 59: Detachment Crusher Stampede not found for enhancement SAVAGE ROAR
+2026-04-14 11:35:33,534 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 60: Detachment Crusher Stampede not found for enhancement MASSIVE IMPACT
+2026-04-14 11:35:33,535 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 61: Detachment Unending Swarm not found for enhancement SYNAPTIC GOADING
+2026-04-14 11:35:33,535 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 62: Detachment Unending Swarm not found for enhancement SWARMING MASSES
+2026-04-14 11:35:33,535 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 63: Detachment Unending Swarm not found for enhancement UNENDING WAVES
+2026-04-14 11:35:33,535 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 64: Detachment Unending Swarm not found for enhancement BOUNDING ADVANCE
+2026-04-14 11:35:33,535 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 65: Detachment Unending Swarm not found for enhancement TEEMING MASSES
+2026-04-14 11:35:33,535 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 66: Detachment Unending Swarm not found for enhancement PRESERVATION IMPERATIVE
+2026-04-14 11:35:33,535 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 67: Detachment Assimilation Swarm not found for enhancement BROODGUARD IMPULSE
+2026-04-14 11:35:33,535 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 68: Detachment Assimilation Swarm not found for enhancement ABLATIVE CARAPACE
+2026-04-14 11:35:33,535 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 69: Detachment Assimilation Swarm not found for enhancement RECLAIM BIOMASS
+2026-04-14 11:35:33,536 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 70: Detachment Assimilation Swarm not found for enhancement SECURE BIOMASS
+2026-04-14 11:35:33,536 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 71: Detachment Assimilation Swarm not found for enhancement TYRANNOFORMED
+2026-04-14 11:35:33,536 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 72: Detachment Assimilation Swarm not found for enhancement RAPACIOUS HUNGER
+2026-04-14 11:35:33,549 - ERROR - load_data - FAIL: Validation failed - Weapons: 6 error(s) found...
+2026-04-14 11:35:33,550 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 1: Ability Pistol does not exist in DB
+2026-04-14 11:35:33,550 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 4: Ability Devastating Wounds does not exist in DB
+2026-04-14 11:35:33,550 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 4: Ability Pistol does not exist in DB
+2026-04-14 11:35:33,550 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 5: Ability Pistol does not exist in DB
+2026-04-14 11:35:33,550 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 6: Ability Pistol does not exist in DB
+2026-04-14 11:35:33,550 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 6: Ability Hazardous does not exist in DB
+2026-04-14 11:35:33,552 - ERROR - load_data - FAIL: Validation failed - Units: 4 error(s) found...
+2026-04-14 11:35:33,553 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 1: Faction SPM not found for detachment Captain
+2026-04-14 11:35:33,553 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 2: Faction SPM not found for detachment Lieutenant
+2026-04-14 11:35:33,553 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 3: Faction SPM not found for detachment Intercessor Squad
+2026-04-14 11:35:33,553 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 4: Faction SPM not found for detachment Chaplain
+2026-04-14 11:35:33,557 - ERROR - load_data - FAIL: Validation failed - Unit Point Brackets: 4 error(s) found...
+2026-04-14 11:35:33,557 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 1: Unit Captain not found
+2026-04-14 11:35:33,557 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 2: Unit Lieutenant not found
+2026-04-14 11:35:33,557 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 3: Unit Intercessor Squad not found
+2026-04-14 11:35:33,557 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 4: Unit Intercessor Squad not found
+2026-04-14 11:35:33,558 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 11:35:33,558 - ERROR - load_data - FAIL: Validation failed with 197 errors(s) found
+2026-04-14 11:35:33,558 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 11:35:33,558 - INFO - load_data - ================================================================================
+2026-04-14 11:41:44,390 - INFO - load_data - ================================================================================
+2026-04-14 11:41:44,390 - INFO - load_data - Starting data load run at 2026-04-14 11:41:44
+2026-04-14 11:41:44,390 - INFO - load_data - ================================================================================
+2026-04-14 11:41:44,391 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 11:41:35
+2026-04-14 11:41:44,391 - INFO - load_data - Starting validation...
+2026-04-14 11:41:44,505 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 11:41:44,605 - ERROR - load_data - FAIL: Validation failed - AbilityEffect: 2 error(s) found...
+2026-04-14 11:41:44,605 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 34: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:41:44,605 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 38: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:41:44,609 - ERROR - load_data - FAIL: Validation failed - Factions: 5 error(s) found...
+2026-04-14 11:41:44,609 - ERROR - load_data - <class 'army_app.models.core.Faction'> Unexpected Error - Row 1: 'list' object has no attribute 'keys'
+2026-04-14 11:41:44,609 - ERROR - load_data - <class 'army_app.models.core.Faction'> Unexpected Error - Row 2: 'list' object has no attribute 'keys'
+2026-04-14 11:41:44,609 - ERROR - load_data - <class 'army_app.models.core.Faction'> Unexpected Error - Row 3: 'list' object has no attribute 'keys'
+2026-04-14 11:41:44,609 - ERROR - load_data - <class 'army_app.models.core.Faction'> Unexpected Error - Row 4: 'list' object has no attribute 'keys'
+2026-04-14 11:41:44,610 - ERROR - load_data - <class 'army_app.models.core.Faction'> Unexpected Error - Row 5: 'list' object has no attribute 'keys'
+2026-04-14 11:41:44,633 - ERROR - load_data - FAIL: Validation failed - Detachments: 36 error(s) found...
+2026-04-14 11:41:44,633 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 1: Faction SPM not found for detachment Gladius Task Force
+2026-04-14 11:41:44,633 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 2: Faction SPM not found for detachment Anvil Siege Force
+2026-04-14 11:41:44,633 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 3: Faction SPM not found for detachment Ironstorm Spearhead
+2026-04-14 11:41:44,633 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 4: Faction SPM not found for detachment Firestorm Assault Force
+2026-04-14 11:41:44,633 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 5: Faction SPM not found for detachment Stormlance Task Force
+2026-04-14 11:41:44,633 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 6: Faction SPM not found for detachment Vanguard Spearhead
+2026-04-14 11:41:44,634 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 7: Faction SPM not found for detachment 1st Company Task Force
+2026-04-14 11:41:44,634 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 8: Faction SPM not found for detachment Librarius Conclave
+2026-04-14 11:41:44,634 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 9: Faction TYR not found for detachment Invasion Fleet
+2026-04-14 11:41:44,634 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 10: Faction TYR not found for detachment Crusher Stampede
+2026-04-14 11:41:44,634 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 11: Faction TYR not found for detachment Unending Swarm
+2026-04-14 11:41:44,634 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 12: Faction TYR not found for detachment Assimilation Swarm
+2026-04-14 11:41:44,634 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 13: Faction TYR not found for detachment Vanguard Onslaught
+2026-04-14 11:41:44,634 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 14: Faction TYR not found for detachment Synaptic Nexus
+2026-04-14 11:41:44,634 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 15: Faction TYR not found for detachment Warrior Bioform Onslaught
+2026-04-14 11:41:44,635 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 16: Faction TYR not found for detachment Subterranean Assault
+2026-04-14 11:41:44,635 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 17: Faction ORK not found for detachment War Horde
+2026-04-14 11:41:44,635 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 18: Faction ORK not found for detachment Da Big Hunt
+2026-04-14 11:41:44,635 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 19: Faction ORK not found for detachment Kult of Speed
+2026-04-14 11:41:44,635 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 20: Faction ORK not found for detachment Dread Mob
+2026-04-14 11:41:44,635 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 21: Faction ORK not found for detachment Green Tide
+2026-04-14 11:41:44,635 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 22: Faction ORK not found for detachment Bully Boyz
+2026-04-14 11:41:44,635 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 23: Faction ORK not found for detachment Taktikal Brigade
+2026-04-14 11:41:44,635 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 24: Faction ORK not found for detachment More Dakka!
+2026-04-14 11:41:44,635 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 25: Faction NEC not found for detachment Awakened Dynasty
+2026-04-14 11:41:44,635 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 26: Faction NEC not found for detachment Annihilation Legion
+2026-04-14 11:41:44,636 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 27: Faction NEC not found for detachment Canoptek Court
+2026-04-14 11:41:44,636 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 28: Faction NEC not found for detachment Obeisance Phalanx
+2026-04-14 11:41:44,636 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 29: Faction NEC not found for detachment Hypercrypt Legion
+2026-04-14 11:41:44,636 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 30: Faction NEC not found for detachment Starshatter Arsenal
+2026-04-14 11:41:44,636 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 31: Faction CUS not found for detachment Talons Of The Emperor
+2026-04-14 11:41:44,636 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 32: Faction CUS not found for detachment Shield Host
+2026-04-14 11:41:44,636 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 33: Faction CUS not found for detachment Null Maiden Vigil
+2026-04-14 11:41:44,636 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 34: Faction CUS not found for detachment Auric Champions
+2026-04-14 11:41:44,636 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 35: Faction CUS not found for detachment Solar Spearhead
+2026-04-14 11:41:44,636 - ERROR - load_data - <class 'army_app.models.core.Detachment'> Error - Row 36: Faction CUS not found for detachment Lions of the Emperor
+2026-04-14 11:41:44,656 - ERROR - load_data - FAIL: Validation failed - Enhancements: 64 error(s) found...
+2026-04-14 11:41:44,656 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 1: Detachment Gladius Task Force not found for enhancement Artificer Armour
+2026-04-14 11:41:44,656 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 2: Detachment Gladius Task Force not found for enhancement The Honour Vehement
+2026-04-14 11:41:44,656 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 3: Detachment Gladius Task Force not found for enhancement Adept of the Codex
+2026-04-14 11:41:44,657 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 4: Detachment Gladius Task Force not found for enhancement Fire Discipline
+2026-04-14 11:41:44,657 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 5: Detachment Anvil Siege Force not found for enhancement Indomitable Fury
+2026-04-14 11:41:44,657 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 6: Detachment Anvil Siege Force not found for enhancement Fleet Commander
+2026-04-14 11:41:44,657 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 7: Detachment Anvil Siege Force not found for enhancement Stoic Defender
+2026-04-14 11:41:44,657 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 8: Detachment Anvil Siege Force not found for enhancement Architect of War
+2026-04-14 11:41:44,657 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 9: Detachment Ironstorm Spearhead not found for enhancement Target Augury Web
+2026-04-14 11:41:44,657 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 10: Detachment Ironstorm Spearhead not found for enhancement The Flesh is Weak
+2026-04-14 11:41:44,658 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 11: Detachment Ironstorm Spearhead not found for enhancement Adept of the Omnissiah
+2026-04-14 11:41:44,658 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 12: Detachment Ironstorm Spearhead not found for enhancement Master of Machine War
+2026-04-14 11:41:44,658 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 13: Detachment Firestorm Assault Force not found for enhancement Champion of Humanity
+2026-04-14 11:41:44,658 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 14: Detachment Firestorm Assault Force not found for enhancement War-tempered Artifice
+2026-04-14 11:41:44,658 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 15: Detachment Firestorm Assault Force not found for enhancement Forged in Battle
+2026-04-14 11:41:44,658 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 16: Detachment Firestorm Assault Force not found for enhancement Adamantine Mantle
+2026-04-14 11:41:44,658 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 17: Detachment Stormlance Task Force not found for enhancement Fury of the Storm
+2026-04-14 11:41:44,658 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 18: Detachment Stormlance Task Force not found for enhancement Portents of Wisdom
+2026-04-14 11:41:44,659 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 19: Detachment Stormlance Task Force not found for enhancement Feinting Withdrawal
+2026-04-14 11:41:44,659 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 20: Detachment Stormlance Task Force not found for enhancement Hunter’s Instincts
+2026-04-14 11:41:44,659 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 21: Detachment Vanguard Spearhead not found for enhancement The Blade Driven Deep
+2026-04-14 11:41:44,659 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 22: Detachment Vanguard Spearhead not found for enhancement Ghostweave Cloak
+2026-04-14 11:41:44,659 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 23: Detachment Vanguard Spearhead not found for enhancement Execute and Redeploy
+2026-04-14 11:41:44,659 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 24: Detachment Vanguard Spearhead not found for enhancement Shadow War Veteran
+2026-04-14 11:41:44,659 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 25: Detachment 1st Company Task Force not found for enhancement The Imperium’s Sword
+2026-04-14 11:41:44,659 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 26: Detachment 1st Company Task Force not found for enhancement Fear Made Manifest (Aura)
+2026-04-14 11:41:44,659 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 27: Detachment 1st Company Task Force not found for enhancement Rites of War
+2026-04-14 11:41:44,660 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 28: Detachment 1st Company Task Force not found for enhancement Iron Resolve
+2026-04-14 11:41:44,660 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 29: Detachment Librarius Conclave not found for enhancement Prescience
+2026-04-14 11:41:44,660 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 30: Detachment Librarius Conclave not found for enhancement Celerity
+2026-04-14 11:41:44,660 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 31: Detachment Librarius Conclave not found for enhancement Obfuscation
+2026-04-14 11:41:44,660 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 32: Detachment Librarius Conclave not found for enhancement Fusillade
+2026-04-14 11:41:44,660 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 33: Detachment Invasion Fleet not found for enhancement Alien Cunning
+2026-04-14 11:41:44,660 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 34: Detachment Invasion Fleet not found for enhancement Perfectly Adapted
+2026-04-14 11:41:44,660 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 35: Detachment Invasion Fleet not found for enhancement Synaptic Linchpin
+2026-04-14 11:41:44,661 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 36: Detachment Invasion Fleet not found for enhancement Adaptive Biology
+2026-04-14 11:41:44,661 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 37: Detachment Crusher Stampede not found for enhancement Ominous Presence
+2026-04-14 11:41:44,661 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 38: Detachment Crusher Stampede not found for enhancement Enraged Reserves
+2026-04-14 11:41:44,661 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 39: Detachment Crusher Stampede not found for enhancement Null Nodules
+2026-04-14 11:41:44,661 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 40: Detachment Crusher Stampede not found for enhancement Monstrous Nemesis
+2026-04-14 11:41:44,661 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 41: Detachment Unending Swarm not found for enhancement Relentless Hunger
+2026-04-14 11:41:44,661 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 42: Detachment Unending Swarm not found for enhancement Naturalised Camouflage
+2026-04-14 11:41:44,661 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 43: Detachment Unending Swarm not found for enhancement Piercing Talons
+2026-04-14 11:41:44,661 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 44: Detachment Unending Swarm not found for enhancement Adrenalised Onslaught
+2026-04-14 11:41:44,662 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 45: Detachment Assimilation Swarm not found for enhancement Regenerating Monstrosity
+2026-04-14 11:41:44,662 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 46: Detachment Assimilation Swarm not found for enhancement Instinctive Defence
+2026-04-14 11:41:44,662 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 47: Detachment Assimilation Swarm not found for enhancement Biophagic Flow (Aura)
+2026-04-14 11:41:44,662 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 48: Detachment Assimilation Swarm not found for enhancement Parasitic Biomorphology
+2026-04-14 11:41:44,662 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 49: Detachment Questing Tendrils not found for enhancement Hunting Grounds
+2026-04-14 11:41:44,662 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 50: Detachment Questing Tendrils not found for enhancement Chameleonic
+2026-04-14 11:41:44,662 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 51: Detachment Questing Tendrils not found for enhancement Stalker
+2026-04-14 11:41:44,662 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 52: Detachment Questing Tendrils not found for enhancement Neuronode
+2026-04-14 11:41:44,662 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 53: Detachment Synaptic Imperatives not found for enhancement Power of the Hive Mind
+2026-04-14 11:41:44,663 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 54: Detachment Synaptic Imperatives not found for enhancement Psychostatic Disruption
+2026-04-14 11:41:44,663 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 55: Detachment Synaptic Imperatives not found for enhancement Synaptic Control
+2026-04-14 11:41:44,663 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 56: Detachment Synaptic Imperatives not found for enhancement The Dirgeheart of Kharis (Aura)
+2026-04-14 11:41:44,663 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 57: Detachment Leader-beasts not found for enhancement Synaptic Tyrant
+2026-04-14 11:41:44,663 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 58: Detachment Leader-beasts not found for enhancement Ocular Adaptation
+2026-04-14 11:41:44,663 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 59: Detachment Leader-beasts not found for enhancement Sensory Assimilation
+2026-04-14 11:41:44,663 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 60: Detachment Leader-beasts not found for enhancement Elevated Might
+2026-04-14 11:41:44,663 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 61: Detachment Surprise Assault not found for enhancement Synaptic Strategy
+2026-04-14 11:41:44,663 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 62: Detachment Surprise Assault not found for enhancement Tremor Senses
+2026-04-14 11:41:44,663 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 63: Detachment Surprise Assault not found for enhancement 
+2026-04-14 11:41:44,663 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 64: Detachment Surprise Assault not found for enhancement 
+2026-04-14 11:41:44,686 - ERROR - load_data - FAIL: Validation failed - Stratagems: 72 error(s) found...
+2026-04-14 11:41:44,686 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 1: Detachment Gladius Task Force not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:41:44,686 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 2: Detachment Gladius Task Force not found for enhancement ADAPTIVE STRATEGY
+2026-04-14 11:41:44,686 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 3: Detachment Gladius Task Force not found for enhancement ONLY IN DEATH DOES DUTY END
+2026-04-14 11:41:44,686 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 4: Detachment Gladius Task Force not found for enhancement STORM OF FIRE
+2026-04-14 11:41:44,686 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 5: Detachment Gladius Task Force not found for enhancement HONOUR THE CHAPTER
+2026-04-14 11:41:44,686 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 6: Detachment Gladius Task Force not found for enhancement SQUAD TACTICS
+2026-04-14 11:41:44,686 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 7: Detachment Anvil Siege Force not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:41:44,687 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 8: Detachment Anvil Siege Force not found for enhancement NO THREAT TOO GREAT
+2026-04-14 11:41:44,687 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 9: Detachment Anvil Siege Force not found for enhancement RIGID DISCIPLINE
+2026-04-14 11:41:44,687 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 10: Detachment Anvil Siege Force not found for enhancement BATTLE DRILL RECALL
+2026-04-14 11:41:44,687 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 11: Detachment Anvil Siege Force not found for enhancement NOT ONE BACKWARDS STEP
+2026-04-14 11:41:44,687 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 12: Detachment Anvil Siege Force not found for enhancement HAIL OF VENGEANCE
+2026-04-14 11:41:44,687 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 13: Detachment Ironstorm Spearhead not found for enhancement UNBOWED CONVICTION
+2026-04-14 11:41:44,687 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 14: Detachment Ironstorm Spearhead not found for enhancement VENGEFUL ANIMUS
+2026-04-14 11:41:44,687 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 15: Detachment Ironstorm Spearhead not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:41:44,687 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 16: Detachment Ironstorm Spearhead not found for enhancement ANCIENT FURY
+2026-04-14 11:41:44,688 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 17: Detachment Ironstorm Spearhead not found for enhancement MERCY IS WEAKNESS
+2026-04-14 11:41:44,688 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 18: Detachment Ironstorm Spearhead not found for enhancement POWER OF THE MACHINE SPIRIT
+2026-04-14 11:41:44,688 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 19: Detachment Firestorm Assault Force not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:41:44,688 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 20: Detachment Firestorm Assault Force not found for enhancement IMMOLATION PROTOCOLS
+2026-04-14 11:41:44,688 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 21: Detachment Firestorm Assault Force not found for enhancement CRUCIBLE OF BATTLE
+2026-04-14 11:41:44,688 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 22: Detachment Firestorm Assault Force not found for enhancement ONSLAUGHT OF FIRE
+2026-04-14 11:41:44,688 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 23: Detachment Firestorm Assault Force not found for enhancement RAPID EMBARKATION
+2026-04-14 11:41:44,688 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 24: Detachment Firestorm Assault Force not found for enhancement BURNING VENGEANCE
+2026-04-14 11:41:44,688 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 25: Detachment Stormlance Task Force not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:41:44,689 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 26: Detachment Stormlance Task Force not found for enhancement SHOCK ASSAULT
+2026-04-14 11:41:44,689 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 27: Detachment Stormlance Task Force not found for enhancement BLITZING FUSILLADE
+2026-04-14 11:41:44,689 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 28: Detachment Stormlance Task Force not found for enhancement RIDE HARD, RIDE FAST
+2026-04-14 11:41:44,689 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 29: Detachment Stormlance Task Force not found for enhancement FULL THROTTLE
+2026-04-14 11:41:44,689 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 30: Detachment Stormlance Task Force not found for enhancement WIND-SWIFT EVASION
+2026-04-14 11:41:44,689 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 31: Detachment Vanguard Spearhead not found for enhancement A DEADLY PRIZE
+2026-04-14 11:41:44,689 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 32: Detachment Vanguard Spearhead not found for enhancement STRIKE FROM THE SHADOWS
+2026-04-14 11:41:44,689 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 33: Detachment Vanguard Spearhead not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:41:44,689 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 34: Detachment Vanguard Spearhead not found for enhancement CALCULATED FEINT
+2026-04-14 11:41:44,690 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 35: Detachment Vanguard Spearhead not found for enhancement SURGICAL STRIKES
+2026-04-14 11:41:44,690 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 36: Detachment Vanguard Spearhead not found for enhancement GUERRILLA TACTICS
+2026-04-14 11:41:44,690 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 37: Detachment 1st Company Task Force not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:41:44,690 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 38: Detachment 1st Company Task Force not found for enhancement DUTY AND HONOUR
+2026-04-14 11:41:44,690 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 39: Detachment 1st Company Task Force not found for enhancement HEROES OF THE CHAPTER
+2026-04-14 11:41:44,690 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 40: Detachment 1st Company Task Force not found for enhancement ORBITAL TELEPORTARIUM
+2026-04-14 11:41:44,690 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 41: Detachment 1st Company Task Force not found for enhancement TERRIFYING PROFICIENCY
+2026-04-14 11:41:44,690 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 42: Detachment 1st Company Task Force not found for enhancement LEGENDARY FORTITUDE
+2026-04-14 11:41:44,690 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 43: Detachment Librarius Conclave not found for enhancement SENSORY ASSAULT
+2026-04-14 11:41:44,691 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 44: Detachment Librarius Conclave not found for enhancement IRON ARM
+2026-04-14 11:41:44,691 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 45: Detachment Librarius Conclave not found for enhancement ARMOUR OF CONTEMPT
+2026-04-14 11:41:44,691 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 46: Detachment Librarius Conclave not found for enhancement ASSAIL
+2026-04-14 11:41:44,691 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 47: Detachment Librarius Conclave not found for enhancement FIERY SHIELD
+2026-04-14 11:41:44,691 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 48: Detachment Librarius Conclave not found for enhancement PRESCIENT PRECISION
+2026-04-14 11:41:44,691 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 49: Detachment Invasion Fleet not found for enhancement RAPID REGENERATION
+2026-04-14 11:41:44,691 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 50: Detachment Invasion Fleet not found for enhancement OVERRUN
+2026-04-14 11:41:44,691 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 51: Detachment Invasion Fleet not found for enhancement ADRENAL SURGE
+2026-04-14 11:41:44,691 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 52: Detachment Invasion Fleet not found for enhancement PREDATORY IMPERATIVE
+2026-04-14 11:41:44,692 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 53: Detachment Invasion Fleet not found for enhancement DEATH FRENZY
+2026-04-14 11:41:44,692 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 54: Detachment Invasion Fleet not found for enhancement ENDLESS SWARM
+2026-04-14 11:41:44,692 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 55: Detachment Crusher Stampede not found for enhancement CORROSIVE VISCERA
+2026-04-14 11:41:44,692 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 56: Detachment Crusher Stampede not found for enhancement UNTRAMMELLED FEROCITY
+2026-04-14 11:41:44,692 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 57: Detachment Crusher Stampede not found for enhancement RAMPAGING MONSTROSITIES
+2026-04-14 11:41:44,692 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 58: Detachment Crusher Stampede not found for enhancement SWARM-GUIDED SALVOES
+2026-04-14 11:41:44,692 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 59: Detachment Crusher Stampede not found for enhancement SAVAGE ROAR
+2026-04-14 11:41:44,692 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 60: Detachment Crusher Stampede not found for enhancement MASSIVE IMPACT
+2026-04-14 11:41:44,692 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 61: Detachment Unending Swarm not found for enhancement SYNAPTIC GOADING
+2026-04-14 11:41:44,693 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 62: Detachment Unending Swarm not found for enhancement SWARMING MASSES
+2026-04-14 11:41:44,693 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 63: Detachment Unending Swarm not found for enhancement UNENDING WAVES
+2026-04-14 11:41:44,693 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 64: Detachment Unending Swarm not found for enhancement BOUNDING ADVANCE
+2026-04-14 11:41:44,693 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 65: Detachment Unending Swarm not found for enhancement TEEMING MASSES
+2026-04-14 11:41:44,693 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 66: Detachment Unending Swarm not found for enhancement PRESERVATION IMPERATIVE
+2026-04-14 11:41:44,693 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 67: Detachment Assimilation Swarm not found for enhancement BROODGUARD IMPULSE
+2026-04-14 11:41:44,693 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 68: Detachment Assimilation Swarm not found for enhancement ABLATIVE CARAPACE
+2026-04-14 11:41:44,693 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 69: Detachment Assimilation Swarm not found for enhancement RECLAIM BIOMASS
+2026-04-14 11:41:44,693 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 70: Detachment Assimilation Swarm not found for enhancement SECURE BIOMASS
+2026-04-14 11:41:44,694 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 71: Detachment Assimilation Swarm not found for enhancement TYRANNOFORMED
+2026-04-14 11:41:44,694 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 72: Detachment Assimilation Swarm not found for enhancement RAPACIOUS HUNGER
+2026-04-14 11:41:44,704 - ERROR - load_data - FAIL: Validation failed - Weapons: 6 error(s) found...
+2026-04-14 11:41:44,704 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 1: Ability Pistol does not exist in DB
+2026-04-14 11:41:44,704 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 4: Ability Devastating Wounds does not exist in DB
+2026-04-14 11:41:44,704 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 4: Ability Pistol does not exist in DB
+2026-04-14 11:41:44,704 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 5: Ability Pistol does not exist in DB
+2026-04-14 11:41:44,705 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 6: Ability Pistol does not exist in DB
+2026-04-14 11:41:44,705 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 6: Ability Hazardous does not exist in DB
+2026-04-14 11:41:44,707 - ERROR - load_data - FAIL: Validation failed - Units: 4 error(s) found...
+2026-04-14 11:41:44,707 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 1: Faction SPM not found for detachment Captain
+2026-04-14 11:41:44,707 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 2: Faction SPM not found for detachment Lieutenant
+2026-04-14 11:41:44,708 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 3: Faction SPM not found for detachment Intercessor Squad
+2026-04-14 11:41:44,708 - ERROR - load_data - <class 'army_app.models.units.Unit'> Error - Row 4: Faction SPM not found for detachment Chaplain
+2026-04-14 11:41:44,710 - ERROR - load_data - FAIL: Validation failed - Unit Point Brackets: 4 error(s) found...
+2026-04-14 11:41:44,710 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 1: Unit Captain not found
+2026-04-14 11:41:44,710 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 2: Unit Lieutenant not found
+2026-04-14 11:41:44,710 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 3: Unit Intercessor Squad not found
+2026-04-14 11:41:44,710 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 4: Unit Intercessor Squad not found
+2026-04-14 11:41:44,711 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 11:41:44,711 - ERROR - load_data - FAIL: Validation failed with 193 errors(s) found
+2026-04-14 11:41:44,711 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 11:41:44,711 - INFO - load_data - ================================================================================
+2026-04-14 11:53:52,156 - INFO - load_data - ================================================================================
+2026-04-14 11:53:52,156 - INFO - load_data - Starting data load run at 2026-04-14 11:53:52
+2026-04-14 11:53:52,157 - INFO - load_data - ================================================================================
+2026-04-14 11:53:52,157 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 11:41:35
+2026-04-14 11:53:52,157 - INFO - load_data - Starting validation...
+2026-04-14 11:53:52,245 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 11:53:52,351 - ERROR - load_data - FAIL: Validation failed - AbilityEffect: 2 error(s) found...
+2026-04-14 11:53:52,351 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 34: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,351 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 38: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,381 - INFO - load_data - OK: Factions validation completed
+2026-04-14 11:53:52,515 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 11:53:52,606 - ERROR - load_data - FAIL: Validation failed - Enhancements: 41 error(s) found...
+2026-04-14 11:53:52,606 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 1: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,606 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 2: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,607 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 4: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,607 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 7: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,607 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 8: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,607 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 10: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,607 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 12: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,607 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 15: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,607 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 16: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,607 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 18: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,608 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 19: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,608 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 22: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,608 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 25: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,608 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 26: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,608 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 33: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,608 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 34: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,608 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 35: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,608 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 36: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,609 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 41: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,609 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 42: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,609 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 43: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,609 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 44: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,609 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 46: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,609 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 47: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,609 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Validation Error - Row 48: {'keyword_expression': ['This field cannot be blank.']}
+2026-04-14 11:53:52,609 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 49: Detachment Questing Tendrils not found for enhancement Hunting Grounds
+2026-04-14 11:53:52,610 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 50: Detachment Questing Tendrils not found for enhancement Chameleonic
+2026-04-14 11:53:52,610 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 51: Detachment Questing Tendrils not found for enhancement Stalker
+2026-04-14 11:53:52,610 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 52: Detachment Questing Tendrils not found for enhancement Neuronode
+2026-04-14 11:53:52,610 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 53: Detachment Synaptic Imperatives not found for enhancement Power of the Hive Mind
+2026-04-14 11:53:52,610 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 54: Detachment Synaptic Imperatives not found for enhancement Psychostatic Disruption
+2026-04-14 11:53:52,610 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 55: Detachment Synaptic Imperatives not found for enhancement Synaptic Control
+2026-04-14 11:53:52,610 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 56: Detachment Synaptic Imperatives not found for enhancement The Dirgeheart of Kharis (Aura)
+2026-04-14 11:53:52,610 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 57: Detachment Leader-beasts not found for enhancement Synaptic Tyrant
+2026-04-14 11:53:52,610 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 58: Detachment Leader-beasts not found for enhancement Ocular Adaptation
+2026-04-14 11:53:52,611 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 59: Detachment Leader-beasts not found for enhancement Sensory Assimilation
+2026-04-14 11:53:52,611 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 60: Detachment Leader-beasts not found for enhancement Elevated Might
+2026-04-14 11:53:52,611 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 61: Detachment Surprise Assault not found for enhancement Synaptic Strategy
+2026-04-14 11:53:52,611 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 62: Detachment Surprise Assault not found for enhancement Tremor Senses
+2026-04-14 11:53:52,611 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 63: Detachment Surprise Assault not found for enhancement 
+2026-04-14 11:53:52,611 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 64: Detachment Surprise Assault not found for enhancement 
+2026-04-14 11:53:52,613 - ERROR - load_data - FAIL: Stratagems load rolled back: 'description'
+2026-04-14 11:53:52,624 - ERROR - load_data - FAIL: Validation failed - Weapons: 6 error(s) found...
+2026-04-14 11:53:52,624 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 1: Ability Pistol does not exist in DB
+2026-04-14 11:53:52,625 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 4: Ability Devastating Wounds does not exist in DB
+2026-04-14 11:53:52,625 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 4: Ability Pistol does not exist in DB
+2026-04-14 11:53:52,625 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 5: Ability Pistol does not exist in DB
+2026-04-14 11:53:52,625 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 6: Ability Pistol does not exist in DB
+2026-04-14 11:53:52,625 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 6: Ability Hazardous does not exist in DB
+2026-04-14 11:53:52,648 - ERROR - load_data - FAIL: Validation failed - Units: 4 error(s) found...
+2026-04-14 11:53:52,648 - ERROR - load_data - <class 'army_app.models.units.Unit'> Validation Error - Row 1: {'objective_control': ['“” value must be an integer.']}
+2026-04-14 11:53:52,648 - ERROR - load_data - <class 'army_app.models.units.Unit'> Validation Error - Row 2: {'objective_control': ['“” value must be an integer.']}
+2026-04-14 11:53:52,648 - ERROR - load_data - <class 'army_app.models.units.Unit'> Validation Error - Row 3: {'objective_control': ['“” value must be an integer.']}
+2026-04-14 11:53:52,649 - ERROR - load_data - <class 'army_app.models.units.Unit'> Validation Error - Row 4: {'objective_control': ['“” value must be an integer.']}
+2026-04-14 11:53:52,652 - ERROR - load_data - FAIL: Validation failed - Unit Point Brackets: 4 error(s) found...
+2026-04-14 11:53:52,652 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 1: Unit Captain not found
+2026-04-14 11:53:52,652 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 2: Unit Lieutenant not found
+2026-04-14 11:53:52,652 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 3: Unit Intercessor Squad not found
+2026-04-14 11:53:52,652 - ERROR - load_data - <class 'army_app.models.units.UnitPointBracket'> Error - Row 4: Unit Intercessor Squad not found
+2026-04-14 11:53:52,653 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 11:53:52,653 - ERROR - load_data - FAIL: Validation failed with 58 errors(s) found
+2026-04-14 11:53:52,653 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 11:53:52,653 - INFO - load_data - ================================================================================
+2026-04-14 11:56:25,601 - INFO - load_data - ================================================================================
+2026-04-14 11:56:25,601 - INFO - load_data - Starting data load run at 2026-04-14 11:56:25
+2026-04-14 11:56:25,601 - INFO - load_data - ================================================================================
+2026-04-14 11:56:25,601 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 11:55:56
+2026-04-14 11:56:25,601 - INFO - load_data - Starting validation...
+2026-04-14 11:56:25,683 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 11:56:25,784 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 11:56:25,797 - INFO - load_data - OK: Factions validation completed
+2026-04-14 11:56:25,907 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 11:56:26,032 - ERROR - load_data - FAIL: Validation failed - Enhancements: 16 error(s) found...
+2026-04-14 11:56:26,032 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 49: Detachment Questing Tendrils not found for enhancement Hunting Grounds
+2026-04-14 11:56:26,032 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 50: Detachment Questing Tendrils not found for enhancement Chameleonic
+2026-04-14 11:56:26,032 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 51: Detachment Questing Tendrils not found for enhancement Stalker
+2026-04-14 11:56:26,032 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 52: Detachment Questing Tendrils not found for enhancement Neuronode
+2026-04-14 11:56:26,032 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 53: Detachment Synaptic Imperatives not found for enhancement Power of the Hive Mind
+2026-04-14 11:56:26,032 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 54: Detachment Synaptic Imperatives not found for enhancement Psychostatic Disruption
+2026-04-14 11:56:26,032 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 55: Detachment Synaptic Imperatives not found for enhancement Synaptic Control
+2026-04-14 11:56:26,032 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 56: Detachment Synaptic Imperatives not found for enhancement The Dirgeheart of Kharis (Aura)
+2026-04-14 11:56:26,033 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 57: Detachment Leader-beasts not found for enhancement Synaptic Tyrant
+2026-04-14 11:56:26,033 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 58: Detachment Leader-beasts not found for enhancement Ocular Adaptation
+2026-04-14 11:56:26,033 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 59: Detachment Leader-beasts not found for enhancement Sensory Assimilation
+2026-04-14 11:56:26,033 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 60: Detachment Leader-beasts not found for enhancement Elevated Might
+2026-04-14 11:56:26,033 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 61: Detachment Surprise Assault not found for enhancement Synaptic Strategy
+2026-04-14 11:56:26,033 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 62: Detachment Surprise Assault not found for enhancement Tremor Senses
+2026-04-14 11:56:26,033 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 63: Detachment Surprise Assault not found for enhancement 
+2026-04-14 11:56:26,033 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 64: Detachment Surprise Assault not found for enhancement 
+2026-04-14 11:56:26,035 - ERROR - load_data - FAIL: Stratagems load rolled back: 'description'
+2026-04-14 11:56:26,045 - ERROR - load_data - FAIL: Validation failed - Weapons: 6 error(s) found...
+2026-04-14 11:56:26,045 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 1: Ability Pistol does not exist in DB
+2026-04-14 11:56:26,045 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 4: Ability Devastating Wounds does not exist in DB
+2026-04-14 11:56:26,045 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 4: Ability Pistol does not exist in DB
+2026-04-14 11:56:26,045 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 5: Ability Pistol does not exist in DB
+2026-04-14 11:56:26,046 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 6: Ability Pistol does not exist in DB
+2026-04-14 11:56:26,046 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 6: Ability Hazardous does not exist in DB
+2026-04-14 11:56:26,073 - INFO - load_data - OK: Units validation completed
+2026-04-14 11:56:26,086 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 11:56:26,087 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 11:56:26,088 - ERROR - load_data - FAIL: Validation failed with 23 errors(s) found
+2026-04-14 11:56:26,088 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 11:56:26,088 - INFO - load_data - ================================================================================
+2026-04-14 12:11:54,916 - INFO - load_data - ================================================================================
+2026-04-14 12:11:54,916 - INFO - load_data - Starting data load run at 2026-04-14 12:11:54
+2026-04-14 12:11:54,916 - INFO - load_data - ================================================================================
+2026-04-14 12:11:54,916 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 12:11:48
+2026-04-14 12:11:54,916 - INFO - load_data - Starting validation...
+2026-04-14 12:11:55,045 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 12:11:55,155 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 12:11:55,171 - INFO - load_data - OK: Factions validation completed
+2026-04-14 12:11:55,280 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 12:11:55,438 - INFO - load_data - OK: Enhancements validation completed
+2026-04-14 12:11:55,464 - ERROR - load_data - FAIL: Validation failed - Stratagems: 72 error(s) found...
+2026-04-14 12:11:55,465 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 1: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,465 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 2: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,465 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 3: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,465 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 4: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,465 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 5: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,465 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 6: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,465 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 7: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,465 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 8: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,466 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 9: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,466 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 10: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,466 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 11: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,466 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 12: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,466 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 13: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,466 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 14: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,466 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 15: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,466 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 16: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,466 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 17: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,467 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 18: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,467 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 19: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,467 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 20: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,467 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 21: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,467 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 22: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,467 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 23: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,467 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 24: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,467 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 25: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,467 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 26: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,468 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 27: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,468 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 28: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,468 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 29: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,468 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 30: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,468 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 31: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,468 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 32: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,468 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 33: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,468 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 34: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,468 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 35: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,469 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 36: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,469 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 37: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,469 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 38: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,469 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 39: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,469 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 40: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,469 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 41: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,469 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 42: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,469 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 43: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,469 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 44: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,469 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 45: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,470 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 46: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,470 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 47: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,470 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 48: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,470 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 49: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,470 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 50: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,470 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 51: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,470 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 52: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,470 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 53: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,470 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 54: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,471 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 55: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,471 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 56: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,471 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 57: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,471 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 58: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,471 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 59: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,471 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 60: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,471 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 61: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,471 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 62: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,472 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 63: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,472 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 64: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,472 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 65: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,472 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 66: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,472 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 67: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,472 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 68: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,472 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 69: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,472 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 70: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,472 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 71: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,472 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 72: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-04-14 12:11:55,495 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 12:11:55,518 - INFO - load_data - OK: Units validation completed
+2026-04-14 12:11:55,530 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 12:11:55,531 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 12:11:55,531 - ERROR - load_data - FAIL: Validation failed with 72 errors(s) found
+2026-04-14 12:11:55,531 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 12:11:55,531 - INFO - load_data - ================================================================================
+2026-04-14 12:15:08,183 - INFO - load_data - ================================================================================
+2026-04-14 12:15:08,183 - INFO - load_data - Starting data load run at 2026-04-14 12:15:08
+2026-04-14 12:15:08,184 - INFO - load_data - ================================================================================
+2026-04-14 12:15:08,184 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 12:13:23
+2026-04-14 12:15:08,184 - INFO - load_data - Starting validation...
+2026-04-14 12:15:08,272 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 12:15:08,383 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 12:15:08,397 - INFO - load_data - OK: Factions validation completed
+2026-04-14 12:15:08,509 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 12:15:08,664 - INFO - load_data - OK: Enhancements validation completed
+2026-04-14 12:15:08,887 - INFO - load_data - OK: Stratagems validation completed
+2026-04-14 12:15:08,910 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 12:15:08,948 - INFO - load_data - OK: Units validation completed
+2026-04-14 12:15:08,961 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 12:15:08,962 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 12:15:08,962 - INFO - load_data - OK: Validation complete with 286 successful validations
+2026-04-14 12:15:08,962 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-04-14 12:15:08,963 - INFO - load_data - ================================================================================
+2026-04-14 12:15:08,963 - INFO - load_data - Ending data load run at 2026-04-14 12:15:08
+2026-04-14 12:15:08,963 - INFO - load_data - ================================================================================
+2026-04-14 12:24:35,407 - INFO - load_data - ================================================================================
+2026-04-14 12:24:35,407 - INFO - load_data - Starting data load run at 2026-04-14 12:24:35
+2026-04-14 12:24:35,407 - INFO - load_data - ================================================================================
+2026-04-14 12:24:35,408 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 12:24:29
+2026-04-14 12:24:35,408 - INFO - load_data - Starting validation...
+2026-04-14 12:24:35,519 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 12:24:35,708 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 12:24:35,723 - INFO - load_data - OK: Factions validation completed
+2026-04-14 12:24:35,842 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 12:24:36,043 - INFO - load_data - OK: Enhancements validation completed
+2026-04-14 12:24:36,296 - INFO - load_data - OK: Stratagems validation completed
+2026-04-14 12:24:36,316 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 12:24:36,339 - INFO - load_data - OK: Units validation completed
+2026-04-14 12:24:36,350 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 12:24:36,352 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 12:24:36,352 - INFO - load_data - OK: Validation complete with 286 successful validations
+2026-04-14 12:24:36,352 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-04-14 12:24:36,352 - INFO - load_data - ================================================================================
+2026-04-14 12:24:36,352 - INFO - load_data - Ending data load run at 2026-04-14 12:24:36
+2026-04-14 12:24:36,353 - INFO - load_data - ================================================================================

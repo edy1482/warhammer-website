@@ -101,7 +101,7 @@ class AbilityEffect(models.Model):
     keywords = models.ManyToManyField(KeyWord, related_name="ability_effect_keywords")
     
     # Keyword expression in mini-expression language
-    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)", default="")
+    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)", default="", blank=True)
     
     # KeywordCondition - AST to be built after data load
     auto_condition = models.ForeignKey(KeyWordCondition, null=True, blank=True, on_delete=models.SET_NULL)
@@ -125,8 +125,9 @@ class Faction(models.Model):
     def clean(self):
         super().clean()
         # Check if name is valid
-        valid_choices = ", ".join(key for key in self.FACTION_CHOICES.keys())
-        if self.name not in self.FACTION_CHOICES.keys():
+        valid_keys = [key for key, _ in self.FACTION_CHOICES]
+        valid_choices = ", ".join(valid_keys)
+        if self.name not in valid_keys:
             raise ValidationError(f"Invalid Faction: {self.name} does not exist. Valid choices are {valid_choices}")
     
 class Detachment(models.Model):
@@ -148,7 +149,7 @@ class Enhancement(models.Model):
     keywords = models.ManyToManyField(KeyWord, related_name="enhancement_keywords")
     
     # Keyword expression in mini-expression language
-    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)", default="")
+    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)", default="", blank=True)
     
     # KeywordCondition - AST to be built after data load
     auto_condition = models.ForeignKey(KeyWordCondition, null=True, blank=True, on_delete=models.SET_NULL)
@@ -175,7 +176,8 @@ class Phase(models.Model):
     
 class Stratagem(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    when = models.ManyToManyField(Phase, blank=True, related_name="stratagem_phase")
+    # when = models.ManyToManyField(Phase, blank=True, related_name="stratagem_phase")
+    when = models.TextField(blank=True, default="")
     target = models.TextField(blank=True, default="")
     effect = models.TextField(blank=True, default="")
     restrictions = models.TextField(blank=True, default="")
@@ -186,7 +188,7 @@ class Stratagem(models.Model):
     keywords = models.ManyToManyField(KeyWord, related_name="stratagem_keywords")
     
     # Keyword expression in mini-expression language
-    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)", default="")
+    keyword_expression = models.TextField(help_text="e.g. ADEPTUS ASTARTES AND (VEHICLE OR MOUNTED)", default="", blank=True)
     
     # KeywordCondition - AST to be built after data load
     auto_condition = models.ForeignKey(KeyWordCondition, null=True, blank=True, on_delete=models.SET_NULL)

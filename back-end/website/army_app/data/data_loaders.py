@@ -6,14 +6,7 @@ from army_app.models import Weapon
 from army_app.models import Unit, UnitPointBracket
 from army_app.models import Leadership
 
-
-# Make a KeywordCondition handler which includes the following:
-# - A check that the model class has the KeyWordCondition handler
-# - A parser that analyzes a string of words (description of AbilityEffect) and creates tokens
-# - A lexer that analyzes a string of tokens and createst the KeyWordCondition object
-# - Returns the KeyWordCondition object
-# - This should be in a separate file and turned into a Django command
-
+# TODO: make stratagem when field match with Phase model
 
 def keyword_handler(keywords, model_class, row):
     """
@@ -200,7 +193,8 @@ def load_stratagems(csv_path):
         return errors, {
             "detachment" : detachment,
             "name" : row["name"],
-            "description" : row["description"],
+            "when" : row["when"],
+            "target" : row["target"],
             "cost" : row["cost"],
             "keyword_expression" : row["keyword_expression"],
         }

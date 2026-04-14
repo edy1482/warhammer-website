@@ -4,8 +4,9 @@ import os
 from datetime import datetime
 from django.core.management.base import BaseCommand
 from pathlib import Path
-from army_app.models import KeyWord, Faction, Ability, AbilityEffect, Detachment, Enhancement, Stratagem
-from army_app.models import Weapon, Unit, UnitPointBracket, Leadership, ArmyList, ArmyListEntry, AssignedLeader
+from army_app.models import Faction, Ability, AbilityEffect, Detachment, Enhancement, Stratagem
+from army_app.models import Weapon, Unit, UnitPointBracket, Leadership
+from .utils import get_version_folders
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = BASE_DIR / "data"
@@ -44,7 +45,7 @@ def dump_abilities(out_dir: Path) -> int:
     We preserve those extra columns so the file stays compatible with the
     Google Sheet structure (even though the loader currently ignores them).
     """
-    headers = ["id", "name", "description", "ability_type", "keywords", "restricted_keywords"]
+    headers = ["id", "name", "ability_type",]
     rows = []
     for obj in Ability.objects.order_by("id"):
         rows.append([
@@ -120,7 +121,7 @@ def dump_enhancements(out_dir: Path) -> int:
     """
     headers = [
         "id", "detachment", "name", "description",
-        "points", "keywords", "restricted_keywords",
+        "points", "keyword_expression",
     ]
     rows = []
     for obj in (
@@ -147,8 +148,8 @@ def dump_stratagems(out_dir: Path) -> int:
     Original CSV also has: keywords, restricted_keywords columns.
     """
     headers = [
-        "id", "detachment", "name", "description",
-        "cost", "keywords", "restricted_keywords",
+        "id", "detachment", "name", "when", "target",
+        "effect", "restrictions", "cost", "keyword_expression",
     ]
     rows = []
     for obj in (
@@ -160,7 +161,10 @@ def dump_stratagems(out_dir: Path) -> int:
             obj.id,
             obj.detachment.name if obj.detachment else "",
             obj.name,
-            obj.description if hasattr(obj, "description") else "",
+            obj.when,
+            obj.target,
+            obj.effect,
+            obj.restrictions,
             obj.cost,
             obj.keyword_expression,
         ])
@@ -225,7 +229,7 @@ def dump_units(out_dir: Path) -> int:
             obj.id,
             obj.faction.name,
             obj.name,
-            _join(obj.keywords.order_by("name")),
+            _join(obj.keywords.order_by("name")), #We only grab keywords from this model as Unit will be the only source of truth for keywords in the future
             obj.movement,
             obj.toughness,
             obj.armour_save,
@@ -378,6 +382,17 @@ class Command(BaseCommand):
             for e in errors:
                 logger.error(e)
         else:
+            # Delete data directories only if no errors occurred
+            # Manage number of versions to keep
+            max_versions = 3
+            version_folders = get_version_folders(DATA_DIR)
+            if len(version_folders) > max_versions:
+                to_delete = version_folders[:-max_versions]
+                for folder in to_delete:
+                    for file in folder.iterdir():
+                        file.unlink()
+                    folder.rmdir()
+                    logger.warning(f"Deleted old version folder: {folder.name}")
             logger.info(
                 f"Dump complete — {total} total rows written to {out_dir}"
             )

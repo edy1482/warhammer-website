@@ -195,6 +195,8 @@ def load_stratagems(csv_path):
             "name" : row["name"],
             "when" : row["when"],
             "target" : row["target"],
+            "effect" : row["effect"],
+            "restrictions" : row["restrictions"],
             "cost" : row["cost"],
             "keyword_expression" : row["keyword_expression"],
         }

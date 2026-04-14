@@ -669,3 +669,857 @@
 2026-04-14 12:24:36,352 - INFO - load_data - ================================================================================
 2026-04-14 12:24:36,352 - INFO - load_data - Ending data load run at 2026-04-14 12:24:36
 2026-04-14 12:24:36,353 - INFO - load_data - ================================================================================
+2026-04-14 12:40:30,539 - INFO - load_data - ================================================================================
+2026-04-14 12:40:30,540 - INFO - load_data - Starting data load run at 2026-04-14 12:40:30
+2026-04-14 12:40:30,540 - INFO - load_data - ================================================================================
+2026-04-14 12:40:30,540 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 12:34:02
+2026-04-14 12:40:30,540 - INFO - load_data - Starting validation...
+2026-04-14 12:40:30,551 - ERROR - load_data - FAIL: Validation failed - Abilities: 46 error(s) found...
+2026-04-14 12:40:30,551 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 1: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,551 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 2: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,551 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 3: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,552 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 4: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,552 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 5: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,552 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 6: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,552 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 7: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,552 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 8: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,552 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 9: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,552 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 10: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,552 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 11: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,553 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 12: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,553 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 13: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,553 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 14: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,553 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 15: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,553 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 16: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,553 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 17: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,553 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 18: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,554 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 19: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,554 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 20: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,554 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 21: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,554 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 22: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,554 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 23: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,554 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 24: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,554 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 25: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,554 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 26: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,554 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 27: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,555 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 28: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,555 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 29: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,555 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 30: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,555 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 31: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,555 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 32: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,555 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 33: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,555 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 34: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,555 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 35: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,556 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 36: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,556 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 37: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,556 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 38: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,556 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 39: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,556 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 40: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,556 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 41: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,556 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 42: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,556 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 43: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,557 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 44: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,557 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 45: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,557 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 46: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:40:30,674 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 12:40:30,689 - INFO - load_data - OK: Factions validation completed
+2026-04-14 12:40:30,801 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 12:40:30,803 - ERROR - load_data - FAIL: Enhancements load rolled back: 'keyword_expression'
+2026-04-14 12:40:30,804 - ERROR - load_data - FAIL: Stratagems load rolled back: 'when'
+2026-04-14 12:40:30,821 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 12:40:30,844 - INFO - load_data - OK: Units validation completed
+2026-04-14 12:40:30,855 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 12:40:30,857 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 12:40:30,857 - ERROR - load_data - FAIL: Validation failed with 48 errors(s) found
+2026-04-14 12:40:30,857 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 12:40:30,857 - INFO - load_data - ================================================================================
+2026-04-14 12:41:47,504 - INFO - load_data - ================================================================================
+2026-04-14 12:41:47,504 - INFO - load_data - Starting data load run at 2026-04-14 12:41:47
+2026-04-14 12:41:47,504 - INFO - load_data - ================================================================================
+2026-04-14 12:41:47,504 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 12:34:02
+2026-04-14 12:41:47,504 - INFO - load_data - Starting validation...
+2026-04-14 12:41:47,514 - ERROR - load_data - FAIL: Validation failed - Abilities: 46 error(s) found...
+2026-04-14 12:41:47,514 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 1: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,514 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 2: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,514 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 3: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,514 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 4: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,514 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 5: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,514 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 6: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,515 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 7: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,515 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 8: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,515 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 9: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,515 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 10: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,515 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 11: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,515 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 12: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,515 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 13: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,515 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 14: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,516 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 15: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,516 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 16: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,516 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 17: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,516 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 18: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,516 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 19: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,516 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 20: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,516 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 21: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,516 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 22: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,517 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 23: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,517 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 24: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,517 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 25: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,517 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 26: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,517 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 27: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,517 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 28: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,517 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 29: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,518 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 30: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,518 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 31: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,518 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 32: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,518 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 33: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,518 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 34: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,518 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 35: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,518 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 36: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,518 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 37: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,519 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 38: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,519 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 39: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,519 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 40: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,519 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 41: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,519 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 42: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,519 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 43: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,519 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 44: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,519 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 45: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,519 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 46: {'ability_type': ['This field cannot be null.']}
+2026-04-14 12:41:47,631 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 12:41:47,645 - INFO - load_data - OK: Factions validation completed
+2026-04-14 12:41:47,757 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 12:41:47,758 - ERROR - load_data - FAIL: Enhancements load rolled back: 'keyword_expression'
+2026-04-14 12:41:47,759 - ERROR - load_data - FAIL: Stratagems load rolled back: 'when'
+2026-04-14 12:41:47,776 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 12:41:47,799 - INFO - load_data - OK: Units validation completed
+2026-04-14 12:41:47,810 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 12:41:47,811 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 12:41:47,812 - ERROR - load_data - FAIL: Validation failed with 48 errors(s) found
+2026-04-14 12:41:47,812 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 12:41:47,812 - INFO - load_data - ================================================================================
+2026-04-14 12:42:28,805 - INFO - load_data - ================================================================================
+2026-04-14 12:42:28,805 - INFO - load_data - Starting data load run at 2026-04-14 12:42:28
+2026-04-14 12:42:28,805 - INFO - load_data - ================================================================================
+2026-04-14 12:42:28,806 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 12:42:23
+2026-04-14 12:42:28,806 - INFO - load_data - Starting validation...
+2026-04-14 12:42:28,893 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 12:42:29,003 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 12:42:29,016 - INFO - load_data - OK: Factions validation completed
+2026-04-14 12:42:29,131 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 12:42:29,133 - ERROR - load_data - FAIL: Enhancements load rolled back: 'keyword_expression'
+2026-04-14 12:42:29,134 - ERROR - load_data - FAIL: Stratagems load rolled back: 'when'
+2026-04-14 12:42:29,152 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 12:42:29,173 - INFO - load_data - OK: Units validation completed
+2026-04-14 12:42:29,184 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 12:42:29,186 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 12:42:29,186 - ERROR - load_data - FAIL: Validation failed with 2 errors(s) found
+2026-04-14 12:42:29,186 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 12:42:29,186 - INFO - load_data - ================================================================================
+2026-04-14 12:46:11,826 - INFO - load_data - ================================================================================
+2026-04-14 12:46:11,827 - INFO - load_data - Starting data load run at 2026-04-14 12:46:11
+2026-04-14 12:46:11,827 - INFO - load_data - ================================================================================
+2026-04-14 12:46:11,827 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 12:46:08
+2026-04-14 12:46:11,827 - INFO - load_data - Starting validation...
+2026-04-14 12:46:11,913 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 12:46:12,021 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 12:46:12,035 - INFO - load_data - OK: Factions validation completed
+2026-04-14 12:46:12,146 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 12:46:12,169 - ERROR - load_data - FAIL: Validation failed - Enhancements: 64 error(s) found...
+2026-04-14 12:46:12,169 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 1: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,169 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 2: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,169 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 3: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,169 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 4: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,170 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 5: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,170 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 6: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,170 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 7: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,170 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 8: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,170 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 9: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,170 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 10: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,170 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 11: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,170 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 12: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,171 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 13: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,171 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 14: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,171 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 15: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,171 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 16: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,171 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 17: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,171 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 18: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,171 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 19: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,171 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 20: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,171 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 21: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,172 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 22: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,172 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 23: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,172 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 24: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,172 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 25: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,172 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 26: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,172 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 27: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,172 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 28: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,172 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 29: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,172 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 30: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,172 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 31: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,172 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 32: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,173 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 33: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,173 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 34: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,173 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 35: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,173 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 36: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,173 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 37: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,173 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 38: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,173 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 39: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,173 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 40: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,173 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 41: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,173 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 42: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,174 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 43: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,174 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 44: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,174 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 45: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,174 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 46: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,174 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 47: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,174 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 48: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,174 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 49: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,174 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 50: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,174 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 51: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,174 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 52: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,174 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 53: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,175 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 54: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,175 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 55: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,175 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 56: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,175 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 57: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,175 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 58: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,175 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 59: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,175 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 60: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,175 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 61: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,175 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 62: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,176 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 63: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,176 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 64: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,199 - ERROR - load_data - FAIL: Validation failed - Stratagems: 72 error(s) found...
+2026-04-14 12:46:12,200 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 1: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,200 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 2: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,200 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 3: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,200 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 4: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,200 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 5: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,200 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 6: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,200 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 7: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,201 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 8: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,201 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 9: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,201 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 10: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,201 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 11: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,201 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 12: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,201 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 13: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,201 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 14: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,201 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 15: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,201 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 16: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,202 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 17: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,202 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 18: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,202 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 19: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,202 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 20: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,202 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 21: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,202 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 22: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,202 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 23: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,202 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 24: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,202 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 25: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,203 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 26: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,203 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 27: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,203 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 28: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,203 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 29: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,203 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 30: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,203 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 31: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,203 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 32: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,203 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 33: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,203 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 34: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,203 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 35: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,204 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 36: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,204 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 37: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,204 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 38: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,204 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 39: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,204 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 40: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,204 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 41: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,204 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 42: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,204 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 43: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,204 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 44: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,204 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 45: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,205 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 46: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,205 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 47: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,205 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 48: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,205 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 49: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,205 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 50: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,205 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 51: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,205 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 52: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,205 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 53: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,205 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 54: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,205 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 55: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,206 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 56: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,206 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 57: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,206 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 58: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,206 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 59: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,206 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 60: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,206 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 61: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,206 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 62: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,206 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 63: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,207 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 64: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,207 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 65: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,207 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 66: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,207 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 67: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,207 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 68: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,207 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 69: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,207 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 70: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,207 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 71: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,207 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 72: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:46:12,226 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 12:46:12,248 - INFO - load_data - OK: Units validation completed
+2026-04-14 12:46:12,259 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 12:46:12,260 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 12:46:12,260 - ERROR - load_data - FAIL: Validation failed with 136 errors(s) found
+2026-04-14 12:46:12,261 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 12:46:12,261 - INFO - load_data - ================================================================================
+2026-04-14 12:48:06,886 - INFO - load_data - ================================================================================
+2026-04-14 12:48:06,887 - INFO - load_data - Starting data load run at 2026-04-14 12:48:06
+2026-04-14 12:48:06,887 - INFO - load_data - ================================================================================
+2026-04-14 12:48:06,887 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 12:48:02
+2026-04-14 12:48:06,887 - INFO - load_data - Starting validation...
+2026-04-14 12:48:06,977 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 12:48:07,088 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 12:48:07,102 - INFO - load_data - OK: Factions validation completed
+2026-04-14 12:48:07,216 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 12:48:07,238 - ERROR - load_data - FAIL: Validation failed - Enhancements: 64 error(s) found...
+2026-04-14 12:48:07,239 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 1: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,239 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 2: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,239 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 3: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,239 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 4: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,239 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 5: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,239 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 6: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,239 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 7: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,239 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 8: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,240 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 9: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,240 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 10: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,240 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 11: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,240 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 12: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,240 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 13: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,240 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 14: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,240 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 15: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,241 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 16: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,241 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 17: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,241 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 18: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,241 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 19: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,241 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 20: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,241 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 21: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,241 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 22: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,242 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 23: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,242 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 24: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,242 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 25: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,242 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 26: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,242 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 27: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,242 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 28: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,242 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 29: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,242 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 30: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,242 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 31: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,243 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 32: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,243 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 33: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,243 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 34: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,243 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 35: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,243 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 36: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,243 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 37: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,243 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 38: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,243 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 39: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,243 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 40: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,243 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 41: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,244 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 42: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,244 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 43: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,244 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 44: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,244 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 45: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,244 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 46: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,244 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 47: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,244 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 48: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,244 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 49: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,244 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 50: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,245 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 51: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,245 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 52: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,245 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 53: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,245 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 54: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,245 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 55: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,245 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 56: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,245 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 57: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,246 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 58: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,246 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 59: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,246 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 60: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,246 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 61: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,246 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 62: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,246 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 63: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,246 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Unexpected Error - Row 64: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,272 - ERROR - load_data - FAIL: Validation failed - Stratagems: 72 error(s) found...
+2026-04-14 12:48:07,272 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 1: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,272 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 2: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,272 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 3: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,272 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 4: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,273 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 5: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,273 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 6: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,273 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 7: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,273 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 8: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,273 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 9: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,273 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 10: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,273 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 11: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,273 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 12: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,274 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 13: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,274 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 14: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,274 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 15: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,274 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 16: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,274 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 17: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,274 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 18: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,274 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 19: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,274 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 20: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,275 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 21: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,275 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 22: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,275 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 23: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,275 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 24: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,275 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 25: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,275 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 26: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,275 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 27: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,275 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 28: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,276 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 29: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,276 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 30: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,276 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 31: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,276 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 32: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,276 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 33: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,276 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 34: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,276 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 35: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,276 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 36: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,276 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 37: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,277 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 38: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,277 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 39: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,277 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 40: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,277 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 41: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,277 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 42: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,277 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 43: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,277 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 44: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,277 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 45: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,278 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 46: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,278 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 47: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,278 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 48: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,278 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 49: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,278 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 50: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,278 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 51: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,278 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 52: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,278 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 53: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,278 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 54: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,279 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 55: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,279 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 56: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,279 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 57: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,279 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 58: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,279 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 59: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,279 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 60: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,279 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 61: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,279 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 62: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,279 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 63: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,280 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 64: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,280 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 65: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,280 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 66: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,280 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 67: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,280 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 68: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,280 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 69: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,280 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 70: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,280 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 71: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,281 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 72: 'NoneType' object has no attribute 'strip'
+2026-04-14 12:48:07,300 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 12:48:07,323 - INFO - load_data - OK: Units validation completed
+2026-04-14 12:48:07,334 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 12:48:07,336 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 12:48:07,336 - ERROR - load_data - FAIL: Validation failed with 136 errors(s) found
+2026-04-14 12:48:07,336 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 12:48:07,336 - INFO - load_data - ================================================================================
+2026-04-14 12:52:43,007 - INFO - load_data - ================================================================================
+2026-04-14 12:52:43,007 - INFO - load_data - Starting data load run at 2026-04-14 12:52:43
+2026-04-14 12:52:43,008 - INFO - load_data - ================================================================================
+2026-04-14 12:52:43,008 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 12:52:37
+2026-04-14 12:52:43,008 - INFO - load_data - Starting validation...
+2026-04-14 12:52:43,095 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 12:52:43,205 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 12:52:43,219 - INFO - load_data - OK: Factions validation completed
+2026-04-14 12:52:43,332 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 12:52:43,488 - INFO - load_data - OK: Enhancements validation completed
+2026-04-14 12:52:43,545 - ERROR - load_data - FAIL: Validation failed - Stratagems: 72 error(s) found...
+2026-04-14 12:52:43,545 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 1: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,545 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 2: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,545 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 3: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,546 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 4: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,546 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 5: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,546 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 6: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,546 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 7: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,546 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 8: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,546 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 9: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,546 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 10: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,546 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 11: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,547 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 12: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,547 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 13: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,547 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 14: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,547 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 15: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,547 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 16: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,547 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 17: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,547 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 18: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,547 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 19: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,547 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 20: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,548 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 21: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,548 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 22: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,548 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 23: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,548 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 24: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,548 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 25: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,548 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 26: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,548 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 27: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,548 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 28: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,549 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 29: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,549 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 30: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,549 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 31: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,549 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 32: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,549 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 33: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,549 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 34: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,549 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 35: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,549 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 36: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,549 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 37: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,550 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 38: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,550 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 39: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,550 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 40: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,550 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 41: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,550 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 42: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,550 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 43: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,550 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 44: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,550 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 45: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,550 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 46: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,551 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 47: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,551 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 48: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,551 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 49: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,551 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 50: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,551 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 51: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,551 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 52: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,551 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 53: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,551 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 54: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,551 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 55: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,552 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 56: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,552 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 57: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,552 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 58: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,552 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 59: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,552 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 60: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,552 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 61: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,552 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 62: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,552 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 63: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,553 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 64: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,553 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 65: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,553 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 66: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,553 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 67: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,553 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 68: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,553 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 69: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,553 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 70: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,553 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 71: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,554 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 72: {'cost': ['This field cannot be null.']}
+2026-04-14 12:52:43,572 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 12:52:43,609 - INFO - load_data - OK: Units validation completed
+2026-04-14 12:52:43,621 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 12:52:43,622 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 12:52:43,622 - ERROR - load_data - FAIL: Validation failed with 72 errors(s) found
+2026-04-14 12:52:43,623 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 12:52:43,623 - INFO - load_data - ================================================================================
+2026-04-14 12:54:09,549 - INFO - load_data - ================================================================================
+2026-04-14 12:54:09,549 - INFO - load_data - Starting data load run at 2026-04-14 12:54:09
+2026-04-14 12:54:09,550 - INFO - load_data - ================================================================================
+2026-04-14 12:54:09,550 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 12:52:37
+2026-04-14 12:54:09,550 - INFO - load_data - Starting validation...
+2026-04-14 12:54:09,639 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 12:54:09,749 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 12:54:09,763 - INFO - load_data - OK: Factions validation completed
+2026-04-14 12:54:09,877 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 12:54:10,039 - INFO - load_data - OK: Enhancements validation completed
+2026-04-14 12:54:10,094 - ERROR - load_data - FAIL: Validation failed - Stratagems: 72 error(s) found...
+2026-04-14 12:54:10,094 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 1: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,094 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 2: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,094 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 3: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,094 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 4: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,094 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 5: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,094 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 6: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,095 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 7: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,095 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 8: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,095 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 9: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,095 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 10: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,095 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 11: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,095 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 12: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,095 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 13: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,095 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 14: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,095 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 15: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,096 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 16: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,096 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 17: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,096 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 18: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,096 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 19: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,096 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 20: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,096 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 21: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,096 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 22: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,096 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 23: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,096 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 24: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,097 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 25: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,097 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 26: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,097 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 27: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,097 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 28: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,097 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 29: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,097 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 30: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,097 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 31: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,098 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 32: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,098 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 33: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,098 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 34: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,098 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 35: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,098 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 36: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,098 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 37: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,098 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 38: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,098 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 39: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,098 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 40: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,098 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 41: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,099 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 42: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,099 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 43: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,099 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 44: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,099 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 45: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,099 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 46: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,099 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 47: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,099 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 48: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,099 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 49: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,099 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 50: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,100 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 51: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,100 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 52: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,100 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 53: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,100 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 54: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,100 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 55: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,100 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 56: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,100 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 57: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,100 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 58: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,100 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 59: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,100 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 60: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,101 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 61: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,101 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 62: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,101 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 63: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,101 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 64: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,101 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 65: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,101 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 66: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,101 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 67: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,101 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 68: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,101 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 69: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,102 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 70: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,102 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 71: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,102 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 72: {'cost': ['This field cannot be null.']}
+2026-04-14 12:54:10,121 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 12:54:10,158 - INFO - load_data - OK: Units validation completed
+2026-04-14 12:54:10,170 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 12:54:10,172 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 12:54:10,172 - ERROR - load_data - FAIL: Validation failed with 72 errors(s) found
+2026-04-14 12:54:10,172 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 12:54:10,172 - INFO - load_data - ================================================================================
+2026-04-14 12:54:25,454 - INFO - load_data - ================================================================================
+2026-04-14 12:54:25,454 - INFO - load_data - Starting data load run at 2026-04-14 12:54:25
+2026-04-14 12:54:25,454 - INFO - load_data - ================================================================================
+2026-04-14 12:54:25,454 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 12:54:21
+2026-04-14 12:54:25,454 - INFO - load_data - Starting validation...
+2026-04-14 12:54:25,541 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 12:54:25,651 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 12:54:25,665 - INFO - load_data - OK: Factions validation completed
+2026-04-14 12:54:25,777 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 12:54:25,933 - INFO - load_data - OK: Enhancements validation completed
+2026-04-14 12:54:25,988 - ERROR - load_data - FAIL: Validation failed - Stratagems: 72 error(s) found...
+2026-04-14 12:54:25,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 1: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 2: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 3: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 4: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 5: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 6: {'cost': ['“INFANTRY OR MOUNTED” value must be an integer.']}
+2026-04-14 12:54:25,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 7: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 8: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 9: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 10: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 11: {'cost': ['“INFANTRY” value must be an integer.']}
+2026-04-14 12:54:25,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 12: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 13: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 14: {'cost': ['“VEHICLE” value must be an integer.']}
+2026-04-14 12:54:25,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 15: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 16: {'cost': ['“WALKER” value must be an integer.']}
+2026-04-14 12:54:25,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 17: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 18: {'cost': ['“VEHICLE” value must be an integer.']}
+2026-04-14 12:54:25,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 19: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 20: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 21: {'cost': ['“INFANTRY” value must be an integer.']}
+2026-04-14 12:54:25,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 22: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 23: {'cost': ['“TRANSPORT” value must be an integer.']}
+2026-04-14 12:54:25,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 24: {'cost': ['“TRANSPORT” value must be an integer.']}
+2026-04-14 12:54:25,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 25: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 26: {'cost': ['“MOUNTED” value must be an integer.']}
+2026-04-14 12:54:25,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 27: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 28: {'cost': ['“MOUNTED OR (FLY AND VEHICLE)” value must be an integer.']}
+2026-04-14 12:54:25,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 29: {'cost': ['“MOUNTED AND VEHICLE AND NOT WALKER” value must be an integer.']}
+2026-04-14 12:54:25,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 30: {'cost': ['“INFANTRY OR MOUNTED” value must be an integer.']}
+2026-04-14 12:54:25,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 31: {'cost': ['“INFANTRY OR MOUNTED” value must be an integer.']}
+2026-04-14 12:54:25,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 32: {'cost': ['“INFANTRY” value must be an integer.']}
+2026-04-14 12:54:25,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 33: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 34: {'cost': ['“INFANTRY” value must be an integer.']}
+2026-04-14 12:54:25,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 35: {'cost': ['“INFANTRY” value must be an integer.']}
+2026-04-14 12:54:25,993 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 36: {'cost': ['“INFANTRY OR PHOBOS OR SCOUT SQUAD” value must be an integer.']}
+2026-04-14 12:54:25,993 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 37: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,993 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 38: {'cost': ['“TERMINATOR OR BLADEGUARD VETERAN SQUAD OR STERNGUARD VETERAN SQUAD OR VANGUARD VETERAN SQUAD” value must be an integer.']}
+2026-04-14 12:54:25,993 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 39: {'cost': ['“TERMINATOR OR BLADEGUARD VETERAN SQUAD OR STERNGUARD VETERAN SQUAD OR VANGUARD VETERAN SQUAD” value must be an integer.']}
+2026-04-14 12:54:25,993 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 40: {'cost': ['“TERMINATOR” value must be an integer.']}
+2026-04-14 12:54:25,993 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 41: {'cost': ['“TERMINATOR OR BLADEGUARD VETERAN SQUAD OR STERNGUARD VETERAN SQUAD OR VANGUARD VETERAN SQUAD” value must be an integer.']}
+2026-04-14 12:54:25,993 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 42: {'cost': ['“TERMINATOR OR BLADEGUARD VETERAN SQUAD OR STERNGUARD VETERAN SQUAD OR VANGUARD VETERAN SQUAD” value must be an integer.']}
+2026-04-14 12:54:25,994 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 43: {'cost': ['“PSYKER” value must be an integer.']}
+2026-04-14 12:54:25,994 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 44: {'cost': ['“INFANTRY” value must be an integer.']}
+2026-04-14 12:54:25,994 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 45: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,994 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 46: {'cost': ['“PSYKER” value must be an integer.']}
+2026-04-14 12:54:25,994 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 47: {'cost': ['“INFANTRY OR MOUNTED” value must be an integer.']}
+2026-04-14 12:54:25,994 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 48: {'cost': ['“PSYKER” value must be an integer.']}
+2026-04-14 12:54:25,994 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 49: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,994 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 50: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,994 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 51: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,995 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 52: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,995 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 53: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,995 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 54: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:54:25,995 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 55: {'cost': ['“MONSTER AND NOT FLY” value must be an integer.']}
+2026-04-14 12:54:25,995 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 56: {'cost': ['“MONSTER” value must be an integer.']}
+2026-04-14 12:54:25,995 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 57: {'cost': ['“MONSTER” value must be an integer.']}
+2026-04-14 12:54:25,995 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 58: {'cost': ['“MONSTER” value must be an integer.']}
+2026-04-14 12:54:25,995 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 59: {'cost': ['“MONSTER” value must be an integer.']}
+2026-04-14 12:54:25,995 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 60: {'cost': ['“MONSTER” value must be an integer.']}
+2026-04-14 12:54:25,996 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 61: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:54:25,996 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 62: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:54:25,996 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 63: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:54:25,996 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 64: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:54:25,996 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 65: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:54:25,996 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 66: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:54:25,996 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 67: {'cost': ['“HARVESTER” value must be an integer.']}
+2026-04-14 12:54:25,997 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 68: {'cost': ['“HARVESTER” value must be an integer.']}
+2026-04-14 12:54:25,997 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 69: {'cost': ['“HARVESTER” value must be an integer.']}
+2026-04-14 12:54:25,997 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 70: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:25,997 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 71: {'cost': ['“HARVESTER” value must be an integer.']}
+2026-04-14 12:54:25,997 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 72: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:54:26,037 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 12:54:26,062 - INFO - load_data - OK: Units validation completed
+2026-04-14 12:54:26,074 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 12:54:26,075 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 12:54:26,075 - ERROR - load_data - FAIL: Validation failed with 72 errors(s) found
+2026-04-14 12:54:26,076 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 12:54:26,076 - INFO - load_data - ================================================================================
+2026-04-14 12:57:13,245 - INFO - load_data - ================================================================================
+2026-04-14 12:57:13,245 - INFO - load_data - Starting data load run at 2026-04-14 12:57:13
+2026-04-14 12:57:13,245 - INFO - load_data - ================================================================================
+2026-04-14 12:57:13,245 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 12:57:05
+2026-04-14 12:57:13,245 - INFO - load_data - Starting validation...
+2026-04-14 12:57:13,330 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 12:57:13,481 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 12:57:13,494 - INFO - load_data - OK: Factions validation completed
+2026-04-14 12:57:13,607 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 12:57:13,789 - INFO - load_data - OK: Enhancements validation completed
+2026-04-14 12:57:14,021 - INFO - load_data - OK: Stratagems validation completed
+2026-04-14 12:57:14,041 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 12:57:14,063 - INFO - load_data - OK: Units validation completed
+2026-04-14 12:57:14,075 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 12:57:14,076 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 12:57:14,076 - INFO - load_data - OK: Validation complete with 286 successful validations
+2026-04-14 12:57:14,077 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-04-14 12:57:14,077 - INFO - load_data - ================================================================================
+2026-04-14 12:57:14,077 - INFO - load_data - Ending data load run at 2026-04-14 12:57:14
+2026-04-14 12:57:14,077 - INFO - load_data - ================================================================================
+2026-04-14 12:57:37,979 - INFO - load_data - ================================================================================
+2026-04-14 12:57:37,979 - INFO - load_data - Starting data load run at 2026-04-14 12:57:37
+2026-04-14 12:57:37,979 - INFO - load_data - ================================================================================
+2026-04-14 12:57:37,980 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 12:57:32
+2026-04-14 12:57:37,980 - INFO - load_data - Starting validation...
+2026-04-14 12:57:38,065 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 12:57:38,175 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 12:57:38,188 - INFO - load_data - OK: Factions validation completed
+2026-04-14 12:57:38,301 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 12:57:38,457 - INFO - load_data - OK: Enhancements validation completed
+2026-04-14 12:57:38,513 - ERROR - load_data - FAIL: Validation failed - Stratagems: 72 error(s) found...
+2026-04-14 12:57:38,513 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 1: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,513 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 2: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,513 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 3: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,513 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 4: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,514 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 5: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,514 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 6: {'cost': ['“INFANTRY OR MOUNTED” value must be an integer.']}
+2026-04-14 12:57:38,514 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 7: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,514 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 8: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,514 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 9: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,514 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 10: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,514 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 11: {'cost': ['“INFANTRY” value must be an integer.']}
+2026-04-14 12:57:38,515 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 12: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,515 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 13: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,515 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 14: {'cost': ['“VEHICLE” value must be an integer.']}
+2026-04-14 12:57:38,515 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 15: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,515 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 16: {'cost': ['“WALKER” value must be an integer.']}
+2026-04-14 12:57:38,515 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 17: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,515 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 18: {'cost': ['“VEHICLE” value must be an integer.']}
+2026-04-14 12:57:38,515 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 19: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,516 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 20: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,516 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 21: {'cost': ['“INFANTRY” value must be an integer.']}
+2026-04-14 12:57:38,516 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 22: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,516 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 23: {'cost': ['“TRANSPORT” value must be an integer.']}
+2026-04-14 12:57:38,516 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 24: {'cost': ['“TRANSPORT” value must be an integer.']}
+2026-04-14 12:57:38,516 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 25: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,516 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 26: {'cost': ['“MOUNTED” value must be an integer.']}
+2026-04-14 12:57:38,516 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 27: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,516 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 28: {'cost': ['“MOUNTED OR (FLY AND VEHICLE)” value must be an integer.']}
+2026-04-14 12:57:38,517 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 29: {'cost': ['“MOUNTED AND VEHICLE AND NOT WALKER” value must be an integer.']}
+2026-04-14 12:57:38,517 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 30: {'cost': ['“INFANTRY OR MOUNTED” value must be an integer.']}
+2026-04-14 12:57:38,517 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 31: {'cost': ['“INFANTRY OR MOUNTED” value must be an integer.']}
+2026-04-14 12:57:38,517 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 32: {'cost': ['“INFANTRY” value must be an integer.']}
+2026-04-14 12:57:38,517 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 33: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,517 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 34: {'cost': ['“INFANTRY” value must be an integer.']}
+2026-04-14 12:57:38,517 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 35: {'cost': ['“INFANTRY” value must be an integer.']}
+2026-04-14 12:57:38,517 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 36: {'cost': ['“INFANTRY OR PHOBOS OR SCOUT SQUAD” value must be an integer.']}
+2026-04-14 12:57:38,517 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 37: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,518 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 38: {'cost': ['“TERMINATOR OR BLADEGUARD VETERAN SQUAD OR STERNGUARD VETERAN SQUAD OR VANGUARD VETERAN SQUAD” value must be an integer.']}
+2026-04-14 12:57:38,518 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 39: {'cost': ['“TERMINATOR OR BLADEGUARD VETERAN SQUAD OR STERNGUARD VETERAN SQUAD OR VANGUARD VETERAN SQUAD” value must be an integer.']}
+2026-04-14 12:57:38,518 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 40: {'cost': ['“TERMINATOR” value must be an integer.']}
+2026-04-14 12:57:38,518 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 41: {'cost': ['“TERMINATOR OR BLADEGUARD VETERAN SQUAD OR STERNGUARD VETERAN SQUAD OR VANGUARD VETERAN SQUAD” value must be an integer.']}
+2026-04-14 12:57:38,518 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 42: {'cost': ['“TERMINATOR OR BLADEGUARD VETERAN SQUAD OR STERNGUARD VETERAN SQUAD OR VANGUARD VETERAN SQUAD” value must be an integer.']}
+2026-04-14 12:57:38,518 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 43: {'cost': ['“PSYKER” value must be an integer.']}
+2026-04-14 12:57:38,518 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 44: {'cost': ['“INFANTRY” value must be an integer.']}
+2026-04-14 12:57:38,518 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 45: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,518 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 46: {'cost': ['“PSYKER” value must be an integer.']}
+2026-04-14 12:57:38,519 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 47: {'cost': ['“INFANTRY OR MOUNTED” value must be an integer.']}
+2026-04-14 12:57:38,519 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 48: {'cost': ['“PSYKER” value must be an integer.']}
+2026-04-14 12:57:38,519 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 49: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,519 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 50: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,519 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 51: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,519 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 52: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,519 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 53: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,519 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 54: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:57:38,519 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 55: {'cost': ['“MONSTER AND NOT FLY” value must be an integer.']}
+2026-04-14 12:57:38,520 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 56: {'cost': ['“MONSTER” value must be an integer.']}
+2026-04-14 12:57:38,520 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 57: {'cost': ['“MONSTER” value must be an integer.']}
+2026-04-14 12:57:38,520 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 58: {'cost': ['“MONSTER” value must be an integer.']}
+2026-04-14 12:57:38,520 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 59: {'cost': ['“MONSTER” value must be an integer.']}
+2026-04-14 12:57:38,520 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 60: {'cost': ['“MONSTER” value must be an integer.']}
+2026-04-14 12:57:38,520 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 61: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:57:38,520 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 62: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:57:38,520 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 63: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:57:38,521 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 64: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:57:38,521 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 65: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:57:38,521 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 66: {'cost': ['“ENDLESS MULTITUDE” value must be an integer.']}
+2026-04-14 12:57:38,521 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 67: {'cost': ['“HARVESTER” value must be an integer.']}
+2026-04-14 12:57:38,521 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 68: {'cost': ['“HARVESTER” value must be an integer.']}
+2026-04-14 12:57:38,521 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 69: {'cost': ['“HARVESTER” value must be an integer.']}
+2026-04-14 12:57:38,521 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 70: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,521 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 71: {'cost': ['“HARVESTER” value must be an integer.']}
+2026-04-14 12:57:38,522 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Validation Error - Row 72: {'cost': ['“” value must be an integer.']}
+2026-04-14 12:57:38,556 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 12:57:38,579 - INFO - load_data - OK: Units validation completed
+2026-04-14 12:57:38,591 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 12:57:38,592 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 12:57:38,592 - ERROR - load_data - FAIL: Validation failed with 72 errors(s) found
+2026-04-14 12:57:38,592 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-04-14 12:57:38,593 - INFO - load_data - ================================================================================
+2026-04-14 13:01:44,499 - INFO - load_data - ================================================================================
+2026-04-14 13:01:44,499 - INFO - load_data - Starting data load run at 2026-04-14 13:01:44
+2026-04-14 13:01:44,499 - INFO - load_data - ================================================================================
+2026-04-14 13:01:44,499 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-04-14 13:01:39
+2026-04-14 13:01:44,500 - INFO - load_data - Starting validation...
+2026-04-14 13:01:44,583 - INFO - load_data - OK: Abilities validation completed
+2026-04-14 13:01:44,691 - INFO - load_data - OK: AbilityEffect validation completed
+2026-04-14 13:01:44,704 - INFO - load_data - OK: Factions validation completed
+2026-04-14 13:01:44,820 - INFO - load_data - OK: Detachments validation completed
+2026-04-14 13:01:44,971 - INFO - load_data - OK: Enhancements validation completed
+2026-04-14 13:01:45,145 - INFO - load_data - OK: Stratagems validation completed
+2026-04-14 13:01:45,164 - INFO - load_data - OK: Weapons validation completed
+2026-04-14 13:01:45,197 - INFO - load_data - OK: Units validation completed
+2026-04-14 13:01:45,208 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-04-14 13:01:45,209 - INFO - load_data - OK: Leadership validation completed
+2026-04-14 13:01:45,210 - INFO - load_data - OK: Validation complete with 286 successful validations
+2026-04-14 13:01:45,210 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-04-14 13:01:45,210 - INFO - load_data - ================================================================================
+2026-04-14 13:01:45,210 - INFO - load_data - Ending data load run at 2026-04-14 13:01:45
+2026-04-14 13:01:45,210 - INFO - load_data - ================================================================================

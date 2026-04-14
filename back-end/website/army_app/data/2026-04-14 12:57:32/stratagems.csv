@@ -1,0 +1,275 @@
+"id","detachment","name","when","target","effect","restrictions","cost","keyword_expression"
+"0","Gladius Task Force","ARMOUR OF CONTEMPT","WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets..","TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.","","1",""
+"1","Gladius Task Force","ADAPTIVE STRATEGY","WHEN: Your Command phase.
+","TARGET: One ADEPTUS ASTARTES unit from your army.","","1",""
+"2","Gladius Task Force","ONLY IN DEATH DOES DUTY END","WHEN: Fight phase, just after an enemy unit has selected its targets.
+","TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.","","2",""
+"3","Gladius Task Force","STORM OF FIRE","WHEN: Your Shooting phase.
+","TARGET: One ADEPTUS ASTARTES unit from your army that has not been selected to shoot this phase.","","1",""
+"4","Gladius Task Force","HONOUR THE CHAPTER","WHEN: Fight phase.
+","TARGET: One ADEPTUS ASTARTES unit from your army.","","1",""
+"5","Gladius Task Force","SQUAD TACTICS","WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.","TARGET: One ADEPTUS ASTARTES INFANTRY or ADEPTUS ASTARTES MOUNTED unit from your army that is within 9"" of the enemy unit that just ended that move.","RESTRICTIONS: You cannot select a unit that is within Engagement Range of one or more enemy units.","1","INFANTRY OR MOUNTED"
+"6","Anvil Siege Force","ARMOUR OF CONTEMPT","WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
+","TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.","","1",""
+"7","Anvil Siege Force","NO THREAT TOO GREAT","WHEN: Your Shooting phase.
+","TARGET: One ADEPTUS ASTARTES unit from your army that has not been selected to shoot this phase.","","2",""
+"8","Anvil Siege Force","RIGID DISCIPLINE","WHEN: End of the Fight phase.","TARGET: One ADEPTUS ASTARTES unit from your army that is within Engagement Range of one or more enemy units.","RESTRICTIONS: When making that move, your unit must end that move either wholly within your deployment zone or within range of an objective marker.","1",""
+"9","Anvil Siege Force","BATTLE DRILL RECALL","WHEN: Your Shooting phase.
+","TARGET: One ADEPTUS ASTARTES unit from your army that has not been selected to shoot this phase.","","1",""
+"10","Anvil Siege Force","NOT ONE BACKWARDS STEP","WHEN: Your Command phase.","TARGET: One ADEPTUS ASTARTES INFANTRY unit from your army within range of an objective marker.","","1","INFANTRY"
+"11","Anvil Siege Force","HAIL OF VENGEANCE","WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks.
+","TARGET: One ADEPTUS ASTARTES unit from your army that had one or more of its models destroyed as a result of the attacking unit’s attacks.","","2",""
+"12","Ironstorm Spearhead","UNBOWED CONVICTION","WHEN: Command phase.
+","TARGET: One ADEPTUS ASTARTES unit from your army that is below its Starting Strength.","","1",""
+"13","Ironstorm Spearhead","VENGEFUL ANIMUS","WHEN: Any phase, just after an ADEPTUS ASTARTES VEHICLE model from your army with the Deadly Demise ability is destroyed.
+","TARGET: That ADEPTUS ASTARTES VEHICLE model. You can use this Stratagem on that model even though it was just destroyed.","","1","VEHICLE"
+"14","Ironstorm Spearhead","ARMOUR OF CONTEMPT","WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.","TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.","","1",""
+"15","Ironstorm Spearhead","ANCIENT FURY","WHEN: Your Command phase.
+","TARGET: One ADEPTUS ASTARTES WALKER model from your army.","","1","WALKER"
+"16","Ironstorm Spearhead","MERCY IS WEAKNESS","WHEN: Your Shooting phase or the Fight phase.","TARGET: One ADEPTUS ASTARTES unit from your army that has not been selected to shoot or fight this phase.","","2",""
+"17","Ironstorm Spearhead","POWER OF THE MACHINE SPIRIT","WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks.
+","TARGET: One ADEPTUS ASTARTES VEHICLE unit from your army that was reduced to Below Half-strength as a result of the attacking unit’s attacks.","","1","VEHICLE"
+"18","Firestorm Assault Force","ARMOUR OF CONTEMPT","WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.","TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.","","1",""
+"19","Firestorm Assault Force","IMMOLATION PROTOCOLS","WHEN: Your Shooting phase.
+","TARGET: One ADEPTUS ASTARTES unit from your army that has not been selected to shoot this phase.","","2",""
+"20","Firestorm Assault Force","CRUCIBLE OF BATTLE","WHEN: Your Shooting phase or the Fight phase.
+","TARGET: One ADEPTUS ASTARTES INFANTRY unit from your army that has not been selected to shoot or fight this phase.","","1","INFANTRY"
+"21","Firestorm Assault Force","ONSLAUGHT OF FIRE","WHEN: Your Shooting phase.","TARGET: One ADEPTUS ASTARTES unit from your army that disembarked from a TRANSPORT this turn and has not been selected to shoot this phase.","","1",""
+"22","Firestorm Assault Force","RAPID EMBARKATION","WHEN: End of the Fight phase.
+","TARGET: One ADEPTUS ASTARTES TRANSPORT unit from your army that has no models embarked within it, and one ADEPTUS ASTARTES INFANTRY unit from your army wholly within 6"" of that TRANSPORT.","RESTRICTIONS: You cannot target an INFANTRY unit that is within Engagement Range of one or more enemy units, that cannot normally embark within that TRANSPORT, or that disembarked from a TRANSPORT this turn.","1","TRANSPORT"
+"23","Firestorm Assault Force","BURNING VENGEANCE","WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks.","TARGET: One ADEPTUS ASTARTES TRANSPORT unit from your army that was selected as the target of one or more of the attacking unit’s attacks.","","1","TRANSPORT"
+"24","Stormlance Task Force","ARMOUR OF CONTEMPT","WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
+","TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.","","1",""
+"25","Stormlance Task Force","SHOCK ASSAULT","WHEN: Your Charge phase.
+","TARGET: One ADEPTUS ASTARTES MOUNTED unit from your army that has not declared a charge this phase.","","1","MOUNTED"
+"26","Stormlance Task Force","BLITZING FUSILLADE","WHEN: Your Shooting phase.
+","TARGET: One ADEPTUS ASTARTES unit from your army that has not been selected to shoot this phase.","","1",""
+"27","Stormlance Task Force","RIDE HARD, RIDE FAST","WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
+","TARGET: One ADEPTUS ASTARTES MOUNTED or ADEPTUS ASTARTES FLY VEHICLE unit from your army that was selected as the target of one or more of the attacking unit’s attacks.","","1","MOUNTED OR (FLY AND VEHICLE)"
+"28","Stormlance Task Force","FULL THROTTLE","WHEN: Your Movement phase.
+","TARGET: One ADEPTUS ASTARTES MOUNTED or ADEPTUS ASTARTES VEHICLE unit (excluding WALKERS) from your army.","","2","MOUNTED AND VEHICLE AND NOT WALKER"
+"29","Stormlance Task Force","WIND-SWIFT EVASION","WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.
+","TARGET: One ADEPTUS ASTARTES INFANTRY or ADEPTUS ASTARTES MOUNTED unit from your army that is within 9"" of that enemy unit.","RESTRICTIONS: You cannot select a unit that is within Engagement Range of one or more enemy units.","1","INFANTRY OR MOUNTED"
+"30","Vanguard Spearhead","A DEADLY PRIZE","WHEN: Start of the Command phase.
+
+TARGET: One ADEPTUS ASTARTES INFANTRY or ADEPTUS ASTARTES MOUNTED unit from your army within range of an objective marker you control.
+
+EFFECT: That objective marker is said to be Sabotaged, and remains under your control even if you have no models within range of it, until your opponent controls it at the start or end of any turn. While an objective marker is Sabotaged and under your control, each time an enemy unit ends a Normal, Advance, Fall Back or Charge move within range of that objective marker, roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds.","","","1","INFANTRY OR MOUNTED"
+"31","Vanguard Spearhead","STRIKE FROM THE SHADOWS","WHEN: Your Shooting phase.
+
+TARGET: One ADEPTUS ASTARTES INFANTRY unit from your army that has not been selected to shoot this phase.
+
+EFFECT: Until the end of the phase, each time a model in your unit makes a ranged attack that targets an enemy unit that is more than 12"" away, improve the Ballistic Skill and Armour Penetration characteristics of that attack by 1. If one or more enemy models are destroyed as a result of those attacks, select one of those destroyed models; that destroyed model’s unit must take a Battle-shock test.","","","1","INFANTRY"
+"32","Vanguard Spearhead","ARMOUR OF CONTEMPT","WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
+
+TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+
+EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.","","","1",""
+"33","Vanguard Spearhead","CALCULATED FEINT","WHEN: Your opponent’s Charge phase, just after an enemy unit declares a charge.
+
+TARGET: One ADEPTUS ASTARTES INFANTRY unit from your army that was selected as a target of that charge.
+
+EFFECT: Your unit can make a Normal move of up to D6"", or up to 6"" instead if it is a PHOBOS or SCOUT SQUAD unit.
+
+RESTRICTIONS: You cannot select a unit that is within Engagement Range of one or more enemy units.","","","1","INFANTRY"
+"34","Vanguard Spearhead","SURGICAL STRIKES","WHEN: Fight phase.
+
+TARGET: One ADEPTUS ASTARTES INFANTRY unit from your army that has not been selected to fight this phase.
+
+EFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [PRECISION] ability.","","","2","INFANTRY"
+"35","Vanguard Spearhead","GUERRILLA TACTICS","WHEN: End of your opponent’s Fight phase.
+
+TARGET: Up to two PHOBOS and/or SCOUT SQUAD units from your army, or one other ADEPTUS ASTARTES INFANTRY unit from your army.
+
+EFFECT: Remove those units from the battlefield and place them into Strategic Reserves.
+
+RESTRICTIONS: Each unit selected for this Stratagem must be more than 3"" away from all enemy models.","","","1","INFANTRY OR PHOBOS OR SCOUT SQUAD"
+"36","1st Company Task Force","ARMOUR OF CONTEMPT","WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
+
+TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+
+EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.","","","1",""
+"37","1st Company Task Force","DUTY AND HONOUR","WHEN: Your Movement phase.
+
+TARGET: One ADEPTUS ASTARTES TERMINATOR, BLADEGUARD VETERAN SQUAD, STERNGUARD VETERAN SQUAD or VANGUARD VETERAN SQUAD unit from your army within range of an objective marker you control.
+
+EFFECT: That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.","","","1","TERMINATOR OR BLADEGUARD VETERAN SQUAD OR STERNGUARD VETERAN SQUAD OR VANGUARD VETERAN SQUAD"
+"38","1st Company Task Force","HEROES OF THE CHAPTER","WHEN: Your Shooting phase or the Fight phase.
+
+TARGET: One ADEPTUS ASTARTES TERMINATOR, BLADEGUARD VETERAN SQUAD, STERNGUARD VETERAN SQUAD or VANGUARD VETERAN SQUAD unit from your army that has not been selected to shoot or fight this phase.
+
+EFFECT: Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Hit roll. If your unit is Below Half-strength, add 1 to the Wound roll as well.","","","1","TERMINATOR OR BLADEGUARD VETERAN SQUAD OR STERNGUARD VETERAN SQUAD OR VANGUARD VETERAN SQUAD"
+"39","1st Company Task Force","ORBITAL TELEPORTARIUM","WHEN: End of your opponent’s Fight phase.
+
+TARGET: One ADEPTUS ASTARTES TERMINATOR unit from your army.
+
+EFFECT: Remove your unit from the battlefield and place it into Strategic Reserves. It will arrive back on the battlefield in the Reinforcements step of your next Movement phase using the Deep Strike ability.
+
+RESTRICTIONS: You cannot select a unit that is within Engagement Range of one or more enemy units.","","","1","TERMINATOR"
+"40","1st Company Task Force","TERRIFYING PROFICIENCY","WHEN: Your Fight phase.
+
+TARGET: One ADEPTUS ASTARTES TERMINATOR, BLADEGUARD VETERAN SQUAD, STERNGUARD VETERAN SQUAD or VANGUARD VETERAN SQUAD unit from your army that made a Charge move this turn and destroyed one or more enemy units this phase.
+
+EFFECT: In your opponent’s next Command phase, each enemy unit within 6"" of your unit must take a Battle-shock test. If the unit taking that test is Below Half-strength, subtract 1 from that test. Enemy units affected by this Stratagem do not need to take any other Battle-shock tests in the same phase.","","","1","TERMINATOR OR BLADEGUARD VETERAN SQUAD OR STERNGUARD VETERAN SQUAD OR VANGUARD VETERAN SQUAD"
+"41","1st Company Task Force","LEGENDARY FORTITUDE","WHEN: Your opponent’s Charge phase, just after an enemy unit ends a Charge move.
+
+TARGET: One ADEPTUS ASTARTES TERMINATOR, BLADEGUARD VETERAN SQUAD, STERNGUARD VETERAN SQUAD or VANGUARD VETERAN SQUAD unit from your army within Engagement Range of that enemy unit.
+
+EFFECT: Until the end of the turn, each time an attack is allocated to a model in your unit, subtract 1 from the Damage characteristic of that attack.","","","1","TERMINATOR OR BLADEGUARD VETERAN SQUAD OR STERNGUARD VETERAN SQUAD OR VANGUARD VETERAN SQUAD"
+"42","Librarius Conclave","SENSORY ASSAULT","WHEN: Command phase.
+
+TARGET: One ADEPTUS ASTARTES PSYKER unit from your army.
+
+EFFECT: Select one enemy unit that is within 18"" of and visible to one PSYKER model in your unit. Until the start of your next turn, that enemy unit is pinned. While a unit is pinned, subtract 2 from that unit’s Move characteristic and subtract 2 from Charge rolls made for it. In addition, if the Telepathy Discipline is active for your army, that enemy unit must take a Battle-shock test, subtracting 1 from the result.","","","1","PSYKER"
+"43","Librarius Conclave","IRON ARM","WHEN: Fight phase.
+
+TARGET: One ADEPTUS ASTARTES INFANTRY unit from your army that is within 18"" of one or more ADEPTUS ASTARTES PSYKER models from your army and has not been selected to Fight this phase.
+
+EFFECT: Until the end of the phase, add 1 to the Strength characteristic of melee weapons equipped by models in your unit, or add 2 if the Biomancy Discipline is active for your army.","","","1","INFANTRY"
+"44","Librarius Conclave","ARMOUR OF CONTEMPT","WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
+
+TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+
+EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.","","","1",""
+"45","Librarius Conclave","ASSAIL","WHEN: Your Shooting phase.
+
+TARGET: One ADEPTUS ASTARTES PSYKER unit from your army that is eligible to shoot.
+
+EFFECT: Select one enemy unit within 18"" of and visible to one or more PSYKER models in your unit (excluding units with the Lone Operative ability), and roll six D6, adding 1 to each result if the Telekinesis Discipline is active for your army: for each 4+, that enemy unit suffers 1 mortal wound.","","","1","PSYKER"
+"46","Librarius Conclave","FIERY SHIELD","WHEN: Fight phase, just after an enemy unit has selected its targets.
+
+TARGET: One ADEPTUS ASTARTES INFANTRY or ADEPTUS ASTARTES MOUNTED unit from your army that is within 18"" of one or more friendly ADEPTUS ASTARTES PSYKER models, and that was selected as the target of one or more of the attacking unit’s attacks.
+
+EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll, and if the Pyromancy Discipline is active for your army, weapons that target your unit have the [HAZARDOUS] ability.","","","1","INFANTRY OR MOUNTED"
+"47","Librarius Conclave","PRESCIENT PRECISION","WHEN: Your Shooting phase.
+
+TARGET: One ADEPTUS ASTARTES PSYKER unit from your army that has not been selected to shoot this phase.
+
+EFFECT: Until the end of the phase, each time a model in your unit makes an attack, that attack has the [LETHAL HITS] ability, and the [IGNORES COVER] ability as well if the Divination Discipline is active for your army.","","","1","PSYKER"
+"48","Invasion Fleet","RAPID REGENERATION","WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
+
+TARGET: One TYRANIDS unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+
+EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 6+ ability. If your unit is within Synapse Range of your army, models in your unit have the Feel No Pain 5+ ability instead.","","","1",""
+"49","Invasion Fleet","OVERRUN","WHEN: Fight phase, just before a TYRANIDS unit from your army Consolidates.
+
+TARGET: That TYRANIDS unit.
+
+EFFECT: Until the end of the phase, each time your unit Consolidates, models in it can move an additional 3"" as long as your unit can end that move within Engagement Range of one or more enemy units. If your unit is within Synapse Range of your army and not within Engagement Range of any enemy units, instead of making that Consolidation move, it can make a Normal move of up to 6"".","","","1",""
+"50","Invasion Fleet","ADRENAL SURGE","WHEN: Fight phase.
+
+TARGET: Up to two TYRANIDS units from your army that are within Synapse Range of your army and are eligible to fight, or one other TYRANIDS unit from your army that is eligible to fight.
+
+EFFECT: Until the end of the phase, each time a model in any of those selected units makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit.","","","2",""
+"51","Invasion Fleet","PREDATORY IMPERATIVE","WHEN: Your Command phase.
+
+TARGET: Up to two TYRANIDS units from your army that are within Synapse Range of your army, or one other TYRANIDS unit from your army.
+
+EFFECT: Select one Hyper-adaptation. Until the start of your next Command phase, that Hyper-adaptation is active for those selected units in addition to any other that may be active for your army.
+
+RESTRICTIONS: You cannot select the same Hyper-adaptation you selected at the start of the first battle round.","","","1",""
+"52","Invasion Fleet","DEATH FRENZY","WHEN: Fight phase, just after an enemy unit has selected its targets.
+
+TARGET: One TYRANIDS unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+
+EFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6: on a 4+, do not remove it from play. The destroyed model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play.","","","1",""
+"53","Invasion Fleet","ENDLESS SWARM","WHEN: Your Command phase.
+
+TARGET: Up to two ENDLESS MULTITUDE units from your army that are within Synapse Range of your army, or one other ENDLESS MULTITUDE unit from your army.
+
+EFFECT: You can return up to D3+3 destroyed models to each of the selected units.","","","1","ENDLESS MULTITUDE"
+"54","Crusher Stampede","CORROSIVE VISCERA","WHEN: Your opponent’s Shooting phase or the Fight phase, just after a TYRANIDS MONSTER model from your army with the Deadly Demise ability that cannot FLY is destroyed.
+
+TARGET: That TYRANIDS MONSTER model. You can use this Stratagem on that model even though it was just destroyed.
+
+EFFECT: Do not roll one D6 to determine whether mortal wounds are inflicted by your model’s Deadly Demise ability. Instead, mortal wounds are automatically inflicted.","","","1","MONSTER AND NOT FLY"
+"55","Crusher Stampede","UNTRAMMELLED FEROCITY","WHEN: Your Movement phase.
+
+TARGET: One TYRANIDS MONSTER unit from your army that has not been selected to move this phase.
+
+EFFECT: Until the end of the phase, each time a model in your unit makes a Normal, Advance or Fall Back move, it can move through models (excluding TITANIC models) and sections of terrain features that are 4"" or less in height. When doing so:
+
+    It can move within Engagement Range of enemy models, but cannot end that move within Engagement Range of them.
+    It can also move through sections of terrain features that are more than 4"" in height, but if it does, after its unit has moved, roll one D6: on a 1, your unit is Battle-shocked.","","","1","MONSTER"
+"56","Crusher Stampede","RAMPAGING MONSTROSITIES","WHEN: Fight phase.
+
+TARGET: One TYRANIDS MONSTER unit from your army that has not been selected to fight this phase.
+
+EFFECT: Until the end of the phase, each time a model in your unit makes an attack, you can re-roll the Hit roll.","","","1","MONSTER"
+"57","Crusher Stampede","SWARM-GUIDED SALVOES","WHEN: Your Shooting phase.
+
+TARGET: One TYRANIDS MONSTER unit from your army that has not been selected to shoot this phase.
+
+EFFECT: Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability, and until the end of the phase each time a model in your unit makes an attack, you can ignore any or all modifiers to that model’s Ballistic Skill characteristic and any or all modifiers to the Hit roll.","","","1","MONSTER"
+"58","Crusher Stampede","SAVAGE ROAR","WHEN: Fight phase, just after an enemy unit has selected its targets.
+
+TARGET: One TYRANIDS MONSTER unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+
+EFFECT: That enemy unit must take a Battle-shock test and, until the end of the phase, each time a model in that enemy unit makes an attack that targets your unit, subtract 1 from the Hit roll. If that Battle-shock test was failed, subtract 1 from the Wound roll as well.","","","1","MONSTER"
+"59","Crusher Stampede","MASSIVE IMPACT","WHEN: Your Charge phase, just after a TYRANIDS MONSTER model from your army ends a Charge move.
+
+TARGET: That TYRANIDS MONSTER model.
+
+EFFECT: Select one enemy unit within Engagement Range of your model and roll six D6: for each 4+, that enemy unit suffers 1 mortal wound.","","","1","MONSTER"
+"60","Unending Swarm","SYNAPTIC GOADING","WHEN: Any phase, just before an ENDLESS MULTITUDE unit from your army that is within Synapse Range of your army makes a Surge move.
+
+TARGET: That ENDLESS MULTITUDE unit.
+
+EFFECT: When making that Surge move, you can re-roll the D6 to determine how far your unit moves, and your unit can end that move as close as possible to the closest objective marker (instead of as close as possible to the closest enemy unit]. All other rules for making Surge moves still apply.","","","1","ENDLESS MULTITUDE"
+"61","Unending Swarm","SWARMING MASSES","WHEN: Your Shooting phase or the Fight phase.
+
+TARGET: One ENDLESS MULTITUDE unit from your army that has not been selected to shoot or fight this phase.
+
+EFFECT: Until the end of the phase, weapons equipped by models in your unit have the [SUSTAINED HITS 1] ability, and If your unit contains 15 or more models, each time a model in your unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit.","","","1","ENDLESS MULTITUDE"
+"62","Unending Swarm","UNENDING WAVES","WHEN: Any phase.
+
+TARGET: One ENDLESS MULTITUDE unit from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.
+
+EFFECT: Add a new unit to your army identical to your destroyed unit, in Strategic Reserves, at its Starting Strength.
+
+RESTRICTIONS: Any destroyed CHARACTER units that were attached to your unit are not returned. You can only use this Stratagem once per battle.","","","2","ENDLESS MULTITUDE"
+"63","Unending Swarm","BOUNDING ADVANCE","WHEN: Your Movement phase.
+
+TARGET: One ENDLESS MULTITUDE unit from your army.
+
+EFFECT: Until the end of the phase, each time your unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 6"" to the Move characteristic of models in your unit.","","","1","ENDLESS MULTITUDE"
+"64","Unending Swarm","TEEMING MASSES","WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
+
+TARGET: One ENDLESS MULTITUDE unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+
+EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll.","","","1","ENDLESS MULTITUDE"
+"65","Unending Swarm","PRESERVATION IMPERATIVE","WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
+
+TARGET: One ENDLESS MULTITUDE unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+
+EFFECT: Until the end of the phase, your unit is treated as containing fewer than five models for the purpose of the [BLAST] ability.","","","1","ENDLESS MULTITUDE"
+"66","Assimilation Swarm","BROODGUARD IMPULSE","WHEN: Any phase.
+
+TARGET: One HARVESTER unit from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.
+
+EFFECT: Until the end of the battle, each time a friendly TYRANIDS model makes an attack that targets the enemy unit that just destroyed your HARVESTER unit, add 1 to the Wound roll.","","","1","HARVESTER"
+"67","Assimilation Swarm","ABLATIVE CARAPACE","WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
+
+TARGET: One HARVESTER unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+
+EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 5+ ability. If your unit is within range of an objective marker you control, until the end of the phase models in your unit have the Feel No Pain 4+ ability instead.","","","2","HARVESTER"
+"68","Assimilation Swarm","RECLAIM BIOMASS","WHEN: Any phase, when a TYRANIDS unit from your army is destroyed, before the last model in it is removed from play.
+
+TARGET: One HARVESTER unit from your army that is within 6"" of that destroyed unit.
+
+EFFECT: Regenerate one friendly TYRANIDS unit within 6"" of your HARVESTER unit (See Feed the Swarm).","","","1","HARVESTER"
+"69","Assimilation Swarm","SECURE BIOMASS","WHEN: Fight phase.
+
+TARGET: One TYRANIDS unit from your army that has not been selected to fight this phase.
+
+EFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [LETHAL HITS] ability. If your unit is a HARVESTER unit, each time a model in that unit makes a melee attack, a successful unmodified Hit roll of 5+ scores a Critical Hit as well.","","","1",""
+"70","Assimilation Swarm","TYRANNOFORMED","WHEN: Command phase.
+
+TARGET: One HARVESTER unit from your army that is within range of an objective marker you control.
+
+EFFECT: That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.","","","1","HARVESTER"
+"71","Assimilation Swarm","RAPACIOUS HUNGER","WHEN: Your Fight phase.
+
+TARGET: One TYRANIDS unit from your army that just destroyed an enemy unit.
+
+EFFECT: Your unit immediately Regenerates (See Feed the Swarm). When doing so, if your unit is a HARVESTER unit and you choose for one model to regain up to D3 lost wounds, that model regains up to 3 lost wounds instead.","","","1",""

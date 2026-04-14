@@ -168,3 +168,182 @@
 2026-04-14 12:24:31,180 - INFO - download_csv - ================================================================================
 2026-04-14 12:24:31,181 - INFO - download_csv - Finished CSV downloads at 2026-04-14 12:24:31
 2026-04-14 12:24:31,181 - INFO - download_csv - ================================================================================
+2026-04-14 12:29:54,807 - INFO - download_csv - ================================================================================
+2026-04-14 12:29:54,807 - INFO - download_csv - Starting DB dump at 2026-04-14 12:29:54
+2026-04-14 12:29:54,808 - INFO - download_csv - Output directory: /app/army_app/data/2026-04-14 12:29:54
+2026-04-14 12:29:54,808 - INFO - download_csv - ================================================================================
+2026-04-14 12:29:54,843 - INFO - download_csv - OK: Abilities — 46 row(s) written to abilities.csv
+2026-04-14 12:29:54,847 - INFO - download_csv - OK: AbilityEffects — 46 row(s) written to ability_effects.csv
+2026-04-14 12:29:54,853 - INFO - download_csv - OK: Factions — 5 row(s) written to factions.csv
+2026-04-14 12:29:54,873 - INFO - download_csv - OK: Detachments — 36 row(s) written to detachments.csv
+2026-04-14 12:29:54,875 - INFO - download_csv - OK: Enhancements — 64 row(s) written to enhancements.csv
+2026-04-14 12:29:54,878 - INFO - download_csv - OK: Stratagems — 72 row(s) written to stratagems.csv
+2026-04-14 12:29:54,884 - INFO - download_csv - OK: Weapons — 9 row(s) written to weapons.csv
+2026-04-14 12:29:54,911 - INFO - download_csv - OK: Units — 4 row(s) written to units.csv
+2026-04-14 12:29:54,913 - INFO - download_csv - OK: UnitPointBrackets — 4 row(s) written to unit_point_brackets.csv
+2026-04-14 12:29:54,917 - INFO - download_csv - OK: Leadership — 0 row(s) written to leadership.csv
+2026-04-14 12:29:54,917 - INFO - download_csv - ================================================================================
+2026-04-14 12:29:54,918 - INFO - download_csv - Dump complete — 286 total rows written to /app/army_app/data/2026-04-14 12:29:54
+2026-04-14 12:29:54,918 - INFO - download_csv - ================================================================================
+2026-04-14 12:34:02,362 - INFO - download_csv - ================================================================================
+2026-04-14 12:34:02,362 - INFO - download_csv - Starting DB dump at 2026-04-14 12:34:02
+2026-04-14 12:34:02,362 - INFO - download_csv - Output directory: /app/army_app/data/2026-04-14 12:34:02
+2026-04-14 12:34:02,362 - INFO - download_csv - ================================================================================
+2026-04-14 12:34:02,395 - INFO - download_csv - OK: Abilities — 46 row(s) written to abilities.csv
+2026-04-14 12:34:02,400 - INFO - download_csv - OK: AbilityEffects — 46 row(s) written to ability_effects.csv
+2026-04-14 12:34:02,405 - INFO - download_csv - OK: Factions — 5 row(s) written to factions.csv
+2026-04-14 12:34:02,425 - INFO - download_csv - OK: Detachments — 36 row(s) written to detachments.csv
+2026-04-14 12:34:02,427 - INFO - download_csv - OK: Enhancements — 64 row(s) written to enhancements.csv
+2026-04-14 12:34:02,429 - INFO - download_csv - OK: Stratagems — 72 row(s) written to stratagems.csv
+2026-04-14 12:34:02,435 - INFO - download_csv - OK: Weapons — 9 row(s) written to weapons.csv
+2026-04-14 12:34:02,454 - INFO - download_csv - OK: Units — 4 row(s) written to units.csv
+2026-04-14 12:34:02,456 - INFO - download_csv - OK: UnitPointBrackets — 4 row(s) written to unit_point_brackets.csv
+2026-04-14 12:34:02,457 - INFO - download_csv - OK: Leadership — 0 row(s) written to leadership.csv
+2026-04-14 12:34:02,457 - INFO - download_csv - ================================================================================
+2026-04-14 12:34:02,460 - WARNING - download_csv - Deleted old version folder: 2026-04-14 12:11:48
+2026-04-14 12:34:02,464 - WARNING - download_csv - Deleted old version folder: 2026-04-14 12:13:23
+2026-04-14 12:34:02,464 - INFO - download_csv - Dump complete — 286 total rows written to /app/army_app/data/2026-04-14 12:34:02
+2026-04-14 12:34:02,464 - INFO - download_csv - ================================================================================
+2026-04-14 12:42:23,528 - INFO - download_csv - ================================================================================
+2026-04-14 12:42:23,528 - INFO - download_csv - Starting DB dump at 2026-04-14 12:42:23
+2026-04-14 12:42:23,529 - INFO - download_csv - Output directory: /app/army_app/data/2026-04-14 12:42:23
+2026-04-14 12:42:23,529 - INFO - download_csv - ================================================================================
+2026-04-14 12:42:23,538 - INFO - download_csv - OK: Abilities — 46 row(s) written to abilities.csv
+2026-04-14 12:42:23,541 - INFO - download_csv - OK: AbilityEffects — 46 row(s) written to ability_effects.csv
+2026-04-14 12:42:23,547 - INFO - download_csv - OK: Factions — 5 row(s) written to factions.csv
+2026-04-14 12:42:23,568 - INFO - download_csv - OK: Detachments — 36 row(s) written to detachments.csv
+2026-04-14 12:42:23,571 - INFO - download_csv - OK: Enhancements — 64 row(s) written to enhancements.csv
+2026-04-14 12:42:23,573 - INFO - download_csv - OK: Stratagems — 72 row(s) written to stratagems.csv
+2026-04-14 12:42:23,579 - INFO - download_csv - OK: Weapons — 9 row(s) written to weapons.csv
+2026-04-14 12:42:23,596 - INFO - download_csv - OK: Units — 4 row(s) written to units.csv
+2026-04-14 12:42:23,598 - INFO - download_csv - OK: UnitPointBrackets — 4 row(s) written to unit_point_brackets.csv
+2026-04-14 12:42:23,599 - INFO - download_csv - OK: Leadership — 0 row(s) written to leadership.csv
+2026-04-14 12:42:23,599 - INFO - download_csv - ================================================================================
+2026-04-14 12:42:23,601 - WARNING - download_csv - Deleted old version folder: 2026-04-14 12:24:29
+2026-04-14 12:42:23,602 - INFO - download_csv - Dump complete — 286 total rows written to /app/army_app/data/2026-04-14 12:42:23
+2026-04-14 12:42:23,602 - INFO - download_csv - ================================================================================
+2026-04-14 12:46:08,047 - INFO - download_csv - ================================================================================
+2026-04-14 12:46:08,047 - INFO - download_csv - Starting DB dump at 2026-04-14 12:46:08
+2026-04-14 12:46:08,047 - INFO - download_csv - Output directory: /app/army_app/data/2026-04-14 12:46:08
+2026-04-14 12:46:08,047 - INFO - download_csv - ================================================================================
+2026-04-14 12:46:08,057 - INFO - download_csv - OK: Abilities — 46 row(s) written to abilities.csv
+2026-04-14 12:46:08,060 - INFO - download_csv - OK: AbilityEffects — 46 row(s) written to ability_effects.csv
+2026-04-14 12:46:08,065 - INFO - download_csv - OK: Factions — 5 row(s) written to factions.csv
+2026-04-14 12:46:08,086 - INFO - download_csv - OK: Detachments — 36 row(s) written to detachments.csv
+2026-04-14 12:46:08,088 - INFO - download_csv - OK: Enhancements — 64 row(s) written to enhancements.csv
+2026-04-14 12:46:08,090 - INFO - download_csv - OK: Stratagems — 72 row(s) written to stratagems.csv
+2026-04-14 12:46:08,096 - INFO - download_csv - OK: Weapons — 9 row(s) written to weapons.csv
+2026-04-14 12:46:08,113 - INFO - download_csv - OK: Units — 4 row(s) written to units.csv
+2026-04-14 12:46:08,114 - INFO - download_csv - OK: UnitPointBrackets — 4 row(s) written to unit_point_brackets.csv
+2026-04-14 12:46:08,116 - INFO - download_csv - OK: Leadership — 0 row(s) written to leadership.csv
+2026-04-14 12:46:08,116 - INFO - download_csv - ================================================================================
+2026-04-14 12:46:08,117 - WARNING - download_csv - Deleted old version folder: 2026-04-14 12:29:54
+2026-04-14 12:46:08,117 - INFO - download_csv - Dump complete — 286 total rows written to /app/army_app/data/2026-04-14 12:46:08
+2026-04-14 12:46:08,117 - INFO - download_csv - ================================================================================
+2026-04-14 12:48:02,986 - INFO - download_csv - ================================================================================
+2026-04-14 12:48:02,987 - INFO - download_csv - Starting DB dump at 2026-04-14 12:48:02
+2026-04-14 12:48:02,987 - INFO - download_csv - Output directory: /app/army_app/data/2026-04-14 12:48:02
+2026-04-14 12:48:02,987 - INFO - download_csv - ================================================================================
+2026-04-14 12:48:02,997 - INFO - download_csv - OK: Abilities — 46 row(s) written to abilities.csv
+2026-04-14 12:48:03,000 - INFO - download_csv - OK: AbilityEffects — 46 row(s) written to ability_effects.csv
+2026-04-14 12:48:03,005 - INFO - download_csv - OK: Factions — 5 row(s) written to factions.csv
+2026-04-14 12:48:03,027 - INFO - download_csv - OK: Detachments — 36 row(s) written to detachments.csv
+2026-04-14 12:48:03,029 - INFO - download_csv - OK: Enhancements — 64 row(s) written to enhancements.csv
+2026-04-14 12:48:03,031 - INFO - download_csv - OK: Stratagems — 72 row(s) written to stratagems.csv
+2026-04-14 12:48:03,037 - INFO - download_csv - OK: Weapons — 9 row(s) written to weapons.csv
+2026-04-14 12:48:03,054 - INFO - download_csv - OK: Units — 4 row(s) written to units.csv
+2026-04-14 12:48:03,055 - INFO - download_csv - OK: UnitPointBrackets — 4 row(s) written to unit_point_brackets.csv
+2026-04-14 12:48:03,056 - INFO - download_csv - OK: Leadership — 0 row(s) written to leadership.csv
+2026-04-14 12:48:03,056 - INFO - download_csv - ================================================================================
+2026-04-14 12:48:03,057 - WARNING - download_csv - Deleted old version folder: 2026-04-14 12:34:02
+2026-04-14 12:48:03,057 - INFO - download_csv - Dump complete — 286 total rows written to /app/army_app/data/2026-04-14 12:48:02
+2026-04-14 12:48:03,057 - INFO - download_csv - ================================================================================
+2026-04-14 12:52:37,738 - INFO - download_csv - ================================================================================
+2026-04-14 12:52:37,738 - INFO - download_csv - Starting DB dump at 2026-04-14 12:52:37
+2026-04-14 12:52:37,738 - INFO - download_csv - Output directory: /app/army_app/data/2026-04-14 12:52:37
+2026-04-14 12:52:37,738 - INFO - download_csv - ================================================================================
+2026-04-14 12:52:37,749 - INFO - download_csv - OK: Abilities — 46 row(s) written to abilities.csv
+2026-04-14 12:52:37,752 - INFO - download_csv - OK: AbilityEffects — 46 row(s) written to ability_effects.csv
+2026-04-14 12:52:37,757 - INFO - download_csv - OK: Factions — 5 row(s) written to factions.csv
+2026-04-14 12:52:37,778 - INFO - download_csv - OK: Detachments — 36 row(s) written to detachments.csv
+2026-04-14 12:52:37,780 - INFO - download_csv - OK: Enhancements — 64 row(s) written to enhancements.csv
+2026-04-14 12:52:37,782 - INFO - download_csv - OK: Stratagems — 72 row(s) written to stratagems.csv
+2026-04-14 12:52:37,788 - INFO - download_csv - OK: Weapons — 9 row(s) written to weapons.csv
+2026-04-14 12:52:37,805 - INFO - download_csv - OK: Units — 4 row(s) written to units.csv
+2026-04-14 12:52:37,807 - INFO - download_csv - OK: UnitPointBrackets — 4 row(s) written to unit_point_brackets.csv
+2026-04-14 12:52:37,808 - INFO - download_csv - OK: Leadership — 0 row(s) written to leadership.csv
+2026-04-14 12:52:37,808 - INFO - download_csv - ================================================================================
+2026-04-14 12:52:37,809 - WARNING - download_csv - Deleted old version folder: 2026-04-14 12:42:23
+2026-04-14 12:52:37,809 - INFO - download_csv - Dump complete — 286 total rows written to /app/army_app/data/2026-04-14 12:52:37
+2026-04-14 12:52:37,809 - INFO - download_csv - ================================================================================
+2026-04-14 12:54:21,958 - INFO - download_csv - ================================================================================
+2026-04-14 12:54:21,958 - INFO - download_csv - Starting DB dump at 2026-04-14 12:54:21
+2026-04-14 12:54:21,958 - INFO - download_csv - Output directory: /app/army_app/data/2026-04-14 12:54:21
+2026-04-14 12:54:21,958 - INFO - download_csv - ================================================================================
+2026-04-14 12:54:21,966 - INFO - download_csv - OK: Abilities — 46 row(s) written to abilities.csv
+2026-04-14 12:54:21,969 - INFO - download_csv - OK: AbilityEffects — 46 row(s) written to ability_effects.csv
+2026-04-14 12:54:21,974 - INFO - download_csv - OK: Factions — 5 row(s) written to factions.csv
+2026-04-14 12:54:21,994 - INFO - download_csv - OK: Detachments — 36 row(s) written to detachments.csv
+2026-04-14 12:54:21,996 - INFO - download_csv - OK: Enhancements — 64 row(s) written to enhancements.csv
+2026-04-14 12:54:21,999 - INFO - download_csv - OK: Stratagems — 72 row(s) written to stratagems.csv
+2026-04-14 12:54:22,005 - INFO - download_csv - OK: Weapons — 9 row(s) written to weapons.csv
+2026-04-14 12:54:22,021 - INFO - download_csv - OK: Units — 4 row(s) written to units.csv
+2026-04-14 12:54:22,023 - INFO - download_csv - OK: UnitPointBrackets — 4 row(s) written to unit_point_brackets.csv
+2026-04-14 12:54:22,024 - INFO - download_csv - OK: Leadership — 0 row(s) written to leadership.csv
+2026-04-14 12:54:22,024 - INFO - download_csv - ================================================================================
+2026-04-14 12:54:22,025 - WARNING - download_csv - Deleted old version folder: 2026-04-14 12:46:08
+2026-04-14 12:54:22,025 - INFO - download_csv - Dump complete — 286 total rows written to /app/army_app/data/2026-04-14 12:54:21
+2026-04-14 12:54:22,025 - INFO - download_csv - ================================================================================
+2026-04-14 12:57:05,360 - INFO - download_csv - ================================================================================
+2026-04-14 12:57:05,361 - INFO - download_csv - Starting CSV downloads at 2026-04-14 12:57:05
+2026-04-14 12:57:05,361 - INFO - download_csv - ================================================================================
+2026-04-14 12:57:05,642 - INFO - download_csv - Updated abilities.csv
+2026-04-14 12:57:05,840 - INFO - download_csv - Updated ability_effects.csv
+2026-04-14 12:57:06,003 - INFO - download_csv - Updated factions.csv
+2026-04-14 12:57:06,162 - INFO - download_csv - Updated detachments.csv
+2026-04-14 12:57:06,332 - INFO - download_csv - Updated enhancements.csv
+2026-04-14 12:57:06,485 - INFO - download_csv - Updated stratagems.csv
+2026-04-14 12:57:06,636 - INFO - download_csv - Updated weapons.csv
+2026-04-14 12:57:06,787 - INFO - download_csv - Updated units.csv
+2026-04-14 12:57:06,932 - INFO - download_csv - Updated unit_point_brackets.csv
+2026-04-14 12:57:07,086 - INFO - download_csv - Updated leadership.csv
+2026-04-14 12:57:07,087 - WARNING - download_csv - Deleted old version folder: 2026-04-14 12:48:02
+2026-04-14 12:57:07,087 - INFO - download_csv - ================================================================================
+2026-04-14 12:57:07,087 - INFO - download_csv - Finished CSV downloads at 2026-04-14 12:57:07
+2026-04-14 12:57:07,087 - INFO - download_csv - ================================================================================
+2026-04-14 12:57:32,179 - INFO - download_csv - ================================================================================
+2026-04-14 12:57:32,180 - INFO - download_csv - Starting DB dump at 2026-04-14 12:57:32
+2026-04-14 12:57:32,180 - INFO - download_csv - Output directory: /app/army_app/data/2026-04-14 12:57:32
+2026-04-14 12:57:32,180 - INFO - download_csv - ================================================================================
+2026-04-14 12:57:32,190 - INFO - download_csv - OK: Abilities — 46 row(s) written to abilities.csv
+2026-04-14 12:57:32,192 - INFO - download_csv - OK: AbilityEffects — 46 row(s) written to ability_effects.csv
+2026-04-14 12:57:32,197 - INFO - download_csv - OK: Factions — 5 row(s) written to factions.csv
+2026-04-14 12:57:32,218 - INFO - download_csv - OK: Detachments — 36 row(s) written to detachments.csv
+2026-04-14 12:57:32,220 - INFO - download_csv - OK: Enhancements — 64 row(s) written to enhancements.csv
+2026-04-14 12:57:32,222 - INFO - download_csv - OK: Stratagems — 72 row(s) written to stratagems.csv
+2026-04-14 12:57:32,228 - INFO - download_csv - OK: Weapons — 9 row(s) written to weapons.csv
+2026-04-14 12:57:32,244 - INFO - download_csv - OK: Units — 4 row(s) written to units.csv
+2026-04-14 12:57:32,245 - INFO - download_csv - OK: UnitPointBrackets — 4 row(s) written to unit_point_brackets.csv
+2026-04-14 12:57:32,246 - INFO - download_csv - OK: Leadership — 0 row(s) written to leadership.csv
+2026-04-14 12:57:32,246 - INFO - download_csv - ================================================================================
+2026-04-14 12:57:32,247 - WARNING - download_csv - Deleted old version folder: 2026-04-14 12:52:37
+2026-04-14 12:57:32,248 - INFO - download_csv - Dump complete — 286 total rows written to /app/army_app/data/2026-04-14 12:57:32
+2026-04-14 12:57:32,248 - INFO - download_csv - ================================================================================
+2026-04-14 13:01:39,959 - INFO - download_csv - ================================================================================
+2026-04-14 13:01:39,959 - INFO - download_csv - Starting DB dump at 2026-04-14 13:01:39
+2026-04-14 13:01:39,959 - INFO - download_csv - Output directory: /app/army_app/data/2026-04-14 13:01:39
+2026-04-14 13:01:39,959 - INFO - download_csv - ================================================================================
+2026-04-14 13:01:39,969 - INFO - download_csv - OK: Abilities — 46 row(s) written to abilities.csv
+2026-04-14 13:01:39,972 - INFO - download_csv - OK: AbilityEffects — 46 row(s) written to ability_effects.csv
+2026-04-14 13:01:39,977 - INFO - download_csv - OK: Factions — 5 row(s) written to factions.csv
+2026-04-14 13:01:39,997 - INFO - download_csv - OK: Detachments — 36 row(s) written to detachments.csv
+2026-04-14 13:01:39,999 - INFO - download_csv - OK: Enhancements — 64 row(s) written to enhancements.csv
+2026-04-14 13:01:40,002 - INFO - download_csv - OK: Stratagems — 72 row(s) written to stratagems.csv
+2026-04-14 13:01:40,008 - INFO - download_csv - OK: Weapons — 9 row(s) written to weapons.csv
+2026-04-14 13:01:40,024 - INFO - download_csv - OK: Units — 4 row(s) written to units.csv
+2026-04-14 13:01:40,026 - INFO - download_csv - OK: UnitPointBrackets — 4 row(s) written to unit_point_brackets.csv
+2026-04-14 13:01:40,027 - INFO - download_csv - OK: Leadership — 0 row(s) written to leadership.csv
+2026-04-14 13:01:40,027 - INFO - download_csv - ================================================================================
+2026-04-14 13:01:40,028 - WARNING - download_csv - Deleted old version folder: 2026-04-14 12:54:21
+2026-04-14 13:01:40,028 - INFO - download_csv - Dump complete — 286 total rows written to /app/army_app/data/2026-04-14 13:01:39
+2026-04-14 13:01:40,028 - INFO - download_csv - ================================================================================

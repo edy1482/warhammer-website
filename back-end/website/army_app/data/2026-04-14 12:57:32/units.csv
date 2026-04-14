@@ -1,0 +1,5 @@
+"id","faction","name","keywords","movement","toughness","armour_save","wounds","ld","objective_control","invulnerable_save","ranged_weapons","melee_weapons","wargear_options","abilities","wargear_abilities"
+"0","SPM","Captain","CAPTAIN;CHARACTER;GRENADES;IMPERIUM;INFANTRY;TACTICUS","6","4","3+","4","5","2","4+","","","","",""
+"1","SPM","Lieutenant","CHARACTER;GRENADES;IMPERIUM;INFANTRY;LIEUTENANT;TACTICUS","6","4","3+","4","5","2","","","","","",""
+"2","SPM","Intercessor Squad","BATTLELINE;GRENADES;IMPERIUM;INFANTRY;INTERCESSOR SQUAD;TACTICUS","6","4","3+","2","6","2","","","","","",""
+"3","SPM","Chaplain","CHAPLAIN;CHARACTER;GRENADES;IMPERIUM;INFANTRY;TACTICUS","6","4","3+","4","5","2","4+","","","","",""

@@ -3,6 +3,7 @@ from datetime import datetime
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from army_app.models import AbilityEffect, Enhancement, Stratagem
+from army_app.condition_parser import my_parser
 
 class Command(BaseCommand):
     help = "Build/Rebuild KeyWordCondition trees from keyword_expression"
@@ -53,7 +54,7 @@ class Command(BaseCommand):
             fails = 0
         
             for obj in queryset:
-                expr = getattr(obj, "keyword_express", None)
+                expr = getattr(obj, "keyword_expression", None)
                 if not expr:
                     self.stderr.write(f"Object has no keyword expression attribute")
                     continue
@@ -65,8 +66,7 @@ class Command(BaseCommand):
                             obj.auto_condition.delete()
                         
                         # Parse expression and build tree here
-                        # TODO - build tokenizer and parser in separate folder.
-                        condition - parse_expression(expr)
+                        condition = my_parser.parse_expression(expr)
                         
                         if not dry_run:
                             obj.auto_condition = condition
@@ -90,4 +90,4 @@ class Command(BaseCommand):
         self.stdout.write(f"Total objects processed: {total_processed}")
         self.stdout.write(f"Success: {total_success}")
         self.stdout.write(f"Failed: {total_failed}")
-        return super().handle(*args, **options)
+        return

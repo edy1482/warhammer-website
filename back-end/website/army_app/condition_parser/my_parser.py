@@ -47,13 +47,15 @@ class Parser:
     # Factor level: NOT / parentheses / keyword
     def parse_factor(self):
         token = self.current()
+        if not token:
+            raise ValueError("Unexpected end of expression")
         if token.type == "NOT":
             self.eat("NOT")
             child = self.parse_factor()  # <-- Step 3.5: recursive call for NOT child
             return ("NOT", [child])
         elif token.type == "(":
             self.eat("(")
-            node = self.parse_expression()  # <-- Step 3.6: recursive call for expression inside parentheses
+            node = self.parse_or() # <-- Step 3.6: recursive call for expression inside parentheses
             self.eat(")")
             return node
         elif token.type == "KEYWORD":

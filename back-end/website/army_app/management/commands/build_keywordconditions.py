@@ -55,8 +55,12 @@ class Command(BaseCommand):
         
             for obj in queryset:
                 expr = getattr(obj, "keyword_expression", None)
-                if not expr:
-                    self.stderr.write(f"Object has no keyword expression attribute")
+                if not expr or not expr.strip():
+                    if not dry_run:
+                        obj.auto_condition = None
+                        obj.save()
+                    self.stdout.write(f"[SKIP] - {obj.id} has no keyword expression")
+                    success += 1
                     continue
                 
                 try:

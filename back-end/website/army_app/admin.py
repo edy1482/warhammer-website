@@ -1,5 +1,5 @@
 from django.contrib import admin
-from army_app.models import KeyWord, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
+from army_app.models import KeyWord, KeyWordCondition, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
 from army_app.models import Weapon
 from army_app.models import Unit, UnitPointBracket
 from army_app.models import Leadership
@@ -7,6 +7,11 @@ from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 
 @admin.register(KeyWord)
 class KeyWordAdmin(admin.ModelAdmin):
+    search_fields = ("name",)
+    ordering = ("name",)
+
+@admin.register(KeyWordCondition)
+class KeyWordConditionAdmin(admin.ModelAdmin):
     search_fields = ("name",)
     
 @admin.register(Ability)

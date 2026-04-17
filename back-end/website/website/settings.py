@@ -210,6 +210,14 @@ LOGGING = {
             "backupCount" : 3, # keep 3 old logs
             "formatter" : "verbose",
         },
+        "build_keywordcondition_file" : {
+            "level" : "INFO",
+            "class" : "logging.handlers.RotatingFileHandler",
+            "filename" : os.path.join(LOG_DIR, "build_keywordcondition.log"),
+            "maxBytes" : 5 * 1024 * 1024, # 5 MB
+            "backupCount" : 3, # keep 3 old logs
+            "formatter" : "verbose",
+        },
     },
     "loggers" : {
         # Specific logger for data loader
@@ -228,6 +236,12 @@ LOGGING = {
         "datasheet" : {
             "handlers" : ["console", "datasheet_file"],
             "level" : "WARNING",
+            "propagate" : False,
+        },
+        # Specific logger for build_keywordcondition
+        "build_keywordconditions" : {
+            "handlers" : ["console", "build_keywordcondition_file"],
+            "level" : "INFO",
             "propagate" : False,
         },
     },

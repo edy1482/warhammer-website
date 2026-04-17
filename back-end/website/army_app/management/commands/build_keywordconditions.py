@@ -1,9 +1,14 @@
 import logging
+from pathlib import Path
+import os
 from datetime import datetime
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from army_app.models import AbilityEffect, Enhancement, Stratagem
 from army_app.condition_parser import my_parser
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+LOG_DIR = os.path.join(BASE_DIR, "logs")
 
 class Command(BaseCommand):
     help = "Build/Rebuild KeyWordCondition trees from keyword_expression"
@@ -16,6 +21,16 @@ class Command(BaseCommand):
         parser.add_argument("--dry-run", type=str, help="Parse the expression without saving", required=False)
         
     def handle(self, *args, **options):
+        # Setup logger from settings.py
+        logger = logging.getLogger("build_keywordconditions")
+        logger.setLevel(logging.INFO)
+
+        # Write logger intro
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        logger.info("=" * 80)
+        logger.info(f"Starting build_keywordcondition run at {timestamp}")
+        logger.info("=" * 80)
+
         model_name = options.get("model")
         obj_id = options.get("id")
         dry_run = options.get("dry-run")
@@ -29,7 +44,7 @@ class Command(BaseCommand):
         models_to_process = []
         if model_name:
             if model_name not in model_map:
-                self.stderr.write(f"Unknown model : {model_name}")
+                logger.error(f"Unknown model : {model_name}")
                 return
             models_to_process = [model_map[model_name]]
         else:
@@ -47,7 +62,7 @@ class Command(BaseCommand):
                 queryset = queryset.filter(id=obj_id)
                 
             count = queryset.count()
-            self.stdout.write(f"Processing {count} objects for model {model.__name__}...")
+            logger.info(f"Processing {count} objects for model {model.__name__}...")
             
             # Model Stats
             success = 0
@@ -59,7 +74,7 @@ class Command(BaseCommand):
                     if not dry_run:
                         obj.auto_condition = None
                         obj.save()
-                    self.stdout.write(f"[SKIP] - {obj.id} has no keyword expression")
+                    logger.info(f"[SKIP] - {obj.id} has no keyword expression")
                     success += 1
                     continue
                 
@@ -77,21 +92,28 @@ class Command(BaseCommand):
                             obj.save()
                         
                         success += 1
-                        self.stdout.write(f"[OK] - {obj.id}: parsed")
+                        logger.info(f"{obj.id} - {expr}: parsed")
                 
                 except Exception as e:
                     fails += 1
-                    self.stderr.write(f"[FAIL] - {obj.id}: {e}")
+                    logger.error(f"{obj.id} - {expr}: {e}")
                     
-                self.stdout.write(f"[INFO] = model {model.__name__} has parsed {success} objs and failed to parse {fails} objs...")
+            
+            logger.info(f"model {model.__name__} has parsed {success} objs and failed to parse {fails} objs...")
             
             total_processed += count
             total_failed += fails
             total_success += success
             
         # Summary
-        self.stdout.write("\n--- Summary ---")
-        self.stdout.write(f"Total objects processed: {total_processed}")
-        self.stdout.write(f"Success: {total_success}")
-        self.stdout.write(f"Failed: {total_failed}")
+        logger.info("--- Summary ---")
+        logger.info(f"Total objects processed: {total_processed}")
+        logger.info(f"Success: {total_success}")
+        logger.info(f"Failed: {total_failed}")
+        # End log
+        logger.info(f"Logs saved to {LOG_DIR}")
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        logger.info("=" * 80)
+        logger.info(f"Ending build_keywordcondition at {timestamp}")
+        logger.info("=" * 80)
         return

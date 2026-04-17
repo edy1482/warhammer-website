@@ -13,10 +13,16 @@ class KeyWordAdmin(admin.ModelAdmin):
 
 @admin.register(KeyWordCondition)
 class KeyWordConditionAdmin(admin.ModelAdmin):
-    readonly_fields = ("tree_view",)
+    readonly_fields = ("tree_display", "expression_display",)
 
-    def tree_view(self, obj):
-        return mark_safe(f"<pre>{obj.display_tree()}</pre>")
+    def tree_display(self, obj):
+        tree = obj.render_tree()
+        return mark_safe(f"<pre style='font-family:monospace'>{tree}</pre>")
+    
+    tree_display.short_description = "Condition Tree"
+
+    def expression_display(self, obj):
+        return obj.to_expression()
 
     # Only grab parent nodes
     def get_queryset(self, request):

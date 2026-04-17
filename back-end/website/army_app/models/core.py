@@ -8,6 +8,7 @@ MAX_CHARFIELD_LENGTH = 255
 
 # Create your models here.
 # TODO: test overriding Enhancement model save function to add CHARACTER keyword automatically
+# TODO: consider storing KeyWordCondition as a JSON field for faster eval
 
 class KeyWord(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, unique=True)
@@ -40,18 +41,35 @@ class KeyWordCondition(models.Model):
     # Operator != None
     # Keyword = None
 
-    def display_tree(self, depth=0):
-        indent = "-" * depth
+    def render_tree(self, prefix_="", is_last=True):
+        """
+        Recursively render an ASCII tree for Admin
+        """
+        label = self.keyword.name if self.keyword else self.operator
+        connector = "└── " if is_last else "├── "
+        # Beginning starts with label no prefix_
+        line = f"{prefix_}{connector}{label}" if prefix_ else label
+        children = list(self.children.all())
 
-        if self.keyword:
-            line = f"{indent}{self.keyword.name}"
-        else:
-            line = f"{indent}{self.operator}"
-
-        for child in self.children.all():
-            line += "\n" + child.display_tree(depth + 1)
-
+        if children:
+            new_prefix = prefix_ + ("    " if is_last else "|   ")
+            for i, child in enumerate(children):
+                last = (i == (len(children) - 1))
+                line += "\n" + child.render_tree(new_prefix, last)
+        
         return line
+    
+    def to_expression(self):
+        if self.keyword:
+            return self.keyword.name
+        
+        children = [c.to_expression() for c in self.children.all()]
+
+        if self.operator == "NOT":
+            return f"NOT ({children[0]})"
+        
+        joiner = f" {self.operator} "
+        return "(" + joiner.join(children) + ")"
 
     
     # TODO - build KeyWordCondition -> Q object builder here

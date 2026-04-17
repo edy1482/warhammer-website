@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from army_app.models import KeyWord, KeyWordCondition, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
 from army_app.models import Weapon
 from army_app.models import Unit, UnitPointBracket
@@ -12,7 +13,15 @@ class KeyWordAdmin(admin.ModelAdmin):
 
 @admin.register(KeyWordCondition)
 class KeyWordConditionAdmin(admin.ModelAdmin):
-    search_fields = ("name",)
+    readonly_fields = ("tree_view",)
+
+    def tree_view(self, obj):
+        return mark_safe(f"<pre>{obj.display_tree()}</pre>")
+
+    # Only grab parent nodes
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.filter(parent__isnull=True)
     
 @admin.register(Ability)
 class AbilityAdmin(admin.ModelAdmin):

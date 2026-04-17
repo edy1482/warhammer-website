@@ -39,6 +39,20 @@ class KeyWordCondition(models.Model):
     # Operator Node:
     # Operator != None
     # Keyword = None
+
+    def display_tree(self, depth=0):
+        indent = "-" * depth
+
+        if self.keyword:
+            line = f"{indent}{self.keyword.name}"
+        else:
+            line = f"{indent}{self.operator}"
+
+        for child in self.children.all():
+            line += "\n" + child.display_tree(depth + 1)
+
+        return line
+
     
     # TODO - build KeyWordCondition -> Q object builder here
     

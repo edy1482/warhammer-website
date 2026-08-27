@@ -1,5 +1,9 @@
+import json
 from django.contrib import admin
+from django.urls import path, reverse
 from django.utils.safestring import mark_safe
+from django.utils.html import format_html
+from django.shortcuts import get_object_or_404, render
 from army_app.models import ScrapedPage, KeyWord, KeyWordCondition, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
 from army_app.models import Weapon
 from army_app.models import Unit, UnitPointBracket
@@ -116,9 +120,99 @@ class UnitPointBracketAdmin(admin.ModelAdmin):
 
 @admin.register(ArmyList)
 class ArmyListAdmin(admin.ModelAdmin):
-    list_display = ("user", "name", "faction", "detachment")
+    list_display = ("user", "name", "faction", "detachment", "stratagem_graph_link")
     search_fields = ("name",)
     list_filter = ("faction", "detachment")
+    readonly_fields = ("stratagem_graph_button",)
+
+    def get_fields(self, request, obj=None):
+        fields = list(super().get_fields(request, obj))
+        # Only show the graph button once the ArmyList has been saved (has a pk)
+        if obj and obj.pk and "stratagem_graph_button" not in fields:
+            fields.append("stratagem_graph_button")
+        elif not (obj and obj.pk) and "stratagem_graph_button" in fields:
+            fields.remove("stratagem_graph_button")
+        return fields
+
+    def get_urls(self):
+        custom_urls = [
+            path(
+                "<int:object_id>/stratagem-graph/",
+                self.admin_site.admin_view(self.stratagem_graph_view),
+                name="army_app_armylist_stratagem_graph",
+            ),
+        ]
+        return custom_urls + super().get_urls()
+
+    def stratagem_graph_link(self, obj):
+        if not obj.pk:
+            return "-"
+        url = reverse("admin:army_app_armylist_stratagem_graph", args=[obj.pk])
+        return format_html('<a class="button" href="{}">Stratagem graph</a>', url)
+    stratagem_graph_link.short_description = "Unit ↔ stratagem graph"
+
+    def stratagem_graph_button(self, obj):
+        if not obj or not obj.pk:
+            return "-"
+        url = reverse("admin:army_app_armylist_stratagem_graph", args=[obj.pk])
+        return format_html('<a class="button" href="{}" target="_blank">Open unit ↔ stratagem graph →</a>', url)
+    stratagem_graph_button.short_description = "Stratagem graph"
+
+    def stratagem_graph_view(self, request, object_id):
+        """
+        Renders a bipartite graph of every ArmyListEntry (unit) in this
+        ArmyList against every Stratagem it can legally use, derived from
+        ArmyListEntry.get_valid_strats() (CORE strats + detachment strats
+        whose keywords match the unit's keywords).
+        """
+        army_list = get_object_or_404(ArmyList, pk=object_id)
+        entries = (
+            army_list.entries
+            .select_related("unit")
+            .order_by("unit__name")
+        )
+
+        nodes = []
+        edges = []
+        seen_strat_ids = set()
+
+        for entry in entries:
+            unit_node_id = f"unit-{entry.id}"
+            nodes.append({
+                "id": unit_node_id,
+                "label": f"{entry.unit.name} [#{entry.id}]",
+                "group": "unit",
+            })
+
+            valid_strats = entry.get_valid_strats().order_by("name")
+            for strat in valid_strats:
+                strat_node_id = f"strat-{strat.id}"
+                is_core = strat.keywords.filter(name__iexact="CORE").exists()
+                if strat.id not in seen_strat_ids:
+                    seen_strat_ids.add(strat.id)
+                    nodes.append({
+                        "id": strat_node_id,
+                        "label": strat.name,
+                        "group": "stratagem",
+                        "title": strat.effect[:300] if strat.effect else "",
+                        "core": is_core,
+                    })
+                edges.append({
+                    "from": unit_node_id,
+                    "to": strat_node_id,
+                    "core": is_core,
+                })
+
+        context = {
+            **self.admin_site.each_context(request),
+            "title": f"Unit \u2194 stratagem graph — {army_list}",
+            "army_list": army_list,
+            "opts": self.model._meta,
+            "nodes_json": mark_safe(json.dumps(nodes)),
+            "edges_json": mark_safe(json.dumps(edges)),
+            "has_entries": entries.exists(),
+        }
+        return render(request, "admin/army_app/armylist/stratagem_graph.html", context)
 
 @admin.register(ArmyListEntry)
 class ArmyListEntryAdmin(admin.ModelAdmin):

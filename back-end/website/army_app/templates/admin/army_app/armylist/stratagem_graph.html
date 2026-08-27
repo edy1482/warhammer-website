@@ -1,0 +1,107 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrahead %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/vis-network.min.css' %}">
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+  &rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+  &rsaquo; <a href="{% url 'admin:army_app_armylist_changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+  &rsaquo; <a href="{% url 'admin:army_app_armylist_change' army_list.pk %}">{{ army_list }}</a>
+  &rsaquo; {% trans 'Stratagem graph' %}
+</div>
+{% endblock %}
+
+{% block content %}
+<h1>Unit &harr; stratagem graph &mdash; {{ army_list }}</h1>
+<p>
+  Faction: <strong>{{ army_list.faction }}</strong>
+  &nbsp;|&nbsp;
+  Detachment: <strong>{{ army_list.detachment|default:"—" }}</strong>
+</p>
+
+{% if not has_entries %}
+  <p class="help">This army list has no entries yet, so there is nothing to graph. Add some units first.</p>
+{% else %}
+  <div style="display:flex; gap:20px; align-items:center; margin-bottom:10px; font-size:13px; flex-wrap:wrap;">
+    <span><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#5B8FF9;margin-right:6px;"></span>Unit</span>
+    <span><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#F6C453;margin-right:6px;"></span>Stratagem</span>
+    <label style="cursor:pointer;">
+      <input type="checkbox" id="toggle-core" checked>
+      Show CORE stratagems
+    </label>
+    <span style="color:#666;">Drag nodes to rearrange &middot; hover a stratagem for its effect &middot; scroll to zoom</span>
+  </div>
+
+  <div id="graph-network" style="width:100%; height:640px; border:1px solid var(--border-color, #ccc); background:#fff;"></div>
+
+  <script src="{% static 'js/vis-network.min.js' %}"></script>
+  <script>
+    (function () {
+      var allNodes = {{ nodes_json }};
+      var allEdges = {{ edges_json }};
+
+      var container = document.getElementById("graph-network");
+      var toggle = document.getElementById("toggle-core");
+      var network = null;
+
+      var options = {
+        layout: {
+          hierarchical: {
+            enabled: true,
+            direction: "LR",
+            sortMethod: "directed",
+            nodeSpacing: 140,
+            levelSeparation: 320,
+          }
+        },
+        groups: {
+          unit: { shape: "box", color: { background: "#5B8FF9", border: "#2F6FE0" }, font: { color: "#08245c" } },
+          stratagem: { shape: "box", color: { background: "#F6C453", border: "#D89A16" }, font: { color: "#5c3d08" } },
+        },
+        edges: {
+          color: { color: "#c3c3c3", highlight: "#333" },
+          smooth: { type: "cubicBezier", forceDirection: "horizontal", roundness: 0.5 },
+          arrows: { to: { enabled: false } },
+        },
+        physics: { enabled: false },
+        interaction: { hover: true, dragNodes: true, zoomView: true },
+      };
+
+      function render(showCore) {
+        // A stratagem node stays visible if it's non-CORE, or CORE and the
+        // toggle is on. Unit nodes always stay. Edges follow their own
+        // "core" flag, and any unit left with zero visible edges is fine
+        // to keep on screen (still a valid list entry).
+        var visibleNodes = allNodes.filter(function (n) {
+          return n.group !== "stratagem" || !n.core || showCore;
+        });
+        var visibleEdges = allEdges.filter(function (e) {
+          return !e.core || showCore;
+        });
+
+        var data = {
+          nodes: new vis.DataSet(visibleNodes),
+          edges: new vis.DataSet(visibleEdges),
+        };
+
+        if (network) {
+          network.setData(data);
+        } else {
+          network = new vis.Network(container, data, options);
+        }
+      }
+
+      toggle.addEventListener("change", function () {
+        render(toggle.checked);
+      });
+
+      render(toggle.checked);
+    })();
+  </script>
+{% endif %}
+{% endblock %}

@@ -127,7 +127,7 @@ class ArmyListEntry(models.Model):
         self.full_clean()
         
         # Enable default detachment behaviour:
-        if self.army_list.faction and not self.detachment:
+        if self.army_list.faction and not self.army_list.detachment:
             default_detachment = Detachment.objects.filter(faction=self.faction).first()
             if default_detachment:
                 self.detachment = default_detachment

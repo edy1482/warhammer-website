@@ -1,10 +1,17 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from army_app.models import KeyWord, KeyWordCondition, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
+from army_app.models import ScrapedPage, KeyWord, KeyWordCondition, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
 from army_app.models import Weapon
 from army_app.models import Unit, UnitPointBracket
 from army_app.models import Leadership
 from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
+
+@admin.register(ScrapedPage)
+class ScrapedPageAdmin(admin.ModelAdmin):
+    list_display = ("url", "status", "status_code", "scraped_at", "created_at")
+    list_filter = ("status",)
+    search_fields = ("url",)
+    readonly_fields = ("html_content", "created_at", "updated_at")
 
 @admin.register(KeyWord)
 class KeyWordAdmin(admin.ModelAdmin):

@@ -10,6 +10,37 @@ MAX_CHARFIELD_LENGTH = 255
 # TODO: test overriding Enhancement model save function to add CHARACTER keyword automatically
 # TODO: consider storing KeyWordCondition as a JSON field for faster eval
 
+class ScrapedPage(models.Model):
+    """
+    Stores the raw HTML (and basic metadata) of a scraped datasheet webpage.
+    """
+
+    STATUS_PENDING = "pending"
+    STATUS_SUCCESS = "success"
+    STATUS_FAILED = "failed"
+
+    STATUS_CHOICES = [
+        (STATUS_PENDING, "Pending"),
+        (STATUS_SUCCESS, "Success"),
+        (STATUS_FAILED, "Failed"),
+    ]
+
+    url = models.URLField(max_length = 1000, unique=True)
+    html_content = models.TextField(blank = True, null=True)
+    file_path = models.CharField(max_length = 500, blank=True, null=True)
+    status_code = models.IntegerField(blank = True, null=True)
+    status = models.CharField(max_length = 10, choices = STATUS_CHOICES, default = STATUS_PENDING)
+    error_message = models.TextField(blank = True, null = True)
+    scraped_at = models.DateTimeField(blank = True, null = True)
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
+
+    class Meta:
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.url} ({self.status})"
+
 class KeyWord(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, unique=True)
     
@@ -102,6 +133,23 @@ class KeyWordCondition(models.Model):
         
         if self.operator == self.NOT and self.children.count() != 1:
             return ValidationError("NOT operator must have exactly one child")
+
+class Phase(models.Model):
+    PHASES = [
+        ("PRE-BATTLE", "Pre-battle phase"),
+        ("COMMAND", "Command phase"),
+        ("MOVEMENT", "Movement phase"),
+        ("SHOOTING", "Shooting phase"),
+        ("CHARGE", "Charge phase"),
+        ("FIGHT", "Fight phase"),
+        ("ANY", "Any phase")
+    ]
+    TURNS = [
+        ("YOUR", "Your turn"),
+        ("OPP", "Your opponent's turn")
+    ]
+    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=PHASES)
+    turn = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=TURNS)
     
 class Ability(models.Model):
     ABILITY_TYPES = [
@@ -128,6 +176,9 @@ class AbilityEffect(models.Model):
     ability = models.ForeignKey(Ability, on_delete=models.CASCADE, related_name="effects")
     # Text for this conditional effect
     effect_description = models.TextField()
+
+    # Phase (when it is active)
+    phase = models.ForeignKey(Phase, on_delete=models.CASCADE, related_name="ability_effect_phase", null=True)
        
     # Keywords
     keywords = models.ManyToManyField(KeyWord, related_name="ability_effect_keywords")
@@ -190,26 +241,9 @@ class Enhancement(models.Model):
     def __str__(self):
         return self.name
     
-class Phase(models.Model):
-    PHASES = [
-        ("COMMAND", "Command phase"),
-        ("MOVEMENT", "Movement phase"),
-        ("SHOOTING", "Shooting phase"),
-        ("CHARGE", "Charge phase"),
-        ("Fight", "Fight phase")
-    ]
-    TURNS = [
-        ("YOURS", "Your turn"),
-        ("OPP", "Your opponent's turn")
-    ]
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=PHASES)
-    turn = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=TURNS)
-    
-    
 class Stratagem(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    # when = models.ManyToManyField(Phase, blank=True, related_name="stratagem_phase")
-    when = models.TextField(blank=True, default="")
+    when = models.ManyToManyField(Phase, blank=True, related_name="stratagem_phase")
     target = models.TextField(blank=True, default="")
     effect = models.TextField(blank=True, default="")
     restrictions = models.TextField(blank=True, default="")

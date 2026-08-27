@@ -21,7 +21,7 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+MEDIA_ROOT = BASE_DIR / "media"
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -210,10 +210,20 @@ LOGGING = {
             "backupCount" : 3, # keep 3 old logs
             "formatter" : "verbose",
         },
+        # Rolling file for building the keyword conditions
         "build_keywordcondition_file" : {
             "level" : "INFO",
             "class" : "logging.handlers.RotatingFileHandler",
             "filename" : os.path.join(LOG_DIR, "build_keywordcondition.log"),
+            "maxBytes" : 5 * 1024 * 1024, # 5 MB
+            "backupCount" : 3, # keep 3 old logs
+            "formatter" : "verbose",
+        },
+        # Rolling file for web scraping
+        "web_scraper_file" : {
+            "level" : "INFO",
+            "class" : "logging.handlers.RotatingFileHandler",
+            "filename" : os.path.join(LOG_DIR, "web_scraper.log"),
             "maxBytes" : 5 * 1024 * 1024, # 5 MB
             "backupCount" : 3, # keep 3 old logs
             "formatter" : "verbose",
@@ -241,6 +251,12 @@ LOGGING = {
         # Specific logger for build_keywordcondition
         "build_keywordconditions" : {
             "handlers" : ["console", "build_keywordcondition_file"],
+            "level" : "INFO",
+            "propagate" : False,
+        },
+        # Specific logger for web_scraper
+        "web_scraper" : {
+            "handlers" : ["console", "web_scraper_file"],
             "level" : "INFO",
             "propagate" : False,
         },

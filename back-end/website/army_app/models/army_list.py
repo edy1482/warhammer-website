@@ -24,7 +24,7 @@ class ArmyList(models.Model):
     
     # Class functions
     def __str__(self):
-        return self.get_name_display()
+        return self.name
     
     def valid_enhancements(self):
         return Enhancement.objects.filter(detachment=self.detachment).distinct()
@@ -127,7 +127,7 @@ class ArmyListEntry(models.Model):
         self.full_clean()
         
         # Enable default detachment behaviour:
-        if self.faction and not self.detachment:
+        if self.army_list.faction and not self.detachment:
             default_detachment = Detachment.objects.filter(faction=self.faction).first()
             if default_detachment:
                 self.detachment = default_detachment

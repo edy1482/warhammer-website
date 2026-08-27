@@ -26,7 +26,7 @@ REQUEST_HEADERS = {
 }
 
 BASE_DIR = Path(__file__).resolve().parents[2]
-HTML_DIR = BASE_DIR / "data" / "html"
+HTML_DIR = BASE_DIR / "html_data"
 
 
 class Command(BaseCommand):
@@ -132,5 +132,5 @@ class Command(BaseCommand):
         with open(full_path, "w", encoding="utf-8") as f:
             f.write(soup_string)
 
-        # Store a path relative to MEDIA_ROOT on the model.
-        return soup_string, os.path.join("datasheets", "html", filename)
+        # Store a path relative to html_data on the model.
+        return soup_string, os.path.join("html_data", filename)

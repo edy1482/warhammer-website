@@ -1523,3 +1523,195 @@
 2026-04-14 13:01:45,210 - INFO - load_data - ================================================================================
 2026-04-14 13:01:45,210 - INFO - load_data - Ending data load run at 2026-04-14 13:01:45
 2026-04-14 13:01:45,210 - INFO - load_data - ================================================================================
+2026-08-27 09:22:31,645 - INFO - load_data - ================================================================================
+2026-08-27 09:22:31,646 - INFO - load_data - Starting data load run at 2026-08-27 09:22:31
+2026-08-27 09:22:31,646 - INFO - load_data - ================================================================================
+2026-08-27 09:22:31,646 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/html
+2026-08-27 09:22:31,646 - INFO - load_data - Starting validation...
+2026-08-27 09:22:31,755 - ERROR - load_data - FAIL: Abilities load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/abilities.csv'
+2026-08-27 09:22:31,755 - ERROR - load_data - FAIL: AbilityEffect load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/ability_effects.csv'
+2026-08-27 09:22:31,756 - ERROR - load_data - FAIL: Factions load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/factions.csv'
+2026-08-27 09:22:31,756 - ERROR - load_data - FAIL: Detachments load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/detachments.csv'
+2026-08-27 09:22:31,756 - ERROR - load_data - FAIL: Enhancements load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/enhancements.csv'
+2026-08-27 09:22:31,756 - ERROR - load_data - FAIL: Stratagems load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/stratagems.csv'
+2026-08-27 09:22:31,757 - ERROR - load_data - FAIL: Weapons load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/weapons.csv'
+2026-08-27 09:22:31,757 - ERROR - load_data - FAIL: Units load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/units.csv'
+2026-08-27 09:22:31,757 - ERROR - load_data - FAIL: Unit Point Brackets load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/unit_point_brackets.csv'
+2026-08-27 09:22:31,757 - ERROR - load_data - FAIL: Leadership load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/leadership.csv'
+2026-08-27 09:22:31,757 - ERROR - load_data - FAIL: Validation failed with 10 errors(s) found
+2026-08-27 09:22:31,757 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-08-27 09:22:31,757 - INFO - load_data - ================================================================================
+2026-08-27 09:26:57,347 - INFO - load_data - ================================================================================
+2026-08-27 09:26:57,347 - INFO - load_data - Starting data load run at 2026-08-27 09:26:57
+2026-08-27 09:26:57,347 - INFO - load_data - ================================================================================
+2026-08-27 09:26:57,347 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/html
+2026-08-27 09:26:57,347 - INFO - load_data - Starting validation...
+2026-08-27 09:26:57,391 - ERROR - load_data - FAIL: Abilities load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/abilities.csv'
+2026-08-27 09:26:57,391 - ERROR - load_data - FAIL: AbilityEffect load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/ability_effects.csv'
+2026-08-27 09:26:57,391 - ERROR - load_data - FAIL: Factions load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/factions.csv'
+2026-08-27 09:26:57,392 - ERROR - load_data - FAIL: Detachments load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/detachments.csv'
+2026-08-27 09:26:57,392 - ERROR - load_data - FAIL: Enhancements load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/enhancements.csv'
+2026-08-27 09:26:57,392 - ERROR - load_data - FAIL: Stratagems load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/stratagems.csv'
+2026-08-27 09:26:57,392 - ERROR - load_data - FAIL: Weapons load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/weapons.csv'
+2026-08-27 09:26:57,392 - ERROR - load_data - FAIL: Units load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/units.csv'
+2026-08-27 09:26:57,392 - ERROR - load_data - FAIL: Unit Point Brackets load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/unit_point_brackets.csv'
+2026-08-27 09:26:57,393 - ERROR - load_data - FAIL: Leadership load rolled back: [Errno 2] No such file or directory: '/app/army_app/data/html/leadership.csv'
+2026-08-27 09:26:57,393 - ERROR - load_data - FAIL: Validation failed with 10 errors(s) found
+2026-08-27 09:26:57,393 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-08-27 09:26:57,393 - INFO - load_data - ================================================================================
+2026-08-27 09:33:35,322 - INFO - load_data - ================================================================================
+2026-08-27 09:33:35,323 - INFO - load_data - Starting data load run at 2026-08-27 09:33:35
+2026-08-27 09:33:35,323 - INFO - load_data - ================================================================================
+2026-08-27 09:33:35,323 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-08-27 09:33:05
+2026-08-27 09:33:35,323 - INFO - load_data - Starting validation...
+2026-08-27 09:33:35,414 - INFO - load_data - OK: Abilities validation completed
+2026-08-27 09:33:35,469 - ERROR - load_data - FAIL: Validation failed - AbilityEffect: 46 error(s) found...
+2026-08-27 09:33:35,469 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 1: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,469 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 2: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,469 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 3: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,469 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 4: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,469 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 5: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,469 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 6: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,469 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 7: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,470 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 8: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,470 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 9: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,470 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 10: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,470 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 11: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,470 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 12: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,470 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 13: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,470 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 14: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,470 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 15: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,470 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 16: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,471 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 17: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,471 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 18: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,471 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 19: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,471 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 20: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,471 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 21: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,471 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 22: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,471 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 23: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,471 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 24: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,471 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 25: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,472 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 26: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,472 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 27: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,472 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 28: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,472 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 29: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,472 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 30: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,472 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 31: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,472 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 32: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,472 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 33: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,472 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 34: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,473 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 35: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,473 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 36: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,473 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 37: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,473 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 38: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,473 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 39: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,473 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 40: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,473 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 41: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,473 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 42: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,473 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 43: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,474 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 44: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,474 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 45: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,474 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 46: {'phase': ['This field cannot be blank.']}
+2026-08-27 09:33:35,500 - INFO - load_data - OK: Factions validation completed
+2026-08-27 09:33:35,620 - INFO - load_data - OK: Detachments validation completed
+2026-08-27 09:33:35,829 - INFO - load_data - OK: Enhancements validation completed
+2026-08-27 09:33:35,879 - ERROR - load_data - FAIL: Validation failed - Stratagems: 72 error(s) found...
+2026-08-27 09:33:35,879 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 1: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,879 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 2: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,880 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 3: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,880 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 4: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,880 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 5: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,880 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 6: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,880 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 7: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,880 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 8: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,880 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 9: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,880 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 10: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,880 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 11: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,881 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 12: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,881 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 13: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,881 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 14: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,881 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 15: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,881 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 16: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,881 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 17: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,881 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 18: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,881 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 19: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,882 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 20: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,882 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 21: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,882 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 22: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,882 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 23: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,882 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 24: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,882 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 25: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,882 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 26: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,882 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 27: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,882 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 28: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,883 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 29: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,883 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 30: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,883 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 31: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,883 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 32: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,883 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 33: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,883 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 34: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,883 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 35: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,883 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 36: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,883 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 37: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,884 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 38: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,884 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 39: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,884 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 40: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,884 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 41: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,884 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 42: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,884 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 43: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,884 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 44: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,884 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 45: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,885 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 46: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,885 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 47: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,885 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 48: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,885 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 49: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,885 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 50: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,885 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 51: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,885 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 52: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,885 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 53: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,885 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 54: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,886 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 55: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,886 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 56: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,886 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 57: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,886 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 58: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,886 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 59: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,886 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 60: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,886 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 61: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,886 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 62: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,886 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 63: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,887 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 64: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,887 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 65: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,887 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 66: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,887 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 67: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,887 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 68: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,887 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 69: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,887 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 70: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,887 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 71: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,888 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 72: Direct assignment to the forward side of a many-to-many set is prohibited. Use when.set() instead.
+2026-08-27 09:33:35,911 - INFO - load_data - OK: Weapons validation completed
+2026-08-27 09:33:35,944 - INFO - load_data - OK: Units validation completed
+2026-08-27 09:33:35,962 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-08-27 09:33:35,964 - INFO - load_data - OK: Leadership validation completed
+2026-08-27 09:33:35,964 - ERROR - load_data - FAIL: Validation failed with 118 errors(s) found
+2026-08-27 09:33:35,964 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-08-27 09:33:35,964 - INFO - load_data - ================================================================================
+2026-08-27 10:33:30,731 - INFO - load_data - ================================================================================
+2026-08-27 10:33:30,742 - INFO - load_data - Starting data load run at 2026-08-27 10:33:30
+2026-08-27 10:33:30,742 - INFO - load_data - ================================================================================
+2026-08-27 10:33:30,742 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-08-27 10:32:51
+2026-08-27 10:33:30,742 - INFO - load_data - Starting validation...
+2026-08-27 10:33:30,844 - INFO - load_data - OK: Abilities validation completed
+2026-08-27 10:33:31,035 - INFO - load_data - OK: AbilityEffect validation completed
+2026-08-27 10:33:31,060 - INFO - load_data - OK: Factions validation completed
+2026-08-27 10:33:31,178 - INFO - load_data - OK: Detachments validation completed
+2026-08-27 10:33:31,407 - INFO - load_data - OK: Enhancements validation completed
+2026-08-27 10:33:31,655 - INFO - load_data - OK: Stratagems validation completed
+2026-08-27 10:33:31,682 - INFO - load_data - OK: Weapons validation completed
+2026-08-27 10:33:31,753 - INFO - load_data - OK: Units validation completed
+2026-08-27 10:33:31,789 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-08-27 10:33:31,790 - INFO - load_data - OK: Leadership validation completed
+2026-08-27 10:33:31,790 - INFO - load_data - OK: Validation complete with 296 successful validations
+2026-08-27 10:33:31,791 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-08-27 10:33:31,791 - INFO - load_data - ================================================================================
+2026-08-27 10:33:31,791 - INFO - load_data - Ending data load run at 2026-08-27 10:33:31
+2026-08-27 10:33:31,791 - INFO - load_data - ================================================================================

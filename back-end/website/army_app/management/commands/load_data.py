@@ -12,9 +12,9 @@ from army_app.data import load_units, load_unit_point_brackets
 from army_app.data import load_leadership
 from .utils import get_latest_version, get_previous_version
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-DATA_DIR = os.path.join(BASE_DIR, "data")
-LOG_DIR = os.path.join(BASE_DIR, "logs")
+BASE_DIR = Path(__file__).resolve().parents[2]
+DATA_DIR = BASE_DIR / "data"
+LOG_DIR = BASE_DIR /"logs"
 
 class Command(BaseCommand):
     help = "Validates, applies, or rolls back data from CSVs"

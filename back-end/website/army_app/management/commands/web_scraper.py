@@ -114,20 +114,19 @@ class Command(BaseCommand):
         filename = f"{slug[:150]}_{url_hash}.html"
         full_path = os.path.join(output_dir, filename)
 
-        # Let's slim down the html by removing script tags
+        # Let's slim down the html by finding the relevant info
         soup = BeautifulSoup(html, "html.parser")
 
-        for tag in soup.find_all("script"):
-            tag.decompose()
+        # Find the stats block
+        stats_block = soup.find("div", "dsProfileWrap").prettify()
 
-        for tag in soup.find_all("link"):
-            tag.decompose()
+        # Find the abilities block
+        ability_block = soup.find("div", "ds2col").prettify()
 
-        for tag in soup.find_all("meta"):
-            tag.decompose()
+        # Find the keywords block
+        keyword_block = soup.find("div", "ds2colKW").prettify()
 
-        soup_string = str(soup)
-        soup_string = "".join([s for s in soup_string.strip().splitlines(True) if s.strip()])
+        soup_string = "\n".join([stats_block, ability_block, keyword_block])
 
         with open(full_path, "w", encoding="utf-8") as f:
             f.write(soup_string)

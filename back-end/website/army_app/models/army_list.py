@@ -60,8 +60,10 @@ class ArmyListEntry(models.Model):
     
     def get_valid_strats(self):
         # Grab all CORE strats - change to a CORE detachment?
+        # Change this to evaluate on keywordcondition
         core_strats = Stratagem.objects.filter(keywords__name="CORE")
         # Grab all detachment strats, and filter for necessary keywords
+        detachment_strats = Stratagem.objects.filter(detachment=self.army_list.detachment)
         detachment_strats = Stratagem.objects.filter(detachment=self.army_list.detachment).filter(keywords__in=self.unit.keywords.all())
 
         return (core_strats | detachment_strats).distinct()

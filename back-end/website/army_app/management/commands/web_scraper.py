@@ -10,12 +10,14 @@ from army_app.models.core import ScrapedPage
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 
-# Test some urls out
-URLS = [
-    "https://wahapedia.ru/wh40k11ed/factions/necrons/Immortals",
-    "https://wahapedia.ru/wh40k11ed/factions/necrons/Necron-Warriors",
-    "https://wahapedia.ru/wh40k11ed/factions/necrons/Skorpekh-Destroyers",
-]
+NECRON_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/necrons/"
+ORK_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/orks/"
+CUSTODES_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/adeptus-custodes/"
+TYRANIDS_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/tyranids/"
+# This grabs all SPM Chapters - maybe make exception for this faction?
+SPACE_MARINE_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/space-marines/"
+AELDARI_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/aeldari/"
+DRUKHARI_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/drukhari/"
 
 REQUEST_TIMEOUT = 15  # seconds
 REQUEST_HEADERS = {
@@ -24,6 +26,16 @@ REQUEST_HEADERS = {
         "+https://example.com/bot)"
     )
 }
+
+PREFIXES = [
+    NECRON_PREFIX,
+    ORK_PREFIX,
+    CUSTODES_PREFIX,
+    TYRANIDS_PREFIX,
+    SPACE_MARINE_PREFIX,
+    AELDARI_PREFIX,
+    DRUKHARI_PREFIX,
+]
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 HTML_DIR = BASE_DIR / "html_data"
@@ -41,6 +53,9 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
+        # Create the URL list
+        URLS = [url + "datasheets.html" for url in PREFIXES]
+
         # Grab logger
         logger = logging.getLogger("web_scraper")
         logger.setLevel(logging.INFO)
@@ -117,19 +132,10 @@ class Command(BaseCommand):
         # Let's slim down the html by finding the relevant info
         soup = BeautifulSoup(html, "html.parser")
 
-        # Find the stats block
-        stats_block = soup.find("div", "dsProfileWrap").prettify()
-
-        # Find the abilities block
-        ability_block = soup.find("div", "ds2col").prettify()
-
-        # Find the keywords block
-        keyword_block = soup.find("div", "ds2colKW").prettify()
-
-        soup_string = "\n".join([stats_block, ability_block, keyword_block])
+        soup_str = str(soup.find_all("div", "dsOuterFrame datasheet pagebreak clFl"))
 
         with open(full_path, "w", encoding="utf-8") as f:
-            f.write(soup_string)
+            f.write(soup_str)
 
         # Store a path relative to html_data on the model.
-        return soup_string, os.path.join("html_data", filename)
+        return soup_str, os.path.join("html_data", filename)

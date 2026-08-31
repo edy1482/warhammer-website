@@ -198,6 +198,8 @@ class Faction(models.Model):
         ("NEC", "Necrons"),
         ("CUS", "Adeptus Custodes"),
         ("MEC", "Adeptus Mechanicus"),
+        ("AEL", "Aeldari"),
+        ("DRU", "Drukhari"),
     ]
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=FACTION_CHOICES)
     abilities = models.ManyToManyField(Ability, related_name="granted_to_factions", blank=True, limit_choices_to={"ability_type" : "FACTION_RULE"})

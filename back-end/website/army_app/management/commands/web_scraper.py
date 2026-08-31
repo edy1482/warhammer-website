@@ -10,14 +10,43 @@ from army_app.models.core import ScrapedPage
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 
-NECRON_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/necrons/"
-ORK_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/orks/"
-CUSTODES_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/adeptus-custodes/"
-TYRANIDS_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/tyranids/"
+# Prefixes
+NECRON = "https://wahapedia.ru/wh40k11ed/factions/necrons/"
+ORK = "https://wahapedia.ru/wh40k11ed/factions/orks/"
+CUSTODES = "https://wahapedia.ru/wh40k11ed/factions/adeptus-custodes/"
+TYRANIDS = "https://wahapedia.ru/wh40k11ed/factions/tyranids/"
 # This grabs all SPM Chapters - maybe make exception for this faction?
-SPACE_MARINE_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/space-marines/"
-AELDARI_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/aeldari/"
-DRUKHARI_PREFIX = "https://wahapedia.ru/wh40k11ed/factions/drukhari/"
+SPACE_MARINE = "https://wahapedia.ru/wh40k11ed/factions/space-marines/"
+AELDARI = "https://wahapedia.ru/wh40k11ed/factions/aeldari/"
+DRUKHARI = "https://wahapedia.ru/wh40k11ed/factions/drukhari/"
+TAU = "https://wahapedia.ru/wh40k11ed/factions/t-au-empire/"
+GENESTEALER = "https://wahapedia.ru/wh40k11ed/factions/genestealer-cults/"
+LEAGUES = "https://wahapedia.ru/wh40k11ed/factions/leagues-of-votann/"
+SORORITAS = "https://wahapedia.ru/wh40k11ed/factions/adepta-sororitas/"
+MECHANICUS = "https://wahapedia.ru/wh40k11ed/factions/adeptus-mechanicus/"
+ASTRA_MIL = "https://wahapedia.ru/wh40k11ed/factions/astra-militarum/"
+GREY_KNIGHTS = "https://wahapedia.ru/wh40k11ed/factions/grey-knights/"
+IMP_AGENTS = "https://wahapedia.ru/wh40k11ed/factions/imperial-agents/"
+# IMP Knights can take certain AD_MECH units in a detachment (new datasheets as Faction Ability is removed)
+# IMPERIUM Factions can take IMP_KNIGHTS as allies
+IMP_KNIGHTS = "https://wahapedia.ru/wh40k11ed/factions/imperial-knights/"
+# Chaos Daemons can take certain Chaos SPM units in a detachment (Duplicates - they get their Faction Ability)
+# Chaos Daemons can be taken as allies for Chaos SPM or Chaos Knights - allies rule
+CHAOS_DAEM = "https://wahapedia.ru/wh40k11ed/factions/chaos-daemons/"
+# Chaos Knights can take certain Chaos SPM units in a detachment (remove faction ability - new datasheets)
+CHAOS_KNIGHTS = "https://wahapedia.ru/wh40k11ed/factions/chaos-knights/"
+# Chaos SPM can take the 4 Chaos sub-faction marines (new datasheets - faction ability replaced with Dark Pacts)
+CHAOS_SPM = "https://wahapedia.ru/wh40k11ed/factions/chaos-space-marines/"
+# Death Guard can take certain Chaos Daemons (new datasheet, as keywords changed)
+DEATH = "https://wahapedia.ru/wh40k11ed/factions/death-guard/"
+# Emperor's Children can take certain Chaos Daemons (new datasheet, as keywords changed)
+EMP_CHILD = "https://wahapedia.ru/wh40k11ed/factions/emperor-s-children/"
+# Thousand Sons can take certain Chaos Daemons (new datasheet, as keywords changed)
+THOU_SONS = "https://wahapedia.ru/wh40k11ed/factions/thousand-sons/"
+# World Eaters can take certain Chaos Daemons (new datasheet, as keywords changed)
+WORLD_EAT = "https://wahapedia.ru/wh40k11ed/factions/world-eaters/"
+
+SUFFIX = "datasheets.html"
 
 REQUEST_TIMEOUT = 15  # seconds
 REQUEST_HEADERS = {
@@ -28,13 +57,28 @@ REQUEST_HEADERS = {
 }
 
 PREFIXES = [
-    NECRON_PREFIX,
-    ORK_PREFIX,
-    CUSTODES_PREFIX,
-    TYRANIDS_PREFIX,
-    SPACE_MARINE_PREFIX,
-    AELDARI_PREFIX,
-    DRUKHARI_PREFIX,
+    SORORITAS,
+    CUSTODES,
+    ASTRA_MIL,
+    GREY_KNIGHTS,
+    IMP_AGENTS,
+    IMP_KNIGHTS,
+    SPACE_MARINE,
+    CHAOS_DAEM,
+    CHAOS_KNIGHTS,
+    CHAOS_SPM,
+    DEATH,
+    EMP_CHILD,
+    THOU_SONS,
+    WORLD_EAT,
+    AELDARI,
+    DRUKHARI,
+    GENESTEALER,
+    LEAGUES,
+    NECRON,
+    ORK,
+    TAU,
+    TYRANIDS,
 ]
 
 BASE_DIR = Path(__file__).resolve().parents[2]
@@ -54,7 +98,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # Create the URL list
-        URLS = [url + "datasheets.html" for url in PREFIXES]
+        URLS = [url + SUFFIX for url in PREFIXES]
 
         # Grab logger
         logger = logging.getLogger("web_scraper")

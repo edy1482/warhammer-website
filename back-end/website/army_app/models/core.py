@@ -192,14 +192,32 @@ class AbilityEffect(models.Model):
 
 class Faction(models.Model):
     FACTION_CHOICES = [
-        ("SPM", "Space Marines"),
-        ("TYR", "Tyrannids"),
-        ("ORK", "Orks"),
-        ("NEC", "Necrons"),
+        # Imperium
+        ("SOR", "Adepta Sororitas"),
         ("CUS", "Adeptus Custodes"),
         ("MEC", "Adeptus Mechanicus"),
+        ("MIL", "Astra Militarum"),
+        ("GRY", "Grey Knights"),
+        ("IAG", "Imperial Agents"),
+        ("IKN", "Imperial Knights"),
+        ("SPM", "Space Marines"),
+        # Chaos
+        ("CDM", "Chaos Daemons"),
+        ("CKN", "Chaos Knights"),
+        ("CSM", "Chaos Space Marines"),
+        ("DGD", "Death Guard"),
+        ("EMC", "Emperor's Children"),
+        ("THS", "Thousand Sons"),
+        ("WET", "World Eaters"),
+        # Xenos
         ("AEL", "Aeldari"),
         ("DRU", "Drukhari"),
+        ("GEN", "Genestealer Cults"),
+        ("VOT", "Leagues of Votann"),
+        ("NEC", "Necrons"),
+        ("ORK", "Orks"),
+        ("TAU", "T'au Empire"),
+        ("TYR", "Tyrannids"),
     ]
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=FACTION_CHOICES)
     abilities = models.ManyToManyField(Ability, related_name="granted_to_factions", blank=True, limit_choices_to={"ability_type" : "FACTION_RULE"})

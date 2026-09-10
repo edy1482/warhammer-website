@@ -1,6 +1,5 @@
 import logging
 from pathlib import Path
-import os
 from datetime import datetime
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
@@ -10,6 +9,7 @@ from army_app.data import load_abilities, load_ability_effects, load_factions, l
 from army_app.data import load_weapons 
 from army_app.data import load_units, load_unit_point_brackets
 from army_app.data import load_leadership
+from army_app.data import LoaderValidationError
 from .utils import get_latest_version, get_previous_version
 
 BASE_DIR = Path(__file__).resolve().parents[2]
@@ -108,26 +108,31 @@ class Command(BaseCommand):
         all_errors = []
         successful_saves = []
         logger.info("Starting validation...")
-        
-        for name, path, loader in loaders:
-            # Loader itself saves and sets m2m relationships
-            try:
-                with transaction.atomic():
-                    errors, objs = loader(path)
-                    # Check if errors exist
-                    if errors:
-                        logger.error(f"FAIL: Validation failed - {name}: {len(errors)} error(s) found...")
-                        for err in errors:
-                            logger.error(err)
-                        all_errors.extend(errors)
-                    else:
-                        # Save object into the DB
-                        logger.info(f"OK: {name} validation completed")
-                        successful_saves.extend(objs)
-            except Exception as e:
-                all_errors.append(e)
-                logger.error(f"FAIL: {name} load rolled back: {e}")
 
+        try:
+            with transaction.atomic():           
+                for name, path, loader in loaders:
+                    # Loader itself saves and sets m2m relationships
+                    try:
+                        with transaction.atomic():
+                            errors, objs = loader(path)
+                            # Check if errors exist
+                            if errors:
+                                raise LoaderValidationError(errors)
+                            logger.info(f"OK: {name} validation completed")
+                            successful_saves.extend(objs)
+                    except LoaderValidationError as e:
+                        logger.error(f"FAIL: Validation failed - {name} : {len(e.errors)} error(s) found...")
+                        for err in e.errors:
+                            logger.error(err)
+                        all_errors.extend(e.errors)
+                        raise # propagate to abort the outer block
+        except LoaderValidationError:
+            # already logged above
+            pass
+        except Exception as e:
+            all_errors.append(e)
+            logger.error(f"FAIL: run aborted, transaction rolled back - {e}")
         # If errors, rollback the transaction, log it and exit
         if all_errors:
             logger.error(f"FAIL: Validation failed with {len(all_errors)} errors(s) found")

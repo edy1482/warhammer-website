@@ -263,7 +263,7 @@ def load_units(csv_path):
             for name in melee_weapon_names:
                 try:
                     weapon = Weapon.objects.get(name=name)
-                    melee_weapons.append(name)
+                    melee_weapons.append(weapon)
                 except Weapon.DoesNotExist:
                     errors.append(f"Weapon {name} does not exist in DB")
             
@@ -347,7 +347,8 @@ def load_leadership(csv_path):
         if "co_leaders" in row and row["co_leaders"].strip():
             co_leader_names = [name.strip() for name  in row["co_leaders"].split(";") if name.strip()]
             missing = [name for name in co_leader_names if not Unit.objects.filter(name=name).exists()]
-        
+
+        co_leaders = [Unit.objects.get(name=name) for name in co_leader_names]
         if missing:
             errors.append(f"Co_leader unit(s) not found: {', '.join(missing)}")
 
@@ -357,6 +358,6 @@ def load_leadership(csv_path):
         return errors, {
             "leader" : leader,
             "attached_unit" : attached_unit,
-            "co_leaders" : co_leader_names,
+            "co_leaders" : co_leaders,
         }
     return load_model(Leadership, csv_path, row_to_leadership)

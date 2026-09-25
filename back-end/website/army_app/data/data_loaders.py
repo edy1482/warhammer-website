@@ -1,7 +1,7 @@
 import csv
 from django.core.exceptions import ValidationError
 # This is in the dependancy order
-from army_app.models import KeyWord, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
+from army_app.models import KeyWord, Phase, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
 from army_app.models import Weapon
 from army_app.models import Unit, UnitPointBracket
 from army_app.models import Leadership
@@ -42,6 +42,7 @@ def load_model(model_class, csv_path, row_to_kwargs):
                 m2m_fields = {
                     "keywords": keyword_handler("keywords", model_class, row),
                     "co_leaders": kwargs.pop("co_leaders", []),
+                    "phase" : kwargs.pop("phase", []),
                     "abilities": kwargs.pop("abilities", []),
                     "wargear_abilities": kwargs.pop("wargear_abilities", []),
                     "ranged_weapons": kwargs.pop("ranged_weapons", []),
@@ -73,6 +74,15 @@ def load_model(model_class, csv_path, row_to_kwargs):
                 errors.append(f"{model_class} Unexpected Error - Row {idx}: {err}")
     return errors, saved_objs
 
+def load_phase(csv_path):
+    def row_to_phase_kwargs(row):
+        errors = []
+
+        return errors, {
+            "name" : row["phase_name"]
+        }
+    return load_model(Phase, csv_path, row_to_phase_kwargs)
+
 def load_abilities(csv_path):
     def row_to_abilities_kwargs(row):
         errors = []
@@ -86,6 +96,17 @@ def load_abilities(csv_path):
 def load_ability_effects(csv_path):
     def row_to_ability_effects_kwargs(row):
         errors = []
+        phases = []
+
+        # Grab phase names
+        phase_names = [name.strip() for name in row["phase"].split(";") if name.strip()]
+        for name in phase_names:
+            try:
+                phase = Phase.objects.get(name=name)
+                phases.append(phase)
+            except Phase.DoesNotExist:
+                errors.append(f"Phase {name} does not exist in DB")
+
         try:
             ability = Ability.objects.get(name=row["ability"])
         except Ability.DoesNotExist:
@@ -96,7 +117,9 @@ def load_ability_effects(csv_path):
         
         return errors, {
             "ability" : ability,
+            "phase" : phases,
             "effect_description" : row["effect_description"],
+            "turn_scope" : row["turn"],
             "keyword_expression" : row["keyword_expression"],
         }
     return load_model(AbilityEffect, csv_path, row_to_ability_effects_kwargs)
@@ -180,6 +203,7 @@ def load_enhancements(csv_path):
 def load_stratagems(csv_path):
     def row_to_stratagems_kwargs(row):
         errors = []
+        phases = []
         
         detachment_name = row["detachment"].strip()
         detachment = None
@@ -187,13 +211,23 @@ def load_stratagems(csv_path):
             try:
                 detachment = Detachment.objects.get(name=row["detachment"])
             except Detachment.DoesNotExist:
-                errors.append(f"Detachment {row['detachment']} not found for enhancement {row['name']}")
+                errors.append(f"Detachment {row["detachment"]} not found for stratagem {row["name"]}")
                 return errors, None
+        # Grab phase names
+        phase_names = [name.strip() for name in row["when"].split(";") if name.strip()]
+        for name in phase_names:
+            try:
+                phase = Phase.objects.get(name=name)
+                phases.append(phase)
+            except Phase.DoesNotExist:
+                errors.append(f"Phase {name} does not exist in DB")
+
         
         return errors, {
             "detachment" : detachment,
             "name" : row["name"],
-            "when" : row["when"],
+            "when" : phases,
+            "turn_scope" : row["turn"],
             "target" : row["target"],
             "effect" : row["effect"],
             "restrictions" : row["restrictions"],

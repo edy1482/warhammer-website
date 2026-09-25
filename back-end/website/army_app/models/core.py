@@ -144,13 +144,8 @@ class Phase(models.Model):
         ("FIGHT", "Fight phase"),
         ("ANY", "Any phase"),
     ]
-    TURNS = [
-        ("YOUR", "Your turn"),
-        ("OPP", "Your opponent's turn"),
-        ("ANY", "Any turn"),
-    ]
+
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=PHASES)
-    turn = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=TURNS)
     
 class Ability(models.Model):
     ABILITY_TYPES = [
@@ -180,6 +175,14 @@ class AbilityEffect(models.Model):
 
     # Phase (when it is active)
     phase = models.ManyToManyField(Phase, related_name="ability_effect_phase", blank=True)
+
+    # Turn
+    TURN_SCOPE = [
+        ("YOUR", "Your turn"),
+        ("OPP", "Opponent's turn"),
+        ("ANY", "Either turn"),
+    ]
+    turn_scope = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=TURN_SCOPE, default="ANY")
        
     # Keywords
     keywords = models.ManyToManyField(KeyWord, related_name="ability_effect_keywords")
@@ -264,8 +267,14 @@ class Enhancement(models.Model):
     
 class Stratagem(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    #when = models.ManyToManyField(Phase, blank=True, related_name="stratagem_phase")
-    when = models.TextField(blank=True, default="")
+    when = models.ManyToManyField(Phase, blank=True, related_name="stratagem_phase", default="ANY")
+    # Turn
+    TURN_SCOPE = [
+        ("YOUR", "Your turn"),
+        ("OPP", "Opponent's turn"),
+        ("ANY", "Either turn"),
+    ]
+    turn_scope = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=TURN_SCOPE, default="ANY")
     target = models.TextField(blank=True, default="")
     effect = models.TextField(blank=True, default="")
     restrictions = models.TextField(blank=True, default="")

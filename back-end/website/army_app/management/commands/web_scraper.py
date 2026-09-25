@@ -160,7 +160,7 @@ class Command(BaseCommand):
     def _save_html_to_disk(self, url, html, output_dir):
         """
         Build a filesystem-safe filename from the URL and write the HTML
-        to army_app/data/html/<filename>.html
+        to army_app/html_data/<filename>.html
         """
         parsed = urlparse(url)
         slug = (parsed.netloc + parsed.path).strip("/").replace("/", "_")
@@ -176,7 +176,10 @@ class Command(BaseCommand):
         # Let's slim down the html by finding the relevant info
         soup = BeautifulSoup(html, "html.parser")
 
-        soup_str = str(soup.find_all("div", "dsOuterFrame datasheet pagebreak clFl"))
+        # there are multiple types of dsOuterFrame datasheet used - need to either use regex or list all of them
+        # dsOuterFrame datasheet pagebreak
+        # dsOuterFrame datasheet pagebreak clFl sForgeWorld
+        soup_str = str(soup.find_all("div", "dsOuterFrame datasheet pagebreak clFl")) + str(soup.find_all("div", "dsOuterFrame datasheet pagebreak clFl sForgeWorld")) + str(soup.find_all("div", "dsOuterFrame datasheet pagebreak"))
 
         with open(full_path, "w", encoding="utf-8") as f:
             f.write(soup_str)

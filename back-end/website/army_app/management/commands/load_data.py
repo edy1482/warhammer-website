@@ -5,7 +5,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 from django.apps import apps
 # In dependency order (grouped by file)
-from army_app.data import load_abilities, load_ability_effects, load_factions, load_detachments, load_enhancements, load_stratagems
+from army_app.data import load_phase, load_abilities, load_ability_effects, load_factions, load_detachments, load_enhancements, load_stratagems
 from army_app.data import load_weapons 
 from army_app.data import load_units, load_unit_point_brackets
 from army_app.data import load_leadership
@@ -87,6 +87,7 @@ class Command(BaseCommand):
         VERS_DIR = DATA_DIR / version_dir
         loaders = [
             ("Abilities", VERS_DIR / "abilities.csv", load_abilities),
+            ("Phase", VERS_DIR / "phase.csv", load_phase)
             ("AbilityEffect", VERS_DIR / "ability_effects.csv", load_ability_effects),
             ("Factions",  VERS_DIR / "factions.csv", load_factions),
             ("Detachments", VERS_DIR / "detachments.csv", load_detachments),
@@ -154,6 +155,7 @@ class Command(BaseCommand):
         
         target_models = [
             "KeyWord",
+            "Phase",
             "Ability",
             "AbilityEffect",
             "Faction",

@@ -12,6 +12,7 @@ SHEET_ID = "1hjo6Cel6e-nh7Yc4d5fXnPHtLopYh_uEYGemejXlzJU"
 LOG_DIR = os.path.join(BASE_DIR, "logs")
 
 SHEETS = {
+    "phase": (SHEET_ID, "Phase"),
     "abilities": (SHEET_ID, "Abilities"),
     "ability_effects": (SHEET_ID, "Ability Effects"),
     "factions": (SHEET_ID, "Factions"),

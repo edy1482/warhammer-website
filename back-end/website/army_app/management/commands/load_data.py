@@ -87,7 +87,7 @@ class Command(BaseCommand):
         VERS_DIR = DATA_DIR / version_dir
         loaders = [
             ("Abilities", VERS_DIR / "abilities.csv", load_abilities),
-            ("Phase", VERS_DIR / "phase.csv", load_phase)
+            ("Phase", VERS_DIR / "phase.csv", load_phase),
             ("AbilityEffect", VERS_DIR / "ability_effects.csv", load_ability_effects),
             ("Factions",  VERS_DIR / "factions.csv", load_factions),
             ("Detachments", VERS_DIR / "detachments.csv", load_detachments),

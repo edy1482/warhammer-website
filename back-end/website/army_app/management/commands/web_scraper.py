@@ -99,6 +99,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # Create the URL list
         URLS = [url + SUFFIX for url in PREFIXES]
+        URLS += PREFIXES
 
         # Grab logger
         logger = logging.getLogger("web_scraper")
@@ -174,15 +175,28 @@ class Command(BaseCommand):
         full_path = os.path.join(output_dir, filename)
 
         # Let's slim down the html by finding the relevant info
-        soup = BeautifulSoup(html, "html.parser")
-
-        # there are multiple types of dsOuterFrame datasheet used - need to either use regex or list all of them
-        # dsOuterFrame datasheet pagebreak
-        # dsOuterFrame datasheet pagebreak clFl sForgeWorld
-        soup_str = str(soup.find_all("div", "dsOuterFrame datasheet pagebreak clFl")) + str(soup.find_all("div", "dsOuterFrame datasheet pagebreak clFl sForgeWorld")) + str(soup.find_all("div", "dsOuterFrame datasheet pagebreak"))
+        if url.endswith("datasheets.html"):
+            soup_str = self.clean_datasheet(html)
+        else:
+            soup_str = self.clean_army_page(html)
 
         with open(full_path, "w", encoding="utf-8") as f:
             f.write(soup_str)
 
         # Store a path relative to html_data on the model.
         return soup_str, os.path.join("html_data", filename)
+
+    def clean_datasheet(self, html):
+        soup = BeautifulSoup(html, "html.parser")
+        # there are multiple types of dsOuterFrame datasheet used - need to either use regex or list all of them
+        # dsOuterFrame datasheet pagebreak
+        # dsOuterFrame datasheet pagebreak clFl sForgeWorld
+        soup_str = str(soup.find_all("div", "dsOuterFrame datasheet pagebreak clFl")) + str(soup.find_all("div", "dsOuterFrame datasheet pagebreak clFl sForgeWorld")) + str(soup.find_all("div", "dsOuterFrame datasheet pagebreak"))
+        return soup_str
+
+    def clean_army_page(self, html):
+        soup = BeautifulSoup(html, "html.parser")
+        # Columns2 is for the army rule
+        # clFl is for each detachment
+        soup_str = str(soup.find_all("div", "Columns2")) + str(soup.find_all("div", "clFl"))
+        return soup_str

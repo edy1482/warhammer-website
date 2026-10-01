@@ -180,6 +180,8 @@ class AbilityEffect(models.Model):
     TURN_SCOPE = [
         ("YOUR", "Your turn"),
         ("OPP", "Opponent's turn"),
+        ("END BATTLE TURN", "End of the battle turn"),
+        ("BEGINNING BATTLE TURN", "Beginning of the battle turn"),
         ("ANY", "Either turn"),
     ]
     turn_scope = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=TURN_SCOPE, default="ANY")
@@ -267,11 +269,14 @@ class Enhancement(models.Model):
     
 class Stratagem(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    when = models.ManyToManyField(Phase, blank=True, related_name="stratagem_phase", default="ANY")
+    phase = models.ManyToManyField(Phase, blank=True, related_name="stratagem_phase", default="ANY")
+    when = models.TextField(blank=True, default="")
     # Turn
     TURN_SCOPE = [
         ("YOUR", "Your turn"),
         ("OPP", "Opponent's turn"),
+        ("END BATTLE TURN", "End of the battle turn"),
+        ("BEGINNING BATTLE TURN", "Beginning of the battle turn"),
         ("ANY", "Either turn"),
     ]
     turn_scope = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=TURN_SCOPE, default="ANY")

@@ -226,8 +226,9 @@ def load_stratagems(csv_path):
         return errors, {
             "detachment" : detachment,
             "name" : row["name"],
-            "when" : phases,
+            "phase" : phases,
             "turn_scope" : row["turn"],
+            "when" : row["when"],
             "target" : row["target"],
             "effect" : row["effect"],
             "restrictions" : row["restrictions"],

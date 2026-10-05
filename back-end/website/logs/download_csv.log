@@ -449,3 +449,170 @@
 2026-08-27 13:57:29,034 - INFO - download_csv - ================================================================================
 2026-08-27 13:57:29,034 - INFO - download_csv - Finished CSV downloads at 2026-08-27 13:57:29
 2026-08-27 13:57:29,034 - INFO - download_csv - ================================================================================
+2026-10-01 09:30:55,138 - INFO - download_csv - ================================================================================
+2026-10-01 09:30:55,142 - INFO - download_csv - Starting CSV downloads at 2026-10-01 09:30:55
+2026-10-01 09:30:55,142 - INFO - download_csv - ================================================================================
+2026-10-01 09:30:56,466 - INFO - download_csv - Updated phase.csv
+2026-10-01 09:30:56,977 - INFO - download_csv - Updated abilities.csv
+2026-10-01 09:30:57,328 - INFO - download_csv - Updated ability_effects.csv
+2026-10-01 09:30:57,665 - INFO - download_csv - Updated factions.csv
+2026-10-01 09:30:58,138 - INFO - download_csv - Updated detachments.csv
+2026-10-01 09:30:58,536 - INFO - download_csv - Updated enhancements.csv
+2026-10-01 09:30:59,033 - INFO - download_csv - Updated stratagems.csv
+2026-10-01 09:30:59,550 - INFO - download_csv - Updated weapons.csv
+2026-10-01 09:30:59,975 - INFO - download_csv - Updated units.csv
+2026-10-01 09:31:00,429 - INFO - download_csv - Updated unit_point_brackets.csv
+2026-10-01 09:31:00,880 - INFO - download_csv - Updated leadership.csv
+2026-10-01 09:31:00,888 - WARNING - download_csv - Deleted old version folder: 2026-08-27 10:32:51
+2026-10-01 09:31:00,889 - INFO - download_csv - ================================================================================
+2026-10-01 09:31:00,889 - INFO - download_csv - Finished CSV downloads at 2026-10-01 09:31:00
+2026-10-01 09:31:00,889 - INFO - download_csv - ================================================================================
+2026-10-01 09:39:45,301 - INFO - download_csv - ================================================================================
+2026-10-01 09:39:45,302 - INFO - download_csv - Starting CSV downloads at 2026-10-01 09:39:45
+2026-10-01 09:39:45,302 - INFO - download_csv - ================================================================================
+2026-10-01 09:39:45,726 - INFO - download_csv - Updated phase.csv
+2026-10-01 09:39:46,042 - INFO - download_csv - Updated abilities.csv
+2026-10-01 09:39:46,496 - INFO - download_csv - Updated ability_effects.csv
+2026-10-01 09:39:50,171 - INFO - download_csv - Updated factions.csv
+2026-10-01 09:39:50,500 - INFO - download_csv - Updated detachments.csv
+2026-10-01 09:39:50,923 - INFO - download_csv - Updated enhancements.csv
+2026-10-01 09:39:51,433 - INFO - download_csv - Updated stratagems.csv
+2026-10-01 09:39:51,798 - INFO - download_csv - Updated weapons.csv
+2026-10-01 09:39:52,172 - INFO - download_csv - Updated units.csv
+2026-10-01 09:39:52,498 - INFO - download_csv - Updated unit_point_brackets.csv
+2026-10-01 09:39:52,860 - INFO - download_csv - Updated leadership.csv
+2026-10-01 09:39:52,862 - WARNING - download_csv - Deleted old version folder: 2026-08-27 13:56:56
+2026-10-01 09:39:52,862 - INFO - download_csv - ================================================================================
+2026-10-01 09:39:52,862 - INFO - download_csv - Finished CSV downloads at 2026-10-01 09:39:52
+2026-10-01 09:39:52,862 - INFO - download_csv - ================================================================================
+2026-10-01 09:42:09,846 - INFO - download_csv - ================================================================================
+2026-10-01 09:42:09,846 - INFO - download_csv - Starting CSV downloads at 2026-10-01 09:42:09
+2026-10-01 09:42:09,847 - INFO - download_csv - ================================================================================
+2026-10-01 09:42:10,230 - INFO - download_csv - Updated phase.csv
+2026-10-01 09:42:10,583 - INFO - download_csv - Updated abilities.csv
+2026-10-01 09:42:10,910 - INFO - download_csv - Updated ability_effects.csv
+2026-10-01 09:42:11,355 - INFO - download_csv - Updated factions.csv
+2026-10-01 09:42:11,750 - INFO - download_csv - Updated detachments.csv
+2026-10-01 09:42:12,208 - INFO - download_csv - Updated enhancements.csv
+2026-10-01 09:42:12,553 - INFO - download_csv - Updated stratagems.csv
+2026-10-01 09:42:16,590 - INFO - download_csv - Updated weapons.csv
+2026-10-01 09:42:16,919 - INFO - download_csv - Updated units.csv
+2026-10-01 09:42:17,290 - INFO - download_csv - Updated unit_point_brackets.csv
+2026-10-01 09:42:17,622 - INFO - download_csv - Updated leadership.csv
+2026-10-01 09:42:17,638 - WARNING - download_csv - Deleted old version folder: 2026-08-27 13:57:25
+2026-10-01 09:42:17,638 - INFO - download_csv - ================================================================================
+2026-10-01 09:42:17,638 - INFO - download_csv - Finished CSV downloads at 2026-10-01 09:42:17
+2026-10-01 09:42:17,638 - INFO - download_csv - ================================================================================
+2026-10-01 10:04:48,244 - INFO - download_csv - ================================================================================
+2026-10-01 10:04:48,245 - INFO - download_csv - Starting CSV downloads at 2026-10-01 10:04:48
+2026-10-01 10:04:48,245 - INFO - download_csv - ================================================================================
+2026-10-01 10:04:49,205 - INFO - download_csv - Updated phase.csv
+2026-10-01 10:04:49,554 - INFO - download_csv - Updated abilities.csv
+2026-10-01 10:04:50,146 - INFO - download_csv - Updated ability_effects.csv
+2026-10-01 10:04:50,641 - INFO - download_csv - Updated factions.csv
+2026-10-01 10:04:52,977 - INFO - download_csv - Updated detachments.csv
+2026-10-01 10:04:53,349 - INFO - download_csv - Updated enhancements.csv
+2026-10-01 10:04:53,712 - INFO - download_csv - Updated stratagems.csv
+2026-10-01 10:04:54,143 - INFO - download_csv - Updated weapons.csv
+2026-10-01 10:04:54,512 - INFO - download_csv - Updated units.csv
+2026-10-01 10:04:54,861 - INFO - download_csv - Updated unit_point_brackets.csv
+2026-10-01 10:04:55,222 - INFO - download_csv - Updated leadership.csv
+2026-10-01 10:04:55,223 - WARNING - download_csv - Deleted old version folder: 2026-10-01 09:30:55
+2026-10-01 10:04:55,223 - INFO - download_csv - ================================================================================
+2026-10-01 10:04:55,223 - INFO - download_csv - Finished CSV downloads at 2026-10-01 10:04:55
+2026-10-01 10:04:55,224 - INFO - download_csv - ================================================================================
+2026-10-01 10:07:29,461 - INFO - download_csv - ================================================================================
+2026-10-01 10:07:29,461 - INFO - download_csv - Starting CSV downloads at 2026-10-01 10:07:29
+2026-10-01 10:07:29,461 - INFO - download_csv - ================================================================================
+2026-10-01 10:07:29,911 - INFO - download_csv - Updated phase.csv
+2026-10-01 10:07:30,260 - INFO - download_csv - Updated abilities.csv
+2026-10-01 10:07:30,606 - INFO - download_csv - Updated ability_effects.csv
+2026-10-01 10:07:30,971 - INFO - download_csv - Updated factions.csv
+2026-10-01 10:07:31,292 - INFO - download_csv - Updated detachments.csv
+2026-10-01 10:07:31,665 - INFO - download_csv - Updated enhancements.csv
+2026-10-01 10:07:32,095 - INFO - download_csv - Updated stratagems.csv
+2026-10-01 10:07:32,428 - INFO - download_csv - Updated weapons.csv
+2026-10-01 10:07:32,758 - INFO - download_csv - Updated units.csv
+2026-10-01 10:07:33,068 - INFO - download_csv - Updated unit_point_brackets.csv
+2026-10-01 10:07:33,403 - INFO - download_csv - Updated leadership.csv
+2026-10-01 10:07:33,410 - WARNING - download_csv - Deleted old version folder: 2026-10-01 09:39:45
+2026-10-01 10:07:33,410 - INFO - download_csv - ================================================================================
+2026-10-01 10:07:33,410 - INFO - download_csv - Finished CSV downloads at 2026-10-01 10:07:33
+2026-10-01 10:07:33,410 - INFO - download_csv - ================================================================================
+2026-10-01 10:25:24,775 - INFO - download_csv - ================================================================================
+2026-10-01 10:25:24,776 - INFO - download_csv - Starting CSV downloads at 2026-10-01 10:25:24
+2026-10-01 10:25:24,776 - INFO - download_csv - ================================================================================
+2026-10-01 10:25:25,221 - INFO - download_csv - Updated phase.csv
+2026-10-01 10:25:25,526 - INFO - download_csv - Updated abilities.csv
+2026-10-01 10:25:25,886 - INFO - download_csv - Updated ability_effects.csv
+2026-10-01 10:25:26,191 - INFO - download_csv - Updated factions.csv
+2026-10-01 10:25:26,490 - INFO - download_csv - Updated detachments.csv
+2026-10-01 10:25:26,803 - INFO - download_csv - Updated enhancements.csv
+2026-10-01 10:25:27,121 - INFO - download_csv - Updated stratagems.csv
+2026-10-01 10:25:27,455 - INFO - download_csv - Updated weapons.csv
+2026-10-01 10:25:28,938 - INFO - download_csv - Updated units.csv
+2026-10-01 10:25:29,425 - INFO - download_csv - Updated unit_point_brackets.csv
+2026-10-01 10:25:29,764 - INFO - download_csv - Updated leadership.csv
+2026-10-01 10:25:29,773 - WARNING - download_csv - Deleted old version folder: 2026-10-01 09:42:09
+2026-10-01 10:25:29,773 - INFO - download_csv - ================================================================================
+2026-10-01 10:25:29,773 - INFO - download_csv - Finished CSV downloads at 2026-10-01 10:25:29
+2026-10-01 10:25:29,773 - INFO - download_csv - ================================================================================
+2026-10-01 10:45:12,255 - INFO - download_csv - ================================================================================
+2026-10-01 10:45:12,256 - INFO - download_csv - Starting DB dump at 2026-10-01 10:45:12
+2026-10-01 10:45:12,256 - INFO - download_csv - Output directory: /app/army_app/data/2026-10-01 10:45:12
+2026-10-01 10:45:12,256 - INFO - download_csv - ================================================================================
+2026-10-01 10:45:12,330 - INFO - download_csv - OK: Abilities — 46 row(s) written to abilities.csv
+2026-10-01 10:45:12,339 - INFO - download_csv - OK: AbilityEffects — 46 row(s) written to ability_effects.csv
+2026-10-01 10:45:12,344 - INFO - download_csv - OK: Factions — 5 row(s) written to factions.csv
+2026-10-01 10:45:12,369 - INFO - download_csv - OK: Detachments — 36 row(s) written to detachments.csv
+2026-10-01 10:45:12,374 - INFO - download_csv - OK: Enhancements — 64 row(s) written to enhancements.csv
+2026-10-01 10:45:12,376 - ERROR - download_csv - FAIL: Stratagems — 'Stratagem' object has no attribute 'turn'
+2026-10-01 10:45:12,382 - INFO - download_csv - OK: Weapons — 9 row(s) written to weapons.csv
+2026-10-01 10:45:12,447 - INFO - download_csv - OK: Units — 7 row(s) written to units.csv
+2026-10-01 10:45:12,451 - INFO - download_csv - OK: UnitPointBrackets — 11 row(s) written to unit_point_brackets.csv
+2026-10-01 10:45:12,457 - INFO - download_csv - OK: Leadership — 0 row(s) written to leadership.csv
+2026-10-01 10:45:12,458 - INFO - download_csv - ================================================================================
+2026-10-01 10:45:12,458 - ERROR - download_csv - Dump completed with 1 error(s). 224 total rows written.
+2026-10-01 10:45:12,458 - ERROR - download_csv - FAIL: Stratagems — 'Stratagem' object has no attribute 'turn'
+2026-10-01 10:45:12,458 - INFO - download_csv - ================================================================================
+2026-10-01 12:40:18,412 - INFO - download_csv - ================================================================================
+2026-10-01 12:40:18,412 - INFO - download_csv - Starting DB dump at 2026-10-01 12:40:18
+2026-10-01 12:40:18,412 - INFO - download_csv - Output directory: /app/army_app/data/2026-10-01 12:40:18
+2026-10-01 12:40:18,412 - INFO - download_csv - ================================================================================
+2026-10-01 12:40:18,513 - INFO - download_csv - OK: Abilities — 46 row(s) written to abilities.csv
+2026-10-01 12:40:18,514 - INFO - download_csv - OK: Phase — None row(s) written to phase.csv
+2026-10-01 12:40:18,514 - ERROR - download_csv - FAIL: Phase — unsupported operand type(s) for +=: 'int' and 'NoneType'
+2026-10-01 12:40:18,521 - INFO - download_csv - OK: AbilityEffects — 46 row(s) written to ability_effects.csv
+2026-10-01 12:40:18,526 - INFO - download_csv - OK: Factions — 5 row(s) written to factions.csv
+2026-10-01 12:40:18,546 - INFO - download_csv - OK: Detachments — 36 row(s) written to detachments.csv
+2026-10-01 12:40:18,548 - INFO - download_csv - OK: Enhancements — 64 row(s) written to enhancements.csv
+2026-10-01 12:40:18,551 - INFO - download_csv - OK: Stratagems — 73 row(s) written to stratagems.csv
+2026-10-01 12:40:18,557 - INFO - download_csv - OK: Weapons — 9 row(s) written to weapons.csv
+2026-10-01 12:40:18,592 - INFO - download_csv - OK: Units — 7 row(s) written to units.csv
+2026-10-01 12:40:18,595 - INFO - download_csv - OK: UnitPointBrackets — 11 row(s) written to unit_point_brackets.csv
+2026-10-01 12:40:18,596 - INFO - download_csv - OK: Leadership — 0 row(s) written to leadership.csv
+2026-10-01 12:40:18,596 - INFO - download_csv - ================================================================================
+2026-10-01 12:40:18,596 - ERROR - download_csv - Dump completed with 1 error(s). 297 total rows written.
+2026-10-01 12:40:18,596 - ERROR - download_csv - FAIL: Phase — unsupported operand type(s) for +=: 'int' and 'NoneType'
+2026-10-01 12:40:18,596 - INFO - download_csv - ================================================================================
+2026-10-01 12:44:11,592 - INFO - download_csv - ================================================================================
+2026-10-01 12:44:11,592 - INFO - download_csv - Starting DB dump at 2026-10-01 12:44:11
+2026-10-01 12:44:11,593 - INFO - download_csv - Output directory: /app/army_app/data/2026-10-01 12:44:11
+2026-10-01 12:44:11,593 - INFO - download_csv - ================================================================================
+2026-10-01 12:44:11,654 - INFO - download_csv - OK: Abilities — 46 row(s) written to abilities.csv
+2026-10-01 12:44:11,655 - INFO - download_csv - OK: Phase — 7 row(s) written to phase.csv
+2026-10-01 12:44:11,662 - INFO - download_csv - OK: AbilityEffects — 46 row(s) written to ability_effects.csv
+2026-10-01 12:44:11,666 - INFO - download_csv - OK: Factions — 5 row(s) written to factions.csv
+2026-10-01 12:44:11,685 - INFO - download_csv - OK: Detachments — 36 row(s) written to detachments.csv
+2026-10-01 12:44:11,687 - INFO - download_csv - OK: Enhancements — 64 row(s) written to enhancements.csv
+2026-10-01 12:44:11,690 - INFO - download_csv - OK: Stratagems — 73 row(s) written to stratagems.csv
+2026-10-01 12:44:11,696 - INFO - download_csv - OK: Weapons — 9 row(s) written to weapons.csv
+2026-10-01 12:44:11,731 - INFO - download_csv - OK: Units — 7 row(s) written to units.csv
+2026-10-01 12:44:11,734 - INFO - download_csv - OK: UnitPointBrackets — 11 row(s) written to unit_point_brackets.csv
+2026-10-01 12:44:11,735 - INFO - download_csv - OK: Leadership — 0 row(s) written to leadership.csv
+2026-10-01 12:44:11,735 - INFO - download_csv - ================================================================================
+2026-10-01 12:44:11,749 - WARNING - download_csv - Deleted old version folder: 2026-10-01 10:04:48
+2026-10-01 12:44:11,756 - WARNING - download_csv - Deleted old version folder: 2026-10-01 10:07:29
+2026-10-01 12:44:11,757 - WARNING - download_csv - Deleted old version folder: 2026-10-01 10:25:24
+2026-10-01 12:44:11,757 - INFO - download_csv - Dump complete — 304 total rows written to /app/army_app/data/2026-10-01 12:44:11
+2026-10-01 12:44:11,757 - INFO - download_csv - ================================================================================

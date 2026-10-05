@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 from django.core.management.base import BaseCommand
 from pathlib import Path
-from army_app.models import Faction, Ability, AbilityEffect, Detachment, Enhancement, Stratagem
+from army_app.models import Faction, Ability, AbilityEffect, Phase, Detachment, Enhancement, Stratagem
 from army_app.models import Weapon, Unit, UnitPointBracket, Leadership
 from .utils import get_version_folders
 
@@ -55,13 +55,27 @@ def dump_abilities(out_dir: Path) -> int:
         ])
     _write(out_dir, "abilities.csv", headers, rows)
     return len(rows)
+
+def dump_phases(out_dir: Path) -> int:
+    """
+    Loader expects: id, phase_name (name)
+    """
+    headers = ["id", "phase_name"]
+    rows = []
+    for obj in Phase.objects.order_by("id"):
+        rows.append([
+            obj.id,
+            obj.name,
+        ])
+    _write(out_dir, "phase.csv", headers, rows)
+    return len(rows)
  
  
 def dump_ability_effects(out_dir: Path) -> int:
     """
-    Loader expects: ability (name), effect_description, keyword_expression
+    Loader expects: id, ability (name), effect_description, keyword_expression, turn (turn_scope), phase
     """
-    headers = ["id", "ability", "effect_description", "keyword_expression"]
+    headers = ["id", "ability", "effect_description", "keyword_expression", "turn", "phase"]
     rows = []
     for obj in AbilityEffect.objects.select_related("ability").order_by("id"):
         rows.append([
@@ -69,6 +83,8 @@ def dump_ability_effects(out_dir: Path) -> int:
             obj.ability.name,
             obj.effect_description,
             obj.keyword_expression,
+            obj.turn_scope,
+            obj.phase,
         ])
     _write(out_dir, "ability_effects.csv", headers, rows)
     return len(rows)
@@ -143,12 +159,11 @@ def dump_enhancements(out_dir: Path) -> int:
  
 def dump_stratagems(out_dir: Path) -> int:
     """
-    Loader expects: id, detachment (name, may be blank), name, description,
-                    cost, keyword_expression
+    Loader expects: id, detachment (name may be blank), name, description, turn (turn_scope), phase, when, target, restrictions, cost, keyword_expression
     Original CSV also has: keywords, restricted_keywords columns.
     """
     headers = [
-        "id", "detachment", "name", "when", "target",
+        "id", "detachment", "name", "turn", "phase", "when", "target",
         "effect", "restrictions", "cost", "keyword_expression",
     ]
     rows = []
@@ -167,6 +182,8 @@ def dump_stratagems(out_dir: Path) -> int:
             obj.restrictions,
             obj.cost,
             obj.keyword_expression,
+            obj.turn_scope,
+            obj.phase,
         ])
     _write(out_dir, "stratagems.csv", headers, rows)
     return len(rows)
@@ -301,6 +318,7 @@ def dump_leadership(out_dir: Path) -> int:
  
 DUMPERS = [
     ("Abilities",            "abilities.csv",           dump_abilities),
+    ("Phase",                "phase.csv",               dump_phases),
     ("AbilityEffects",       "ability_effects.csv",     dump_ability_effects),
     ("Factions",             "factions.csv",            dump_factions),
     ("Detachments",          "detachments.csv",         dump_detachments),

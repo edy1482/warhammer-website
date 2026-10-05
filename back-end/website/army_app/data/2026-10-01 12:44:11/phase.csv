@@ -1,0 +1,8 @@
+"id","phase_name"
+"0","PRE-BATTLE"
+"1","COMMAND"
+"2","MOVEMENT"
+"3","SHOOTING"
+"4","CHARGE"
+"5","FIGHT"
+"6","ANY"

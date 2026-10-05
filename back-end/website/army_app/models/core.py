@@ -10,37 +10,6 @@ MAX_CHARFIELD_LENGTH = 255
 # TODO: test overriding Enhancement model save function to add CHARACTER keyword automatically
 # TODO: consider storing KeyWordCondition as a JSON field for faster eval
 
-class ScrapedPage(models.Model):
-    """
-    Stores the raw HTML (and basic metadata) of a scraped datasheet webpage.
-    """
-
-    STATUS_PENDING = "pending"
-    STATUS_SUCCESS = "success"
-    STATUS_FAILED = "failed"
-
-    STATUS_CHOICES = [
-        (STATUS_PENDING, "Pending"),
-        (STATUS_SUCCESS, "Success"),
-        (STATUS_FAILED, "Failed"),
-    ]
-
-    url = models.URLField(max_length = 1000, unique=True)
-    html_content = models.TextField(blank = True, null=True)
-    file_path = models.CharField(max_length = 500, blank=True, null=True)
-    status_code = models.IntegerField(blank = True, null=True)
-    status = models.CharField(max_length = 10, choices = STATUS_CHOICES, default = STATUS_PENDING)
-    error_message = models.TextField(blank = True, null = True)
-    scraped_at = models.DateTimeField(blank = True, null = True)
-    created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True)
-
-    class Meta:
-        ordering = ["-created_at"]
-
-    def __str__(self):
-        return f"{self.url} ({self.status})"
-
 class KeyWord(models.Model):
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, unique=True)
     
@@ -283,7 +252,7 @@ class Stratagem(models.Model):
     target = models.TextField(blank=True, default="")
     effect = models.TextField(blank=True, default="")
     restrictions = models.TextField(blank=True, default="")
-    detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, null=True, blank=True, related_name="stratagems")
+    detachment = models.ManyToManyField(Detachment, on_delete=models.CASCADE, null=True, blank=True, related_name="stratagems")
     cost = models.PositiveIntegerField(default=1)
     
     # Keywords

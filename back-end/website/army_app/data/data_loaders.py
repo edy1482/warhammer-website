@@ -47,6 +47,7 @@ def load_model(model_class, csv_path, row_to_kwargs):
                     "wargear_abilities": kwargs.pop("wargear_abilities", []),
                     "ranged_weapons": kwargs.pop("ranged_weapons", []),
                     "melee_weapons": kwargs.pop("melee_weapons", []),
+                    "detachments" : kwargs.pop("detachments", []),
                 }
 
                 # Validate temp instance
@@ -184,15 +185,23 @@ def load_detachments(csv_path):
 def load_enhancements(csv_path):
     def row_to_enhancement_kwargs(row):    
         errors = []
+        detachments = []
 
-        try:
-            detachment = Detachment.objects.get(name=row["detachment"])
-        except Detachment.DoesNotExist:
-            errors.append(f"Detachment {row['detachment']} not found for enhancement {row['name']}")
+        if "detachment" in row and row[detachment].strip():
+            # Grab detachment names
+            detachment_names = [name.strip() for name in row["detachment"].split(";") if name.strip()]
+        for name in detachment_names:        
+            try:
+                detachment = Detachment.objects.get(name=name)
+                detachments.append(detachment)
+            except Detachment.DoesNotExist:
+                errors.append(f"Detachment {row["detachment"]} not found for enhancement {row["name"]}")
+
+        if errors:
             return errors, None
         
         return errors, {
-            "detachment" : detachment,
+            "detachments" : detachments,
             "name" : row["name"],
             "description" : row["description"],
             "points" : row["points"],
@@ -204,27 +213,31 @@ def load_stratagems(csv_path):
     def row_to_stratagems_kwargs(row):
         errors = []
         phases = []
+        detachments = []
         
-        detachment_name = row["detachment"].strip()
-        detachment = None
-        if detachment_name:
+        if "detachment" in row and row[detachment].strip():
+            # Grab detachment names
+            detachment_names = [name.strip() for name in row["detachment"].split(";") if name.strip()]
+        for name in detachment_names:        
             try:
-                detachment = Detachment.objects.get(name=row["detachment"])
+                detachment = Detachment.objects.get(name=name)
+                detachments.append(detachment)
             except Detachment.DoesNotExist:
-                errors.append(f"Detachment {row["detachment"]} not found for stratagem {row["name"]}")
-                return errors, None
+                errors.append(f"Detachment {row["detachment"]} not found for enhancement {row["name"]}")
         # Grab phase names
-        phase_names = [name.strip() for name in row["when"].split(";") if name.strip()]
+        phase_names = [name.strip() for name in row["phase"].split(";") if name.strip()]
         for name in phase_names:
             try:
                 phase = Phase.objects.get(name=name)
                 phases.append(phase)
             except Phase.DoesNotExist:
-                errors.append(f"Phase {name} does not exist in DB")
+                errors.append(f"Phase {name} does not exist in DB")        
 
+        if errors:
+            return errors, None
         
         return errors, {
-            "detachment" : detachment,
+            "detachments" : detachments,
             "name" : row["name"],
             "phase" : phases,
             "turn_scope" : row["turn"],

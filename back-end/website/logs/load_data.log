@@ -1735,3 +1735,519 @@
 2026-08-27 14:01:41,753 - INFO - load_data - ================================================================================
 2026-08-27 14:01:41,754 - INFO - load_data - Ending data load run at 2026-08-27 14:01:41
 2026-08-27 14:01:41,754 - INFO - load_data - ================================================================================
+2026-10-01 09:31:34,932 - INFO - load_data - ================================================================================
+2026-10-01 09:31:34,934 - INFO - load_data - Starting data load run at 2026-10-01 09:31:34
+2026-10-01 09:31:34,934 - INFO - load_data - ================================================================================
+2026-10-01 09:31:34,935 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-01 09:30:55
+2026-10-01 09:32:01,796 - INFO - load_data - ================================================================================
+2026-10-01 09:32:01,796 - INFO - load_data - Starting data load run at 2026-10-01 09:32:01
+2026-10-01 09:32:01,796 - INFO - load_data - ================================================================================
+2026-10-01 09:32:01,796 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-01 09:30:55
+2026-10-01 09:32:01,797 - INFO - load_data - Starting validation...
+2026-10-01 09:32:02,098 - INFO - load_data - OK: Abilities validation completed
+2026-10-01 09:32:02,114 - INFO - load_data - OK: Phase validation completed
+2026-10-01 09:32:02,379 - ERROR - load_data - FAIL: Validation failed - AbilityEffect : 10 error(s) found...
+2026-10-01 09:32:02,379 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 24: {'turn_scope': ['This field cannot be blank.']}
+2026-10-01 09:32:02,379 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 38: {'turn_scope': ['This field cannot be blank.']}
+2026-10-01 09:32:02,379 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 39: {'turn_scope': ['This field cannot be blank.']}
+2026-10-01 09:32:02,379 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 40: {'turn_scope': ['This field cannot be blank.']}
+2026-10-01 09:32:02,379 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 41: {'turn_scope': ['This field cannot be blank.']}
+2026-10-01 09:32:02,381 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 42: {'turn_scope': ['This field cannot be blank.']}
+2026-10-01 09:32:02,381 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 43: {'turn_scope': ['This field cannot be blank.']}
+2026-10-01 09:32:02,381 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 44: {'turn_scope': ['This field cannot be blank.']}
+2026-10-01 09:32:02,381 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 45: {'turn_scope': ['This field cannot be blank.']}
+2026-10-01 09:32:02,381 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 46: {'turn_scope': ['This field cannot be blank.']}
+2026-10-01 09:32:02,382 - ERROR - load_data - FAIL: Validation failed with 10 errors(s) found
+2026-10-01 09:32:02,382 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-01 09:32:02,382 - INFO - load_data - ================================================================================
+2026-10-01 09:40:03,427 - INFO - load_data - ================================================================================
+2026-10-01 09:40:03,428 - INFO - load_data - Starting data load run at 2026-10-01 09:40:03
+2026-10-01 09:40:03,428 - INFO - load_data - ================================================================================
+2026-10-01 09:40:03,428 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-01 09:39:45
+2026-10-01 09:40:03,428 - INFO - load_data - Starting validation...
+2026-10-01 09:40:03,520 - INFO - load_data - OK: Abilities validation completed
+2026-10-01 09:40:03,532 - INFO - load_data - OK: Phase validation completed
+2026-10-01 09:40:03,746 - ERROR - load_data - FAIL: Validation failed - AbilityEffect : 3 error(s) found...
+2026-10-01 09:40:03,746 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 44: {'turn_scope': ['This field cannot be blank.']}
+2026-10-01 09:40:03,746 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 45: {'turn_scope': ['This field cannot be blank.']}
+2026-10-01 09:40:03,746 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Validation Error - Row 46: {'turn_scope': ['This field cannot be blank.']}
+2026-10-01 09:40:03,747 - ERROR - load_data - FAIL: Validation failed with 3 errors(s) found
+2026-10-01 09:40:03,747 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-01 09:40:03,747 - INFO - load_data - ================================================================================
+2026-10-01 09:42:21,176 - INFO - load_data - ================================================================================
+2026-10-01 09:42:21,176 - INFO - load_data - Starting data load run at 2026-10-01 09:42:21
+2026-10-01 09:42:21,177 - INFO - load_data - ================================================================================
+2026-10-01 09:42:21,177 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-01 09:42:09
+2026-10-01 09:42:21,177 - INFO - load_data - Starting validation...
+2026-10-01 09:42:21,389 - INFO - load_data - OK: Abilities validation completed
+2026-10-01 09:42:21,400 - INFO - load_data - OK: Phase validation completed
+2026-10-01 09:42:21,617 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-01 09:42:21,657 - INFO - load_data - OK: Factions validation completed
+2026-10-01 09:42:21,777 - INFO - load_data - OK: Detachments validation completed
+2026-10-01 09:42:21,990 - INFO - load_data - OK: Enhancements validation completed
+2026-10-01 09:42:22,035 - ERROR - load_data - FAIL: Validation failed - Stratagems : 73 error(s) found...
+2026-10-01 09:42:22,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 1: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.. does not exist in DB
+2026-10-01 09:42:22,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 2: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 09:42:22,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 3: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 4: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 09:42:22,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 5: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 09:42:22,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 6: Phase WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move. does not exist in DB
+2026-10-01 09:42:22,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 7: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 8: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 09:42:22,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 9: Phase WHEN: End of the Fight phase. does not exist in DB
+2026-10-01 09:42:22,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 10: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 09:42:22,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 11: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 09:42:22,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 12: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 09:42:22,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 13: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 09:42:22,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 14: Phase WHEN: Any phase, just after an ADEPTUS ASTARTES VEHICLE model from your army with the Deadly Demise ability is destroyed. does not exist in DB
+2026-10-01 09:42:22,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 15: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 16: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 09:42:22,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 17: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 09:42:22,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 18: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 09:42:22,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 19: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 20: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 09:42:22,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 21: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 09:42:22,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 22: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 09:42:22,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 23: Phase WHEN: End of the Fight phase. does not exist in DB
+2026-10-01 09:42:22,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 24: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 09:42:22,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 25: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 26: Phase WHEN: Your Charge phase. does not exist in DB
+2026-10-01 09:42:22,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 27: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 09:42:22,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 28: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 29: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 09:42:22,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 30: Phase WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move. does not exist in DB
+2026-10-01 09:42:22,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 31: Phase WHEN: Start of the Command phase. does not exist in DB
+2026-10-01 09:42:22,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 32: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 09:42:22,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 33: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 34: Phase WHEN: Your opponent’s Charge phase, just after an enemy unit declares a charge. does not exist in DB
+2026-10-01 09:42:22,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 35: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 09:42:22,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 36: Phase WHEN: End of your opponent’s Fight phase. does not exist in DB
+2026-10-01 09:42:22,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 37: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 38: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 09:42:22,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 39: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 09:42:22,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 40: Phase WHEN: End of your opponent’s Fight phase. does not exist in DB
+2026-10-01 09:42:22,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 41: Phase WHEN: Your Fight phase. does not exist in DB
+2026-10-01 09:42:22,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 42: Phase WHEN: Your opponent’s Charge phase, just after an enemy unit ends a Charge move. does not exist in DB
+2026-10-01 09:42:22,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 43: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 09:42:22,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 44: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 09:42:22,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 45: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 46: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 09:42:22,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 47: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 48: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 09:42:22,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 49: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 50: Phase WHEN: Fight phase, just before a TYRANIDS unit from your army Consolidates. does not exist in DB
+2026-10-01 09:42:22,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 51: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 09:42:22,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 52: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 09:42:22,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 53: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 54: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 09:42:22,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 55: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after a TYRANIDS MONSTER model from your army with the Deadly Demise ability that cannot FLY is destroyed. does not exist in DB
+2026-10-01 09:42:22,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 56: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 09:42:22,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 57: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 09:42:22,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 58: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 09:42:22,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 59: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 60: Phase WHEN: Your Charge phase, just after a TYRANIDS MONSTER model from your army ends a Charge move. does not exist in DB
+2026-10-01 09:42:22,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 61: Phase WHEN: Any phase, just before an ENDLESS MULTITUDE unit from your army that is within Synapse Range of your army makes a Surge move. does not exist in DB
+2026-10-01 09:42:22,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 62: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 09:42:22,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 63: Phase WHEN: Any phase. does not exist in DB
+2026-10-01 09:42:22,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 64: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 09:42:22,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 65: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 66: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 67: Phase WHEN: Any phase. does not exist in DB
+2026-10-01 09:42:22,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 68: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 09:42:22,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 69: Phase WHEN: Any phase, when a TYRANIDS unit from your army is destroyed, before the last model in it is removed from play. does not exist in DB
+2026-10-01 09:42:22,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 70: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 09:42:22,044 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 71: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 09:42:22,044 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 72: Phase WHEN: Your Fight phase. does not exist in DB
+2026-10-01 09:42:22,044 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 73: Phase WHEN: End of your opponent’s Movement phase. does not exist in DB
+2026-10-01 09:42:22,044 - ERROR - load_data - FAIL: Validation failed with 73 errors(s) found
+2026-10-01 09:42:22,044 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-01 09:42:22,044 - INFO - load_data - ================================================================================
+2026-10-01 10:05:00,349 - INFO - load_data - ================================================================================
+2026-10-01 10:05:00,350 - INFO - load_data - Starting data load run at 2026-10-01 10:05:00
+2026-10-01 10:05:00,350 - INFO - load_data - ================================================================================
+2026-10-01 10:05:00,350 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-01 10:04:48
+2026-10-01 10:05:00,350 - INFO - load_data - Starting validation...
+2026-10-01 10:05:00,449 - INFO - load_data - OK: Abilities validation completed
+2026-10-01 10:05:00,461 - INFO - load_data - OK: Phase validation completed
+2026-10-01 10:05:00,681 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-01 10:05:00,693 - INFO - load_data - OK: Factions validation completed
+2026-10-01 10:05:00,801 - INFO - load_data - OK: Detachments validation completed
+2026-10-01 10:05:00,991 - INFO - load_data - OK: Enhancements validation completed
+2026-10-01 10:05:01,035 - ERROR - load_data - FAIL: Validation failed - Stratagems : 73 error(s) found...
+2026-10-01 10:05:01,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 1: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.. does not exist in DB
+2026-10-01 10:05:01,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 2: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:05:01,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 3: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 4: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:01,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 5: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:05:01,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 6: Phase WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move. does not exist in DB
+2026-10-01 10:05:01,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 7: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,036 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 8: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:01,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 9: Phase WHEN: End of the Fight phase. does not exist in DB
+2026-10-01 10:05:01,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 10: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:01,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 11: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:05:01,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 12: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 10:05:01,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 13: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 10:05:01,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 14: Phase WHEN: Any phase, just after an ADEPTUS ASTARTES VEHICLE model from your army with the Deadly Demise ability is destroyed. does not exist in DB
+2026-10-01 10:05:01,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 15: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 16: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:05:01,037 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 17: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:05:01,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 18: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 10:05:01,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 19: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 20: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:01,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 21: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:05:01,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 22: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:01,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 23: Phase WHEN: End of the Fight phase. does not exist in DB
+2026-10-01 10:05:01,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 24: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 10:05:01,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 25: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,038 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 26: Phase WHEN: Your Charge phase. does not exist in DB
+2026-10-01 10:05:01,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 27: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:01,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 28: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 29: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:05:01,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 30: Phase WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move. does not exist in DB
+2026-10-01 10:05:01,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 31: Phase WHEN: Start of the Command phase. does not exist in DB
+2026-10-01 10:05:01,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 32: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:01,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 33: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,039 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 34: Phase WHEN: Your opponent’s Charge phase, just after an enemy unit declares a charge. does not exist in DB
+2026-10-01 10:05:01,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 35: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:05:01,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 36: Phase WHEN: End of your opponent’s Fight phase. does not exist in DB
+2026-10-01 10:05:01,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 37: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 38: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:05:01,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 39: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:05:01,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 40: Phase WHEN: End of your opponent’s Fight phase. does not exist in DB
+2026-10-01 10:05:01,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 41: Phase WHEN: Your Fight phase. does not exist in DB
+2026-10-01 10:05:01,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 42: Phase WHEN: Your opponent’s Charge phase, just after an enemy unit ends a Charge move. does not exist in DB
+2026-10-01 10:05:01,040 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 43: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 10:05:01,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 44: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:05:01,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 45: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 46: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:01,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 47: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 48: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:01,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 49: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 50: Phase WHEN: Fight phase, just before a TYRANIDS unit from your army Consolidates. does not exist in DB
+2026-10-01 10:05:01,041 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 51: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:05:01,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 52: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:05:01,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 53: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 54: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:05:01,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 55: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after a TYRANIDS MONSTER model from your army with the Deadly Demise ability that cannot FLY is destroyed. does not exist in DB
+2026-10-01 10:05:01,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 56: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:05:01,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 57: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:05:01,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 58: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:01,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 59: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,042 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 60: Phase WHEN: Your Charge phase, just after a TYRANIDS MONSTER model from your army ends a Charge move. does not exist in DB
+2026-10-01 10:05:01,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 61: Phase WHEN: Any phase, just before an ENDLESS MULTITUDE unit from your army that is within Synapse Range of your army makes a Surge move. does not exist in DB
+2026-10-01 10:05:01,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 62: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:05:01,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 63: Phase WHEN: Any phase. does not exist in DB
+2026-10-01 10:05:01,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 64: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:05:01,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 65: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 66: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,043 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 67: Phase WHEN: Any phase. does not exist in DB
+2026-10-01 10:05:01,044 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 68: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:01,044 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 69: Phase WHEN: Any phase, when a TYRANIDS unit from your army is destroyed, before the last model in it is removed from play. does not exist in DB
+2026-10-01 10:05:01,044 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 70: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:05:01,044 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 71: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 10:05:01,044 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 72: Phase WHEN: Your Fight phase. does not exist in DB
+2026-10-01 10:05:01,044 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 73: Phase WHEN: End of your opponent’s Movement phase. does not exist in DB
+2026-10-01 10:05:01,045 - ERROR - load_data - FAIL: Validation failed with 73 errors(s) found
+2026-10-01 10:05:01,045 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-01 10:05:01,045 - INFO - load_data - ================================================================================
+2026-10-01 10:05:36,290 - INFO - load_data - ================================================================================
+2026-10-01 10:05:36,290 - INFO - load_data - Starting data load run at 2026-10-01 10:05:36
+2026-10-01 10:05:36,290 - INFO - load_data - ================================================================================
+2026-10-01 10:05:36,290 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-01 10:04:48
+2026-10-01 10:05:36,290 - INFO - load_data - Starting validation...
+2026-10-01 10:05:36,378 - INFO - load_data - OK: Abilities validation completed
+2026-10-01 10:05:36,390 - INFO - load_data - OK: Phase validation completed
+2026-10-01 10:05:36,614 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-01 10:05:36,627 - INFO - load_data - OK: Factions validation completed
+2026-10-01 10:05:36,742 - INFO - load_data - OK: Detachments validation completed
+2026-10-01 10:05:36,939 - INFO - load_data - OK: Enhancements validation completed
+2026-10-01 10:05:36,985 - ERROR - load_data - FAIL: Validation failed - Stratagems : 73 error(s) found...
+2026-10-01 10:05:36,985 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 1: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.. does not exist in DB
+2026-10-01 10:05:36,985 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 2: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:05:36,985 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 3: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,985 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 4: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:36,985 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 5: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:05:36,986 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 6: Phase WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move. does not exist in DB
+2026-10-01 10:05:36,986 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 7: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,986 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 8: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:36,986 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 9: Phase WHEN: End of the Fight phase. does not exist in DB
+2026-10-01 10:05:36,986 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 10: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:36,986 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 11: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:05:36,986 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 12: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 10:05:36,986 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 13: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 10:05:36,986 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 14: Phase WHEN: Any phase, just after an ADEPTUS ASTARTES VEHICLE model from your army with the Deadly Demise ability is destroyed. does not exist in DB
+2026-10-01 10:05:36,987 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 15: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,987 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 16: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:05:36,987 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 17: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:05:36,987 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 18: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 10:05:36,987 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 19: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,987 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 20: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:36,988 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 21: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:05:36,988 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 22: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:36,988 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 23: Phase WHEN: End of the Fight phase. does not exist in DB
+2026-10-01 10:05:36,988 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 24: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 10:05:36,988 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 25: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,988 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 26: Phase WHEN: Your Charge phase. does not exist in DB
+2026-10-01 10:05:36,988 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 27: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:36,988 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 28: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,988 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 29: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:05:36,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 30: Phase WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move. does not exist in DB
+2026-10-01 10:05:36,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 31: Phase WHEN: Start of the Command phase. does not exist in DB
+2026-10-01 10:05:36,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 32: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:36,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 33: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 34: Phase WHEN: Your opponent’s Charge phase, just after an enemy unit declares a charge. does not exist in DB
+2026-10-01 10:05:36,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 35: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:05:36,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 36: Phase WHEN: End of your opponent’s Fight phase. does not exist in DB
+2026-10-01 10:05:36,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 37: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 38: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:05:36,989 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 39: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:05:36,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 40: Phase WHEN: End of your opponent’s Fight phase. does not exist in DB
+2026-10-01 10:05:36,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 41: Phase WHEN: Your Fight phase. does not exist in DB
+2026-10-01 10:05:36,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 42: Phase WHEN: Your opponent’s Charge phase, just after an enemy unit ends a Charge move. does not exist in DB
+2026-10-01 10:05:36,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 43: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 10:05:36,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 44: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:05:36,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 45: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 46: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:36,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 47: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 48: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:36,990 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 49: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 50: Phase WHEN: Fight phase, just before a TYRANIDS unit from your army Consolidates. does not exist in DB
+2026-10-01 10:05:36,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 51: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:05:36,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 52: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:05:36,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 53: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 54: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:05:36,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 55: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after a TYRANIDS MONSTER model from your army with the Deadly Demise ability that cannot FLY is destroyed. does not exist in DB
+2026-10-01 10:05:36,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 56: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:05:36,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 57: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:05:36,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 58: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:05:36,991 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 59: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 60: Phase WHEN: Your Charge phase, just after a TYRANIDS MONSTER model from your army ends a Charge move. does not exist in DB
+2026-10-01 10:05:36,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 61: Phase WHEN: Any phase, just before an ENDLESS MULTITUDE unit from your army that is within Synapse Range of your army makes a Surge move. does not exist in DB
+2026-10-01 10:05:36,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 62: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:05:36,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 63: Phase WHEN: Any phase. does not exist in DB
+2026-10-01 10:05:36,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 64: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:05:36,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 65: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 66: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,992 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 67: Phase WHEN: Any phase. does not exist in DB
+2026-10-01 10:05:36,993 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 68: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:05:36,993 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 69: Phase WHEN: Any phase, when a TYRANIDS unit from your army is destroyed, before the last model in it is removed from play. does not exist in DB
+2026-10-01 10:05:36,993 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 70: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:05:36,993 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 71: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 10:05:36,993 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 72: Phase WHEN: Your Fight phase. does not exist in DB
+2026-10-01 10:05:36,993 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 73: Phase WHEN: End of your opponent’s Movement phase. does not exist in DB
+2026-10-01 10:05:36,994 - ERROR - load_data - FAIL: Validation failed with 73 errors(s) found
+2026-10-01 10:05:36,994 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-01 10:05:36,994 - INFO - load_data - ================================================================================
+2026-10-01 10:07:37,623 - INFO - load_data - ================================================================================
+2026-10-01 10:07:37,623 - INFO - load_data - Starting data load run at 2026-10-01 10:07:37
+2026-10-01 10:07:37,623 - INFO - load_data - ================================================================================
+2026-10-01 10:07:37,624 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-01 10:07:29
+2026-10-01 10:07:37,624 - INFO - load_data - Starting validation...
+2026-10-01 10:07:37,830 - INFO - load_data - OK: Abilities validation completed
+2026-10-01 10:07:37,841 - INFO - load_data - OK: Phase validation completed
+2026-10-01 10:07:38,065 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-01 10:07:38,077 - INFO - load_data - OK: Factions validation completed
+2026-10-01 10:07:38,188 - INFO - load_data - OK: Detachments validation completed
+2026-10-01 10:07:38,387 - INFO - load_data - OK: Enhancements validation completed
+2026-10-01 10:07:38,432 - ERROR - load_data - FAIL: Validation failed - Stratagems : 73 error(s) found...
+2026-10-01 10:07:38,432 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 1: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.. does not exist in DB
+2026-10-01 10:07:38,432 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 2: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:07:38,432 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 3: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,432 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 4: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:07:38,432 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 5: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:07:38,433 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 6: Phase WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move. does not exist in DB
+2026-10-01 10:07:38,433 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 7: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,433 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 8: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:07:38,433 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 9: Phase WHEN: End of the Fight phase. does not exist in DB
+2026-10-01 10:07:38,433 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 10: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:07:38,433 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 11: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:07:38,433 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 12: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 10:07:38,433 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 13: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 10:07:38,433 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 14: Phase WHEN: Any phase, just after an ADEPTUS ASTARTES VEHICLE model from your army with the Deadly Demise ability is destroyed. does not exist in DB
+2026-10-01 10:07:38,434 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 15: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,434 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 16: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:07:38,434 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 17: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:07:38,434 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 18: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 10:07:38,434 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 19: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,434 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 20: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:07:38,434 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 21: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:07:38,434 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 22: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:07:38,434 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 23: Phase WHEN: End of the Fight phase. does not exist in DB
+2026-10-01 10:07:38,435 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 24: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 10:07:38,435 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 25: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,435 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 26: Phase WHEN: Your Charge phase. does not exist in DB
+2026-10-01 10:07:38,435 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 27: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:07:38,435 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 28: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,435 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 29: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:07:38,435 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 30: Phase WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move. does not exist in DB
+2026-10-01 10:07:38,435 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 31: Phase WHEN: Start of the Command phase. does not exist in DB
+2026-10-01 10:07:38,435 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 32: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:07:38,436 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 33: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,436 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 34: Phase WHEN: Your opponent’s Charge phase, just after an enemy unit declares a charge. does not exist in DB
+2026-10-01 10:07:38,436 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 35: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:07:38,436 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 36: Phase WHEN: End of your opponent’s Fight phase. does not exist in DB
+2026-10-01 10:07:38,436 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 37: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,436 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 38: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:07:38,436 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 39: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:07:38,436 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 40: Phase WHEN: End of your opponent’s Fight phase. does not exist in DB
+2026-10-01 10:07:38,436 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 41: Phase WHEN: Your Fight phase. does not exist in DB
+2026-10-01 10:07:38,437 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 42: Phase WHEN: Your opponent’s Charge phase, just after an enemy unit ends a Charge move. does not exist in DB
+2026-10-01 10:07:38,437 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 43: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 10:07:38,437 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 44: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:07:38,437 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 45: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,437 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 46: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:07:38,437 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 47: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,437 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 48: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:07:38,437 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 49: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,438 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 50: Phase WHEN: Fight phase, just before a TYRANIDS unit from your army Consolidates. does not exist in DB
+2026-10-01 10:07:38,438 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 51: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:07:38,438 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 52: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:07:38,438 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 53: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,438 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 54: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:07:38,438 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 55: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after a TYRANIDS MONSTER model from your army with the Deadly Demise ability that cannot FLY is destroyed. does not exist in DB
+2026-10-01 10:07:38,438 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 56: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:07:38,438 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 57: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:07:38,439 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 58: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:07:38,439 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 59: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,439 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 60: Phase WHEN: Your Charge phase, just after a TYRANIDS MONSTER model from your army ends a Charge move. does not exist in DB
+2026-10-01 10:07:38,439 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 61: Phase WHEN: Any phase, just before an ENDLESS MULTITUDE unit from your army that is within Synapse Range of your army makes a Surge move. does not exist in DB
+2026-10-01 10:07:38,439 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 62: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:07:38,439 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 63: Phase WHEN: Any phase. does not exist in DB
+2026-10-01 10:07:38,439 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 64: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:07:38,439 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 65: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,439 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 66: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,440 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 67: Phase WHEN: Any phase. does not exist in DB
+2026-10-01 10:07:38,440 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 68: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:07:38,440 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 69: Phase WHEN: Any phase, when a TYRANIDS unit from your army is destroyed, before the last model in it is removed from play. does not exist in DB
+2026-10-01 10:07:38,440 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 70: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:07:38,440 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 71: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 10:07:38,440 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 72: Phase WHEN: Your Fight phase. does not exist in DB
+2026-10-01 10:07:38,440 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 73: Phase WHEN: End of your opponent’s Movement phase. does not exist in DB
+2026-10-01 10:07:38,441 - ERROR - load_data - FAIL: Validation failed with 73 errors(s) found
+2026-10-01 10:07:38,441 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-01 10:07:38,441 - INFO - load_data - ================================================================================
+2026-10-01 10:21:10,390 - INFO - load_data - ================================================================================
+2026-10-01 10:21:10,390 - INFO - load_data - Starting data load run at 2026-10-01 10:21:10
+2026-10-01 10:21:10,390 - INFO - load_data - ================================================================================
+2026-10-01 10:21:10,390 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-01 10:07:29
+2026-10-01 10:21:10,391 - INFO - load_data - Starting validation...
+2026-10-01 10:21:10,536 - INFO - load_data - OK: Abilities validation completed
+2026-10-01 10:21:10,547 - INFO - load_data - OK: Phase validation completed
+2026-10-01 10:21:10,767 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-01 10:21:10,779 - INFO - load_data - OK: Factions validation completed
+2026-10-01 10:21:10,888 - INFO - load_data - OK: Detachments validation completed
+2026-10-01 10:21:11,079 - INFO - load_data - OK: Enhancements validation completed
+2026-10-01 10:21:11,126 - ERROR - load_data - FAIL: Validation failed - Stratagems : 73 error(s) found...
+2026-10-01 10:21:11,126 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 1: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.. does not exist in DB
+2026-10-01 10:21:11,126 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 2: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:21:11,126 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 3: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,126 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 4: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:21:11,126 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 5: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:21:11,126 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 6: Phase WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move. does not exist in DB
+2026-10-01 10:21:11,127 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 7: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,127 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 8: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:21:11,127 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 9: Phase WHEN: End of the Fight phase. does not exist in DB
+2026-10-01 10:21:11,127 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 10: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:21:11,127 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 11: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:21:11,127 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 12: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 10:21:11,127 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 13: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 10:21:11,127 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 14: Phase WHEN: Any phase, just after an ADEPTUS ASTARTES VEHICLE model from your army with the Deadly Demise ability is destroyed. does not exist in DB
+2026-10-01 10:21:11,128 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 15: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,128 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 16: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:21:11,128 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 17: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:21:11,128 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 18: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 10:21:11,128 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 19: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,128 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 20: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:21:11,128 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 21: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:21:11,128 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 22: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:21:11,128 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 23: Phase WHEN: End of the Fight phase. does not exist in DB
+2026-10-01 10:21:11,129 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 24: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has resolved its attacks. does not exist in DB
+2026-10-01 10:21:11,129 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 25: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,129 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 26: Phase WHEN: Your Charge phase. does not exist in DB
+2026-10-01 10:21:11,129 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 27: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:21:11,129 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 28: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,129 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 29: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:21:11,129 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 30: Phase WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move. does not exist in DB
+2026-10-01 10:21:11,129 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 31: Phase WHEN: Start of the Command phase. does not exist in DB
+2026-10-01 10:21:11,130 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 32: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:21:11,130 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 33: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,130 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 34: Phase WHEN: Your opponent’s Charge phase, just after an enemy unit declares a charge. does not exist in DB
+2026-10-01 10:21:11,130 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 35: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:21:11,130 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 36: Phase WHEN: End of your opponent’s Fight phase. does not exist in DB
+2026-10-01 10:21:11,130 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 37: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,130 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 38: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:21:11,130 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 39: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:21:11,130 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 40: Phase WHEN: End of your opponent’s Fight phase. does not exist in DB
+2026-10-01 10:21:11,131 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 41: Phase WHEN: Your Fight phase. does not exist in DB
+2026-10-01 10:21:11,131 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 42: Phase WHEN: Your opponent’s Charge phase, just after an enemy unit ends a Charge move. does not exist in DB
+2026-10-01 10:21:11,131 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 43: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 10:21:11,131 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 44: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:21:11,131 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 45: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,131 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 46: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:21:11,131 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 47: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,131 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 48: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:21:11,131 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 49: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,132 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 50: Phase WHEN: Fight phase, just before a TYRANIDS unit from your army Consolidates. does not exist in DB
+2026-10-01 10:21:11,132 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 51: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:21:11,132 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 52: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:21:11,132 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 53: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,132 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 54: Phase WHEN: Your Command phase. does not exist in DB
+2026-10-01 10:21:11,132 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 55: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after a TYRANIDS MONSTER model from your army with the Deadly Demise ability that cannot FLY is destroyed. does not exist in DB
+2026-10-01 10:21:11,132 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 56: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:21:11,132 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 57: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:21:11,133 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 58: Phase WHEN: Your Shooting phase. does not exist in DB
+2026-10-01 10:21:11,133 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 59: Phase WHEN: Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,133 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 60: Phase WHEN: Your Charge phase, just after a TYRANIDS MONSTER model from your army ends a Charge move. does not exist in DB
+2026-10-01 10:21:11,133 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 61: Phase WHEN: Any phase, just before an ENDLESS MULTITUDE unit from your army that is within Synapse Range of your army makes a Surge move. does not exist in DB
+2026-10-01 10:21:11,133 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 62: Phase WHEN: Your Shooting phase or the Fight phase. does not exist in DB
+2026-10-01 10:21:11,133 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 63: Phase WHEN: Any phase. does not exist in DB
+2026-10-01 10:21:11,133 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 64: Phase WHEN: Your Movement phase. does not exist in DB
+2026-10-01 10:21:11,133 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 65: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,134 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 66: Phase WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,134 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 67: Phase WHEN: Any phase. does not exist in DB
+2026-10-01 10:21:11,134 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 68: Phase WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets. does not exist in DB
+2026-10-01 10:21:11,134 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 69: Phase WHEN: Any phase, when a TYRANIDS unit from your army is destroyed, before the last model in it is removed from play. does not exist in DB
+2026-10-01 10:21:11,134 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 70: Phase WHEN: Fight phase. does not exist in DB
+2026-10-01 10:21:11,134 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 71: Phase WHEN: Command phase. does not exist in DB
+2026-10-01 10:21:11,134 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 72: Phase WHEN: Your Fight phase. does not exist in DB
+2026-10-01 10:21:11,134 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 73: Phase WHEN: End of your opponent’s Movement phase. does not exist in DB
+2026-10-01 10:21:11,135 - ERROR - load_data - FAIL: Validation failed with 73 errors(s) found
+2026-10-01 10:21:11,135 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-01 10:21:11,135 - INFO - load_data - ================================================================================
+2026-10-01 10:25:00,724 - INFO - load_data - ================================================================================
+2026-10-01 10:25:00,725 - INFO - load_data - Starting data load run at 2026-10-01 10:25:00
+2026-10-01 10:25:00,725 - INFO - load_data - ================================================================================
+2026-10-01 10:25:00,725 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-01 10:07:29
+2026-10-01 10:25:00,725 - INFO - load_data - Starting validation...
+2026-10-01 10:25:00,862 - INFO - load_data - OK: Abilities validation completed
+2026-10-01 10:25:00,874 - INFO - load_data - OK: Phase validation completed
+2026-10-01 10:25:01,102 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-01 10:25:01,115 - INFO - load_data - OK: Factions validation completed
+2026-10-01 10:25:01,227 - INFO - load_data - OK: Detachments validation completed
+2026-10-01 10:25:01,430 - INFO - load_data - OK: Enhancements validation completed
+2026-10-01 10:25:01,766 - ERROR - load_data - FAIL: Validation failed - Stratagems : 1 error(s) found...
+2026-10-01 10:25:01,766 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 58: Phase SHOOTING\ does not exist in DB
+2026-10-01 10:25:01,766 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-01 10:25:01,766 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-01 10:25:01,766 - INFO - load_data - ================================================================================
+2026-10-01 10:25:33,610 - INFO - load_data - ================================================================================
+2026-10-01 10:25:33,610 - INFO - load_data - Starting data load run at 2026-10-01 10:25:33
+2026-10-01 10:25:33,610 - INFO - load_data - ================================================================================
+2026-10-01 10:25:33,610 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-01 10:25:24
+2026-10-01 10:25:33,610 - INFO - load_data - Starting validation...
+2026-10-01 10:25:33,695 - INFO - load_data - OK: Abilities validation completed
+2026-10-01 10:25:33,706 - INFO - load_data - OK: Phase validation completed
+2026-10-01 10:25:33,926 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-01 10:25:33,938 - INFO - load_data - OK: Factions validation completed
+2026-10-01 10:25:34,049 - INFO - load_data - OK: Detachments validation completed
+2026-10-01 10:25:34,243 - INFO - load_data - OK: Enhancements validation completed
+2026-10-01 10:25:34,580 - INFO - load_data - OK: Stratagems validation completed
+2026-10-01 10:25:34,624 - INFO - load_data - OK: Weapons validation completed
+2026-10-01 10:25:34,676 - INFO - load_data - OK: Units validation completed
+2026-10-01 10:25:34,708 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-01 10:25:34,709 - INFO - load_data - OK: Leadership validation completed
+2026-10-01 10:25:34,718 - INFO - load_data - OK: Validation complete with 304 successful validations
+2026-10-01 10:25:34,718 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-01 10:25:34,718 - INFO - load_data - ================================================================================
+2026-10-01 10:25:34,718 - INFO - load_data - Ending data load run at 2026-10-01 10:25:34
+2026-10-01 10:25:34,718 - INFO - load_data - ================================================================================

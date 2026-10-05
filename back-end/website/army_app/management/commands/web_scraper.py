@@ -147,6 +147,7 @@ class Command(BaseCommand):
                 page.error_message = str(exc)
                 page.status_code = getattr(exc.response, "status_code", None)
                 page.scraped_at = timezone.now()
+                page.page_type = ScrapedPage.UNIT_CLUTER if url.endswith("datasheets.html") else page.page_type = ScrapedPage.FACTION_CLUSTER
                 page.save()
 
                 logger.error(f"  Failed: {exc}")

@@ -252,7 +252,7 @@ class Stratagem(models.Model):
     target = models.TextField(blank=True, default="")
     effect = models.TextField(blank=True, default="")
     restrictions = models.TextField(blank=True, default="")
-    detachment = models.ManyToManyField(Detachment, blank=True, related_name="stratagems")
+    detachments = models.ManyToManyField(Detachment, blank=True, related_name="stratagems")
     cost = models.PositiveIntegerField(default=1)
     
     # Keywords
@@ -270,3 +270,7 @@ class Stratagem(models.Model):
     
     def available_stratagem(self, detachment):
         return self.detachments.filter(pk=detachment.pk).exists()
+
+    @property
+    def detachment_names(self):
+        return ", ".join(sorted(d.name for d in self.detachments.all()))

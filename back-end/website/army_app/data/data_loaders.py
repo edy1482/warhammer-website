@@ -64,8 +64,11 @@ def load_model(model_class, csv_path, row_to_kwargs):
 
                 # Handle M2M relationships
                 for field_name, related_objs in m2m_fields.items():
-                    if hasattr(obj, field_name) and related_objs:
-                        getattr(obj, field_name).set(related_objs)
+                    if not hasattr(obj, field_name):
+                        if related_objs:
+                            raise AttributeError(f"{model_class.__name__} has no M2M field '{field_name}'")
+                        continue
+                    getattr(obj, field_name).set(related_objs)
 
                 saved_objs.append(obj)
                 
@@ -209,15 +212,15 @@ def load_stratagems(csv_path):
         phases = []
         detachments = []
         
-        if "detachment" in row and row["detachment"].strip():
+        if "detachments" in row and row["detachments"].strip():
             # Grab detachment names
-            detachment_names = [name.strip() for name in row["detachment"].split(";") if name.strip()]
+            detachment_names = [name.strip() for name in row["detachments"].split(";") if name.strip()]
             for name in detachment_names:        
                 try:
                     detachment = Detachment.objects.get(name=name)
                     detachments.append(detachment)
                 except Detachment.DoesNotExist:
-                    errors.append(f"Detachment {row["detachment"]} not found for enhancement {row["name"]}")
+                    errors.append(f"Detachment {name} not found for stratagem {row["name"]}")
         # Grab phase names
         if "phase" in row and row["phase"].strip():
             phase_names = [name.strip() for name in row["phase"].split(";") if name.strip()]

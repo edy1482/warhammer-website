@@ -74,9 +74,16 @@ class DetachmentAdmin(admin.ModelAdmin):
 
 @admin.register(Stratagem)
 class StratagemAdmin(admin.ModelAdmin):
-    list_display = ("name", "detachment__name",)
-    search_fields = ("name",)
-    list_filter = ("detachment",)
+    list_display = ("name", "get_detachments",)
+    search_fields = ("name", "detachments__name")
+    list_filter = ("detachments",)
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related("detachments")
+
+    @admin.display(description="Detachments")
+    def get_detachments(self, obj):
+        return obj.detachment_names
 
 @admin.register(Enhancement)
 class EnhancementAdmin(admin.ModelAdmin):

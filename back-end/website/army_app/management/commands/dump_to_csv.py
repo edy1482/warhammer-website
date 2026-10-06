@@ -174,7 +174,7 @@ def dump_stratagems(out_dir: Path) -> int:
     ):
         rows.append([
             obj.id,
-            obj.detachment.name if obj.detachment else "",
+            _join(obj.detachment.order_by("name")),
             obj.name,
             obj.when,
             obj.target,

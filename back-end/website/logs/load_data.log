@@ -2302,3 +2302,104 @@
 2026-10-06 10:05:35,726 - INFO - load_data - ================================================================================
 2026-10-06 10:05:35,727 - INFO - load_data - Ending data load run at 2026-10-06 10:05:35
 2026-10-06 10:05:35,727 - INFO - load_data - ================================================================================
+2026-10-06 10:26:26,945 - INFO - load_data - ================================================================================
+2026-10-06 10:26:26,946 - INFO - load_data - Starting data load run at 2026-10-06 10:26:26
+2026-10-06 10:26:26,946 - INFO - load_data - ================================================================================
+2026-10-06 10:26:26,946 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-06 10:25:40
+2026-10-06 10:26:26,946 - INFO - load_data - Starting validation...
+2026-10-06 10:26:27,218 - INFO - load_data - OK: Abilities validation completed
+2026-10-06 10:26:27,227 - INFO - load_data - OK: Phase validation completed
+2026-10-06 10:26:27,428 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-06 10:26:27,440 - INFO - load_data - OK: Factions validation completed
+2026-10-06 10:26:27,575 - INFO - load_data - OK: Detachments validation completed
+2026-10-06 10:26:27,782 - INFO - load_data - OK: Enhancements validation completed
+2026-10-06 10:26:28,018 - ERROR - load_data - FAIL: Validation failed - Stratagems : 65 error(s) found...
+2026-10-06 10:26:28,018 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 1: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,018 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 2: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,018 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 3: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,018 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 4: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,018 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 5: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,018 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 6: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,018 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 7: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,019 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 8: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,019 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 9: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,019 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 10: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,019 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 11: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,019 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 12: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,019 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 13: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,019 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 14: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,019 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 15: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,020 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 16: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,020 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 17: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,020 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 18: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,020 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 19: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,020 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 20: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,020 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 21: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,020 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 22: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,020 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 23: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,020 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 24: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,021 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 25: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,021 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 26: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,021 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 27: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,021 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 28: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,021 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 29: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,021 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 30: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,021 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 31: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,021 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 32: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,021 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 33: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,022 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 34: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,022 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 35: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,022 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 36: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,022 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 37: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,022 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 38: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,022 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 39: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,022 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 40: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,023 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 41: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,023 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 42: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,023 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 43: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,023 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 44: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,023 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 45: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,023 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 46: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,023 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 47: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,023 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 48: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,023 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 49: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,023 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 50: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,024 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 51: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,024 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 52: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,024 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 53: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,024 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 54: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,024 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 55: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,024 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 56: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,024 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 57: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,024 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 58: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,025 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 59: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,025 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 60: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,025 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 61: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,025 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 62: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,025 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 63: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,025 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 64: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,025 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Unexpected Error - Row 65: Stratagem has no M2M field 'detachments'
+2026-10-06 10:26:28,026 - ERROR - load_data - FAIL: Validation failed with 65 errors(s) found
+2026-10-06 10:26:28,026 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-06 10:26:28,026 - INFO - load_data - ================================================================================
+2026-10-06 10:29:18,971 - INFO - load_data - ================================================================================
+2026-10-06 10:29:18,971 - INFO - load_data - Starting data load run at 2026-10-06 10:29:18
+2026-10-06 10:29:18,971 - INFO - load_data - ================================================================================
+2026-10-06 10:29:18,972 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-06 10:25:40
+2026-10-06 10:29:18,972 - INFO - load_data - Starting validation...
+2026-10-06 10:29:19,110 - INFO - load_data - OK: Abilities validation completed
+2026-10-06 10:29:19,119 - INFO - load_data - OK: Phase validation completed
+2026-10-06 10:29:19,323 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-06 10:29:19,335 - INFO - load_data - OK: Factions validation completed
+2026-10-06 10:29:19,461 - INFO - load_data - OK: Detachments validation completed
+2026-10-06 10:29:19,662 - INFO - load_data - OK: Enhancements validation completed
+2026-10-06 10:29:19,943 - INFO - load_data - OK: Stratagems validation completed
+2026-10-06 10:29:19,963 - INFO - load_data - OK: Weapons validation completed
+2026-10-06 10:29:20,012 - INFO - load_data - OK: Units validation completed
+2026-10-06 10:29:20,040 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-06 10:29:20,040 - INFO - load_data - OK: Leadership validation completed
+2026-10-06 10:29:20,046 - INFO - load_data - OK: Validation complete with 297 successful validations
+2026-10-06 10:29:20,046 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-06 10:29:20,046 - INFO - load_data - ================================================================================
+2026-10-06 10:29:20,046 - INFO - load_data - Ending data load run at 2026-10-06 10:29:20
+2026-10-06 10:29:20,046 - INFO - load_data - ================================================================================

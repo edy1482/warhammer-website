@@ -4,7 +4,7 @@ from django.urls import path, reverse
 from django.utils.safestring import mark_safe
 from django.utils.html import format_html
 from django.shortcuts import get_object_or_404, render
-from army_app.models import ScrapedPage, KeyWord, KeyWordCondition, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
+from army_app.models import ScrapedPage, ScrapedPageLoadResult, KeyWord, KeyWordCondition, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
 from army_app.models import Weapon
 from army_app.models import Unit, UnitPointBracket
 from army_app.models import Leadership
@@ -16,6 +16,13 @@ class ScrapedPageAdmin(admin.ModelAdmin):
     list_filter = ("status",)
     search_fields = ("url",)
     readonly_fields = ("html_content", "created_at", "updated_at")
+
+@admin.register(ScrapedPageLoadResult)
+class ScrapedPageLoadResultAdmin(admin.ModelAdmin):
+    list_display = ("page", "target_model", "status", "source_key", "error_msg")
+    list_filter = ("status", "target_model")
+    search_fields = ("source_key",)
+    readonly_fields = ("created_at", "updated_at")
 
 @admin.register(KeyWord)
 class KeyWordAdmin(admin.ModelAdmin):
@@ -67,7 +74,7 @@ class DetachmentAdmin(admin.ModelAdmin):
 
 @admin.register(Stratagem)
 class StratagemAdmin(admin.ModelAdmin):
-    list_display = ("name", "detachment",)
+    list_display = ("name", "detachment__name",)
     search_fields = ("name",)
     list_filter = ("detachment",)
 

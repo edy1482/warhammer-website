@@ -252,7 +252,7 @@ class Stratagem(models.Model):
     target = models.TextField(blank=True, default="")
     effect = models.TextField(blank=True, default="")
     restrictions = models.TextField(blank=True, default="")
-    detachment = models.ManyToManyField(Detachment, on_delete=models.CASCADE, null=True, blank=True, related_name="stratagems")
+    detachment = models.ManyToManyField(Detachment, blank=True, related_name="stratagems")
     cost = models.PositiveIntegerField(default=1)
     
     # Keywords

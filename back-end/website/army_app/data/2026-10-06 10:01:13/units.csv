@@ -1,0 +1,8 @@
+"id","faction","name","movement","toughness","armour_save","wounds","ld","objective_control","invulnerable_save","ranged_weapons","melee_weapons","wargear_options","abilities","wargear_abilities","keywords"
+"0","SPM","Captain","6","4","3+","4","5","1","4+","","","","","","INFANTRY;CHARACTER;GRENADES;IMPERIUM;TACTICUS;CAPTAIN"
+"1","SPM","Lieutenant","6","4","3+","4","5","1","","","","","","","INFANTRY;CHARACTER;GRENADES;IMPERIUM;TACTICUS;LIEUTENANT"
+"2","SPM","Intercessor Squad","6","4","3+","2","6","2","","","","","","","INFANTRY;BATTLELINE;GRENADES;IMPERIUM;TACTICUS;INTERCESSOR SQUAD"
+"3","SPM","Chaplain","6","4","3+","4","5","1","4+","","","","","","INFANTRY;CHARACTER;GRENADES;IMPERIUM;TACTICUS;CHAPLAIN"
+"4","SPM","Bladeguard Veteran Squad","6","4","3+","3","6","1","4+","","","","","","INFANTRY;GRENADES;IMPERIUM;TACTICUS;BLADEGUARD VETERAN SQUAD"
+"5","SPM","Sternguard Veteran Squad","6","4","3+","2","6","1","","","","","","","INFANTRY;GRENADES;IMPERIUM;TACTICUS;STERNGUARD VETERAN SQUAD"
+"6","SPM","Terminator Squad","5","5","2+","3","6","1","4+","","","","","","INFANTRY;IMPERIUM;TERMINATOR;TERMINATOR SQUAD"

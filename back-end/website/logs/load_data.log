@@ -2251,3 +2251,54 @@
 2026-10-01 10:25:34,718 - INFO - load_data - ================================================================================
 2026-10-01 10:25:34,718 - INFO - load_data - Ending data load run at 2026-10-01 10:25:34
 2026-10-01 10:25:34,718 - INFO - load_data - ================================================================================
+2026-10-06 10:01:46,920 - INFO - load_data - ================================================================================
+2026-10-06 10:01:46,921 - INFO - load_data - Starting data load run at 2026-10-06 10:01:46
+2026-10-06 10:01:46,921 - INFO - load_data - ================================================================================
+2026-10-06 10:01:46,921 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-06 10:01:13
+2026-10-06 10:01:46,922 - INFO - load_data - Starting validation...
+2026-10-06 10:01:47,022 - INFO - load_data - OK: Abilities validation completed
+2026-10-06 10:01:47,032 - INFO - load_data - OK: Phase validation completed
+2026-10-06 10:01:47,263 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-06 10:01:47,280 - INFO - load_data - OK: Factions validation completed
+2026-10-06 10:01:47,395 - INFO - load_data - OK: Detachments validation completed
+2026-10-06 10:01:47,608 - INFO - load_data - OK: Enhancements validation completed
+2026-10-06 10:01:47,609 - ERROR - load_data - FAIL: run aborted, transaction rolled back - cannot access local variable 'detachment' where it is not associated with a value
+2026-10-06 10:01:47,609 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-06 10:01:47,610 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-06 10:01:47,610 - INFO - load_data - ================================================================================
+2026-10-06 10:02:48,084 - INFO - load_data - ================================================================================
+2026-10-06 10:02:48,084 - INFO - load_data - Starting data load run at 2026-10-06 10:02:48
+2026-10-06 10:02:48,085 - INFO - load_data - ================================================================================
+2026-10-06 10:02:48,085 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-06 10:01:13
+2026-10-06 10:02:48,085 - INFO - load_data - Starting validation...
+2026-10-06 10:02:48,188 - INFO - load_data - OK: Abilities validation completed
+2026-10-06 10:02:48,198 - INFO - load_data - OK: Phase validation completed
+2026-10-06 10:02:48,413 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-06 10:02:48,424 - INFO - load_data - OK: Factions validation completed
+2026-10-06 10:02:48,546 - INFO - load_data - OK: Detachments validation completed
+2026-10-06 10:02:48,771 - INFO - load_data - OK: Enhancements validation completed
+2026-10-06 10:02:49,077 - ERROR - load_data - FAIL: run aborted, transaction rolled back - cannot access local variable 'detachment_names' where it is not associated with a value
+2026-10-06 10:02:49,077 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-06 10:02:49,077 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-06 10:02:49,077 - INFO - load_data - ================================================================================
+2026-10-06 10:05:34,727 - INFO - load_data - ================================================================================
+2026-10-06 10:05:34,727 - INFO - load_data - Starting data load run at 2026-10-06 10:05:34
+2026-10-06 10:05:34,727 - INFO - load_data - ================================================================================
+2026-10-06 10:05:34,728 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/2026-10-06 10:01:13
+2026-10-06 10:05:34,728 - INFO - load_data - Starting validation...
+2026-10-06 10:05:34,811 - INFO - load_data - OK: Abilities validation completed
+2026-10-06 10:05:34,821 - INFO - load_data - OK: Phase validation completed
+2026-10-06 10:05:35,027 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-06 10:05:35,039 - INFO - load_data - OK: Factions validation completed
+2026-10-06 10:05:35,147 - INFO - load_data - OK: Detachments validation completed
+2026-10-06 10:05:35,347 - INFO - load_data - OK: Enhancements validation completed
+2026-10-06 10:05:35,622 - INFO - load_data - OK: Stratagems validation completed
+2026-10-06 10:05:35,650 - INFO - load_data - OK: Weapons validation completed
+2026-10-06 10:05:35,693 - INFO - load_data - OK: Units validation completed
+2026-10-06 10:05:35,720 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-06 10:05:35,721 - INFO - load_data - OK: Leadership validation completed
+2026-10-06 10:05:35,726 - INFO - load_data - OK: Validation complete with 297 successful validations
+2026-10-06 10:05:35,726 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-06 10:05:35,726 - INFO - load_data - ================================================================================
+2026-10-06 10:05:35,727 - INFO - load_data - Ending data load run at 2026-10-06 10:05:35
+2026-10-06 10:05:35,727 - INFO - load_data - ================================================================================

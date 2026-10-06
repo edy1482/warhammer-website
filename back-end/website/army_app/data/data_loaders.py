@@ -184,24 +184,18 @@ def load_detachments(csv_path):
 
 def load_enhancements(csv_path):
     def row_to_enhancement_kwargs(row):    
-        errors = []
-        detachments = []
-
-        if "detachment" in row and row[detachment].strip():
-            # Grab detachment names
-            detachment_names = [name.strip() for name in row["detachment"].split(";") if name.strip()]
-        for name in detachment_names:        
-            try:
-                detachment = Detachment.objects.get(name=name)
-                detachments.append(detachment)
-            except Detachment.DoesNotExist:
-                errors.append(f"Detachment {row["detachment"]} not found for enhancement {row["name"]}")
+        errors = []        
+        
+        try:
+            detachment = Detachment.objects.get(name=row["detachment"])
+        except Detachment.DoesNotExist:
+            errors.append(f"Detachment {row["detachment"]} not found for enhancement {row["name"]}")
 
         if errors:
             return errors, None
         
         return errors, {
-            "detachments" : detachments,
+            "detachment" : detachment,
             "name" : row["name"],
             "description" : row["description"],
             "points" : row["points"],
@@ -215,23 +209,24 @@ def load_stratagems(csv_path):
         phases = []
         detachments = []
         
-        if "detachment" in row and row[detachment].strip():
+        if "detachment" in row and row["detachment"].strip():
             # Grab detachment names
             detachment_names = [name.strip() for name in row["detachment"].split(";") if name.strip()]
-        for name in detachment_names:        
-            try:
-                detachment = Detachment.objects.get(name=name)
-                detachments.append(detachment)
-            except Detachment.DoesNotExist:
-                errors.append(f"Detachment {row["detachment"]} not found for enhancement {row["name"]}")
+            for name in detachment_names:        
+                try:
+                    detachment = Detachment.objects.get(name=name)
+                    detachments.append(detachment)
+                except Detachment.DoesNotExist:
+                    errors.append(f"Detachment {row["detachment"]} not found for enhancement {row["name"]}")
         # Grab phase names
-        phase_names = [name.strip() for name in row["phase"].split(";") if name.strip()]
-        for name in phase_names:
-            try:
-                phase = Phase.objects.get(name=name)
-                phases.append(phase)
-            except Phase.DoesNotExist:
-                errors.append(f"Phase {name} does not exist in DB")        
+        if "phase" in row and row["phase"].strip():
+            phase_names = [name.strip() for name in row["phase"].split(";") if name.strip()]
+            for name in phase_names:
+                try:
+                    phase = Phase.objects.get(name=name)
+                    phases.append(phase)
+                except Phase.DoesNotExist:
+                    errors.append(f"Phase {name} does not exist in DB")        
 
         if errors:
             return errors, None

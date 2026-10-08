@@ -203,6 +203,7 @@ def dump_weapons(out_dir: Path) -> int:
         rows.append([
             obj.id,
             obj.name,
+            obj.display_name,
             obj.weapon_type,
             obj.weapon_range or "",
             obj.attacks,

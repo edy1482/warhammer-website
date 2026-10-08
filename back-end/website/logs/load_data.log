@@ -2403,3 +2403,93 @@
 2026-10-06 10:29:20,046 - INFO - load_data - ================================================================================
 2026-10-06 10:29:20,046 - INFO - load_data - Ending data load run at 2026-10-06 10:29:20
 2026-10-06 10:29:20,046 - INFO - load_data - ================================================================================
+2026-10-08 09:28:52,115 - INFO - load_data - ================================================================================
+2026-10-08 09:28:52,115 - INFO - load_data - Starting data load run at 2026-10-08 09:28:52
+2026-10-08 09:28:52,116 - INFO - load_data - ================================================================================
+2026-10-08 09:29:28,985 - INFO - load_data - ================================================================================
+2026-10-08 09:29:28,985 - INFO - load_data - Starting data load run at 2026-10-08 09:29:28
+2026-10-08 09:29:28,985 - INFO - load_data - ================================================================================
+2026-10-08 09:29:28,985 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 09:28:36
+2026-10-08 09:29:28,986 - INFO - load_data - Starting validation...
+2026-10-08 09:29:29,130 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 09:29:29,139 - INFO - load_data - OK: Phase validation completed
+2026-10-08 09:29:29,341 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-08 09:29:29,354 - INFO - load_data - OK: Factions validation completed
+2026-10-08 09:29:29,479 - INFO - load_data - OK: Detachments validation completed
+2026-10-08 09:29:29,677 - INFO - load_data - OK: Enhancements validation completed
+2026-10-08 09:29:29,935 - ERROR - load_data - FAIL: Validation failed - Stratagems : 1 error(s) found...
+2026-10-08 09:29:29,935 - ERROR - load_data - <class 'army_app.models.core.Stratagem'> Error - Row 67: Detachment Bollocks not found for stratagem fure
+2026-10-08 09:29:29,935 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-08 09:29:29,936 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-08 09:29:29,936 - INFO - load_data - ================================================================================
+2026-10-08 13:12:05,158 - INFO - load_data - ================================================================================
+2026-10-08 13:12:05,158 - INFO - load_data - Starting data load run at 2026-10-08 13:12:05
+2026-10-08 13:12:05,158 - INFO - load_data - ================================================================================
+2026-10-08 13:12:05,159 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 13:10:55
+2026-10-08 13:12:05,159 - INFO - load_data - Starting validation...
+2026-10-08 13:12:05,308 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 13:12:05,319 - INFO - load_data - OK: Phase validation completed
+2026-10-08 13:12:05,523 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-08 13:12:05,536 - INFO - load_data - OK: Factions validation completed
+2026-10-08 13:12:05,667 - INFO - load_data - OK: Detachments validation completed
+2026-10-08 13:12:05,868 - INFO - load_data - OK: Enhancements validation completed
+2026-10-08 13:12:06,133 - INFO - load_data - OK: Stratagems validation completed
+2026-10-08 13:12:06,136 - ERROR - load_data - FAIL: Validation failed - Weapons : 9 error(s) found...
+2026-10-08 13:12:06,137 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 1: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:12:06,137 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 2: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:12:06,137 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 3: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:12:06,137 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 4: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:12:06,137 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 5: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:12:06,137 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 6: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:12:06,137 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 7: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:12:06,137 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 8: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:12:06,137 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 9: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:12:06,138 - ERROR - load_data - FAIL: Validation failed with 9 errors(s) found
+2026-10-08 13:12:06,138 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-08 13:12:06,138 - INFO - load_data - ================================================================================
+2026-10-08 13:13:18,832 - INFO - load_data - ================================================================================
+2026-10-08 13:13:18,832 - INFO - load_data - Starting data load run at 2026-10-08 13:13:18
+2026-10-08 13:13:18,832 - INFO - load_data - ================================================================================
+2026-10-08 13:13:18,832 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 13:13:11
+2026-10-08 13:13:18,832 - INFO - load_data - Starting validation...
+2026-10-08 13:13:18,968 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 13:13:18,977 - INFO - load_data - OK: Phase validation completed
+2026-10-08 13:13:19,176 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-08 13:13:19,188 - INFO - load_data - OK: Factions validation completed
+2026-10-08 13:13:19,313 - INFO - load_data - OK: Detachments validation completed
+2026-10-08 13:13:19,510 - INFO - load_data - OK: Enhancements validation completed
+2026-10-08 13:13:19,763 - INFO - load_data - OK: Stratagems validation completed
+2026-10-08 13:13:19,766 - ERROR - load_data - FAIL: Validation failed - Weapons : 9 error(s) found...
+2026-10-08 13:13:19,767 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 1: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:13:19,767 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 2: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:13:19,767 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 3: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:13:19,767 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 4: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:13:19,767 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 5: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:13:19,767 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 6: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:13:19,767 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 7: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:13:19,767 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 8: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:13:19,768 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 9: {'display_name': ['This field cannot be blank.']}
+2026-10-08 13:13:19,768 - ERROR - load_data - FAIL: Validation failed with 9 errors(s) found
+2026-10-08 13:13:19,768 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-08 13:13:19,768 - INFO - load_data - ================================================================================
+2026-10-08 13:14:29,519 - INFO - load_data - ================================================================================
+2026-10-08 13:14:29,519 - INFO - load_data - Starting data load run at 2026-10-08 13:14:29
+2026-10-08 13:14:29,519 - INFO - load_data - ================================================================================
+2026-10-08 13:14:29,519 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 13:13:11
+2026-10-08 13:14:29,519 - INFO - load_data - Starting validation...
+2026-10-08 13:14:29,659 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 13:14:29,668 - INFO - load_data - OK: Phase validation completed
+2026-10-08 13:14:29,873 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-08 13:14:29,885 - INFO - load_data - OK: Factions validation completed
+2026-10-08 13:14:30,015 - INFO - load_data - OK: Detachments validation completed
+2026-10-08 13:14:30,220 - INFO - load_data - OK: Enhancements validation completed
+2026-10-08 13:14:30,478 - INFO - load_data - OK: Stratagems validation completed
+2026-10-08 13:14:30,498 - INFO - load_data - OK: Weapons validation completed
+2026-10-08 13:14:30,544 - INFO - load_data - OK: Units validation completed
+2026-10-08 13:14:30,571 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-08 13:14:30,572 - INFO - load_data - OK: Leadership validation completed
+2026-10-08 13:14:30,580 - INFO - load_data - OK: Validation complete with 297 successful validations
+2026-10-08 13:14:30,580 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-08 13:14:30,580 - INFO - load_data - ================================================================================
+2026-10-08 13:14:30,580 - INFO - load_data - Ending data load run at 2026-10-08 13:14:30
+2026-10-08 13:14:30,581 - INFO - load_data - ================================================================================

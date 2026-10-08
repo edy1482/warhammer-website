@@ -13,8 +13,8 @@ from army_app.data import LoaderValidationError
 from .utils import get_latest_version, get_previous_version
 
 BASE_DIR = Path(__file__).resolve().parents[2]
-DATA_DIR = BASE_DIR / "data"
-LOG_DIR = BASE_DIR /"logs"
+DATA_DIR = BASE_DIR / "data" / "csv_data"
+LOG_DIR = BASE_DIR / "logs"
 
 class Command(BaseCommand):
     help = "Validates, applies, or rolls back data from CSVs"
@@ -37,17 +37,12 @@ class Command(BaseCommand):
         logger.info(f"Starting data load run at {timestamp}")
         logger.info("=" * 80)
 
-        # Grab CSV folder (default to latest version if not given)
-        data_ver = DATA_DIR /Path(options.get("data_version")) if options.get("data_version") else None
-        version_dir = data_ver or get_latest_version(DATA_DIR)
-        if not version_dir:
-            logger.error("load_data command failed - No version folders found in directory")
-            # Exit with Django Command error - CI/CD will see failure like exit(1)
-            raise CommandError("No version folders found in directory")
-
         # Rollback (default to previous version if not given)
         if options["rollback"]:
-            version_dir = DATA_DIR / Path(options.get("data_version")) or get_previous_version(DATA_DIR)
+            if options.get("data_version"):
+                version_dir = DATA_DIR / options["data_version"]
+            else:
+                version_dir = get_previous_version(DATA_DIR)
             if not version_dir:
                 logger.error("load_data command failed - No previous version to rollback to")
                 # Exit with Django Command error - CI/CD will see failure like exit(1)
@@ -62,6 +57,14 @@ class Command(BaseCommand):
             return
         
         if options["apply"]:
+            # Check if csv folder exists
+            # Grab CSV folder (default to latest version if not given)
+            data_ver = DATA_DIR /Path(options.get("data_version")) if options.get("data_version") else None
+            version_dir = data_ver or get_latest_version(DATA_DIR)
+            if not version_dir:
+                logger.error("load_data command failed - No version folders found in directory")
+                # Exit with Django Command error - CI/CD will see failure like exit(1)
+                raise CommandError("No version folders found in directory")
             logger.info(f"[Apply] Starting data load for version {version_dir}")
             self.load_from_version(version_dir)  
             # Write logger outro
@@ -81,7 +84,6 @@ class Command(BaseCommand):
             logger.info(f"Ending deletion at {timestamp}")
             logger.info("=" * 80)
             return
-
 
     def get_loaders(self, version_dir):
         VERS_DIR = DATA_DIR / version_dir
@@ -133,7 +135,7 @@ class Command(BaseCommand):
             pass
         except Exception as e:
             all_errors.append(e)
-            logger.error(f"FAIL: run aborted, transaction rolled back - {e}")
+            logger.exception(f"FAIL: run aborted, transaction rolled back - {e}")
         # If errors, rollback the transaction, log it and exit
         if all_errors:
             logger.error(f"FAIL: Validation failed with {len(all_errors)} errors(s) found")
@@ -144,15 +146,15 @@ class Command(BaseCommand):
         else:
             logger.info(f"OK: Validation complete with {len(successful_saves)} successful validations")
 
-    def delete_all_objects(self):
-        # Deletes data from the db
-        logger = logging.getLogger("load_data")
+    def confirm_delete(self, logger):
         logger.info("Starting deletion of data...")
-        confirm = input("⚠️  This will delete data from the DB. Continue? [y/N]: ").strip().lower()
-        if confirm not in {"y", "yes"}:
+        answer = input("⚠️  This will delete data from the DB. Continue? [y/N]: ").strip().lower()
+        if answer not in {"y", "yes"}:
             logger.info("Deletion cancelled.")
-            return
-        
+            return False
+        return True
+
+    def clear_all_tables(self, logger):
         target_models = [
             "KeyWord",
             "Phase",
@@ -167,7 +169,6 @@ class Command(BaseCommand):
             "UnitPointBracket",
             "Leadership",
         ]
-        
         target_models.reverse()
         with transaction.atomic():
             # Clear all target_models
@@ -176,14 +177,23 @@ class Command(BaseCommand):
                 deleted, _ = model_class.objects.all().delete()
                 logger.info(f"Cleared {deleted} records from {model_name}")
 
+    def delete_all_objects(self):
+        # Deletes data from the db
+        logger = logging.getLogger("load_data")
+        if self.confirm_delete(logger):
+            with transaction.atomic():
+                self.clear_tables(logger)
+
 
     def rollback_version(self, version_dir):
         logger = logging.getLogger("load_data")
         logger.info("Starting rollback...")
+        if not self.confirm_delete(logger):
+            return
         # Delete data from DB
-        self.delete_all_objects()
         # Load from previous/specified version
-        self.load_from_version(version_dir)
-
+        with transaction.atomic():
+            self.clear_all_tables(logger)
+            self.load_from_version(version_dir)
         logger.info(f"OK: Rollback to {version_dir} completed.")
         return

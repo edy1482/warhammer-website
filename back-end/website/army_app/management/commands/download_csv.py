@@ -7,7 +7,7 @@ from pathlib import Path
 from .utils import get_version_folders
 
 BASE_DIR = Path(__file__).resolve().parents[2]
-DATA_DIR = BASE_DIR / "data"
+DATA_DIR = BASE_DIR / "data" / "csv_data"
 SHEET_ID = "1hjo6Cel6e-nh7Yc4d5fXnPHtLopYh_uEYGemejXlzJU"
 LOG_DIR = os.path.join(BASE_DIR, "logs")
 

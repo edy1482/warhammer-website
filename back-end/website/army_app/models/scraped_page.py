@@ -33,7 +33,7 @@ class ScrapedPage(models.Model):
     file_path = models.CharField(max_length = 500, blank=True, null=True)
     status_code = models.IntegerField(blank = True, null=True)
     status = models.CharField(max_length = MAX_CHARFIELD_LENGTH, choices = STATUS_CHOICES, default = STATUS_PENDING)
-    page_type = models.CharField(max_length = MAX_CHARFIELD_LENGTH, choices = PAGE_CHOICES, default = UNIT_CLUSTER)
+    page_type = models.CharField(max_length = MAX_CHARFIELD_LENGTH, choices = PAGE_CHOICES, default = UNKNOWN_CLUSTER)
     error_message = models.TextField(blank = True, null = True)
     scraped_at = models.DateTimeField(blank = True, null = True)
     created_at = models.DateTimeField(auto_now_add = True)

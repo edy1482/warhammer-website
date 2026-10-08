@@ -12,6 +12,7 @@ class Weapon(models.Model):
     }
     # Consider adding unit?
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
+    display_name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, default="")
     weapon_type = models.CharField(max_length=MIN_CHARFIELD_LENGTH, choices=TYPE_CHOICES)
     weapon_range = models.CharField(max_length=MIN_CHARFIELD_LENGTH, blank=True, null=True) # e.g. "12\""
     attacks = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be 1 or D3

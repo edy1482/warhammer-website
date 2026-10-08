@@ -1,4 +1,4 @@
-"id","detachment","name","turn","phase","when","target","effect","restrictions","cost","keyword_expression","keywords",""
+"id","detachments","name","turn","phase","when","target","effect","restrictions","cost","keyword_expression","keywords",""
 "0","Gladius Task Force;Anvil Siege Force;Ironstorm Spearhead;Firestorm Assault Force;Stormlance Task Force;Vanguard Spearhead;1st Company Task Force;Librarius Conclave","ARMOUR OF CONTEMPT","OPP","SHOOTING;FIGHT","WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets..","TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.","EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.","","1","","",""
 "1","Gladius Task Force","ADAPTIVE STRATEGY","YOUR","COMMAND","WHEN: Your Command phase.
 ","TARGET: One ADEPTUS ASTARTES unit from your army.","EFFECT: Select the Devastator Doctrine, Tactical Doctrine or Assault Doctrine. Until the start of your next Command phase, that Combat Doctrine is active for that unit instead of any other Combat Doctrine that is active for your army, even if you have already selected that doctrine this battle.","","1","","",""
@@ -123,3 +123,4 @@
 ","TARGET: One TYRANIDS unit from your army that just destroyed an enemy unit.","EFFECT: Your unit immediately Regenerates (See Feed the Swarm). When doing so, if your unit is a HARVESTER unit and you choose for one model to regain up to D3 lost wounds, that model regains up to 3 lost wounds instead.","","1","","",""
 "65","","FIRE OVERWATCH","OPP","MOVEMENT","WHEN: End of your opponent’s Movement phase.
 ","TARGET: One friendly unengaged unit (excluding TITANIC units).","EFFECT: Your unit shoots using snap shooting.","","1","CORE","CORE",""
+"66","Bollocks","fure","ANY","ANY","","","","","","","",""

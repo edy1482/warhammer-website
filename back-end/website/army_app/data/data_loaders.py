@@ -20,62 +20,66 @@ def keyword_handler(keywords, model_class, row):
         ]
     return keyword_objs
 
-def load_model(model_class, csv_path, row_to_kwargs):
+def csv_rows(csv_path):
+    with open(csv_path, encoding="utf-8", newline="") as f:
+        return list(csv.DictReader(f))
+
+def load_model(model_class, rows, row_to_kwargs, lookup_fields=None, outcomes=None):
     """
-    Generic CSV loader + validator for army_app models
-    Must be called within transaction.atomic block for easy rollback
+    rows: iterable of dicts (CSV rows or scraped rows)
+    row_to_kwargs: model based function that turns either csv row or scraped data into dict
+    lookup_fields: natural key, e.g. ("name",) or ("faction", "name"). None means use row["id"], as CSV.
+    outcomes: optional list for scraped data, one (source_key, obj_or_None, error_or_None) is appended per row,
+            so the caller can write ScrapedPageLoadResult rows after transaction finishes
     Handles ManyToMany Keyword column automatically
     """
     errors, saved_objs = [], []
-    with open(csv_path, encoding="utf-8", newline="") as f:
-        reader = csv.DictReader(f)
-        for idx, row in enumerate(reader, start=1):
-            # Build kwargs for model init
-            row_errors, kwargs = row_to_kwargs(row)
-            if row_errors:
-                for err in row_errors:
-                    errors.append(f"{model_class} Error - Row {idx}: {err}")
-                continue # skip creating this object
+    unique_fields = [ field.name for field in model_class._meta.fields if field.unique]
+    
+    for idx, row in enumerate(rows, start=1):
+        # Build kwargs for model init
+        row_errors, kwargs = row_to_kwargs(row)
+        if row_errors:
+            for err in row_errors:
+                errors.append(f"{model_class} Error - Row {idx}: {err}")
+            continue # skip creating this object
+        
+        try:
+            # Pull out M2M fields for post-save binding
+            m2m_fields = {
+                "keywords": keyword_handler("keywords", model_class, row),
+                "co_leaders": kwargs.pop("co_leaders", []),
+                "phase" : kwargs.pop("phase", []),
+                "abilities": kwargs.pop("abilities", []),
+                "wargear_abilities": kwargs.pop("wargear_abilities", []),
+                "ranged_weapons": kwargs.pop("ranged_weapons", []),
+                "melee_weapons": kwargs.pop("melee_weapons", []),
+                "detachments" : kwargs.pop("detachments", []),
+            }
+
+            # Validate temp instance
+            temp = model_class(**kwargs)
+            temp.full_clean(exclude=unique_fields)  # skip pk validation
+
+            # Create and save obj
+            obj, _ = model_class.objects.update_or_create(id=row["id"], defaults=kwargs)
+            obj.full_clean()
+            obj.save()
+
+            # Handle M2M relationships
+            for field_name, related_objs in m2m_fields.items():
+                if not hasattr(obj, field_name):
+                    if related_objs:
+                        raise AttributeError(f"{model_class.__name__} has no M2M field '{field_name}'")
+                    continue
+                getattr(obj, field_name).set(related_objs)
+
+            saved_objs.append(obj)
             
-            try:
-                # Pull out M2M fields for post-save binding
-                m2m_fields = {
-                    "keywords": keyword_handler("keywords", model_class, row),
-                    "co_leaders": kwargs.pop("co_leaders", []),
-                    "phase" : kwargs.pop("phase", []),
-                    "abilities": kwargs.pop("abilities", []),
-                    "wargear_abilities": kwargs.pop("wargear_abilities", []),
-                    "ranged_weapons": kwargs.pop("ranged_weapons", []),
-                    "melee_weapons": kwargs.pop("melee_weapons", []),
-                    "detachments" : kwargs.pop("detachments", []),
-                }
-
-                # Validate temp instance
-                unique_fields = [
-                    field.name for field in model_class._meta.fields if field.unique
-                ]
-                temp = model_class(**kwargs)
-                temp.full_clean(exclude=unique_fields)  # skip pk validation
-
-                # Create and save obj
-                obj, _ = model_class.objects.update_or_create(id=row["id"], defaults=kwargs)
-                obj.full_clean()
-                obj.save()
-
-                # Handle M2M relationships
-                for field_name, related_objs in m2m_fields.items():
-                    if not hasattr(obj, field_name):
-                        if related_objs:
-                            raise AttributeError(f"{model_class.__name__} has no M2M field '{field_name}'")
-                        continue
-                    getattr(obj, field_name).set(related_objs)
-
-                saved_objs.append(obj)
-                
-            except ValidationError as v_err:
-                errors.append(f"{model_class} Validation Error - Row {idx}: {v_err}")
-            except Exception as err:
-                errors.append(f"{model_class} Unexpected Error - Row {idx}: {err}")
+        except ValidationError as v_err:
+            errors.append(f"{model_class} Validation Error - Row {idx}: {v_err}")
+        except Exception as err:
+            errors.append(f"{model_class} Unexpected Error - Row {idx}: {err}")
     return errors, saved_objs
 
 def load_phase(csv_path):
@@ -85,7 +89,7 @@ def load_phase(csv_path):
         return errors, {
             "name" : row["phase_name"]
         }
-    return load_model(Phase, csv_path, row_to_phase_kwargs)
+    return load_model(Phase, csv_rows(csv_path), row_to_phase_kwargs)
 
 def load_abilities(csv_path):
     def row_to_abilities_kwargs(row):
@@ -95,7 +99,7 @@ def load_abilities(csv_path):
             "name" : row["name"],
             "ability_type" : row["ability_type"]
         }
-    return load_model(Ability, csv_path, row_to_abilities_kwargs)
+    return load_model(Ability, csv_rows(csv_path), row_to_abilities_kwargs)
 
 def load_ability_effects(csv_path):
     def row_to_ability_effects_kwargs(row):
@@ -126,7 +130,7 @@ def load_ability_effects(csv_path):
             "turn_scope" : row["turn"],
             "keyword_expression" : row["keyword_expression"],
         }
-    return load_model(AbilityEffect, csv_path, row_to_ability_effects_kwargs)
+    return load_model(AbilityEffect, csv_rows(csv_path), row_to_ability_effects_kwargs)
 
 def load_factions(csv_path):
     def row_to_faction_kwargs(row):
@@ -152,7 +156,7 @@ def load_factions(csv_path):
             "name" : row["name"],
             "abilities" : abilities,
         }
-    return load_model(Faction, csv_path, row_to_faction_kwargs)
+    return load_model(Faction, csv_rows(csv_path), row_to_faction_kwargs)
 
 def load_detachments(csv_path):
     def row_to_detachment_kwargs(row):
@@ -183,7 +187,7 @@ def load_detachments(csv_path):
             "name" : row["name"],
             "abilities" : abilities,
         }
-    return load_model(Detachment, csv_path, row_to_detachment_kwargs)
+    return load_model(Detachment, csv_rows(csv_path), row_to_detachment_kwargs)
 
 def load_enhancements(csv_path):
     def row_to_enhancement_kwargs(row):    
@@ -204,7 +208,7 @@ def load_enhancements(csv_path):
             "points" : row["points"],
             "keyword_expression" : row["keyword_expression"],
         }
-    return load_model(Enhancement, csv_path, row_to_enhancement_kwargs)
+    return load_model(Enhancement, csv_rows(csv_path), row_to_enhancement_kwargs)
 
 def load_stratagems(csv_path):
     def row_to_stratagems_kwargs(row):
@@ -246,7 +250,7 @@ def load_stratagems(csv_path):
             "cost" : row["cost"],
             "keyword_expression" : row["keyword_expression"],
         }
-    return load_model(Stratagem, csv_path, row_to_stratagems_kwargs)
+    return load_model(Stratagem, csv_rows(csv_path), row_to_stratagems_kwargs)
 
 def load_weapons(csv_path):
     def row_to_weapons_kwargs(row):
@@ -270,6 +274,7 @@ def load_weapons(csv_path):
             
         return errors, {
             "name" : row["name"],
+            "display_name" : row["display_name"],
             "weapon_type" : row["type"],
             "weapon_range" : row["range"],
             "attacks" : row["attacks"],
@@ -279,7 +284,7 @@ def load_weapons(csv_path):
             "damage" : row["damage"],
             "abilities" : abilities,
         }
-    return load_model(Weapon, csv_path, row_to_weapons_kwargs)
+    return load_model(Weapon, csv_rows(csv_path), row_to_weapons_kwargs)
 
 def load_units(csv_path):
     def row_to_units_kwargs(row):
@@ -354,7 +359,7 @@ def load_units(csv_path):
             "abilities" : abilities,
             "wargear_abilities" : wargear_abilities,
         }
-    return load_model(Unit, csv_path, row_to_units_kwargs)
+    return load_model(Unit, csv_rows(csv_path), row_to_units_kwargs)
 
 def load_unit_point_brackets(csv_path):
     def row_to_brackets_kwargs(row):
@@ -373,7 +378,7 @@ def load_unit_point_brackets(csv_path):
             "max_models" : row["max_models"],
             "points" : row["points"],
         }
-    return load_model(UnitPointBracket, csv_path, row_to_brackets_kwargs)
+    return load_model(UnitPointBracket, csv_rows(csv_path), row_to_brackets_kwargs)
 
 def load_leadership(csv_path):
     def row_to_leadership(row):
@@ -406,4 +411,4 @@ def load_leadership(csv_path):
             "attached_unit" : attached_unit,
             "co_leaders" : co_leaders,
         }
-    return load_model(Leadership, csv_path, row_to_leadership)
+    return load_model(Leadership, csv_rows(csv_path), row_to_leadership)

@@ -6,7 +6,7 @@ from datetime import datetime
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 from pathlib import Path
-from army_app.models.core import ScrapedPage
+from army_app.models import ScrapedPage
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 
@@ -82,7 +82,7 @@ PREFIXES = [
 ]
 
 BASE_DIR = Path(__file__).resolve().parents[2]
-HTML_DIR = BASE_DIR / "html_data"
+HTML_DIR = BASE_DIR / "data" / "html_data"
 
 
 class Command(BaseCommand):
@@ -138,6 +138,10 @@ class Command(BaseCommand):
                 page.status = ScrapedPage.STATUS_SUCCESS
                 page.error_message = None
                 page.scraped_at = timezone.now()
+                if url.endswith("datasheets.html"):
+                    page.page_type = ScrapedPage.UNIT_CLUSTER
+                else:
+                    page.page_type = ScrapedPage.FACTION_CLUSTER
                 page.save()
 
                 logger.info(f"  Saved -> {file_path}")
@@ -147,7 +151,6 @@ class Command(BaseCommand):
                 page.error_message = str(exc)
                 page.status_code = getattr(exc.response, "status_code", None)
                 page.scraped_at = timezone.now()
-                page.page_type = ScrapedPage.UNIT_CLUTER if url.endswith("datasheets.html") else page.page_type = ScrapedPage.FACTION_CLUSTER
                 page.save()
 
                 logger.error(f"  Failed: {exc}")
@@ -179,7 +182,7 @@ class Command(BaseCommand):
         if url.endswith("datasheets.html"):
             soup_str = self.clean_datasheet(html)
         else:
-            soup_str = self.clean_army_page(html)
+            soup_str = self.clean_faction_page(html)
 
         with open(full_path, "w", encoding="utf-8") as f:
             f.write(soup_str)
@@ -195,7 +198,7 @@ class Command(BaseCommand):
         soup_str = str(soup.find_all("div", "dsOuterFrame datasheet pagebreak clFl")) + str(soup.find_all("div", "dsOuterFrame datasheet pagebreak clFl sForgeWorld")) + str(soup.find_all("div", "dsOuterFrame datasheet pagebreak"))
         return soup_str
 
-    def clean_army_page(self, html):
+    def clean_faction_page(self, html):
         soup = BeautifulSoup(html, "html.parser")
         # Columns2 is for the army rule
         # clFl is for each detachment

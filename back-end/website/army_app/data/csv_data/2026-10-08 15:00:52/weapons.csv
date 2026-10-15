@@ -8,3 +8,5 @@
 "6","Close combat weapon","Close combat weapon","MELEE","","6","2+","4","0","1",""
 "7","Master-crafted power weapon","Master-crafted power weapon","MELEE","","6","2+","5","-2","2",""
 "8","Power fist","Power fist","MELEE","","5","2+","8","-2","2",""
+"9","Storm Bolter (Librarian In Terminator Armour, Ranged)","Storm Bolter","RANGED","24""","2","3+","4","0","1","Rapid Fire 2"
+"10","Storm Bolter (Terminator, Ranged)","Storm Bolter","RANGED","24""","2","3+","4","0","1","Rapid Fire 2"

@@ -51,6 +51,7 @@ def dump_abilities(out_dir: Path) -> int:
         rows.append([
             obj.id,
             obj.name,
+            obj.value,
             obj.ability_type,
         ])
     _write(out_dir, "abilities.csv", headers, rows)

@@ -5,6 +5,8 @@ from army_app.models import KeyWord, Phase, Ability, AbilityEffect, Faction, Det
 from army_app.models import Weapon
 from army_app.models import Unit, UnitPointBracket
 from army_app.models import Leadership
+from django.db import transaction
+from .utils import resolve_ability
 
 # TODO: make stratagem when field match with Phase model
 
@@ -29,57 +31,70 @@ def load_model(model_class, rows, row_to_kwargs, lookup_fields=None, outcomes=No
     rows: iterable of dicts (CSV rows or scraped rows)
     row_to_kwargs: model based function that turns either csv row or scraped data into dict
     lookup_fields: natural key, e.g. ("name",) or ("faction", "name"). None means use row["id"], as CSV.
-    outcomes: optional list for scraped data, one (source_key, obj_or_None, error_or_None) is appended per row,
+    outcomes: optional list for scraped data, one tuple of (source_key, obj_or_None, error_or_None) is appended per row,
             so the caller can write ScrapedPageLoadResult rows after transaction finishes
     Handles ManyToMany Keyword column automatically
     """
+    def record(label, obj, error):
+        if outcomes is not None:
+            outcomes.append((label, obj, error))
+
     errors, saved_objs = [], []
     unique_fields = [ field.name for field in model_class._meta.fields if field.unique]
     
     for idx, row in enumerate(rows, start=1):
+        label = row.get("_source_key") or f"Row {idx}"
         # Build kwargs for model init
         row_errors, kwargs = row_to_kwargs(row)
         if row_errors:
-            for err in row_errors:
-                errors.append(f"{model_class} Error - Row {idx}: {err}")
+            msgs = [f"{model_class} Error - {label}: {err}" for err in row_errors]
+            errors.extend(msgs)
+            record(label, None, "; ".join(row_errors))
             continue # skip creating this object
         
         try:
+            with transaction.atomic():
             # Pull out M2M fields for post-save binding
-            m2m_fields = {
-                "keywords": keyword_handler("keywords", model_class, row),
-                "co_leaders": kwargs.pop("co_leaders", []),
-                "phase" : kwargs.pop("phase", []),
-                "abilities": kwargs.pop("abilities", []),
-                "wargear_abilities": kwargs.pop("wargear_abilities", []),
-                "ranged_weapons": kwargs.pop("ranged_weapons", []),
-                "melee_weapons": kwargs.pop("melee_weapons", []),
-                "detachments" : kwargs.pop("detachments", []),
-            }
+                m2m_fields = {
+                    "keywords": keyword_handler("keywords", model_class, row),
+                    "co_leaders": kwargs.pop("co_leaders", []),
+                    "phase" : kwargs.pop("phase", []),
+                    "abilities": kwargs.pop("abilities", []),
+                    "wargear_abilities": kwargs.pop("wargear_abilities", []),
+                    "ranged_weapons": kwargs.pop("ranged_weapons", []),
+                    "melee_weapons": kwargs.pop("melee_weapons", []),
+                    "detachments" : kwargs.pop("detachments", []),
+                }
 
-            # Validate temp instance
-            temp = model_class(**kwargs)
-            temp.full_clean(exclude=unique_fields)  # skip pk validation
+                # Validate temp instance
+                model_class(**kwargs).full_clean(validate_unique=False, validate_constraints=False)
 
-            # Create and save obj
-            obj, _ = model_class.objects.update_or_create(id=row["id"], defaults=kwargs)
-            obj.full_clean()
-            obj.save()
+                lookup = (
+                    {f: kwargs[f] for f in lookup_fields}
+                    if lookup_fields else {"id" : row["id"]}
+                )
 
-            # Handle M2M relationships
-            for field_name, related_objs in m2m_fields.items():
-                if not hasattr(obj, field_name):
-                    if related_objs:
-                        raise AttributeError(f"{model_class.__name__} has no M2M field '{field_name}'")
-                    continue
-                getattr(obj, field_name).set(related_objs)
+                # Create and save obj
+                obj, _ = model_class.objects.update_or_create(**lookup, defaults=kwargs)
+                obj.full_clean()
+
+                # Handle M2M relationships
+                for field_name, related_objs in m2m_fields.items():
+                    if not hasattr(obj, field_name):
+                        if related_objs:
+                            raise AttributeError(f"{model_class.__name__} has no M2M field '{field_name}'")
+                        continue
+                    getattr(obj, field_name).set(related_objs)
 
             saved_objs.append(obj)
+            record(label, obj, None)
             
         except ValidationError as v_err:
             errors.append(f"{model_class} Validation Error - Row {idx}: {v_err}")
+            record(label, None, str(v_err))
         except Exception as err:
             errors.append(f"{model_class} Unexpected Error - Row {idx}: {err}")
+            record(label, None, str(err))
     return errors, saved_objs
 
 def load_phase(csv_path):
@@ -97,6 +112,7 @@ def load_abilities(csv_path):
 
         return errors, {
             "name" : row["name"],
+            "value" : row["value"],
             "ability_type" : row["ability_type"]
         }
     return load_model(Ability, csv_rows(csv_path), row_to_abilities_kwargs)
@@ -116,9 +132,9 @@ def load_ability_effects(csv_path):
                 errors.append(f"Phase {name} does not exist in DB")
 
         try:
-            ability = Ability.objects.get(name=row["ability"])
+            ability = resolve_ability(row["ability"])
         except Ability.DoesNotExist:
-            errors.append(f"Ability {row['ability']} not found for ability effect")
+            errors.append(f"Ability {row["ability"]} not found for ability effect")
         
         if errors:
             return errors, None
@@ -141,10 +157,10 @@ def load_factions(csv_path):
         if "abilities" in row and row["abilities"].strip():
             # Grab ability names
             ability_names = [name.strip() for name in row["abilities"].split(";") if name.strip()]
-            # Grab abilities themselves, add abilities not found
+            # Grab abilities themselves
             for name in ability_names:
                 try:
-                    ability = Ability.objects.get(name=name)
+                    ability = resolve_ability(name)
                     abilities.append(ability)
                 except Ability.DoesNotExist:
                     errors.append(f"Ability {name} does not exist in DB")
@@ -174,7 +190,7 @@ def load_detachments(csv_path):
             # Grab abilities themselves, add abilities not found
             for name in ability_names:
                 try:
-                    ability = Ability.objects.get(name=name)
+                    ability = resolve_ability(name)
                     abilities.append(ability)
                 except Ability.DoesNotExist:
                     errors.append(f"Ability {name} does not exist in DB")
@@ -264,7 +280,7 @@ def load_weapons(csv_path):
             # Grab abilities themselves, add abilities not found
             for name in ability_names:
                 try:
-                    ability = Ability.objects.get(name=name)
+                    ability = resolve_ability(name)
                     abilities.append(ability)
                 except Ability.DoesNotExist:
                     errors.append(f"Ability {name} does not exist in DB")
@@ -324,7 +340,7 @@ def load_units(csv_path):
             # Grab abilities themselves, add abilities not found
             for name in ability_names:
                 try:
-                    ability = Ability.objects.get(name=name)
+                    ability = resolve_ability(name)
                     abilities.append(ability)
                 except Ability.DoesNotExist:
                     errors.append(f"Ability {name} does not exist in DB")
@@ -335,7 +351,7 @@ def load_units(csv_path):
             # Grab abilities themselves, add abilities not found
             for name in wargear_ability_names:
                 try:
-                    ability = Ability.objects.get(name=name)
+                    ability = resolve_ability(name)
                     wargear_abilities.append(ability)
                 except Ability.DoesNotExist:
                     errors.append(f"Ability {name} does not exist in DB")

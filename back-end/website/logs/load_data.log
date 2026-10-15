@@ -2493,3 +2493,485 @@
 2026-10-08 13:14:30,580 - INFO - load_data - ================================================================================
 2026-10-08 13:14:30,580 - INFO - load_data - Ending data load run at 2026-10-08 13:14:30
 2026-10-08 13:14:30,581 - INFO - load_data - ================================================================================
+2026-10-08 14:26:38,275 - INFO - load_data - ================================================================================
+2026-10-08 14:26:38,276 - INFO - load_data - Starting data load run at 2026-10-08 14:26:38
+2026-10-08 14:26:38,276 - INFO - load_data - ================================================================================
+2026-10-08 14:26:38,276 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 14:24:52
+2026-10-08 14:26:38,276 - INFO - load_data - Starting validation...
+2026-10-08 14:26:38,704 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 14:26:38,714 - INFO - load_data - OK: Phase validation completed
+2026-10-08 14:26:38,959 - ERROR - load_data - FAIL: Validation failed - AbilityEffect : 1 error(s) found...
+2026-10-08 14:26:38,959 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Error - Row 46: Ability Hazardous not found for ability effect
+2026-10-08 14:26:38,959 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-08 14:26:38,960 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-08 14:26:38,960 - INFO - load_data - ================================================================================
+2026-10-08 14:27:14,295 - INFO - load_data - ================================================================================
+2026-10-08 14:27:14,296 - INFO - load_data - Starting data load run at 2026-10-08 14:27:14
+2026-10-08 14:27:14,296 - INFO - load_data - ================================================================================
+2026-10-08 14:27:14,296 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 14:24:52
+2026-10-08 14:27:14,296 - INFO - load_data - Starting validation...
+2026-10-08 14:27:14,464 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 14:27:14,473 - INFO - load_data - OK: Phase validation completed
+2026-10-08 14:27:14,686 - ERROR - load_data - FAIL: Validation failed - AbilityEffect : 1 error(s) found...
+2026-10-08 14:27:14,698 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Error - Row 46: Ability Hazardous not found for ability effect
+2026-10-08 14:27:14,699 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-08 14:27:14,699 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-08 14:27:14,699 - INFO - load_data - ================================================================================
+2026-10-08 14:27:42,201 - INFO - load_data - ================================================================================
+2026-10-08 14:27:42,201 - INFO - load_data - Starting data load run at 2026-10-08 14:27:42
+2026-10-08 14:27:42,201 - INFO - load_data - ================================================================================
+2026-10-08 14:27:42,201 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 14:27:35
+2026-10-08 14:27:42,202 - INFO - load_data - Starting validation...
+2026-10-08 14:27:42,529 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 14:27:42,538 - INFO - load_data - OK: Phase validation completed
+2026-10-08 14:27:42,761 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-08 14:27:42,774 - INFO - load_data - OK: Factions validation completed
+2026-10-08 14:27:42,914 - INFO - load_data - OK: Detachments validation completed
+2026-10-08 14:27:43,130 - INFO - load_data - OK: Enhancements validation completed
+2026-10-08 14:27:43,404 - INFO - load_data - OK: Stratagems validation completed
+2026-10-08 14:27:43,446 - INFO - load_data - OK: Weapons validation completed
+2026-10-08 14:27:43,500 - INFO - load_data - OK: Units validation completed
+2026-10-08 14:27:43,529 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-08 14:27:43,530 - INFO - load_data - OK: Leadership validation completed
+2026-10-08 14:27:43,536 - INFO - load_data - OK: Validation complete with 300 successful validations
+2026-10-08 14:27:43,537 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-08 14:27:43,537 - INFO - load_data - ================================================================================
+2026-10-08 14:27:43,537 - INFO - load_data - Ending data load run at 2026-10-08 14:27:43
+2026-10-08 14:27:43,537 - INFO - load_data - ================================================================================
+2026-10-08 14:28:57,426 - INFO - load_data - ================================================================================
+2026-10-08 14:28:57,427 - INFO - load_data - Starting data load run at 2026-10-08 14:28:57
+2026-10-08 14:28:57,427 - INFO - load_data - ================================================================================
+2026-10-08 14:28:57,427 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 14:27:35
+2026-10-08 14:28:57,428 - INFO - load_data - Starting validation...
+2026-10-08 14:28:57,683 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 14:28:57,693 - INFO - load_data - OK: Phase validation completed
+2026-10-08 14:28:57,912 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-08 14:28:57,925 - INFO - load_data - OK: Factions validation completed
+2026-10-08 14:28:58,057 - INFO - load_data - OK: Detachments validation completed
+2026-10-08 14:28:58,267 - INFO - load_data - OK: Enhancements validation completed
+2026-10-08 14:28:58,534 - INFO - load_data - OK: Stratagems validation completed
+2026-10-08 14:28:58,557 - INFO - load_data - OK: Weapons validation completed
+2026-10-08 14:28:58,606 - INFO - load_data - OK: Units validation completed
+2026-10-08 14:28:58,634 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-08 14:28:58,635 - INFO - load_data - OK: Leadership validation completed
+2026-10-08 14:28:58,640 - INFO - load_data - OK: Validation complete with 300 successful validations
+2026-10-08 14:28:58,641 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-08 14:28:58,641 - INFO - load_data - ================================================================================
+2026-10-08 14:28:58,641 - INFO - load_data - Ending data load run at 2026-10-08 14:28:58
+2026-10-08 14:28:58,641 - INFO - load_data - ================================================================================
+2026-10-08 14:36:16,485 - INFO - load_data - ================================================================================
+2026-10-08 14:36:16,486 - INFO - load_data - Starting data load run at 2026-10-08 14:36:16
+2026-10-08 14:36:16,486 - INFO - load_data - ================================================================================
+2026-10-08 14:36:16,486 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 14:34:45
+2026-10-08 14:36:16,487 - INFO - load_data - Starting validation...
+2026-10-08 14:36:16,713 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 14:36:16,723 - INFO - load_data - OK: Phase validation completed
+2026-10-08 14:36:16,939 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-08 14:36:16,962 - INFO - load_data - OK: Factions validation completed
+2026-10-08 14:36:17,098 - INFO - load_data - OK: Detachments validation completed
+2026-10-08 14:36:17,315 - INFO - load_data - OK: Enhancements validation completed
+2026-10-08 14:36:17,583 - INFO - load_data - OK: Stratagems validation completed
+2026-10-08 14:36:17,609 - INFO - load_data - OK: Weapons validation completed
+2026-10-08 14:36:17,656 - INFO - load_data - OK: Units validation completed
+2026-10-08 14:36:17,683 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-08 14:36:17,684 - INFO - load_data - OK: Leadership validation completed
+2026-10-08 14:36:17,713 - INFO - load_data - OK: Validation complete with 301 successful validations
+2026-10-08 14:36:17,714 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-08 14:36:17,714 - INFO - load_data - ================================================================================
+2026-10-08 14:36:17,714 - INFO - load_data - Ending data load run at 2026-10-08 14:36:17
+2026-10-08 14:36:17,714 - INFO - load_data - ================================================================================
+2026-10-08 14:36:23,511 - INFO - load_data - ================================================================================
+2026-10-08 14:36:23,511 - INFO - load_data - Starting data load run at 2026-10-08 14:36:23
+2026-10-08 14:36:23,511 - INFO - load_data - ================================================================================
+2026-10-08 14:36:23,512 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 14:34:45
+2026-10-08 14:36:23,512 - INFO - load_data - Starting validation...
+2026-10-08 14:36:23,675 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 14:36:23,685 - INFO - load_data - OK: Phase validation completed
+2026-10-08 14:36:23,895 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-08 14:36:23,907 - INFO - load_data - OK: Factions validation completed
+2026-10-08 14:36:24,038 - INFO - load_data - OK: Detachments validation completed
+2026-10-08 14:36:24,239 - INFO - load_data - OK: Enhancements validation completed
+2026-10-08 14:36:24,497 - INFO - load_data - OK: Stratagems validation completed
+2026-10-08 14:36:24,521 - INFO - load_data - OK: Weapons validation completed
+2026-10-08 14:36:24,567 - INFO - load_data - OK: Units validation completed
+2026-10-08 14:36:24,594 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-08 14:36:24,595 - INFO - load_data - OK: Leadership validation completed
+2026-10-08 14:36:24,599 - INFO - load_data - OK: Validation complete with 301 successful validations
+2026-10-08 14:36:24,599 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-08 14:36:24,599 - INFO - load_data - ================================================================================
+2026-10-08 14:36:24,600 - INFO - load_data - Ending data load run at 2026-10-08 14:36:24
+2026-10-08 14:36:24,600 - INFO - load_data - ================================================================================
+2026-10-08 14:49:56,984 - INFO - load_data - ================================================================================
+2026-10-08 14:49:56,985 - INFO - load_data - Starting data load run at 2026-10-08 14:49:56
+2026-10-08 14:49:56,985 - INFO - load_data - ================================================================================
+2026-10-08 14:49:56,985 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 14:48:00
+2026-10-08 14:49:56,985 - INFO - load_data - Starting validation...
+2026-10-08 14:49:57,235 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 14:49:57,254 - INFO - load_data - OK: Phase validation completed
+2026-10-08 14:49:57,481 - ERROR - load_data - FAIL: Validation failed - AbilityEffect : 1 error(s) found...
+2026-10-08 14:49:57,481 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Error - Row 48: Ability Deadly Demise D3 not found for ability effect
+2026-10-08 14:49:57,482 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-08 14:49:57,482 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-08 14:49:57,482 - INFO - load_data - ================================================================================
+2026-10-08 14:57:08,519 - INFO - load_data - ================================================================================
+2026-10-08 14:57:08,528 - INFO - load_data - Starting data load run at 2026-10-08 14:57:08
+2026-10-08 14:57:08,528 - INFO - load_data - ================================================================================
+2026-10-08 14:57:08,528 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 14:56:21
+2026-10-08 14:57:08,528 - INFO - load_data - Starting validation...
+2026-10-08 14:57:08,809 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 14:57:08,818 - INFO - load_data - OK: Phase validation completed
+2026-10-08 14:57:09,032 - ERROR - load_data - FAIL: Validation failed - AbilityEffect : 1 error(s) found...
+2026-10-08 14:57:09,032 - ERROR - load_data - <class 'army_app.models.core.AbilityEffect'> Error - Row 48: Ability Deadly Demise D3 not found for ability effect
+2026-10-08 14:57:09,033 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-08 14:57:09,033 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-08 14:57:09,033 - INFO - load_data - ================================================================================
+2026-10-08 15:05:52,497 - INFO - load_data - ================================================================================
+2026-10-08 15:05:52,497 - INFO - load_data - Starting data load run at 2026-10-08 15:05:52
+2026-10-08 15:05:52,497 - INFO - load_data - ================================================================================
+2026-10-08 15:05:52,498 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:05:25
+2026-10-08 15:05:52,498 - INFO - load_data - Starting validation...
+2026-10-08 15:05:52,791 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 15:05:52,801 - INFO - load_data - OK: Phase validation completed
+2026-10-08 15:05:53,020 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-08 15:05:53,033 - INFO - load_data - OK: Factions validation completed
+2026-10-08 15:05:53,164 - INFO - load_data - OK: Detachments validation completed
+2026-10-08 15:05:53,382 - INFO - load_data - OK: Enhancements validation completed
+2026-10-08 15:05:53,641 - INFO - load_data - OK: Stratagems validation completed
+2026-10-08 15:05:53,665 - INFO - load_data - OK: Weapons validation completed
+2026-10-08 15:05:53,752 - INFO - load_data - OK: Units validation completed
+2026-10-08 15:05:53,778 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-08 15:05:53,779 - INFO - load_data - OK: Leadership validation completed
+2026-10-08 15:05:53,792 - INFO - load_data - OK: Validation complete with 304 successful validations
+2026-10-08 15:05:53,793 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-08 15:05:53,793 - INFO - load_data - ================================================================================
+2026-10-08 15:05:53,793 - INFO - load_data - Ending data load run at 2026-10-08 15:05:53
+2026-10-08 15:05:53,793 - INFO - load_data - ================================================================================
+2026-10-08 15:08:06,240 - INFO - load_data - ================================================================================
+2026-10-08 15:08:06,241 - INFO - load_data - Starting data load run at 2026-10-08 15:08:06
+2026-10-08 15:08:06,241 - INFO - load_data - ================================================================================
+2026-10-08 15:08:06,241 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:05:25
+2026-10-08 15:08:06,241 - INFO - load_data - Starting validation...
+2026-10-08 15:08:06,456 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 15:08:06,465 - INFO - load_data - OK: Phase validation completed
+2026-10-08 15:08:06,683 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-08 15:08:06,706 - INFO - load_data - OK: Factions validation completed
+2026-10-08 15:08:06,847 - INFO - load_data - OK: Detachments validation completed
+2026-10-08 15:08:07,062 - INFO - load_data - OK: Enhancements validation completed
+2026-10-08 15:08:07,328 - INFO - load_data - OK: Stratagems validation completed
+2026-10-08 15:08:07,354 - INFO - load_data - OK: Weapons validation completed
+2026-10-08 15:08:07,407 - INFO - load_data - OK: Units validation completed
+2026-10-08 15:08:07,435 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-08 15:08:07,435 - INFO - load_data - OK: Leadership validation completed
+2026-10-08 15:08:07,441 - INFO - load_data - OK: Validation complete with 304 successful validations
+2026-10-08 15:08:07,442 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-08 15:08:07,442 - INFO - load_data - ================================================================================
+2026-10-08 15:08:07,442 - INFO - load_data - Ending data load run at 2026-10-08 15:08:07
+2026-10-08 15:08:07,442 - INFO - load_data - ================================================================================
+2026-10-08 15:12:10,892 - INFO - load_data - ================================================================================
+2026-10-08 15:12:10,893 - INFO - load_data - Starting data load run at 2026-10-08 15:12:10
+2026-10-08 15:12:10,893 - INFO - load_data - ================================================================================
+2026-10-08 15:12:10,893 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:12:02
+2026-10-08 15:12:10,894 - INFO - load_data - Starting validation...
+2026-10-08 15:12:11,166 - ERROR - load_data - FAIL: Validation failed - Abilities : 1 error(s) found...
+2026-10-08 15:12:11,166 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 49: duplicate key value violates unique constraint "army_app_ability_name_key"
+DETAIL:  Key (name)=(Deadly Demise) already exists.
+
+2026-10-08 15:12:11,166 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-08 15:12:11,166 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-08 15:12:11,166 - INFO - load_data - ================================================================================
+2026-10-08 15:15:48,490 - INFO - load_data - ================================================================================
+2026-10-08 15:15:48,491 - INFO - load_data - Starting data load run at 2026-10-08 15:15:48
+2026-10-08 15:15:48,491 - INFO - load_data - ================================================================================
+2026-10-08 15:15:48,491 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:12:02
+2026-10-08 15:15:48,491 - INFO - load_data - Starting validation...
+2026-10-08 15:15:48,529 - ERROR - load_data - FAIL: Validation failed - Abilities : 48 error(s) found...
+2026-10-08 15:15:48,529 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 1: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,529 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 2: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,530 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 3: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,530 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 4: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,530 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 5: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,530 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 6: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,530 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 7: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,530 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 8: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,530 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 9: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,530 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 10: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,531 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 11: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,531 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 12: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,531 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 13: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,531 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 14: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,531 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 15: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,531 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 16: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,531 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 17: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,531 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 18: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,532 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 19: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,532 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 20: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,532 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 21: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,532 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 22: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,532 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 23: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,532 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 24: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,532 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 25: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,532 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 26: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,532 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 27: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,533 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 28: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,533 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 29: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,533 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 30: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,533 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 31: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,533 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 32: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,533 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 33: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,533 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 34: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,533 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 35: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,534 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 36: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,534 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 37: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,534 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 38: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,534 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 39: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,534 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 40: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,534 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 41: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,534 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 42: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,534 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 43: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,535 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 44: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,535 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 45: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,535 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 46: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,535 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 47: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,535 - ERROR - load_data - <class 'army_app.models.core.Ability'> Validation Error - Row 48: {'__all__': ['Ability with this Name and Value already exists.']}
+2026-10-08 15:15:48,535 - ERROR - load_data - FAIL: Validation failed with 48 errors(s) found
+2026-10-08 15:15:48,536 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-08 15:15:48,536 - INFO - load_data - ================================================================================
+2026-10-08 15:18:30,231 - INFO - load_data - ================================================================================
+2026-10-08 15:18:30,232 - INFO - load_data - Starting data load run at 2026-10-08 15:18:30
+2026-10-08 15:18:30,232 - INFO - load_data - ================================================================================
+2026-10-08 15:18:30,233 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:12:02
+2026-10-08 15:18:30,233 - INFO - load_data - Starting validation...
+2026-10-08 15:18:30,492 - INFO - load_data - OK: Abilities validation completed
+2026-10-08 15:18:30,502 - INFO - load_data - OK: Phase validation completed
+2026-10-08 15:18:30,725 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-08 15:18:30,754 - INFO - load_data - OK: Factions validation completed
+2026-10-08 15:18:30,885 - INFO - load_data - OK: Detachments validation completed
+2026-10-08 15:18:31,095 - INFO - load_data - OK: Enhancements validation completed
+2026-10-08 15:18:31,362 - INFO - load_data - OK: Stratagems validation completed
+2026-10-08 15:18:31,390 - INFO - load_data - OK: Weapons validation completed
+2026-10-08 15:18:31,453 - INFO - load_data - OK: Units validation completed
+2026-10-08 15:18:31,481 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-08 15:18:31,482 - INFO - load_data - OK: Leadership validation completed
+2026-10-08 15:18:31,504 - INFO - load_data - OK: Validation complete with 307 successful validations
+2026-10-08 15:18:31,504 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-08 15:18:31,504 - INFO - load_data - ================================================================================
+2026-10-08 15:18:31,504 - INFO - load_data - Ending data load run at 2026-10-08 15:18:31
+2026-10-08 15:18:31,504 - INFO - load_data - ================================================================================
+2026-10-15 15:21:02,769 - INFO - load_data - ================================================================================
+2026-10-15 15:21:02,770 - INFO - load_data - Starting data load run at 2026-10-15 15:21:02
+2026-10-15 15:21:02,770 - INFO - load_data - ================================================================================
+2026-10-15 15:21:02,771 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:12:02
+2026-10-15 15:21:02,771 - INFO - load_data - Starting validation...
+2026-10-15 15:21:02,780 - ERROR - load_data - FAIL: run aborted, transaction rolled back - 'NoneType' object has no attribute 'append'
+Traceback (most recent call last):
+  File "/app/army_app/data/data_loaders.py", line 67, in load_model
+    model_class(**kwargs).full_clean(alidate_unique=False, validate_constraints=False)
+TypeError: Model.full_clean() got an unexpected keyword argument 'alidate_unique'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/army_app/management/commands/load_data.py", line 121, in load_from_version
+    errors, objs = loader(path)
+                   ^^^^^^^^^^^^
+  File "/app/army_app/data/data_loaders.py", line 115, in load_abilities
+    return load_model(Ability, csv_rows(csv_path), row_to_abilities_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/army_app/data/data_loaders.py", line 94, in load_model
+    outcomes.append((label, obj, err))
+    ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'append'
+2026-10-15 15:21:02,781 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-15 15:21:02,781 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-15 15:21:02,782 - INFO - load_data - ================================================================================
+2026-10-15 15:23:18,519 - INFO - load_data - ================================================================================
+2026-10-15 15:23:18,519 - INFO - load_data - Starting data load run at 2026-10-15 15:23:18
+2026-10-15 15:23:18,519 - INFO - load_data - ================================================================================
+2026-10-15 15:23:18,519 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:12:02
+2026-10-15 15:23:18,519 - INFO - load_data - Starting validation...
+2026-10-15 15:23:18,530 - ERROR - load_data - FAIL: run aborted, transaction rolled back - 'NoneType' object has no attribute 'append'
+Traceback (most recent call last):
+  File "/app/army_app/data/data_loaders.py", line 67, in load_model
+    model_class(**kwargs).full_clean(alidate_unique=False, validate_constraints=False)
+TypeError: Model.full_clean() got an unexpected keyword argument 'alidate_unique'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/army_app/management/commands/load_data.py", line 121, in load_from_version
+    errors, objs = loader(path)
+                   ^^^^^^^^^^^^
+  File "/app/army_app/data/data_loaders.py", line 115, in load_abilities
+    return load_model(Ability, csv_rows(csv_path), row_to_abilities_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/army_app/data/data_loaders.py", line 94, in load_model
+    outcomes.append((label, None, str(err)))
+    ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'append'
+2026-10-15 15:23:18,531 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-15 15:23:18,531 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-15 15:23:18,531 - INFO - load_data - ================================================================================
+2026-10-15 15:23:41,773 - INFO - load_data - ================================================================================
+2026-10-15 15:23:41,773 - INFO - load_data - Starting data load run at 2026-10-15 15:23:41
+2026-10-15 15:23:41,773 - INFO - load_data - ================================================================================
+2026-10-15 15:23:41,773 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:12:02
+2026-10-15 15:23:41,774 - INFO - load_data - Starting validation...
+2026-10-15 15:23:41,842 - ERROR - load_data - FAIL: run aborted, transaction rolled back - 'NoneType' object has no attribute 'append'
+Traceback (most recent call last):
+  File "/app/army_app/data/data_loaders.py", line 87, in load_model
+    outcomes.append((label, obj, None))
+    ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'append'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/army_app/management/commands/load_data.py", line 121, in load_from_version
+    errors, objs = loader(path)
+                   ^^^^^^^^^^^^
+  File "/app/army_app/data/data_loaders.py", line 115, in load_abilities
+    return load_model(Ability, csv_rows(csv_path), row_to_abilities_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/army_app/data/data_loaders.py", line 94, in load_model
+    outcomes.append((label, None, str(err)))
+    ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'append'
+2026-10-15 15:23:41,843 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-15 15:23:41,843 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-15 15:23:41,843 - INFO - load_data - ================================================================================
+2026-10-15 15:27:16,190 - INFO - load_data - ================================================================================
+2026-10-15 15:27:16,190 - INFO - load_data - Starting data load run at 2026-10-15 15:27:16
+2026-10-15 15:27:16,190 - INFO - load_data - ================================================================================
+2026-10-15 15:27:16,191 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:12:02
+2026-10-15 15:27:16,191 - INFO - load_data - Starting validation...
+2026-10-15 15:27:16,344 - ERROR - load_data - FAIL: Validation failed - Abilities : 49 error(s) found...
+2026-10-15 15:27:16,344 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 1: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,345 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 2: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,345 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 3: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,345 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 4: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,345 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 5: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,345 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 6: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,345 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 7: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,345 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 8: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,345 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 9: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,346 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 10: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,346 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 11: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,346 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 12: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,346 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 13: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,346 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 14: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,346 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 15: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,346 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 16: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,346 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 17: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,346 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 18: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,347 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 19: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,347 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 20: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,347 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 21: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,347 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 22: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,347 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 23: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,347 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 24: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,347 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 25: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,347 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 26: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,347 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 27: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,348 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 28: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,348 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 29: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,348 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 30: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,348 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 31: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,348 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 32: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,348 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 33: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,348 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 34: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,348 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 35: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,348 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 36: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,348 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 37: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,348 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 38: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,349 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 39: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,349 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 40: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,349 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 41: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,349 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 42: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,349 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 43: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,349 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 44: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,349 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 45: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,349 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 46: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,349 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 47: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,349 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 48: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,350 - ERROR - load_data - <class 'army_app.models.core.Ability'> Unexpected Error - Row 49: 'NoneType' object has no attribute 'append'
+2026-10-15 15:27:16,350 - ERROR - load_data - FAIL: Validation failed with 49 errors(s) found
+2026-10-15 15:27:16,350 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-15 15:27:16,350 - INFO - load_data - ================================================================================
+2026-10-15 15:27:56,154 - INFO - load_data - ================================================================================
+2026-10-15 15:27:56,155 - INFO - load_data - Starting data load run at 2026-10-15 15:27:56
+2026-10-15 15:27:56,155 - INFO - load_data - ================================================================================
+2026-10-15 15:27:56,155 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:12:02
+2026-10-15 15:27:56,155 - INFO - load_data - Starting validation...
+2026-10-15 15:27:56,308 - INFO - load_data - OK: Abilities validation completed
+2026-10-15 15:27:56,333 - INFO - load_data - OK: Phase validation completed
+2026-10-15 15:27:56,586 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-15 15:27:56,605 - INFO - load_data - OK: Factions validation completed
+2026-10-15 15:27:56,756 - INFO - load_data - OK: Detachments validation completed
+2026-10-15 15:27:56,975 - INFO - load_data - OK: Enhancements validation completed
+2026-10-15 15:27:57,261 - INFO - load_data - OK: Stratagems validation completed
+2026-10-15 15:27:57,291 - INFO - load_data - OK: Weapons validation completed
+2026-10-15 15:27:57,359 - INFO - load_data - OK: Units validation completed
+2026-10-15 15:27:57,386 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-15 15:27:57,387 - INFO - load_data - OK: Leadership validation completed
+2026-10-15 15:27:57,391 - INFO - load_data - OK: Validation complete with 307 successful validations
+2026-10-15 15:27:57,391 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-15 15:27:57,391 - INFO - load_data - ================================================================================
+2026-10-15 15:27:57,391 - INFO - load_data - Ending data load run at 2026-10-15 15:27:57
+2026-10-15 15:27:57,391 - INFO - load_data - ================================================================================
+2026-10-15 15:28:50,604 - INFO - load_data - ================================================================================
+2026-10-15 15:28:50,604 - INFO - load_data - Starting data load run at 2026-10-15 15:28:50
+2026-10-15 15:28:50,604 - INFO - load_data - ================================================================================
+2026-10-15 15:28:50,604 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:12:02
+2026-10-15 15:28:50,604 - INFO - load_data - Starting validation...
+2026-10-15 15:28:50,765 - INFO - load_data - OK: Abilities validation completed
+2026-10-15 15:28:50,775 - INFO - load_data - OK: Phase validation completed
+2026-10-15 15:28:50,996 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-15 15:28:51,007 - INFO - load_data - OK: Factions validation completed
+2026-10-15 15:28:51,155 - INFO - load_data - OK: Detachments validation completed
+2026-10-15 15:28:51,355 - INFO - load_data - OK: Enhancements validation completed
+2026-10-15 15:28:51,619 - INFO - load_data - OK: Stratagems validation completed
+2026-10-15 15:28:51,643 - INFO - load_data - OK: Weapons validation completed
+2026-10-15 15:28:51,703 - INFO - load_data - OK: Units validation completed
+2026-10-15 15:28:51,731 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-15 15:28:51,732 - INFO - load_data - OK: Leadership validation completed
+2026-10-15 15:28:51,745 - INFO - load_data - OK: Validation complete with 307 successful validations
+2026-10-15 15:28:51,745 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-15 15:28:51,746 - INFO - load_data - ================================================================================
+2026-10-15 15:28:51,746 - INFO - load_data - Ending data load run at 2026-10-15 15:28:51
+2026-10-15 15:28:51,746 - INFO - load_data - ================================================================================
+2026-10-15 15:29:31,903 - INFO - load_data - ================================================================================
+2026-10-15 15:29:31,904 - INFO - load_data - Starting data load run at 2026-10-15 15:29:31
+2026-10-15 15:29:31,904 - INFO - load_data - ================================================================================
+2026-10-15 15:29:31,904 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:12:02
+2026-10-15 15:29:31,904 - INFO - load_data - Starting validation...
+2026-10-15 15:29:32,055 - INFO - load_data - OK: Abilities validation completed
+2026-10-15 15:29:32,065 - INFO - load_data - OK: Phase validation completed
+2026-10-15 15:29:32,281 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-15 15:29:32,293 - INFO - load_data - OK: Factions validation completed
+2026-10-15 15:29:32,423 - INFO - load_data - OK: Detachments validation completed
+2026-10-15 15:29:32,622 - ERROR - load_data - FAIL: Validation failed - Enhancements : 1 error(s) found...
+2026-10-15 15:29:32,622 - ERROR - load_data - <class 'army_app.models.core.Enhancement'> Error - Row 17: Detachment Stormlance Task Foce not found for enhancement Fury of the Storm
+2026-10-15 15:29:32,622 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-15 15:29:32,622 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-15 15:29:32,623 - INFO - load_data - ================================================================================
+2026-10-15 15:29:50,811 - INFO - load_data - ================================================================================
+2026-10-15 15:29:50,811 - INFO - load_data - Starting data load run at 2026-10-15 15:29:50
+2026-10-15 15:29:50,811 - INFO - load_data - ================================================================================
+2026-10-15 15:29:50,811 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:12:02
+2026-10-15 15:29:50,812 - INFO - load_data - Starting validation...
+2026-10-15 15:29:50,963 - INFO - load_data - OK: Abilities validation completed
+2026-10-15 15:29:50,972 - INFO - load_data - OK: Phase validation completed
+2026-10-15 15:29:51,190 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-15 15:29:51,201 - INFO - load_data - OK: Factions validation completed
+2026-10-15 15:29:51,334 - INFO - load_data - OK: Detachments validation completed
+2026-10-15 15:29:51,534 - INFO - load_data - OK: Enhancements validation completed
+2026-10-15 15:29:51,795 - INFO - load_data - OK: Stratagems validation completed
+2026-10-15 15:29:51,820 - INFO - load_data - OK: Weapons validation completed
+2026-10-15 15:29:51,879 - INFO - load_data - OK: Units validation completed
+2026-10-15 15:29:51,906 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-15 15:29:51,907 - INFO - load_data - OK: Leadership validation completed
+2026-10-15 15:29:51,909 - INFO - load_data - OK: Validation complete with 307 successful validations
+2026-10-15 15:29:51,909 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-15 15:29:51,909 - INFO - load_data - ================================================================================
+2026-10-15 15:29:51,909 - INFO - load_data - Ending data load run at 2026-10-15 15:29:51
+2026-10-15 15:29:51,909 - INFO - load_data - ================================================================================

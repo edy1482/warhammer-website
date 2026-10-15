@@ -126,12 +126,16 @@ class Ability(models.Model):
         ("CORE_RULE", "Core Rule"),
     ]
     
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, unique=True)
-    ability_type = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=ABILITY_TYPES)
+    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH) # base = Sustained Hits, or Pistol
+    ability_type = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=ABILITY_TYPES) # "1", "5+", "D3", '6"'
+    value = models.CharField(max_length=MAX_CHARFIELD_LENGTH, blank=True, default="")
     
     class Meta:
         # Change plural in admin so that it doesn't look weird
         verbose_name_plural = "Abilities"
+        constraints = [
+            models.UniqueConstraint(fields=["name", "value"], name="unique_ability_name_value",)
+        ]
 
     # Class functions
     def __str__(self):

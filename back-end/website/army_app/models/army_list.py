@@ -77,11 +77,6 @@ class ArmyListEntry(models.Model):
         # Get all the leaders in the list
         valid_leader_ids = self.get_all_leadership_options().values_list("leader_id", flat=True)
         return self.army_list.entries.filter(unit_id__in=valid_leader_ids)
-    
-    # Grab the datasheet for the related unit in a one-liner (great for list views)
-    @property
-    def datasheet(self):
-        return getattr(self.unit, "datasheet", None)
 
     def clean(self):
         super().clean()
@@ -180,13 +175,14 @@ class AssignedLeader(models.Model):
         super().clean()
         unit = self.entry.unit
         leader_unit = self.leader_entry.unit
+        existing_leaders = self.entry.assigned_leaders.exclude(pk=self.pk)
 
         # Check if the entry and leader_entry are in the same ArmyList
         if self.entry.army_list != self.leader_entry.army_list:
             raise ValidationError(f"{self.entry} and {self.leader_entry} are from two seperate ArmyLists")
 
-        # Ensure Leadership rule exists
-        leadership = Leadership.objects.filter(leader=leader_unit, attached_unit=unit).first()
+        # Ensure Leadership object exists
+        leadership = Leadership.objects.filter(leader=leader_unit, bodyguard_unit=unit).first()
         if not leadership:
             raise ValidationError(f"Leader Error: {leader_unit} cannot lead {unit}")
         
@@ -197,18 +193,6 @@ class AssignedLeader(models.Model):
         if missing_keywords:
             raise ValidationError(f"Missing Keyword(s): {leader_unit} lacks required {', '.join(missing_keywords)}")
         
-        # Check co-leading rule if another leader is already assigned,
-        existing_leaders = self.entry.assigned_leaders.exclude(pk=self.pk)
-        for existing in existing_leaders:
-            # Get the Leadership object for the existing leader
-            existing_leadership = Leadership.objects.filter(leader=existing.leader_entry.unit, attached_unit=unit).first()
-            if not existing_leadership:
-                # Should not happen but extra guard
-                raise ValidationError(f"Leader Error: {existing.leader_entry.unit} cannot lead {unit}")
-            can_co_lead = leadership.co_leaders.filter(pk=existing_leadership.leader.pk).exists()
-            if not can_co_lead:
-                raise ValidationError(f"{leader_unit} cannot share leadership with {existing.leader_entry.unit}")
-        
         # Prevent leader from leading multiple separate units
         duplicate_assignments = AssignedLeader.objects.filter(leader_entry=self.leader_entry).exclude(pk=self.pk)
         if duplicate_assignments.exists():
@@ -216,6 +200,7 @@ class AssignedLeader(models.Model):
             raise ValidationError(f"{leader_unit} [Entry {self.leader_entry.id}] is already assigned to {units}")
         
         # Prevent two leaders of the same unit type from leading same entry
+        existing_leaders = self.entry.assigned_leaders.exclude(pk=self.pk)
         if existing_leaders.filter(leader_entry__unit=leader_unit).exists():
             raise ValidationError(f"{unit} cannot have more than one {leader_unit} leading it")
         

@@ -4,13 +4,12 @@ from .core import KeyWord
 from .units import Unit
 
 #TODO decide on wargear_ability restrictions implementation (KeyWord or Ability or new model: Wargear)
+#TODO make sure the leader, support combo is unique
 
 class Leadership(models.Model):
+    bodyguard_unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="lead_by", null=True)
+    # Possible leaders
     leader = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="leads")
-    attachable_unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="attached_to")
-    # Leaders that can share attached units
-    co_leaders = models.ManyToManyField(Unit, blank=True, help_text="Leaders that can co-lead the same unit.")
-    # Restrictions - should this be a wargear ability so that it matches Relic Shield in example datasheet?
     keywords = models.ManyToManyField(
         KeyWord,
         blank=True,
@@ -19,26 +18,39 @@ class Leadership(models.Model):
     )
 
     def __str__(self):
-        return f"{self.leader} leads {self.attachable_unit}"
+        return f"{self.leader} leads {self.bodyguard_unit}"
     
     def clean(self):
         super().clean()
-        # Validate leader has LEADER keyword
-        if not self.leader.keywords.filter(name__iexact="LEADER").exists():
-            raise ValidationError(f"{self.leader} does not have LEADER keyword")
+        # Validate leader has Leader ability
+        if not self.leader.abilities.filter(name__iexact="Leader").exists():
+            raise ValidationError(f"{self.leader} does not have Leader ability")
         
-        # Validate the attachable_unit does not have the LEADER keyword
-        if self.attachable_unit.keywords.filter(name__iexact="LEADER").exists():
-            raise ValidationError(f"{self.attachable_unit} cannot be attached, it has the LEADER keyword")
-        
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        # Save the object first, then validate co_leaders to prevent m2m error
-        invalid_co_leaders = [
-            co for co in self.co_leaders.all()
-            if not co.keywords.filter(name__iexact="LEADER").exists()
-        ]
+        # Validate the bodyguard_unit does not have the Leader ability
+        if self.bodyguard_unit.abilities.filter(name__iexact="Leader").exists():
+            raise ValidationError(f"{self.bodyguard_unit} cannot be attached, it has the Leader ability")
 
-        if invalid_co_leaders:
-            names = ", ".join(str(co) for co in invalid_co_leaders)
-            raise ValidationError(f"The following co-leaders do not have the LEADER keyword: {names}")
+class Support(models.Model):
+    bodyguard_unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="supported_by")
+    support = models.ForeignKey(Unit, on_delete=models.CASCADE, help_text="supports")
+    keywords = models.ManyToManyField(
+            KeyWord,
+            blank=True,
+            related_name="support_required_for",
+            help_text="Support must have ALL of these keywords (e.g., RELIC SHIELD)."
+        )
+
+    def __str__(self):
+        return f"{self.support} supports {self.bodyguard_unit}"
+
+    def clean(self):
+        super().clean()
+
+        # Validate support has Support ability
+        if not self.support.abilities.filter(name__iexact="Support").exists():
+            raise ValidationError(f"{self.support} does not have Support ability")
+
+        # Validate the bodyguard_unit does not have the Support ability
+        if self.bodyguard_unit.abilities.filter(name__iexact="Support").exists():
+            raise ValidationError(f"{self.bodyguard_unit} cannot be attached, it has the Support ability")
+

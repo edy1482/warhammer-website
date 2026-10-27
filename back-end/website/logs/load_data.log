@@ -2975,3 +2975,24 @@ AttributeError: 'NoneType' object has no attribute 'append'
 2026-10-15 15:29:51,909 - INFO - load_data - ================================================================================
 2026-10-15 15:29:51,909 - INFO - load_data - Ending data load run at 2026-10-15 15:29:51
 2026-10-15 15:29:51,909 - INFO - load_data - ================================================================================
+2026-10-27 11:20:44,280 - INFO - load_data - ================================================================================
+2026-10-27 11:20:44,281 - INFO - load_data - Starting data load run at 2026-10-27 11:20:44
+2026-10-27 11:20:44,281 - INFO - load_data - ================================================================================
+2026-10-27 11:20:44,281 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-08 15:12:02
+2026-10-27 11:20:44,281 - INFO - load_data - Starting validation...
+2026-10-27 11:20:44,491 - INFO - load_data - OK: Abilities validation completed
+2026-10-27 11:20:44,504 - INFO - load_data - OK: Phase validation completed
+2026-10-27 11:20:44,736 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-27 11:20:44,752 - INFO - load_data - OK: Factions validation completed
+2026-10-27 11:20:44,880 - INFO - load_data - OK: Detachments validation completed
+2026-10-27 11:20:45,085 - INFO - load_data - OK: Enhancements validation completed
+2026-10-27 11:20:45,363 - INFO - load_data - OK: Stratagems validation completed
+2026-10-27 11:20:45,393 - INFO - load_data - OK: Weapons validation completed
+2026-10-27 11:20:45,467 - INFO - load_data - OK: Units validation completed
+2026-10-27 11:20:45,495 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-27 11:20:45,497 - INFO - load_data - OK: Leadership validation completed
+2026-10-27 11:20:45,499 - INFO - load_data - OK: Validation complete with 307 successful validations
+2026-10-27 11:20:45,499 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-27 11:20:45,499 - INFO - load_data - ================================================================================
+2026-10-27 11:20:45,500 - INFO - load_data - Ending data load run at 2026-10-27 11:20:45
+2026-10-27 11:20:45,500 - INFO - load_data - ================================================================================

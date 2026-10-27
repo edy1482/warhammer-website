@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404, render
 from army_app.models import ScrapedPage, ScrapedPageLoadResult, KeyWord, KeyWordCondition, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
 from army_app.models import Weapon
 from army_app.models import Unit, UnitPointBracket
-from army_app.models import Leadership
+from army_app.models import Leadership, Support
 from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
 
 @admin.register(ScrapedPage)
@@ -107,23 +107,36 @@ class UnitAdmin(admin.ModelAdmin):
 
 @admin.register(Leadership)
 class LeadershipAdmin(admin.ModelAdmin):
-    list_display = ("leader", "attachable_unit")
+    list_display = ("leader", "bodyguard_unit")
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "leader":
-            kwargs["queryset"] = Unit.objects.filter(keywords__name__iexact="LEADER").distinct()
-        elif db_field.name == "attachable_unit":
-            kwargs["queryset"] = Unit.objects.exclude(keywords__name__iexact="LEADER").distinct()
+            #TODO exclude Support ability units as well
+            kwargs["queryset"] = Unit.objects.filter(abilities__name__iexact="Leader").distinct()
+        elif db_field.name == "bodyguard_unit":
+            kwargs["queryset"] = Unit.objects.exclude(abilities__name__iexact="Leader").distinct()
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
-    
-    def formfield_for_manytomany(self, db_field, request, **kwargs):
-        if db_field.name == "co_leaders":
-            kwargs["queryset"] = Unit.objects.filter(keywords__name__iexact="LEADER").distinct()
-        return super().formfield_for_manytomany(db_field, request, **kwargs)
     
     def get_form(self, request, obj = None, **kwargs):
         request._obj_ = obj
         return super().get_form(request, obj, **kwargs)
+
+@admin.register(Support)
+class SupportAdmin(admin.ModelAdmin):
+    list_display = ("support", "bodyguard_unit")
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "support":
+            kwargs["queryset"] = Unit.objects.filter(abilities__name__iexact="Support").distinct()
+        elif db_field.name == "bodyguard_unit":
+            #TODO exclude Leadership ability units as well
+            kwargs["queryset"] = Unit.objects.exclude(abilities__name__iexact="Support").distinct()
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+        
+    def get_form(self, request, obj = None, **kwargs):
+        request._obj_ = obj
+        return super().get_form(request, obj, **kwargs)
+
 
 @admin.register(UnitPointBracket)
 class UnitPointBracketAdmin(admin.ModelAdmin):

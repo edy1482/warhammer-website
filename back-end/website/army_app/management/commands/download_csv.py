@@ -23,6 +23,7 @@ SHEETS = {
     "units": (SHEET_ID, "Units"),
     "unit_point_brackets": (SHEET_ID, "Unit Point Brackets"),
     "leadership": (SHEET_ID, "Leaderships"),
+    "support" : (SHEET_ID, "Supports"),
 }
 
 class Command(BaseCommand):

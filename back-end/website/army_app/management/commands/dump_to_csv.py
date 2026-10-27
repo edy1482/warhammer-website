@@ -5,7 +5,7 @@ from datetime import datetime
 from django.core.management.base import BaseCommand
 from pathlib import Path
 from army_app.models import Faction, Ability, AbilityEffect, Phase, Detachment, Enhancement, Stratagem
-from army_app.models import Weapon, Unit, UnitPointBracket, Leadership
+from army_app.models import Weapon, Unit, UnitPointBracket, Leadership, Support
 from .utils import get_version_folders
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -290,27 +290,51 @@ def dump_unit_point_brackets(out_dir: Path) -> int:
  
 def dump_leadership(out_dir: Path) -> int:
     """
-    Loader expects: id, leader (unit name), attached_unit (unit name),
+    Loader expects: id, leader (unit name), bodyguard_unit (unit name),
                     co_leaders (semicolon-separated unit names), keywords
     Note: the loader uses 'attached_unit' but the model field was renamed
-    to 'attachable_unit' in migration 0005.
+    to 'bodyguard_unit' in migration 0005.
     """
-    headers = ["id", "leader", "attached_unit", "co_leaders", "keywords"]
+    headers = ["id", "leader", "bodyguard_unit", "keywords"]
     rows = []
     for obj in (
         Leadership.objects
-        .select_related("leader", "attachable_unit")
-        .prefetch_related("co_leaders", "keywords")
+        .select_related("leader", "bodyguard_unit")
+        .prefetch_related("keywords",)
         .order_by("id")
     ):
         rows.append([
             obj.id,
             obj.leader.name,
-            obj.attachable_unit.name,
-            _join(obj.co_leaders.order_by("name")),
+            obj.bodyguard_unit.name,
             _join(obj.keywords.order_by("name")),
         ])
     _write(out_dir, "leadership.csv", headers, rows)
+    return len(rows)
+
+def dump_support(out_dir: Path) -> int:
+    """
+    Loader expects: id, support (unit name), bodyguard_unit (unit name),
+                    co_leaders (semicolon-separated unit names), keywords
+    Note: the loader uses 'attached_unit' but the model field was renamed
+    to 'bodyguard_unit' in migration 0005.
+    """
+    headers = ["id", "support", "bodyguard_unit", "keywords"]
+    rows = []
+    for obj in (
+        Support.objects
+        .select_related("leader", "bodyguard_unit")
+        .prefetch_related("keywords",)
+        .order_by("id")
+    ):
+        rows.append([
+            obj.id,
+            obj.leader.name,
+            obj.bodyguard_unit.name,
+            _join(obj.co_leaders.order_by("name")),
+            _join(obj.keywords.order_by("name")),
+        ])
+    _write(out_dir, "support.csv", headers, rows)
     return len(rows)
  
  
@@ -330,6 +354,7 @@ DUMPERS = [
     ("Units",                "units.csv",               dump_units),
     ("UnitPointBrackets",    "unit_point_brackets.csv", dump_unit_point_brackets),
     ("Leadership",           "leadership.csv",          dump_leadership),
+    ("Support",              "support.csv",             dump_support),
 ]
  
  

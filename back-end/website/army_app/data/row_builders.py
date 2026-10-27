@@ -170,8 +170,8 @@ def row_to_units_kwargs(row):
         faction = resolve_one(row["faction"], by_name(Faction), "Faction", errors)
         abilities = resolve_all(split_cell(row, "abilities"), resolve_ability, "Ability", errors)
         wargear_abilities = resolve_all(split_cell(row, "wargear_abilities"), resolve_ability, "Wargear ability", errors)
-        ranged_weapons = resolve_all(split_cell(row, "ranged_weapons"), by_name(Weapon), errors)
-        melee_weapons = resolve_all(split_cell(row, "melee_weapons"), by_name(Weapon), errors)
+        ranged_weapons = resolve_all(split_cell(row, "ranged_weapons"), by_name(Weapon), "Ranged weapon", errors)
+        melee_weapons = resolve_all(split_cell(row, "melee_weapons"), by_name(Weapon), "Melee weapon", errors)
         
         if errors: 
             return errors, None
@@ -233,4 +233,4 @@ def row_to_support(row):
      return errors, {
           "bodyguard_unit" : bodyguard_unit,
           "support" : support,
-     }
+    }

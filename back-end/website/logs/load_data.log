@@ -2996,3 +2996,101 @@ AttributeError: 'NoneType' object has no attribute 'append'
 2026-10-27 11:20:45,499 - INFO - load_data - ================================================================================
 2026-10-27 11:20:45,500 - INFO - load_data - Ending data load run at 2026-10-27 11:20:45
 2026-10-27 11:20:45,500 - INFO - load_data - ================================================================================
+2026-10-27 15:16:41,925 - INFO - load_data - ================================================================================
+2026-10-27 15:16:41,925 - INFO - load_data - Starting data load run at 2026-10-27 15:16:41
+2026-10-27 15:16:41,925 - INFO - load_data - ================================================================================
+2026-10-27 15:16:41,926 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-27 15:15:57
+2026-10-27 15:16:41,926 - INFO - load_data - Starting validation...
+2026-10-27 15:16:42,195 - INFO - load_data - OK: Abilities validation completed
+2026-10-27 15:16:42,205 - INFO - load_data - OK: Phase validation completed
+2026-10-27 15:16:42,426 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-27 15:16:42,438 - INFO - load_data - OK: Factions validation completed
+2026-10-27 15:16:42,563 - INFO - load_data - OK: Detachments validation completed
+2026-10-27 15:16:42,761 - INFO - load_data - OK: Enhancements validation completed
+2026-10-27 15:16:43,008 - INFO - load_data - OK: Stratagems validation completed
+2026-10-27 15:16:43,032 - INFO - load_data - OK: Weapons validation completed
+2026-10-27 15:16:43,034 - ERROR - load_data - FAIL: run aborted, transaction rolled back - resolve_all() missing 1 required positional argument: 'errors'
+Traceback (most recent call last):
+  File "/app/army_app/management/commands/load_data.py", line 122, in load_from_version
+    errors, objs = loader(path)
+                   ^^^^^^^^^^^^
+  File "/app/army_app/data/data_loaders.py", line 126, in load_units
+    return load_model(Unit, csv_rows(csv_path), row_to_units_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/army_app/data/data_loaders.py", line 49, in load_model
+    row_errors, kwargs = row_to_kwargs(row)
+                         ^^^^^^^^^^^^^^^^^^
+  File "/app/army_app/data/row_builders.py", line 173, in row_to_units_kwargs
+    ranged_weapons = resolve_all(split_cell(row, "ranged_weapons"), by_name(Weapon), errors)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: resolve_all() missing 1 required positional argument: 'errors'
+2026-10-27 15:16:43,035 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-27 15:16:43,035 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-27 15:16:43,035 - INFO - load_data - ================================================================================
+2026-10-27 15:18:06,157 - INFO - load_data - ================================================================================
+2026-10-27 15:18:06,158 - INFO - load_data - Starting data load run at 2026-10-27 15:18:06
+2026-10-27 15:18:06,158 - INFO - load_data - ================================================================================
+2026-10-27 15:18:06,158 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-27 15:15:57
+2026-10-27 15:18:06,158 - INFO - load_data - Starting validation...
+2026-10-27 15:18:06,323 - INFO - load_data - OK: Abilities validation completed
+2026-10-27 15:18:06,333 - INFO - load_data - OK: Phase validation completed
+2026-10-27 15:18:06,571 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-27 15:18:06,584 - INFO - load_data - OK: Factions validation completed
+2026-10-27 15:18:06,721 - INFO - load_data - OK: Detachments validation completed
+2026-10-27 15:18:06,933 - INFO - load_data - OK: Enhancements validation completed
+2026-10-27 15:18:07,211 - INFO - load_data - OK: Stratagems validation completed
+2026-10-27 15:18:07,237 - INFO - load_data - OK: Weapons validation completed
+2026-10-27 15:18:07,303 - INFO - load_data - OK: Units validation completed
+2026-10-27 15:18:07,330 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-27 15:18:07,331 - INFO - load_data - OK: Leadership validation completed
+2026-10-27 15:18:07,332 - INFO - load_data - OK: Support validation completed
+2026-10-27 15:18:07,336 - INFO - load_data - OK: Validation complete with 311 successful validations
+2026-10-27 15:18:07,337 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-27 15:18:07,337 - INFO - load_data - ================================================================================
+2026-10-27 15:18:07,337 - INFO - load_data - Ending data load run at 2026-10-27 15:18:07
+2026-10-27 15:18:07,337 - INFO - load_data - ================================================================================
+2026-10-27 15:22:40,459 - INFO - load_data - ================================================================================
+2026-10-27 15:22:40,460 - INFO - load_data - Starting data load run at 2026-10-27 15:22:40
+2026-10-27 15:22:40,460 - INFO - load_data - ================================================================================
+2026-10-27 15:22:40,460 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-27 15:22:23
+2026-10-27 15:22:40,460 - INFO - load_data - Starting validation...
+2026-10-27 15:22:40,616 - INFO - load_data - OK: Abilities validation completed
+2026-10-27 15:22:40,626 - INFO - load_data - OK: Phase validation completed
+2026-10-27 15:22:40,849 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-27 15:22:40,861 - INFO - load_data - OK: Factions validation completed
+2026-10-27 15:22:40,990 - INFO - load_data - OK: Detachments validation completed
+2026-10-27 15:22:41,188 - INFO - load_data - OK: Enhancements validation completed
+2026-10-27 15:22:41,449 - INFO - load_data - OK: Stratagems validation completed
+2026-10-27 15:22:41,472 - INFO - load_data - OK: Weapons validation completed
+2026-10-27 15:22:41,532 - INFO - load_data - OK: Units validation completed
+2026-10-27 15:22:41,559 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-27 15:22:41,603 - INFO - load_data - OK: Leadership validation completed
+2026-10-27 15:22:41,608 - ERROR - load_data - FAIL: Validation failed - Support : 3 error(s) found...
+2026-10-27 15:22:41,608 - ERROR - load_data - <class 'army_app.models.leadership.Leadership'> Unexpected Error - Row 1: Leadership() got unexpected keyword arguments: 'support'
+2026-10-27 15:22:41,608 - ERROR - load_data - <class 'army_app.models.leadership.Leadership'> Unexpected Error - Row 2: Leadership() got unexpected keyword arguments: 'support'
+2026-10-27 15:22:41,608 - ERROR - load_data - <class 'army_app.models.leadership.Leadership'> Unexpected Error - Row 3: Leadership() got unexpected keyword arguments: 'support'
+2026-10-27 15:22:41,608 - ERROR - load_data - FAIL: Validation failed with 3 errors(s) found
+2026-10-27 15:22:41,608 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-27 15:22:41,609 - INFO - load_data - ================================================================================
+2026-10-27 15:23:32,768 - INFO - load_data - ================================================================================
+2026-10-27 15:23:32,768 - INFO - load_data - Starting data load run at 2026-10-27 15:23:32
+2026-10-27 15:23:32,768 - INFO - load_data - ================================================================================
+2026-10-27 15:23:32,768 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-27 15:22:23
+2026-10-27 15:23:32,769 - INFO - load_data - Starting validation...
+2026-10-27 15:23:32,921 - INFO - load_data - OK: Abilities validation completed
+2026-10-27 15:23:32,930 - INFO - load_data - OK: Phase validation completed
+2026-10-27 15:23:33,152 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-27 15:23:33,164 - INFO - load_data - OK: Factions validation completed
+2026-10-27 15:23:33,293 - INFO - load_data - OK: Detachments validation completed
+2026-10-27 15:23:33,489 - INFO - load_data - OK: Enhancements validation completed
+2026-10-27 15:23:33,749 - INFO - load_data - OK: Stratagems validation completed
+2026-10-27 15:23:33,773 - INFO - load_data - OK: Weapons validation completed
+2026-10-27 15:23:33,833 - INFO - load_data - OK: Units validation completed
+2026-10-27 15:23:33,860 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-27 15:23:33,897 - INFO - load_data - OK: Leadership validation completed
+2026-10-27 15:23:33,918 - INFO - load_data - OK: Support validation completed
+2026-10-27 15:23:33,921 - INFO - load_data - OK: Validation complete with 320 successful validations
+2026-10-27 15:23:33,921 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-27 15:23:33,921 - INFO - load_data - ================================================================================
+2026-10-27 15:23:33,921 - INFO - load_data - Ending data load run at 2026-10-27 15:23:33
+2026-10-27 15:23:33,922 - INFO - load_data - ================================================================================

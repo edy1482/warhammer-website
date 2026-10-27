@@ -8,7 +8,7 @@ from django.apps import apps
 from army_app.data import load_phase, load_abilities, load_ability_effects, load_factions, load_detachments, load_enhancements, load_stratagems
 from army_app.data import load_weapons 
 from army_app.data import load_units, load_unit_point_brackets
-from army_app.data import load_leadership
+from army_app.data import load_leadership, load_support
 from army_app.data import LoaderValidationError
 from .utils import get_latest_version, get_previous_version
 
@@ -99,6 +99,7 @@ class Command(BaseCommand):
             ("Units", VERS_DIR / "units.csv", load_units),
             ("Unit Point Brackets", VERS_DIR / "unit_point_brackets.csv", load_unit_point_brackets),
             ("Leadership", VERS_DIR / "leadership.csv", load_leadership),
+            ("Support", VERS_DIR / "support.csv", load_support),
         ]
         return loaders
     
@@ -168,6 +169,7 @@ class Command(BaseCommand):
             "Unit",
             "UnitPointBracket",
             "Leadership",
+            "Support",
         ]
         target_models.reverse()
         with transaction.atomic():

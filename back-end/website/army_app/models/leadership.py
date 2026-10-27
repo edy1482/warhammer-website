@@ -3,9 +3,6 @@ from django.core.exceptions import ValidationError
 from .core import KeyWord
 from .units import Unit
 
-#TODO decide on wargear_ability restrictions implementation (KeyWord or Ability or new model: Wargear)
-#TODO make sure the leader, support combo is unique
-
 class Leadership(models.Model):
     bodyguard_unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="lead_by", null=True)
     # Possible leaders

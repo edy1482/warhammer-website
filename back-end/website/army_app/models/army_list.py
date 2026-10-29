@@ -171,7 +171,7 @@ class AssignedAttachment(models.Model):
     class Meta:
         constraints = [
             # Prevent the same leader_entry to be assigned twice to the same entry
-            models.UniqueConstraint(fields=["entry", "attached_entry"], name="one_attachment_per_role"),
+            models.UniqueConstraint(fields=["entry", "role"], name="one_attachment_per_role"),
         ]
     
 
@@ -189,10 +189,12 @@ class AssignedAttachment(models.Model):
             raise ValidationError(f"{self.entry} and {self.attached_entry} are from two seperate ArmyLists")
 
         # Ensure Leadership/Support object exists
+        if not self.role:
+            raise ValidationError(f"Must enter role")
         rule_model, char_field = self.RULES[self.role]
         rule = rule_model.objects.filter(**{char_field: char_unit, "bodyguard_unit": unit}).first()
         if not rule:
-            raise ValidationError(f"Leader Error: {char_unit} cannot lead {unit}")
+            raise ValidationError(f"Leader Error: {char_unit} cannot {char_field} {unit}")
         
         # Check if any required keyword exists
         required = set(rule.keywords.values_list("name", flat=True))

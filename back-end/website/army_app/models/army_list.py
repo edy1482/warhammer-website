@@ -7,6 +7,8 @@ from .leadership import Leadership
 
 MAX_CHARFIELD_LENGTH = 255
 
+#TODO Create AssignedSupport model?
+
 class ArmyList(models.Model):
     BATTLE_SIZE_CHOICES = {
         "incursion" : "Incursion (0–1000 pts)",
@@ -63,14 +65,14 @@ class ArmyListEntry(models.Model):
         # Change this to evaluate on keywordcondition
         core_strats = Stratagem.objects.filter(keywords__name="CORE")
         # Grab all detachment strats, and filter for necessary keywords
-        detachment_strats = Stratagem.objects.filter(detachment=self.army_list.detachment)
-        detachment_strats = Stratagem.objects.filter(detachment=self.army_list.detachment).filter(keywords__in=self.unit.keywords.all())
+        detachment_strats = Stratagem.objects.filter(detachments=self.army_list.detachment)
+        detachment_strats = Stratagem.objects.filter(detachments=self.army_list.detachment).filter(keywords__in=self.unit.keywords.all())
 
         return (core_strats | detachment_strats).distinct()
     
     def get_all_leadership_options(self):
         # Return all possible leadership options for this Entry
-        return Leadership.objects.filter(attached_unit=self.unit)
+        return Leadership.objects.filter(bodyguard_unit=self.unit)
     
     def get_available_leadership(self):
         # Return all leadership options inside the ArmyList
@@ -199,10 +201,10 @@ class AssignedLeader(models.Model):
             units = ", ".join(f"{assign.entry.unit.name} [Entry {assign.entry.id}]" for assign in duplicate_assignments)
             raise ValidationError(f"{leader_unit} [Entry {self.leader_entry.id}] is already assigned to {units}")
         
-        # Prevent two leaders of the same unit type from leading same entry
-        existing_leaders = self.entry.assigned_leaders.exclude(pk=self.pk)
-        if existing_leaders.filter(leader_entry__unit=leader_unit).exists():
-            raise ValidationError(f"{unit} cannot have more than one {leader_unit} leading it")
+        # Prevent bodyguard unit from having two leaders
+        existing_leaders = AssignedLeader.objects.filter(entry=self.entry).exclude(pk=self.pk)
+        if existing_leaders.exists():
+            raise ValidationError(f"Leader already exists: {existing_leaders.first()}")
         
     def save(self, *args, **kwargs):
         # Ensure that we clean when using CSV files or shell

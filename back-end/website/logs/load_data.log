@@ -3094,3 +3094,184 @@ TypeError: resolve_all() missing 1 required positional argument: 'errors'
 2026-10-27 15:23:33,921 - INFO - load_data - ================================================================================
 2026-10-27 15:23:33,921 - INFO - load_data - Ending data load run at 2026-10-27 15:23:33
 2026-10-27 15:23:33,922 - INFO - load_data - ================================================================================
+2026-10-29 11:22:30,684 - INFO - load_data - ================================================================================
+2026-10-29 11:22:30,684 - INFO - load_data - Starting data load run at 2026-10-29 11:22:30
+2026-10-29 11:22:30,685 - INFO - load_data - ================================================================================
+2026-10-29 11:22:30,685 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-27 15:22:23
+2026-10-29 11:22:30,685 - INFO - load_data - Starting validation...
+2026-10-29 11:22:30,905 - INFO - load_data - OK: Abilities validation completed
+2026-10-29 11:22:30,924 - INFO - load_data - OK: Phase validation completed
+2026-10-29 11:22:31,180 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-29 11:22:31,194 - INFO - load_data - OK: Factions validation completed
+2026-10-29 11:22:31,334 - INFO - load_data - OK: Detachments validation completed
+2026-10-29 11:22:31,552 - INFO - load_data - OK: Enhancements validation completed
+2026-10-29 11:22:31,839 - INFO - load_data - OK: Stratagems validation completed
+2026-10-29 11:22:31,868 - INFO - load_data - OK: Weapons validation completed
+2026-10-29 11:22:31,938 - INFO - load_data - OK: Units validation completed
+2026-10-29 11:22:31,965 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-29 11:22:32,011 - INFO - load_data - OK: Leadership validation completed
+2026-10-29 11:22:32,033 - INFO - load_data - OK: Support validation completed
+2026-10-29 11:22:32,036 - INFO - load_data - OK: Validation complete with 320 successful validations
+2026-10-29 11:22:32,036 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-29 11:22:32,036 - INFO - load_data - ================================================================================
+2026-10-29 11:22:32,036 - INFO - load_data - Ending data load run at 2026-10-29 11:22:32
+2026-10-29 11:22:32,036 - INFO - load_data - ================================================================================
+2026-10-29 11:23:04,903 - INFO - load_data - ================================================================================
+2026-10-29 11:23:04,903 - INFO - load_data - Starting data load run at 2026-10-29 11:23:04
+2026-10-29 11:23:04,903 - INFO - load_data - ================================================================================
+2026-10-29 11:23:04,904 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-27 15:22:23
+2026-10-29 11:23:04,904 - INFO - load_data - Starting validation...
+2026-10-29 11:23:05,057 - INFO - load_data - OK: Abilities validation completed
+2026-10-29 11:23:05,067 - INFO - load_data - OK: Phase validation completed
+2026-10-29 11:23:05,293 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-29 11:23:05,305 - INFO - load_data - OK: Factions validation completed
+2026-10-29 11:23:05,441 - INFO - load_data - OK: Detachments validation completed
+2026-10-29 11:23:05,636 - INFO - load_data - OK: Enhancements validation completed
+2026-10-29 11:23:05,891 - INFO - load_data - OK: Stratagems validation completed
+2026-10-29 11:23:05,914 - INFO - load_data - OK: Weapons validation completed
+2026-10-29 11:23:05,974 - INFO - load_data - OK: Units validation completed
+2026-10-29 11:23:06,000 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-29 11:23:06,035 - INFO - load_data - OK: Leadership validation completed
+2026-10-29 11:23:06,054 - INFO - load_data - OK: Support validation completed
+2026-10-29 11:23:06,072 - INFO - load_data - OK: Validation complete with 320 successful validations
+2026-10-29 11:23:06,072 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-29 11:23:06,072 - INFO - load_data - ================================================================================
+2026-10-29 11:23:06,072 - INFO - load_data - Ending data load run at 2026-10-29 11:23:06
+2026-10-29 11:23:06,072 - INFO - load_data - ================================================================================
+2026-10-29 14:24:37,185 - INFO - load_data - ================================================================================
+2026-10-29 14:24:37,185 - INFO - load_data - Starting data load run at 2026-10-29 14:24:37
+2026-10-29 14:24:37,185 - INFO - load_data - ================================================================================
+2026-10-29 14:24:37,186 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-27 15:22:23
+2026-10-29 14:24:37,186 - INFO - load_data - Starting validation...
+2026-10-29 14:24:37,399 - INFO - load_data - OK: Abilities validation completed
+2026-10-29 14:24:37,409 - INFO - load_data - OK: Phase validation completed
+2026-10-29 14:24:37,636 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-29 14:24:37,659 - INFO - load_data - OK: Factions validation completed
+2026-10-29 14:24:37,799 - INFO - load_data - OK: Detachments validation completed
+2026-10-29 14:24:38,021 - INFO - load_data - OK: Enhancements validation completed
+2026-10-29 14:24:38,286 - INFO - load_data - OK: Stratagems validation completed
+2026-10-29 14:24:38,296 - ERROR - load_data - FAIL: Validation failed - Weapons : 11 error(s) found...
+2026-10-29 14:24:38,296 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 1: {'__all__': ["Weapon name must look like 'Bolt pistol (<unit>, ranged)', got 'Bolt pistol'"]}
+2026-10-29 14:24:38,297 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 2: {'__all__': ["Weapon name must look like 'Heavy bolt pistol (<unit>, ranged)', got 'Heavy bolt pistol'"]}
+2026-10-29 14:24:38,297 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 3: {'__all__': ["Weapon name must look like 'Master-crafted boltgun (<unit>, ranged)', got 'Master-crafted boltgun'"]}
+2026-10-29 14:24:38,297 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 4: {'__all__': ["Weapon name must look like 'Neo-volkite pistol (<unit>, ranged)', got 'Neo-volkite pistol'"]}
+2026-10-29 14:24:38,297 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 5: {'__all__': ["Weapon name must look like 'Plasma pistol – standard (<unit>, ranged)', got 'Plasma pistol – standard'"]}
+2026-10-29 14:24:38,297 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 6: {'__all__': ["Weapon name must look like 'Plasma pistol - supercharge (<unit>, ranged)', got 'Plasma pistol - supercharge'"]}
+2026-10-29 14:24:38,297 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 7: {'__all__': ["Weapon name must look like 'Close combat weapon (<unit>, melee)', got 'Close combat weapon'"]}
+2026-10-29 14:24:38,297 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 8: {'__all__': ["Weapon name must look like 'Master-crafted power weapon (<unit>, melee)', got 'Master-crafted power weapon'"]}
+2026-10-29 14:24:38,297 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 9: {'__all__': ["Weapon name must look like 'Power fist (<unit>, melee)', got 'Power fist'"]}
+2026-10-29 14:24:38,298 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 10: {'__all__': ["Weapon name must look like 'Storm Bolter (<unit>, ranged)', got 'Storm Bolter (Librarian In Terminator Armour, Ranged)'"]}
+2026-10-29 14:24:38,298 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 11: {'__all__': ["Weapon name must look like 'Storm Bolter (<unit>, ranged)', got 'Storm Bolter (Terminator, Ranged)'"]}
+2026-10-29 14:24:38,298 - ERROR - load_data - FAIL: Validation failed with 11 errors(s) found
+2026-10-29 14:24:38,298 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-29 14:24:38,298 - INFO - load_data - ================================================================================
+2026-10-29 14:25:03,279 - INFO - load_data - ================================================================================
+2026-10-29 14:25:03,279 - INFO - load_data - Starting data load run at 2026-10-29 14:25:03
+2026-10-29 14:25:03,279 - INFO - load_data - ================================================================================
+2026-10-29 14:25:03,279 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-29 14:24:55
+2026-10-29 14:25:03,279 - INFO - load_data - Starting validation...
+2026-10-29 14:25:03,467 - INFO - load_data - OK: Abilities validation completed
+2026-10-29 14:25:03,477 - INFO - load_data - OK: Phase validation completed
+2026-10-29 14:25:03,720 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-29 14:25:03,732 - INFO - load_data - OK: Factions validation completed
+2026-10-29 14:25:03,862 - INFO - load_data - OK: Detachments validation completed
+2026-10-29 14:25:04,061 - INFO - load_data - OK: Enhancements validation completed
+2026-10-29 14:25:04,318 - INFO - load_data - OK: Stratagems validation completed
+2026-10-29 14:25:04,327 - ERROR - load_data - FAIL: Validation failed - Weapons : 11 error(s) found...
+2026-10-29 14:25:04,327 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 1: {'__all__': ["Weapon name must look like 'Bolt pistol (<unit>, ranged)', got 'Bolt pistol (Lieutenant, Ranged)'"]}
+2026-10-29 14:25:04,327 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 2: {'__all__': ["Weapon name must look like 'Heavy bolt pistol (<unit>, ranged)', got 'Heavy bolt pistol (Captain, Ranged)'"]}
+2026-10-29 14:25:04,327 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 3: Ability Rapid Fire 1 does not exist in DB
+2026-10-29 14:25:04,328 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 4: {'__all__': ["Weapon name must look like 'Neo-volkite pistol (<unit>, ranged)', got 'Neo-volkite pistol (Captain, Ranged)'"]}
+2026-10-29 14:25:04,328 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 5: {'__all__': ["Weapon name must look like 'Plasma pistol – standard (<unit>, ranged)', got 'Plasma pistol – standard (Captain, Ranged)'"]}
+2026-10-29 14:25:04,328 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 6: {'__all__': ["Weapon name must look like 'Plasma pistol - supercharge (<unit>, ranged)', got 'Plasma pistol - supercharge (Captain, Ranged)'"]}
+2026-10-29 14:25:04,328 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 7: {'__all__': ["Weapon name must look like 'Close combat weapon (<unit>, melee)', got 'Close combat weapon (Captain, Ranged)'"]}
+2026-10-29 14:25:04,328 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 8: {'__all__': ["Weapon name must look like 'Master-crafted power weapon (<unit>, melee)', got 'Master-crafted power weapon (Captain, Ranged)'"]}
+2026-10-29 14:25:04,328 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 9: {'__all__': ["Weapon name must look like 'Power fist (<unit>, melee)', got 'Power fist (Captain, Ranged)'"]}
+2026-10-29 14:25:04,328 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 10: {'__all__': ["Weapon name must look like 'Storm Bolter (<unit>, ranged)', got 'Storm Bolter (Librarian In Terminator Armour, Ranged)'"]}
+2026-10-29 14:25:04,328 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Validation Error - Row 11: {'__all__': ["Weapon name must look like 'Storm Bolter (<unit>, ranged)', got 'Storm Bolter (Terminator, Ranged)'"]}
+2026-10-29 14:25:04,329 - ERROR - load_data - FAIL: Validation failed with 11 errors(s) found
+2026-10-29 14:25:04,329 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-29 14:25:04,329 - INFO - load_data - ================================================================================
+2026-10-29 14:26:56,714 - INFO - load_data - ================================================================================
+2026-10-29 14:26:56,715 - INFO - load_data - Starting data load run at 2026-10-29 14:26:56
+2026-10-29 14:26:56,715 - INFO - load_data - ================================================================================
+2026-10-29 14:26:56,715 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-29 14:26:50
+2026-10-29 14:26:56,715 - INFO - load_data - Starting validation...
+2026-10-29 14:26:56,964 - INFO - load_data - OK: Abilities validation completed
+2026-10-29 14:26:56,973 - INFO - load_data - OK: Phase validation completed
+2026-10-29 14:26:57,199 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-29 14:26:57,211 - INFO - load_data - OK: Factions validation completed
+2026-10-29 14:26:57,340 - INFO - load_data - OK: Detachments validation completed
+2026-10-29 14:26:57,539 - INFO - load_data - OK: Enhancements validation completed
+2026-10-29 14:26:57,796 - INFO - load_data - OK: Stratagems validation completed
+2026-10-29 14:26:57,819 - ERROR - load_data - FAIL: Validation failed - Weapons : 1 error(s) found...
+2026-10-29 14:26:57,819 - ERROR - load_data - <class 'army_app.models.wargear.Weapon'> Error - Row 3: Ability Rapid Fire 1 does not exist in DB
+2026-10-29 14:26:57,820 - ERROR - load_data - FAIL: Validation failed with 1 errors(s) found
+2026-10-29 14:26:57,820 - INFO - load_data - Logs saved in /app/army_app/logs
+2026-10-29 14:26:57,820 - INFO - load_data - ================================================================================
+2026-10-29 14:28:33,468 - INFO - load_data - ================================================================================
+2026-10-29 14:28:33,469 - INFO - load_data - Starting data load run at 2026-10-29 14:28:33
+2026-10-29 14:28:33,469 - INFO - load_data - ================================================================================
+2026-10-29 14:28:33,469 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-29 14:28:26
+2026-10-29 14:28:33,469 - INFO - load_data - Starting validation...
+2026-10-29 14:28:33,716 - INFO - load_data - OK: Abilities validation completed
+2026-10-29 14:28:33,726 - INFO - load_data - OK: Phase validation completed
+2026-10-29 14:28:33,956 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-29 14:28:33,968 - INFO - load_data - OK: Factions validation completed
+2026-10-29 14:28:34,097 - INFO - load_data - OK: Detachments validation completed
+2026-10-29 14:28:34,300 - INFO - load_data - OK: Enhancements validation completed
+2026-10-29 14:28:34,559 - INFO - load_data - OK: Stratagems validation completed
+2026-10-29 14:28:34,590 - INFO - load_data - OK: Weapons validation completed
+2026-10-29 14:28:34,651 - INFO - load_data - OK: Units validation completed
+2026-10-29 14:28:34,678 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-29 14:28:34,725 - INFO - load_data - OK: Leadership validation completed
+2026-10-29 14:28:34,745 - INFO - load_data - OK: Support validation completed
+2026-10-29 14:28:34,748 - INFO - load_data - OK: Validation complete with 324 successful validations
+2026-10-29 14:28:34,748 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-29 14:28:34,748 - INFO - load_data - ================================================================================
+2026-10-29 14:28:34,749 - INFO - load_data - Ending data load run at 2026-10-29 14:28:34
+2026-10-29 14:28:34,749 - INFO - load_data - ================================================================================
+2026-10-29 14:29:15,603 - INFO - load_data - ================================================================================
+2026-10-29 14:29:15,603 - INFO - load_data - Starting data load run at 2026-10-29 14:29:15
+2026-10-29 14:29:15,603 - INFO - load_data - ================================================================================
+2026-10-29 14:29:15,603 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-29 14:28:26
+2026-10-29 14:29:15,604 - INFO - load_data - Starting validation...
+2026-10-29 14:29:15,767 - INFO - load_data - OK: Abilities validation completed
+2026-10-29 14:29:15,777 - INFO - load_data - OK: Phase validation completed
+2026-10-29 14:29:16,012 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-29 14:29:16,025 - INFO - load_data - OK: Factions validation completed
+2026-10-29 14:29:16,155 - INFO - load_data - OK: Detachments validation completed
+2026-10-29 14:29:16,355 - INFO - load_data - OK: Enhancements validation completed
+2026-10-29 14:29:16,630 - INFO - load_data - OK: Stratagems validation completed
+2026-10-29 14:29:16,654 - INFO - load_data - OK: Weapons validation completed
+2026-10-29 14:29:16,714 - INFO - load_data - OK: Units validation completed
+2026-10-29 14:29:16,741 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-29 14:29:16,778 - INFO - load_data - OK: Leadership validation completed
+2026-10-29 14:29:16,798 - INFO - load_data - OK: Support validation completed
+2026-10-29 14:29:16,803 - INFO - load_data - OK: Validation complete with 324 successful validations
+2026-10-29 14:29:16,803 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-29 14:29:16,804 - INFO - load_data - ================================================================================
+2026-10-29 14:29:16,804 - INFO - load_data - Ending data load run at 2026-10-29 14:29:16
+2026-10-29 14:29:16,804 - INFO - load_data - ================================================================================
+2026-10-29 15:00:06,572 - INFO - load_data - ================================================================================
+2026-10-29 15:00:06,573 - INFO - load_data - Starting data load run at 2026-10-29 15:00:06
+2026-10-29 15:00:06,573 - INFO - load_data - ================================================================================
+2026-10-29 15:00:06,573 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-29 14:59:52
+2026-10-29 15:00:06,573 - INFO - load_data - Starting validation...
+2026-10-29 15:00:06,736 - INFO - load_data - OK: Abilities validation completed
+2026-10-29 15:00:06,746 - INFO - load_data - OK: Phase validation completed
+2026-10-29 15:00:06,981 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-29 15:00:06,994 - INFO - load_data - OK: Factions validation completed
+2026-10-29 15:00:07,143 - INFO - load_data - OK: Detachments validation completed
+2026-10-29 15:00:07,370 - INFO - load_data - OK: Enhancements validation completed
+2026-10-29 15:00:07,628 - INFO - load_data - OK: Stratagems validation completed
+2026-10-29 15:00:07,653 - INFO - load_data - OK: Weapons validation completed
+2026-10-29 15:00:07,718 - INFO - load_data - OK: Units validation completed
+2026-10-29 15:00:07,750 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-29 15:00:07,800 - INFO - load_data - OK: Leadership validation completed
+2026-10-29 15:00:07,820 - INFO - load_data - OK: Support validation completed
+2026-10-29 15:00:07,823 - INFO - load_data - OK: Validation complete with 324 successful validations
+2026-10-29 15:00:07,823 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-29 15:00:07,824 - INFO - load_data - ================================================================================
+2026-10-29 15:00:07,824 - INFO - load_data - Ending data load run at 2026-10-29 15:00:07
+2026-10-29 15:00:07,824 - INFO - load_data - ================================================================================

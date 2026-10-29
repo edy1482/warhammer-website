@@ -224,3 +224,4 @@ Unless otherwise stated, each bodyguard unit can only have one leader unit and o
 "50","Support","Before the battle, in the Muster Armies step, for each leader and support unit in your army, you can select one friendly bodyguard unit that unit can lead. That unit will then lead that bodyguard unit for the battle and form an attached unit with it.
 
 Unless otherwise stated, each bodyguard unit can only have one leader unit and one support unit attached to it.","","","ANY","ANY","","","","","","","","","","","","","","","","","","",""
+"51","Assault","Units containing one or more models with an [ASSAULT] weapon can shoot using assault shooting.","","","ANY","ANY","","","","","","","","","","","","","","","","","","",""

@@ -14,6 +14,9 @@ class Leadership(models.Model):
         help_text="Leader must have ALL of these keywords (e.g., RELIC SHIELD)."
     )
 
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=["leader", "bodyguard_unit"], name="unique_leadership_pair")]
+
     def __str__(self):
         return f"{self.leader} leads {self.bodyguard_unit}"
     
@@ -36,6 +39,9 @@ class Support(models.Model):
             related_name="support_required_for",
             help_text="Support must have ALL of these keywords (e.g., RELIC SHIELD)."
         )
+
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=["support", "bodyguard_unit"], name="unique_support_pair")]
 
     def __str__(self):
         return f"{self.support} supports {self.bodyguard_unit}"

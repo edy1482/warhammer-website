@@ -12,7 +12,7 @@ class Weapon(models.Model):
     }
     # Consider adding unit?
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    display_name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, default="")
+    display_name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
     weapon_type = models.CharField(max_length=MIN_CHARFIELD_LENGTH, choices=TYPE_CHOICES)
     weapon_range = models.CharField(max_length=MIN_CHARFIELD_LENGTH, blank=True, null=True) # e.g. "12\""
     attacks = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be 1 or D3
@@ -31,3 +31,9 @@ class Weapon(models.Model):
         valid_choices = ", ".join(key for key in self.TYPE_CHOICES.keys())
         if self.weapon_type not in self.TYPE_CHOICES.keys():
             raise ValidationError(f"Invalid weapon type: {self.weapon_type} does not exist. Valid choices are {valid_choices}")
+
+        # Check if display name is correct
+        prefix = f"{self.display_name} ("
+        suffix = f", {self.weapon_type.lower()})"
+        if not (self.name.startswith(prefix) and self.name.endswith(suffix)):
+            raise ValidationError(f"Weapon name must look like '{self.display_name} (<unit>, {self.weapon_type.lower()})', got '{self.name}'")

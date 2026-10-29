@@ -221,9 +221,12 @@ class Detachment(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=["faction", "name"], name="unique_detachment_per_faction")]
+
 class Enhancement(models.Model):
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
-    detachment = models.ForeignKey(Detachment, on_delete=models.CASCADE, related_name="enhancement")
+    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, unique=True)
+    detachments = models.ManyToManyField(Detachment, related_name="enhancement", blank=True)
     description = models.TextField(blank=True, default="")
     points = models.PositiveIntegerField()
     
@@ -235,6 +238,10 @@ class Enhancement(models.Model):
     
     # KeywordCondition - AST to be built after data load
     auto_condition = models.ForeignKey(KeyWordCondition, null=True, blank=True, on_delete=models.SET_NULL)
+
+    @property
+    def detachment_names(self):
+        return ", ".join(sorted(d.name for d in self.detachments.all()))
     
     # Class functions
     def __str__(self):

@@ -7,8 +7,6 @@ from .leadership import Leadership, Support
 
 MAX_CHARFIELD_LENGTH = 255
 
-#TODO Create AssignedSupport model?
-
 class ArmyList(models.Model):
     BATTLE_SIZE_CHOICES = {
         "incursion" : "Incursion (0–1000 pts)",

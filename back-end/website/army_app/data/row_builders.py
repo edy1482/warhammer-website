@@ -107,13 +107,13 @@ def row_to_detachment_kwargs(row):
 def row_to_enhancement_kwargs(row):    
         errors = []
 
-        detachment = resolve_one(row["detachment"], by_name(Detachment), "Detachment", errors)        
+        detachments = resolve_all(split_cell(row, "detachments"), by_name(Detachment), "Detachment", errors)        
 
         if errors:
             return errors, None
         
         return errors, {
-            "detachment" : detachment,
+            "detachments" : detachments,
             "name" : row["name"],
             "description" : row["description"],
             "points" : row["points"],

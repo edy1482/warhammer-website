@@ -38,6 +38,9 @@ class Unit(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=["faction", "name"], name="unique_unit_per_faction")]
+
     # Class functions
     def __str__(self):
         return self.name
@@ -123,6 +126,7 @@ class UnitPointBracket(models.Model):
     
     class Meta:
         ordering = ["min_models"]
+        constraints = [models.UniqueConstraint(fields=["unit", "min_models", "max_models"], name="unique_bracket_per_unit")]
     
     # Class functions
     def __str__(self):

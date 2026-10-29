@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from .core import KeyWord, Faction, Detachment, Enhancement, Stratagem
 from .units import Unit
-from .leadership import Leadership
+from .leadership import Leadership, Support
 
 MAX_CHARFIELD_LENGTH = 255
 
@@ -153,58 +153,53 @@ class ArmyListEntry(models.Model):
         
         return super().delete(*args, **kwargs)
     
-class AssignedLeader(models.Model):
-    entry = models.ForeignKey(ArmyListEntry, on_delete=models.CASCADE, related_name="assigned_leaders")
-    leader_entry = models.ForeignKey(ArmyListEntry, on_delete=models.CASCADE, related_name="leading_assignments")
+class AssignedAttachment(models.Model):
+    class Role(models.TextChoices):
+        LEADER = "leader", "Leader"
+        SUPPORT = "support", "Support"
+    # The bodyguard entry
+    entry = models.ForeignKey(ArmyListEntry, on_delete=models.CASCADE, related_name="attachments")
+    # The leader/support
+    attached_entry = models.OneToOneField(ArmyListEntry, on_delete=models.CASCADE, related_name="attachment")
+    role = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=Role.choices)
+
+    RULES = {
+        Role.LEADER: (Leadership, "leader"),
+        Role.SUPPORT: (Support, "support"),
+    }
 
     class Meta:
         constraints = [
             # Prevent the same leader_entry to be assigned twice to the same entry
-            models.UniqueConstraint(
-                fields=["entry", "leader_entry"],
-                name="unique_leader_assignment"
-            ),
+            models.UniqueConstraint(fields=["entry", "attached_entry"], name="one_attachment_per_role"),
         ]
-        indexes = [
-            # Speed up duplicate checks
-            models.Index(fields=["entry", "leader_entry"])
-        ]
+    
 
     def __str__(self):
-        return f"{self.leader_entry.unit} [Entry {self.leader_entry.id}] → {self.entry.unit} [Entry {self.entry.id}]"
+        return (f"{self.attached_entry.unit} [Entry {self.attached_entry.id}]"
+                f"{self.get_role_display()} → {self.entry.unit} [Entry {self.entry.id}]")
     
     def clean(self):
         super().clean()
         unit = self.entry.unit
-        leader_unit = self.leader_entry.unit
-        existing_leaders = self.entry.assigned_leaders.exclude(pk=self.pk)
+        char_unit = self.attached_entry.unit
 
         # Check if the entry and leader_entry are in the same ArmyList
-        if self.entry.army_list != self.leader_entry.army_list:
-            raise ValidationError(f"{self.entry} and {self.leader_entry} are from two seperate ArmyLists")
+        if self.entry.army_list != self.attached_entry.army_list:
+            raise ValidationError(f"{self.entry} and {self.attached_entry} are from two seperate ArmyLists")
 
-        # Ensure Leadership object exists
-        leadership = Leadership.objects.filter(leader=leader_unit, bodyguard_unit=unit).first()
-        if not leadership:
-            raise ValidationError(f"Leader Error: {leader_unit} cannot lead {unit}")
+        # Ensure Leadership/Support object exists
+        rule_model, char_field = self.RULES[self.role]
+        rule = rule_model.objects.filter(**{char_field: char_unit, "bodyguard_unit": unit}).first()
+        if not rule:
+            raise ValidationError(f"Leader Error: {char_unit} cannot lead {unit}")
         
         # Check if any required keyword exists
-        required = set(leadership.keywords.values_list("name", flat=True))
-        leader_keywords = set(leader_unit.keywords.values_list("name", flat=True))
+        required = set(rule.keywords.values_list("name", flat=True))
+        leader_keywords = set(char_unit.keywords.values_list("name", flat=True))
         missing_keywords = required - leader_keywords
         if missing_keywords:
-            raise ValidationError(f"Missing Keyword(s): {leader_unit} lacks required {', '.join(missing_keywords)}")
-        
-        # Prevent leader from leading multiple separate units
-        duplicate_assignments = AssignedLeader.objects.filter(leader_entry=self.leader_entry).exclude(pk=self.pk)
-        if duplicate_assignments.exists():
-            units = ", ".join(f"{assign.entry.unit.name} [Entry {assign.entry.id}]" for assign in duplicate_assignments)
-            raise ValidationError(f"{leader_unit} [Entry {self.leader_entry.id}] is already assigned to {units}")
-        
-        # Prevent bodyguard unit from having two leaders
-        existing_leaders = AssignedLeader.objects.filter(entry=self.entry).exclude(pk=self.pk)
-        if existing_leaders.exists():
-            raise ValidationError(f"Leader already exists: {existing_leaders.first()}")
+            raise ValidationError(f"Missing Keyword(s): {self.attached_entry} lacks required {', '.join(missing_keywords)}")
         
     def save(self, *args, **kwargs):
         # Ensure that we clean when using CSV files or shell

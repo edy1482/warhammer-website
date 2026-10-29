@@ -2,7 +2,7 @@ from .core import KeyWord, KeyWordCondition, Faction, Ability, AbilityEffect, Ph
 from .wargear import Weapon
 from .units import Unit, UnitPointBracket
 from .leadership import Leadership, Support
-from .army_list import ArmyList, ArmyListEntry, AssignedLeader
+from .army_list import ArmyList, ArmyListEntry, AssignedAttachment
 from .scraped_page import ScrapedPage, ScrapedPageLoadResult
 
 __all__ = [
@@ -10,5 +10,5 @@ __all__ = [
     "Weapon",
     "Unit", "UnitPointBracket", 
     "Leadership", "Support",
-    "ArmyList", "ArmyListEntry", "AssignedLeader",
+    "ArmyList", "ArmyListEntry", "AssignedAttachment",
 ]

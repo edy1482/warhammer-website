@@ -8,7 +8,7 @@ from army_app.models import ScrapedPage, ScrapedPageLoadResult, KeyWord, KeyWord
 from army_app.models import Weapon
 from army_app.models import Unit, UnitPointBracket
 from army_app.models import Leadership, Support
-from army_app.models import ArmyList, ArmyListEntry, AssignedLeader
+from army_app.models import ArmyList, ArmyListEntry, AssignedAttachment
 
 @admin.register(ScrapedPage)
 class ScrapedPageAdmin(admin.ModelAdmin):
@@ -252,23 +252,23 @@ class ArmyListEntryAdmin(admin.ModelAdmin):
     def available_stratagems(self, obj):
         return ", ".join(strat.name for strat in obj.get_valid_strats())
     
-@admin.register(AssignedLeader)
+@admin.register(AssignedAttachment)
 class AssignedLeaderAdmin(admin.ModelAdmin):
-    list_display = ("army_list", "leader_entry_display", "entry_display", "possible_leaders")
+    list_display = ("army_list", "attached_entry_display", "entry_display", "possible_leaders")
     readonly_fields = ("possible_leaders",)
     list_filter = ("entry__army_list",)
 
     def army_list(self, obj):
         return obj.entry.army_list
     
-    def leader_entry_display(self, obj):
-        return f"{obj.leader_entry.unit} [Entry {obj.leader_entry.id}]"
+    def attached_entry_display(self, obj):
+        return f"{obj.attached_entry.unit} [Entry {obj.attached_entry.id}]"
     
     def entry_display(self, obj):
         return f"{obj.entry.unit} [Entry {obj.entry.id}]"
     
     army_list.short_description = "Army List"
-    leader_entry_display.short_description = "Leader"
+    attached_entry_display.short_description = "Leader/Support"
     entry_display.short_description = "Follower"
 
     def possible_leaders(self, obj):

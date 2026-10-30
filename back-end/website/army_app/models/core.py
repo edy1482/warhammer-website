@@ -114,7 +114,7 @@ class Phase(models.Model):
         ("ANY", "Any phase"),
     ]
 
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=PHASES)
+    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, choices=PHASES, unique=True)
     
 class Ability(models.Model):
     ABILITY_TYPES = [
@@ -167,6 +167,9 @@ class AbilityEffect(models.Model):
     
     # KeywordCondition - AST to be built after data load
     auto_condition = models.ForeignKey(KeyWordCondition, null=True, blank=True, on_delete=models.SET_NULL)
+
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=["ability", "effect_description"], name="unique_effect_per_ability")]
 
 class Faction(models.Model):
     FACTION_CHOICES = [
@@ -248,7 +251,7 @@ class Enhancement(models.Model):
         return self.name
     
 class Stratagem(models.Model):
-    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH)
+    name = models.CharField(max_length=MAX_CHARFIELD_LENGTH, unique=True)
     phase = models.ManyToManyField(Phase, blank=True, related_name="stratagem_phase", default="ANY")
     when = models.TextField(blank=True, default="")
     # Turn

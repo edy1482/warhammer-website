@@ -3275,3 +3275,47 @@ TypeError: resolve_all() missing 1 required positional argument: 'errors'
 2026-10-29 15:00:07,824 - INFO - load_data - ================================================================================
 2026-10-29 15:00:07,824 - INFO - load_data - Ending data load run at 2026-10-29 15:00:07
 2026-10-29 15:00:07,824 - INFO - load_data - ================================================================================
+2026-10-30 11:23:50,595 - INFO - load_data - ================================================================================
+2026-10-30 11:23:50,595 - INFO - load_data - Starting data load run at 2026-10-30 11:23:50
+2026-10-30 11:23:50,596 - INFO - load_data - ================================================================================
+2026-10-30 11:23:50,596 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-29 14:59:52
+2026-10-30 11:23:50,596 - INFO - load_data - Starting validation...
+2026-10-30 11:23:50,781 - INFO - load_data - OK: Abilities validation completed
+2026-10-30 11:23:50,795 - INFO - load_data - OK: Phase validation completed
+2026-10-30 11:23:51,079 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-30 11:23:51,101 - INFO - load_data - OK: Factions validation completed
+2026-10-30 11:23:51,259 - INFO - load_data - OK: Detachments validation completed
+2026-10-30 11:23:51,482 - INFO - load_data - OK: Enhancements validation completed
+2026-10-30 11:23:51,779 - INFO - load_data - OK: Stratagems validation completed
+2026-10-30 11:23:51,815 - INFO - load_data - OK: Weapons validation completed
+2026-10-30 11:23:51,897 - INFO - load_data - OK: Units validation completed
+2026-10-30 11:23:51,936 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-30 11:23:51,993 - INFO - load_data - OK: Leadership validation completed
+2026-10-30 11:23:52,017 - INFO - load_data - OK: Support validation completed
+2026-10-30 11:23:52,019 - INFO - load_data - OK: Validation complete with 324 successful validations
+2026-10-30 11:23:52,020 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-30 11:23:52,020 - INFO - load_data - ================================================================================
+2026-10-30 11:23:52,020 - INFO - load_data - Ending data load run at 2026-10-30 11:23:52
+2026-10-30 11:23:52,020 - INFO - load_data - ================================================================================
+2026-10-30 11:23:54,452 - INFO - load_data - ================================================================================
+2026-10-30 11:23:54,452 - INFO - load_data - Starting data load run at 2026-10-30 11:23:54
+2026-10-30 11:23:54,453 - INFO - load_data - ================================================================================
+2026-10-30 11:23:54,453 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-10-29 14:59:52
+2026-10-30 11:23:54,453 - INFO - load_data - Starting validation...
+2026-10-30 11:23:54,618 - INFO - load_data - OK: Abilities validation completed
+2026-10-30 11:23:54,630 - INFO - load_data - OK: Phase validation completed
+2026-10-30 11:23:54,887 - INFO - load_data - OK: AbilityEffect validation completed
+2026-10-30 11:23:54,899 - INFO - load_data - OK: Factions validation completed
+2026-10-30 11:23:55,049 - INFO - load_data - OK: Detachments validation completed
+2026-10-30 11:23:55,258 - INFO - load_data - OK: Enhancements validation completed
+2026-10-30 11:23:55,546 - INFO - load_data - OK: Stratagems validation completed
+2026-10-30 11:23:55,575 - INFO - load_data - OK: Weapons validation completed
+2026-10-30 11:23:55,641 - INFO - load_data - OK: Units validation completed
+2026-10-30 11:23:55,674 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-10-30 11:23:55,714 - INFO - load_data - OK: Leadership validation completed
+2026-10-30 11:23:55,736 - INFO - load_data - OK: Support validation completed
+2026-10-30 11:23:55,738 - INFO - load_data - OK: Validation complete with 324 successful validations
+2026-10-30 11:23:55,738 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-10-30 11:23:55,738 - INFO - load_data - ================================================================================
+2026-10-30 11:23:55,738 - INFO - load_data - Ending data load run at 2026-10-30 11:23:55
+2026-10-30 11:23:55,738 - INFO - load_data - ================================================================================

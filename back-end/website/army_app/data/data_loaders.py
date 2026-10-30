@@ -1,5 +1,6 @@
 import csv
 from django.core.exceptions import ValidationError
+from django.db import IntegrityError
 # This is in the dependancy order
 from army_app.models import KeyWord, Phase, Ability, AbilityEffect, Faction, Detachment, Enhancement, Stratagem
 from army_app.models import Weapon
@@ -93,43 +94,46 @@ def load_model(model_class, rows, row_to_kwargs, lookup_fields=None, outcomes=No
         except ValidationError as v_err:
             errors.append(f"{model_class} Validation Error - Row {idx}: {v_err}")
             record(label, None, str(v_err))
+        except IntegrityError as db_err:
+            errors.append(f"{model_class} Conflict - {label}: violates a unique constraint ({db_err.__cause__ or db_err})")
+            record(label, None, f"unique constraint: {db_err.__cause__ or db_err}")
         except Exception as err:
             errors.append(f"{model_class} Unexpected Error - Row {idx}: {err}")
             record(label, None, str(err))
     return errors, saved_objs
 
 def load_phase(csv_path):
-    return load_model(Phase, csv_rows(csv_path), row_to_phase_kwargs)
+    return load_model(Phase, csv_rows(csv_path), row_to_phase_kwargs, lookup_fields=["name"])
 
 def load_abilities(csv_path):
-    return load_model(Ability, csv_rows(csv_path), row_to_abilities_kwargs)
+    return load_model(Ability, csv_rows(csv_path), row_to_abilities_kwargs, lookup_fields=["name", "value"])
 
 def load_ability_effects(csv_path):
-    return load_model(AbilityEffect, csv_rows(csv_path), row_to_ability_effects_kwargs)
+    return load_model(AbilityEffect, csv_rows(csv_path), row_to_ability_effects_kwargs, lookup_fields=["ability", "effect_description"])
 
 def load_factions(csv_path):
-    return load_model(Faction, csv_rows(csv_path), row_to_faction_kwargs)
+    return load_model(Faction, csv_rows(csv_path), row_to_faction_kwargs, lookup_fields=["name"])
 
 def load_detachments(csv_path):
-    return load_model(Detachment, csv_rows(csv_path), row_to_detachment_kwargs)
+    return load_model(Detachment, csv_rows(csv_path), row_to_detachment_kwargs, lookup_fields=["name", "faction"])
 
 def load_enhancements(csv_path):
-    return load_model(Enhancement, csv_rows(csv_path), row_to_enhancement_kwargs)
+    return load_model(Enhancement, csv_rows(csv_path), row_to_enhancement_kwargs, lookup_fields=["name"])
 
 def load_stratagems(csv_path):
-    return load_model(Stratagem, csv_rows(csv_path), row_to_stratagems_kwargs)
+    return load_model(Stratagem, csv_rows(csv_path), row_to_stratagems_kwargs, lookup_fields=["name"])
 
 def load_weapons(csv_path):
-    return load_model(Weapon, csv_rows(csv_path), row_to_weapons_kwargs)
+    return load_model(Weapon, csv_rows(csv_path), row_to_weapons_kwargs, lookup_fields=["name"])
 
 def load_units(csv_path):
-    return load_model(Unit, csv_rows(csv_path), row_to_units_kwargs)
+    return load_model(Unit, csv_rows(csv_path), row_to_units_kwargs, lookup_fields=["name", "faction"])
 
 def load_unit_point_brackets(csv_path):
-    return load_model(UnitPointBracket, csv_rows(csv_path), row_to_brackets_kwargs)
+    return load_model(UnitPointBracket, csv_rows(csv_path), row_to_brackets_kwargs, lookup_fields=["unit", "min_models", "max_models"])
 
 def load_leadership(csv_path):
-    return load_model(Leadership, csv_rows(csv_path), row_to_leadership)
+    return load_model(Leadership, csv_rows(csv_path), row_to_leadership, lookup_fields=["leader", "bodyguard_unit"])
 
 def load_support(csv_path):
-    return load_model(Support, csv_rows(csv_path), row_to_support)
+    return load_model(Support, csv_rows(csv_path), row_to_support, lookup_fields=["support", "bodyguard_unit"])

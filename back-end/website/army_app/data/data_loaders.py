@@ -130,7 +130,7 @@ def load_units(csv_path):
     return load_model(Unit, csv_rows(csv_path), row_to_units_kwargs, lookup_fields=["name", "faction"])
 
 def load_unit_point_brackets(csv_path):
-    return load_model(UnitPointBracket, csv_rows(csv_path), row_to_brackets_kwargs, lookup_fields=["unit", "min_models", "max_models"])
+    return load_model(UnitPointBracket, csv_rows(csv_path), row_to_brackets_kwargs, lookup_fields=["unit", "min_models", "max_models", "min_unit_number"])
 
 def load_leadership(csv_path):
     return load_model(Leadership, csv_rows(csv_path), row_to_leadership, lookup_fields=["leader", "bodyguard_unit"])

@@ -200,10 +200,17 @@ def row_to_brackets_kwargs(row):
         if errors:
             return errors, None
         
+        # Unit-number tiers are optional columns so older CSVs still load:
+        # blank/missing min_unit_number -> 1 (first copy), blank/missing max_unit_number -> no limit (e.g. 4th+)
+        min_unit_number = str(row.get("min_unit_number") or "").strip() or 1
+        max_unit_number = str(row.get("max_unit_number") or "").strip() or None
+
         return errors, {
             "unit" : unit,
             "min_models" : row["min_models"],
             "max_models" : row["max_models"],
+            "min_unit_number" : min_unit_number,
+            "max_unit_number" : max_unit_number,
             "points" : row["points"],
         }
 

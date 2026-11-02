@@ -3319,3 +3319,25 @@ TypeError: resolve_all() missing 1 required positional argument: 'errors'
 2026-10-30 11:23:55,738 - INFO - load_data - ================================================================================
 2026-10-30 11:23:55,738 - INFO - load_data - Ending data load run at 2026-10-30 11:23:55
 2026-10-30 11:23:55,738 - INFO - load_data - ================================================================================
+2026-11-02 12:00:16,165 - INFO - load_data - ================================================================================
+2026-11-02 12:00:16,166 - INFO - load_data - Starting data load run at 2026-11-02 12:00:16
+2026-11-02 12:00:16,166 - INFO - load_data - ================================================================================
+2026-11-02 12:00:16,166 - INFO - load_data - [Apply] Starting data load for version /app/army_app/data/csv_data/2026-11-02 11:59:44
+2026-11-02 12:00:16,166 - INFO - load_data - Starting validation...
+2026-11-02 12:00:16,435 - INFO - load_data - OK: Abilities validation completed
+2026-11-02 12:00:16,453 - INFO - load_data - OK: Phase validation completed
+2026-11-02 12:00:16,754 - INFO - load_data - OK: AbilityEffect validation completed
+2026-11-02 12:00:16,778 - INFO - load_data - OK: Factions validation completed
+2026-11-02 12:00:16,962 - INFO - load_data - OK: Detachments validation completed
+2026-11-02 12:00:17,193 - INFO - load_data - OK: Enhancements validation completed
+2026-11-02 12:00:17,510 - INFO - load_data - OK: Stratagems validation completed
+2026-11-02 12:00:17,547 - INFO - load_data - OK: Weapons validation completed
+2026-11-02 12:00:17,629 - INFO - load_data - OK: Units validation completed
+2026-11-02 12:00:17,665 - INFO - load_data - OK: Unit Point Brackets validation completed
+2026-11-02 12:00:17,730 - INFO - load_data - OK: Leadership validation completed
+2026-11-02 12:00:17,755 - INFO - load_data - OK: Support validation completed
+2026-11-02 12:00:17,758 - INFO - load_data - OK: Validation complete with 324 successful validations
+2026-11-02 12:00:17,758 - INFO - load_data - Logs saved to /app/army_app/logs
+2026-11-02 12:00:17,758 - INFO - load_data - ================================================================================
+2026-11-02 12:00:17,759 - INFO - load_data - Ending data load run at 2026-11-02 12:00:17
+2026-11-02 12:00:17,759 - INFO - load_data - ================================================================================

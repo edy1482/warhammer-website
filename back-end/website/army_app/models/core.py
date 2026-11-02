@@ -123,7 +123,7 @@ class Ability(models.Model):
         ("UNIT_ABILITY", "Unit Ability"),
         ("WEAPON_ABILITY", "Weapon Ability"),
         ("WARGEAR_ABILITY", "Wargear Ability"),
-        ("CORE_RULE", "Core Rule"),
+        ("CORE_ABILITY", "Core Ability"),
     ]
     
     name = models.CharField(max_length=MAX_CHARFIELD_LENGTH) # base = Sustained Hits, or Pistol

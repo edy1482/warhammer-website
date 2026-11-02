@@ -268,20 +268,23 @@ def dump_units(out_dir: Path) -> int:
  
 def dump_unit_point_brackets(out_dir: Path) -> int:
     """
-    Loader expects: id, unit (name), min_models, max_models, points
+    Loader expects: id, unit (name), min_models, max_models,
+                    min_unit_number, max_unit_number (blank = no limit), points
     """
-    headers = ["id", "unit", "min_models", "max_models", "points"]
+    headers = ["id", "unit", "min_models", "max_models", "min_unit_number", "max_unit_number", "points"]
     rows = []
     for obj in (
         UnitPointBracket.objects
         .select_related("unit")
-        .order_by("unit__name", "min_models")
+        .order_by("unit__name", "min_unit_number", "min_models")
     ):
         rows.append([
             obj.id,
             obj.unit.name,
             obj.min_models,
             obj.max_models,
+            obj.min_unit_number,
+            obj.max_unit_number if obj.max_unit_number is not None else "",
             obj.points,
         ])
     _write(out_dir, "unit_point_brackets.csv", headers, rows)

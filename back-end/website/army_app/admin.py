@@ -147,7 +147,7 @@ class SupportAdmin(admin.ModelAdmin):
 
 @admin.register(UnitPointBracket)
 class UnitPointBracketAdmin(admin.ModelAdmin):
-    list_display = ("unit", "points")
+    list_display = ("unit", "min_models", "max_models", "min_unit_number", "max_unit_number", "points")
     # Search fields expect columns, so double underscore
     search_fields = ("unit__name",)
     list_filter = ("unit__faction",)

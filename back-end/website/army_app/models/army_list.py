@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from .core import KeyWord, Faction, Detachment, Enhancement, Stratagem
-from .units import Unit
+from .units import Unit, UnitPointBracket
 from .leadership import Leadership, Support
 
 MAX_CHARFIELD_LENGTH = 255
@@ -48,8 +48,21 @@ class ArmyListEntry(models.Model):
     def __str__(self):
         return f"{self.army_list} - {self.unit} → [Entry: {self.id}]"
     
+    def get_unit_number(self):
+        # Which copy of this unit this entry is in its army list (1 = first taken), by order added.
+        # Removing an earlier copy moves later copies down, so their price updates automatically.
+        same_unit = ArmyListEntry.objects.filter(army_list=self.army_list, unit=self.unit)
+        if self.pk:
+            same_unit = same_unit.filter(pk__lt=self.pk)
+        return same_unit.count() + 1
+
     def get_unit_points(self):
-        bracket = self.unit.point_brackets.filter(min_models__lte=self.model_count, max_models__gte=self.model_count).first()
+        bracket = (
+            self.unit.point_brackets
+            .filter(min_models__lte=self.model_count, max_models__gte=self.model_count)
+            .filter(UnitPointBracket.for_unit_number_q(self.get_unit_number()))
+            .first()
+        )
         return bracket.points if bracket else 0
     
     def get_enhancement_points(self):

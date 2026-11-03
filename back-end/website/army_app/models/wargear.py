@@ -21,6 +21,7 @@ class Weapon(models.Model):
     ap = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be -1 or -D3
     damage = models.CharField(max_length=MIN_CHARFIELD_LENGTH) # could be 1 or D6
     abilities = models.ManyToManyField(Ability, limit_choices_to={"ability_type" : "WEAPON_ABILITY"}, blank=True) # these are the "keywords" next to weapons e.g. Devastaing Wounds
+    points = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name

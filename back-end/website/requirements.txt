@@ -4,8 +4,9 @@ certifi==2025.10.5
 charset-normalizer==3.4.4
 colorlog==6.10.1
 dj-database-url==3.0.1
-Django==5.2.7
 django-extensions==4.1
+django-storages[s3]==1.14.6
+Django==5.2.7
 dotenv==0.9.9
 graphviz==0.21
 gunicorn==23.0.0

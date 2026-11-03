@@ -142,6 +142,43 @@ STATICFILES_DIRS = [
     BASE_DIR / "army_app" / "static",
 ]
 
+# File storage
+# Defining STORAGES replaces Django's defaults, so "default" and "staticfiles"
+# must be listed explicitly. "scraped_html" is used by ScrapedPage.html_file.
+AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
+
+if AWS_STORAGE_BUCKET_NAME:
+    # Credentials are read by boto3 from AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY
+    # in the environment (or an attached IAM role), so they never live in settings.
+    SCRAPED_HTML_STORAGE = {
+        "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            "bucket_name": AWS_STORAGE_BUCKET_NAME,
+            "region_name": os.getenv("AWS_S3_REGION_NAME", "eu-west-2"),
+            "location": "scraped_html",      # key prefix inside the bucket
+            "default_acl": None,              # inherit bucket policy (keep it private)
+            "querystring_auth": True,         # .url gives a short-lived signed link
+            "querystring_expire": 300,
+            "file_overwrite": True,           # re-scrape replaces the same object
+            "object_parameters": {"ContentType": "text/html; charset=utf-8"},
+        },
+    }
+else:
+    # Local dev: same files, same folder the scraper used before.
+    SCRAPED_HTML_STORAGE = {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "OPTIONS": {
+            "location": BASE_DIR / "army_app" / "data" / "html_data",
+            "allow_overwrite": True,
+        },
+    }
+
+STORAGES = {
+    "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+    "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"},
+    "scraped_html": SCRAPED_HTML_STORAGE,
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 

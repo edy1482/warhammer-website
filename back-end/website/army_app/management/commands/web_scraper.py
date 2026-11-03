@@ -1,11 +1,10 @@
 import requests
-import os
 import logging
 import hashlib
 from datetime import datetime
+from django.core.files.base import ContentFile
 from django.core.management.base import BaseCommand
 from django.utils import timezone
-from pathlib import Path
 from army_app.models import ScrapedPage
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
@@ -81,9 +80,6 @@ PREFIXES = [
     TYRANIDS,
 ]
 
-BASE_DIR = Path(__file__).resolve().parents[2]
-HTML_DIR = BASE_DIR / "data" / "html_data"
-
 
 class Command(BaseCommand):
     help = "Download webpages for processing."
@@ -116,9 +112,6 @@ class Command(BaseCommand):
             logger.warning("No URLs provided. Fill in the URLS list in scrape_datasheets.py or pass --urls.")
             return
 
-        output_dir = HTML_DIR
-        output_dir.mkdir(parents=True, exist_ok=True)
-
         for url in urls:
             logger.info(f"Scraping: {url}")
             page, _ = ScrapedPage.objects.get_or_create(url=url)
@@ -129,11 +122,14 @@ class Command(BaseCommand):
                 )
                 response.raise_for_status()
 
-                html = response.text
-                html, file_path = self._save_html_to_disk(url, html, output_dir)
+                cleaned_html = self._clean_html(url, response.text)
+                # save=False: write the object to storage now, persist the row once below
+                page.html_file.save(
+                    self._build_filename(url),
+                    ContentFile(cleaned_html.encode("utf-8")),
+                    save=False,
+                )
 
-                page.html_content = html
-                page.file_path = file_path
                 page.status_code = response.status_code
                 page.status = ScrapedPage.STATUS_SUCCESS
                 page.error_message = None
@@ -144,7 +140,7 @@ class Command(BaseCommand):
                     page.page_type = ScrapedPage.FACTION_CLUSTER
                 page.save()
 
-                logger.info(f"  Saved -> {file_path}")
+                logger.info(f"  Saved -> {page.html_file.name}")
 
             except requests.RequestException as exc:
                 page.status = ScrapedPage.STATUS_FAILED
@@ -155,6 +151,16 @@ class Command(BaseCommand):
 
                 logger.error(f"  Failed: {exc}")
 
+            except Exception as exc:
+                # Storage errors (e.g. S3 credentials/network) shouldn't abort
+                # the whole run; record them against the page and move on.
+                page.status = ScrapedPage.STATUS_FAILED
+                page.error_message = f"Storage error: {exc}"
+                page.scraped_at = timezone.now()
+                page.save()
+
+                logger.exception(f"  Failed to store HTML for {url}")
+
         # Write logger outro
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         logger.info("=" * 80)
@@ -162,10 +168,12 @@ class Command(BaseCommand):
         logger.info("=" * 80)
         return
 
-    def _save_html_to_disk(self, url, html, output_dir):
+    def _build_filename(self, url):
         """
-        Build a filesystem-safe filename from the URL and write the HTML
-        to army_app/html_data/<filename>.html
+        Build a storage-safe filename from the URL. The FileField's storage
+        prefixes it (e.g. "scraped_html/"), so this is just the basename.
+        The name is deterministic, so re-scraping a URL overwrites the same
+        S3 object instead of piling up copies.
         """
         parsed = urlparse(url)
         slug = (parsed.netloc + parsed.path).strip("/").replace("/", "_")
@@ -175,20 +183,13 @@ class Command(BaseCommand):
         # Keep filenames from getting too long / avoid collisions on
         # near-identical slugs by appending a short hash of the full URL.
         url_hash = hashlib.sha256(url.encode("utf-8")).hexdigest()[:10]
-        filename = f"{slug[:150]}_{url_hash}.html"
-        full_path = os.path.join(output_dir, filename)
+        return f"{slug[:150]}_{url_hash}.html"
 
-        # Let's slim down the html by finding the relevant info
+    def _clean_html(self, url, html):
+        """Slim the page down to the parts the loaders need."""
         if url.endswith("datasheets.html"):
-            soup_str = self.clean_datasheet(html)
-        else:
-            soup_str = self.clean_faction_page(html)
-
-        with open(full_path, "w", encoding="utf-8") as f:
-            f.write(soup_str)
-
-        # Store a path relative to html_data on the model.
-        return soup_str, os.path.join("html_data", filename)
+            return self.clean_datasheet(html)
+        return self.clean_faction_page(html)
 
     def clean_datasheet(self, html):
         soup = BeautifulSoup(html, "html.parser")

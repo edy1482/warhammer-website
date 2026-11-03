@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from army_app.storage import scraped_html_storage
 
 MAX_CHARFIELD_LENGTH = 255
 
@@ -29,8 +30,14 @@ class ScrapedPage(models.Model):
     ]
 
     url = models.URLField(max_length = 1000, unique=True)
-    html_content = models.TextField(blank = True, null=True)
-    file_path = models.CharField(max_length = 500, blank=True, null=True)
+    # The DB column only holds the object key (e.g. "scraped_html/wahapedia.ru_..._ab12cd34ef.html");
+    # the HTML itself lives in whatever backend STORAGES["scraped_html"] points at (S3 in prod).
+    html_file = models.FileField(
+        storage = scraped_html_storage,
+        max_length = 500,
+        blank = True,
+        null = True,
+    )
     status_code = models.IntegerField(blank = True, null=True)
     status = models.CharField(max_length = MAX_CHARFIELD_LENGTH, choices = STATUS_CHOICES, default = STATUS_PENDING)
     page_type = models.CharField(max_length = MAX_CHARFIELD_LENGTH, choices = PAGE_CHOICES, default = UNKNOWN_CLUSTER)
@@ -44,6 +51,13 @@ class ScrapedPage(models.Model):
 
     def __str__(self):
         return f"{self.url} ({self.status})"
+
+    def read_html(self):
+        """Return the stored HTML as a string, or None if nothing has been saved."""
+        if not self.html_file:
+            return None
+        with self.html_file.open("rb") as f:
+            return f.read().decode("utf-8")
 
 class ScrapedPageLoadResult(models.Model):
     """

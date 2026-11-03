@@ -15,7 +15,7 @@ class ScrapedPageAdmin(admin.ModelAdmin):
     list_display = ("url", "status", "status_code", "scraped_at", "created_at")
     list_filter = ("status",)
     search_fields = ("url",)
-    readonly_fields = ("html_content", "created_at", "updated_at")
+    readonly_fields = ("html_file", "created_at", "updated_at")
 
 @admin.register(ScrapedPageLoadResult)
 class ScrapedPageLoadResultAdmin(admin.ModelAdmin):
